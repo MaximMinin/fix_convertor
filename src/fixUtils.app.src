@@ -1,0 +1,12 @@
+{application, fixUtils,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { fixUtils_app, []}},
+  {env, []}
+ ]}.

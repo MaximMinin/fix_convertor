@@ -1,0 +1,812 @@
+-type length () :: int().
+-type localmmktdate () :: string().
+-type int () :: number().
+-type numInGroup () :: string().
+-type tagNum () :: string().
+-type seqNum () :: string().
+-type qty () :: string().
+-type price () :: string().
+-type priceOffset () :: string().
+-type amt () :: string().
+-type percentage () :: string().
+-type multipleStringValue () :: string().
+-type country () :: string().
+-type currency () :: string().
+-type exchange () :: string().
+-type monthYear () :: string().
+-type uTCTimestamp () :: string().
+-type uTCTimeOnly () :: string().
+-type localMktDate () :: string().
+-type uTCDate () :: string().
+-type data () :: string().
+-type account () :: string.
+-type advId () :: string.
+-type advRefID () :: string.
+-type advSide () :: buy|sell|cross|trade.
+-type advTransType () :: new|cancel|replace.
+-type avgPx () :: price.
+-type beginSeqNo () :: seqNum.
+-type beginString () :: string.
+-type bodyLength () :: length.
+-type checkSum () :: string.
+-type clOrdID () :: string.
+-type commission () :: amt.
+-type commType () :: pointsPerBondOrContract|perUnit|percent|absolute|percentageWaivedEnhancedUnits|percentageWaivedCashDiscount.
+-type cumQty () :: qty.
+-type currency () :: currency.
+-type endSeqNo () :: seqNum.
+-type execID () :: string.
+-type execInst () :: tryToStop|midPricePeg|marketPeg|cancelOnSystemFailure|primaryPeg|suspend|customerDisplayInstruction|netting|pegToVWAP|tradeAlong|percentOfVolume|stayOnOfferSide|work|overTheDay|held|participateDoNotInitiate|strictScale|tryToScale|stayOnBidSide|noCross|openingPeg|callFirst|nonNegotiable|doNotIncrease|doNotReduce|allOrNone|reinstateOnSystemFailure|institutionsOnly|reinstateOnTradingHalt|cancelOnTradingHalt|lastPeg|goAlong|oKToCross|notHeld.
+-type execRefID () :: string.
+-type handlInst () :: automatedExecutionNoIntervention|automatedExecutionInterventionOK|manualOrder.
+-type securityIDSource () :: sicovam|sEDOL|cUSIP|qUIK|belgian|valoren|dutch|wertpapier|bloombergSymbol|consolidatedTapeAssociation|exchangeSymbol|iSOCountryCode|iSOCurrencyCode|rICCode|iSINNumber|common.
+-type iOIid () :: string.
+-type iOIQltyInd () :: medium|high|low.
+-type iOIRefID () :: string.
+-type iOIQty () :: large|medium|small.
+-type iOITransType () :: cancel|new|replace.
+-type lastCapacity () :: principal|crossAsPrincipal|agent|crossAsAgent.
+-type lastMkt () :: exchange.
+-type lastPx () :: price.
+-type lastQty () :: qty.
+-type linesOfText () :: numInGroup.
+-type msgSeqNum () :: seqNum.
+-type msgType () :: heartbeat|testRequest|resendRequest|reject|sequenceReset|logout|iOI|advertisement|executionReport|orderCancelReject|quoteStatusRequest|logon|derivativeSecurityList|newOrderMultileg|multilegOrderCancelReplace|tradeCaptureReportRequest|tradeCaptureReport|orderMassStatusRequest|quoteRequestReject|rFQRequest|quoteStatusReport|massQuoteAcknowledgement|news|securityDefinitionRequest|email|securityDefinition|newOrderSingle|securityStatusRequest|newOrderList|securityStatus|orderCancelRequest|orderCancelReplaceRequest|tradingSessionStatusRequest|tradingSessionStatus|orderStatusRequest|massQuote|businessMessageReject|allocationInstruction|listCancelRequest|bidRequest|bidResponse|listExecute|listStrikePrice|listStatusRequest|listStatus|xMLNonFIX|registrationInstructions|allocationInstructionAck|registrationInstructionsResponse|orderMassCancelRequest|dontKnowTrade|orderMassCancelReport|quoteRequest|newOrderCross|quote|crossOrderCancelReplaceRequest|settlementInstructions|crossOrderCancelRequest|securityTypeRequest|marketDataRequest|securityTypes|marketDataSnapshotFullRefresh|securityListRequest|marketDataIncrementalRefresh|securityList|marketDataRequestReject|derivativeSecurityListRequest|quoteCancel.
+-type newSeqNo () :: seqNum.
+-type orderID () :: string.
+-type orderQty () :: qty.
+-type ordStatus () :: new|partiallyFilled|replaced|filled|pendingCancel|stopped|rejected|suspended|pendingNew|calculated|expired|acceptedForBidding|pendingReplace|doneForDay|canceled.
+-type ordType () :: previouslyQuoted|limit|stop|stopLimit|marketOnClose|withOrWithout|limitOrBetter|limitWithOrWithout|onBasis|onClose|market|forexMarket|forexLimit|previouslyIndicated|forexSwap|funari|marketIfTouched|marketWithLeftOverAsLimit|previousFundValuationPoint|nextFundValuationPoint|pegged|limitOnClose|forexPreviouslyQuoted.
+-type origClOrdID () :: string.
+-type origTime () :: uTCTimestamp.
+-type possDupFlag () :: originalTransmission|possibleDuplicate.
+-type price () :: price.
+-type refSeqNum () :: seqNum.
+-type rule80A () :: agentForOtherMember|shortExemptTransactionAType|programOrderMember|shortExemptTransactionForPrincipal|shortExemptTransactionWType|shortExemptTransactionIType|individualInvestor|proprietaryAlgo|agencyAlgo|programOrderOtherMember|agencySingleOrder|proprietaryTransactionAffiliated|principal|transactionNonMember|specialistTrades|transactionUnaffiliatedMember|agencyIndexArb|allOtherOrdersAsAgentForOtherMember|shortExemptTransactionMemberNotAffliated|agencyNonAlgo|shortExemptTransactionNonMember|shortExemptTransactionMemberAffliated|proprietaryNonAlgo.
+-type securityID () :: string.
+-type senderCompID () :: string.
+-type senderSubID () :: string.
+-type sendingTime () :: uTCTimestamp.
+-type quantity () :: qty.
+-type side () :: sellShortExempt|asDefined|opposite|cross|crossShort|buy|sell|buyMinus|sellPlus|crossShortExempt|sellShort|undisclosed.
+-type symbol () :: string.
+-type targetCompID () :: string.
+-type targetSubID () :: string.
+-type text () :: string.
+-type timeInForce () :: atTheClose|day|goodTillCancel|atTheOpening|immediateOrCancel|fillOrKill|goodTillCrossing|goodTillDate.
+-type transactTime () :: uTCTimestamp.
+-type urgency () :: flash|background|normal.
+-type validUntilTime () :: uTCTimestamp.
+-type settlmntTyp () :: tPlus4|t1|future|tPlus2|nextDay|sellersOption|cash|whenAndIfIssued|regular|tPlus5|tPlus3.
+-type futSettDate () :: localMktDate.
+-type symbolSfx () :: string.
+-type listID () :: string.
+-type listSeqNo () :: int.
+-type totNoOrders () :: int.
+-type listExecInst () :: string.
+-type allocID () :: string.
+-type allocTransType () :: calculatedWithoutPreliminary|calculated|preliminary|cancel|replace|new.
+-type refAllocID () :: string.
+-type noOrders () :: numInGroup.
+-type avgPrxPrecision () :: int.
+-type tradeDate () :: localMktDate.
+-type positionEffect () :: fIFO|rolled|close|open.
+-type noAllocs () :: numInGroup.
+-type allocAccount () :: string.
+-type allocQty () :: qty.
+-type processCode () :: planSponsor|regular|softDollar|stepIn|stepOut|softDollarStepIn|softDollarStepOut.
+-type noRpts () :: numInGroup.
+-type rptSeq () :: int.
+-type cxlQty () :: qty.
+-type allocStatus () :: blockLevelReject|accountLevelReject|received|accepted.
+-type allocRejCode () :: unknownAccount|unknownListID|unknownExecutingBrokerMnemonic|unknownOrderID|otherSeeText|commissionDifference|incorrectQuantity|incorrectAveragegPrice.
+-type signature () :: data.
+-type secureDataLen () :: length.
+-type secureData () :: data.
+-type signatureLength () :: length.
+-type emailType () :: new|reply|adminReply.
+-type rawDataLength () :: length.
+-type rawData () :: data.
+-type possResend () :: originalTransmission|possibleResend.
+-type encryptMethod () :: dES|pEM|pGPDESMD5|pKCSDES|none|pKCS|pGPDES.
+-type stopPx () :: price.
+-type exDestination () :: exchange.
+-type cxlRejReason () :: unknownOrder|tooLateToCancel|duplicateClOrdID|origOrdModTime|unableToProcessOrderMassCancelRequest|orderAlreadyInPendingStatus|brokerCredit.
+-type ordRejReason () :: exchangeClosed|unknownSymbol|orderExceedsLimit|tooLateToEnter|unknownOrder|duplicateOfAVerballyCommunicatedOrder|tradeAlongRequired|invalidInvestorID|duplicateOrder|unsupportedOrderCharacteristic|surveillenceOption|brokerCredit|staleOrder.
+-type iOIQualifier () :: atTheOpen|crossingOpportunity|indication|versus|throughTheDay|portfolioShown|readyToTrade|allOrNone|takingAPosition|moreBehind|limit|inTouchWith|vWAP|atTheClose|marketOnClose|atTheMarket|atTheMidpoint|preOpen.
+-type issuer () :: string.
+-type securityDesc () :: string.
+-type heartBtInt () :: int.
+-type minQty () :: qty.
+-type maxFloor () :: qty.
+-type testReqID () :: string.
+-type reportToExch () :: receiverReports|senderReports.
+-type locateReqd () :: yes|no.
+-type onBehalfOfCompID () :: string.
+-type onBehalfOfSubID () :: string.
+-type quoteID () :: string.
+-type netMoney () :: amt.
+-type settlCurrAmt () :: amt.
+-type settlCurrency () :: currency.
+-type forexReq () :: executeForexAfterSecurityTrade|doNotExecuteForexAfterSecurityTrade.
+-type origSendingTime () :: uTCTimestamp.
+-type gapFillFlag () :: gapFillMessage|sequenceReset.
+-type noExecs () :: numInGroup.
+-type expireTime () :: uTCTimestamp.
+-type dKReason () :: wrongSide|quantityExceedsOrder|noMatchingOrder|priceExceedsLimit|other|unknownSymbol.
+-type deliverToCompID () :: string.
+-type deliverToSubID () :: string.
+-type iOINaturalFlag () :: natural|notNatural.
+-type quoteReqID () :: string.
+-type bidPx () :: price.
+-type offerPx () :: price.
+-type bidSize () :: qty.
+-type offerSize () :: qty.
+-type noMiscFees () :: numInGroup.
+-type miscFeeAmt () :: amt.
+-type miscFeeCurr () :: currency.
+-type miscFeeType () :: localCommission|exchangeFees|stamp|levy|other|markup|consumptionTax|regulatory|tax.
+-type prevClosePx () :: price.
+-type resetSeqNumFlag () :: yes|no.
+-type senderLocationID () :: string.
+-type targetLocationID () :: string.
+-type onBehalfOfLocationID () :: string.
+-type deliverToLocationID () :: string.
+-type noRelatedSym () :: numInGroup.
+-type subject () :: string.
+-type headline () :: string.
+-type uRLLink () :: string.
+-type execType () :: pendingCancel|new|partialFill|fill|canceled|replaced|rejected|suspended|pendingNew|calculated|expired|restated|pendingReplace|trade|tradeCorrect|tradeCancel|orderStatus|doneForDay|stopped.
+-type leavesQty () :: qty.
+-type cashOrderQty () :: qty.
+-type allocAvgPx () :: price.
+-type allocNetMoney () :: amt.
+-type settlCurrFxRate () :: float.
+-type settlCurrFxRateCalc () :: divide|multiply.
+-type numDaysInterest () :: int.
+-type accruedInterestRate () :: percentage.
+-type accruedInterestAmt () :: amt.
+-type settlInstMode () :: default|specificOrderForASingleAccount|specificAllocationAccountStanding|standingInstructionsProvided|specificAllocationAccountOverriding.
+-type allocText () :: string.
+-type settlInstID () :: string.
+-type settlInstTransType () :: new|replace|cancel.
+-type emailThreadID () :: string.
+-type settlInstSource () :: institution|investor|brokerCredit.
+-type securityType () :: commercialPaper|variableRateDemandNote|plazosFijos|promissoryNote|overnight|mediumTermNotes|taxExemptCommercialPaper|amended|bridgeLoan|letterOfCredit|swingLineFacility|debtorInPossession|defaulted|withdrawn|liquidityNote|matured|depositNotes|retired|bankersAcceptance|bankNotes|billOfExchanges|certificateOfDeposit|callLoans|replaced|mandatoryTender|revolver|mortgagePrivatePlacement|shortTermLoanNote|miscellaneousPassThrough|toBeAnnounced|otherAnticipationNotes|mortgageInterestOnly|certificateOfParticipation|mortgageBackedSecurities|revenueBonds|specialAssessment|specialObligation|specialTax|taxAnticipationNote|taxAllocation|certificateOfObligation|timeDeposit|generalObligationBonds|wildcard|warrant|mutualFund|multilegInstrument|taxRevenueAnticipationNote|mortgagePrincipalOnly|repurchaseAgreement|noSecurityType|extendedCommNote|agencyPools|assetBackedSecurities|corp|collateralizedMortgageObligation|iOETTEMortgage|reverseRepurchaseAgreement|foreignExchangeContract|revenueAnticipationNote|revolverLoan|federalAgencyCoupon|federalAgencyDiscountNote|privateExportFunding|corporateBond|corporatePrivatePlacement|convertibleBond|dualCurrency|indexedLinked|yankeeCorporateBond|commonStock|preferredStock|bradyBond|uSTreasuryBond|interestStripFromAnyBondOrNote|treasuryInflationProtectedSecurities|principalStripOfACallableBondOrNote|principalStripFromANonCallableBondOrNote|uSTreasuryNoteOld|uSTreasuryBillOld|termLoan|structuredNotes.
+-type effectiveTime () :: uTCTimestamp.
+-type standInstDbType () :: other|dTCSID|aGlobalCustodian|thomsonALERT.
+-type standInstDbName () :: string.
+-type standInstDbID () :: string.
+-type settlDeliveryType () :: free|versus.
+-type settlDepositoryCode () :: string.
+-type settlBrkrCode () :: string.
+-type settlInstCode () :: string.
+-type securitySettlAgentName () :: string.
+-type securitySettlAgentCode () :: string.
+-type securitySettlAgentAcctNum () :: string.
+-type securitySettlAgentAcctName () :: string.
+-type securitySettlAgentContactName () :: string.
+-type securitySettlAgentContactPhone () :: string.
+-type cashSettlAgentName () :: string.
+-type cashSettlAgentCode () :: string.
+-type cashSettlAgentAcctNum () :: string.
+-type cashSettlAgentAcctName () :: string.
+-type cashSettlAgentContactName () :: string.
+-type cashSettlAgentContactPhone () :: string.
+-type bidSpotRate () :: price.
+-type bidForwardPoints () :: priceOffset.
+-type offerSpotRate () :: price.
+-type offerForwardPoints () :: priceOffset.
+-type orderQty2 () :: qty.
+-type futSettDate2 () :: localMktDate.
+-type lastSpotRate () :: price.
+-type lastForwardPoints () :: priceOffset.
+-type allocLinkID () :: string.
+-type allocLinkType () :: fXNetting|fXSwap.
+-type secondaryOrderID () :: string.
+-type noIOIQualifiers () :: numInGroup.
+-type maturityMonthYear () :: monthYear.
+-type strikePrice () :: price.
+-type coveredOrUncovered () :: uncovered|covered.
+-type optAttribute () :: char.
+-type securityExchange () :: exchange.
+-type notifyBrokerOfCredit () :: detailsShouldNotBeCommunicated|detailsShouldBeCommunicated.
+-type allocHandlInst () :: forwardAndMatch|forward|match.
+-type maxShow () :: qty.
+-type pegDifference () :: priceOffset.
+-type xmlDataLen () :: length.
+-type xmlData () :: data.
+-type settlInstRefID () :: string.
+-type noRoutingIDs () :: numInGroup.
+-type routingType () :: targetFirm|targetList|blockFirm|blockList.
+-type routingID () :: string.
+-type spread () :: priceOffset.
+-type benchmark () :: oLD10|cURVE|fiveYR|tenYR|thirtyYR|oLD30|threeMOLIBOR|sixMOLIBOR|oLD5.
+-type benchmarkCurveCurrency () :: currency.
+-type benchmarkCurveName () :: sWAP|lIBID|oTHER|treasury|euribor|pfandbriefe|futureSWAP|muniAAA|lIBOR.
+-type benchmarkCurvePoint () :: string.
+-type couponRate () :: percentage.
+-type couponPaymentDate () :: uTCDate.
+-type issueDate () :: uTCDate.
+-type repurchaseTerm () :: int.
+-type repurchaseRate () :: percentage.
+-type factor () :: float.
+-type tradeOriginationDate () :: uTCDate.
+-type exDate () :: uTCDate.
+-type contractMultiplier () :: float.
+-type noStipulations () :: numInGroup.
+-type stipulationType () :: absolutePrepaymentSpeed|weightedAverageLoanAge|weightedAverageMaturity|constantPrepaymentRate|finalCPROfHomeEquityPrepaymentCurve|weightedAverageLifeCoupon|percentOfManufacturedHousingPrepaymentCurve|singleMonthlyMortality|monthlyPrepaymentRate|percentOfBMAPrepaymentCurve|percentOfProspectusPrepaymentCurve|constantPrepaymentPenalty|lotVariance|constantPrepaymentYield|weightedAverageCoupon|issueDate|maturityYearAndMonth|numberOfPieces|poolsMaximum|poolsPerMillion|poolsPerLot|poolsPerTrade|productionYear|tradeVariance|geographics.
+-type stipulationValue () :: string.
+-type yieldType () :: trueYield|previousCloseYield|yieldToLongestAverage|yieldToLongestAverageLife|yieldToMaturity|markToMarketYield|openAverageYield|yieldToNextPut|proceedsYield|semiAnnualYield|yieldToShortestAverageLife|yieldToShortestAverage|simpleYield|yieldToTenderDate|yieldValueOf32nds|yieldToWorst|taxEquivalentYield|annualYield|closingYieldMostRecentYear|yieldToNextRefund|afterTaxYield|yieldAtIssue|yieldToAverageLife|yieldToAverageMaturity|bookYield|yieldToNextCall|yieldChangeSinceClose|compoundYield|currentYield|trueGrossYield|gvntEquivalentYield|yieldWithInflationAssumption|inverseFloaterBondYield|closingYieldMostRecentQuarter|mostRecentClosingYield|closingYieldMostRecentMonth|closingYield.
+-type yield () :: percentage.
+-type totalTakedown () :: amt.
+-type concession () :: amt.
+-type repoCollateralSecurityType () :: string.
+-type redemptionDate () :: uTCDate.
+-type underlyingCouponPaymentDate () :: uTCDate.
+-type underlyingIssueDate () :: uTCDate.
+-type underlyingRepoCollateralSecurityType () :: string.
+-type underlyingRepurchaseTerm () :: int.
+-type underlyingRepurchaseRate () :: percentage.
+-type underlyingFactor () :: float.
+-type underlyingRedemptionDate () :: uTCDate.
+-type legCouponPaymentDate () :: uTCDate.
+-type legIssueDate () :: uTCDate.
+-type legRepoCollateralSecurityType () :: string.
+-type legRepurchaseTerm () :: int.
+-type legRepurchaseRate () :: percentage.
+-type legFactor () :: float.
+-type legRedemptionDate () :: uTCDate.
+-type creditRating () :: string.
+-type underlyingCreditRating () :: string.
+-type legCreditRating () :: string.
+-type tradedFlatSwitch () :: notTradedFlat|tradedFlat.
+-type basisFeatureDate () :: uTCDate.
+-type basisFeaturePrice () :: price.
+-type mDReqID () :: string.
+-type subscriptionRequestType () :: snapshotAndUpdates|disablePreviousSnapshot|snapshot.
+-type marketDepth () :: int.
+-type mDUpdateType () :: fullRefresh|incrementalRefresh.
+-type aggregatedBook () :: bookEntriesToBeAggregated|bookEntriesShouldNotBeAggregated.
+-type noMDEntryTypes () :: numInGroup.
+-type noMDEntries () :: numInGroup.
+-type mDEntryType () :: tradingSessionHighPrice|offer|imbalance|tradingSessionVWAPPrice|tradingSessionLowPrice|closingPrice|openingPrice|bid|trade|indexValue|settlementPrice.
+-type mDEntryPx () :: price.
+-type mDEntrySize () :: qty.
+-type mDEntryDate () :: uTCDate.
+-type mDEntryTime () :: uTCTimeOnly.
+-type tickDirection () :: plusTick|zeroPlusTick|minusTick|zeroMinusTick.
+-type mDMkt () :: exchange.
+-type quoteCondition () :: locked|nonFirm|fastTrading|crossed|consolidatedBest|exchangeBest|closed|open|depth.
+-type tradeCondition () :: nextDayTrade|opened|seller|averagePriceTrade|sold|rule155Trade|stoppedStock|imbalanceMoreBuyers|imbalanceMoreSellers|openingPrice|soldLast|cash|cashTrade|opening|intradayTradeDetail|rule127Trade|nextDay.
+-type mDEntryID () :: string.
+-type mDUpdateAction () :: new|change|delete.
+-type mDEntryRefID () :: string.
+-type mDReqRejReason () :: unsupportedAggregatedBook|duplicateMDReqID|unsupportedMDImplicitDelete|unsupportedOpenCloseSettleFlag|unsupportedScope|unsupportedTradingSessionID|unsupportedMDEntryType|unsupportedMDUpdateType|unsupportedMarketDepth|unsupportedSubscriptionRequestType|insufficientBandwidth|unknownSymbol|insufficientPermissions.
+-type mDEntryOriginator () :: string.
+-type locationID () :: string.
+-type deskID () :: string.
+-type deleteReason () :: cancellation|error.
+-type openCloseSettleFlag () :: sessionOpen|deliverySettlementEntry|expectedEntry|entryFromPreviousBusinessDay|dailyOpen.
+-type sellerDays () :: int.
+-type mDEntryBuyer () :: string.
+-type mDEntrySeller () :: string.
+-type mDEntryPositionNo () :: int.
+-type financialStatus () :: bankrupt|pendingDelisting.
+-type corporateAction () :: exDistribution|exInterest|exRights|exDividend|new.
+-type defBidSize () :: qty.
+-type defOfferSize () :: qty.
+-type noQuoteEntries () :: numInGroup.
+-type noQuoteSets () :: numInGroup.
+-type quoteStatus () :: removedFromMarket|cancelForSymbol|pending|quoteNotFound|queryqueryFix|expired|rejected|canceledAll|canceledForUnderlying|canceledForSecurityType|accepted.
+-type quoteCancelType () :: cancelAllQuotes|cancelForSecurityType|cancelForOneOrMoreSecurities|cancelForUnderlyingSecurity.
+-type quoteEntryID () :: string.
+-type quoteRejectReason () :: notAuthorizedToQuoteSecurity|unknownSymbol|exchange|quoteRequestExceedsLimit|tooLateToEnter|unknownQuote|duplicateQuote|invalidBid|invalidPrice.
+-type quoteResponseLevel () :: acknowledgeOnlyNegativeOrErroneousQuotes|noAcknowledgement|acknowledgeEachQuoteMessage.
+-type quoteSetID () :: string.
+-type quoteRequestType () :: automatic|manual.
+-type totQuoteEntries () :: int.
+-type underlyingSecurityIDSource () :: string.
+-type underlyingIssuer () :: string.
+-type underlyingSecurityDesc () :: string.
+-type underlyingSecurityExchange () :: exchange.
+-type underlyingSecurityID () :: string.
+-type underlyingSecurityType () :: string.
+-type underlyingSymbol () :: string.
+-type underlyingSymbolSfx () :: string.
+-type underlyingMaturityMonthYear () :: monthYear.
+-type underlyingPutOrCall () :: int.
+-type underlyingStrikePrice () :: price.
+-type underlyingOptAttribute () :: char.
+-type securityReqID () :: string.
+-type securityRequestType () :: requestSecurityIdentityAndSpecifications|requestSecurityIdentityForSpecifications|requestListSecurityTypes|requestListSecurities.
+-type securityResponseID () :: string.
+-type securityResponseType () :: rejectSecurityProposal|acceptAsIs|cannotMatchSelectionCriteria|acceptWithRevisions|listOfSecuritiesReturnedPerRequest|listOfSecurityTypesReturnedPerRequest.
+-type securityStatusReqID () :: string.
+-type unsolicitedIndicator () :: messageIsBeingSentUnsolicited|messageIsBeingSentAsAResultOfAPriorRequest.
+-type securityTradingStatus () :: unknownOrInvalid|noMarketOnCloseImbalance|iTSPreOpening|newPriceIndication|tradeDisseminationTime|readyToTrade|notTradedOnThisMarket|openingRotation|preOpen|noMarketImbalance|notAvailableForTrading|marketOnCloseImbalanceSell|marketOnCloseImbalanceBuy|marketImbalanceSell|marketImbalanceBuy|tradingRangeIndication|priceIndication|noOpen|resume|openingDelay|tradingHalt|fastMarket.
+-type haltReason () :: equipmentChangeover|additionalInformation|orderInflux|newsPending|orderImbalance|newsDissemination.
+-type inViewOfCommon () :: haltWasDueToCommonStockBeingHalted|haltWasNotRelatedToAHaltOfTheCommonStock.
+-type dueToRelated () :: relatedToSecurityHalt|notRelatedToSecurityHalt.
+-type buyVolume () :: qty.
+-type sellVolume () :: qty.
+-type highPx () :: price.
+-type lowPx () :: price.
+-type adjustment () :: cancel|error|correction.
+-type tradSesReqID () :: string.
+-type tradingSessionID () :: string.
+-type contraTrader () :: string.
+-type tradSesMethod () :: twoParty|electronic|openOutcry.
+-type tradSesMode () :: production|testing|simulated.
+-type tradSesStatus () :: preClose|requestRejected|preOpen|closed|open|halted|unknown.
+-type tradSesStartTime () :: uTCTimestamp.
+-type tradSesOpenTime () :: uTCTimestamp.
+-type tradSesPreCloseTime () :: uTCTimestamp.
+-type tradSesCloseTime () :: uTCTimestamp.
+-type tradSesEndTime () :: uTCTimestamp.
+-type numberOfOrders () :: int.
+-type messageEncoding () :: uTF8|iSO2022JP|eUCJP|shiftJIS.
+-type encodedIssuerLen () :: length.
+-type encodedIssuer () :: data.
+-type encodedSecurityDescLen () :: length.
+-type encodedSecurityDesc () :: data.
+-type encodedListExecInstLen () :: length.
+-type encodedListExecInst () :: data.
+-type encodedTextLen () :: length.
+-type encodedText () :: data.
+-type encodedSubjectLen () :: length.
+-type encodedSubject () :: data.
+-type encodedHeadlineLen () :: length.
+-type encodedHeadline () :: data.
+-type encodedAllocTextLen () :: length.
+-type encodedAllocText () :: data.
+-type encodedUnderlyingIssuerLen () :: length.
+-type encodedUnderlyingIssuer () :: data.
+-type encodedUnderlyingSecurityDescLen () :: length.
+-type encodedUnderlyingSecurityDesc () :: data.
+-type allocPrice () :: price.
+-type quoteSetValidUntilTime () :: uTCTimestamp.
+-type quoteEntryRejectReason () :: int.
+-type lastMsgSeqNumProcessed () :: seqNum.
+-type onBehalfOfSendingTime () :: uTCTimestamp.
+-type refTagID () :: int.
+-type refMsgType () :: string.
+-type sessionRejectReason () :: xMLValidationError|non|incorrectNumInGroupCountForRepeatingGroup|repeatingGroupFieldsOutOfOrder|tagSpecifiedOutOfRequiredOrder|invalidMsgType|invalidTagNumber|compIDProblem|signatureProblem|decryptionProblem|incorrectDataFormatForValue|valueIsIncorrect|tagSpecifiedWithoutAValue|undefinedTag|sendingTimeAccuracyProblem|tagAppearsMoreThanOnce|tagNotDefinedForThisMessageType|requiredTagMissing.
+-type bidRequestTransType () :: new|cancel.
+-type contraBroker () :: string.
+-type complianceID () :: string.
+-type solicitedFlag () :: wasNotSolicited|wasSolicited.
+-type execRestatementReason () :: cancelOnSystemFailure|gTCorporateAction|market|cancelOnTradingHalt|partialDeclineOfOrderQty|brokerOption|repricingOfOrder|gTRenewal|verbalChange.
+-type businessRejectRefID () :: string.
+-type businessRejectReason () :: unsupportedMessageType|deliverToFirmNotAvailableAtThisTime|applicationNotAvailable|notAuthorized|other|conditionallyRequiredFieldMissing|unknownID|unknownSecurity.
+-type grossTradeAmt () :: amt.
+-type noContraBrokers () :: numInGroup.
+-type maxMessageSize () :: length.
+-type noMsgTypes () :: numInGroup.
+-type msgDirection () :: send|receivereceiveFix.
+-type noTradingSessions () :: numInGroup.
+-type totalVolumeTraded () :: qty.
+-type discretionInst () :: relatedToDisplayedPrice|relatedToMarketPrice|relatedToPrimaryPrice|relatedToLocalPrimaryPrice|relatedToMidpointPrice|relatedToLastTradePrice.
+-type discretionOffset () :: priceOffset.
+-type bidID () :: string.
+-type clientBidID () :: string.
+-type listName () :: string.
+-type totalNumSecurities () :: int.
+-type bidType () :: nonDisclosed|disclosed|noBiddingProcess.
+-type numTickets () :: int.
+-type sideValue1 () :: amt.
+-type sideValue2 () :: amt.
+-type noBidDescriptors () :: numInGroup.
+-type bidDescriptorType () :: index|countrycountryFix|sector.
+-type bidDescriptor () :: string.
+-type sideValueInd () :: sideValue1|sideValue2.
+-type liquidityPctLow () :: percentage.
+-type liquidityPctHigh () :: percentage.
+-type liquidityValue () :: amt.
+-type eFPTrackingError () :: percentage.
+-type fairValue () :: amt.
+-type outsideIndexPct () :: percentage.
+-type valueOfFutures () :: amt.
+-type liquidityIndType () :: normalMarketSize|other|twentyDayMovingAverage|fiveDayMovingAverage.
+-type wtAverageLiquidity () :: percentage.
+-type exchangeForPhysical () :: false|true.
+-type outMainCntryUIndex () :: amt.
+-type crossPercent () :: percentage.
+-type progRptReqs () :: realTimeExecutionReports|sellSideSends|buySideRequests.
+-type progPeriodInterval () :: int.
+-type incTaxInd () :: gross|net.
+-type numBidders () :: int.
+-type tradeType () :: vWAPGuarantee|agency|guaranteedClose|riskTrade.
+-type basisPxType () :: vWAPThroughAnAfternoonSession|open|others|strike|vWAPThroughAnAfternoonSessionExcept|vWAPThroughADayExcept|vWAPThroughAMorningSession|vWAPThroughADay|sQ|currentPrice|closingPrice|closingPriceAtMorningSession|vWAPThroughAMorningSessionExcept.
+-type noBidComponents () :: numInGroup.
+-type country () :: country.
+-type totNoStrikes () :: int.
+-type priceType () :: fixedAmount|percentage|discount|spread|tEDPrice|tEDYield|premium|perUnit.
+-type dayOrderQty () :: qty.
+-type dayCumQty () :: qty.
+-type dayAvgPx () :: price.
+-type gTBookingInst () :: bookOutAllTradesOnDayOfExecution|accumulateUntilVerballlyNotifiedOtherwise|accumulateUntilFilledOrExpired.
+-type noStrikes () :: numInGroup.
+-type listStatusType () :: alert|execStarted|timed|response|ack|allDone.
+-type netGrossInd () :: net|gross.
+-type listOrderStatus () :: cancelling|executing|reject|allDone|alert|receivedForExecution|inBiddingProcess.
+-type expireDate () :: localMktDate.
+-type listExecInstType () :: buyDrivenCashWithdraw|buyDrivenCashTopUp|waitForInstruction|immediate|sellDriven.
+-type cxlRejResponseTo () :: orderCancel|orderCancelRequest.
+-type underlyingCouponRate () :: percentage.
+-type underlyingContractMultiplier () :: float.
+-type contraTradeQty () :: qty.
+-type contraTradeTime () :: uTCTimestamp.
+-type liquidityNumSecurities () :: int.
+-type multiLegReportingType () :: singleSecurity|individualLegOfAMultiLegSecurity|multiLegSecurity.
+-type strikeTime () :: uTCTimestamp.
+-type listStatusText () :: string.
+-type encodedListStatusTextLen () :: length.
+-type encodedListStatusText () :: data.
+-type partyIDSource () :: chineseInvestorID|uSEmployerOrTaxIDNumber|australianTaxFileNumber|australianBusinessNumber|iSOCountryCode|bIC|uSSocialSecurityNumber|proprietary|settlementEntityLocation|koreanInvestorID|taiwaneseForeignInvestorID|taiwaneseTradingAcct|malaysianCentralDepository|uKNationalInsuranceOrPensionNumber|generalIdentifier.
+-type partyID () :: string.
+-type totalVolumeTradedDate () :: uTCDate.
+-type totalVolumeTradedTime () :: uTCTimeOnly.
+-type netChgPrevDay () :: priceOffset.
+-type partyRole () :: correspondantClearingFirm|clientID|underlyingContraFirm|sponsoringFirm|contraClearingFirm|contraFirm|executingSystem|enteringFirm|executingFirm|brokerOfCredit|investorID|introducingFirm|giveupClearingFirm|locate|fundManagerClientID|settlementLocation|orderOriginationTrader|executingTrader|orderOriginationFirm|clearingFirm.
+-type noPartyIDs () :: numInGroup.
+-type noSecurityAltID () :: numInGroup.
+-type securityAltID () :: string.
+-type securityAltIDSource () :: string.
+-type noUnderlyingSecurityAltID () :: numInGroup.
+-type underlyingSecurityAltID () :: string.
+-type underlyingSecurityAltIDSource () :: string.
+-type produkt () :: lOAN|oTHER|mUNICIPAL|aGENCY|cORPORATE|cURRENCY|cOMMODITY|gOVERNMENT|mORTGAGE|iNDEX|mONEYMARKET|eQUITY.
+-type cFICode () :: string.
+-type underlyingProduct () :: int.
+-type underlyingCFICode () :: string.
+-type testMessageIndicator () :: true|fales.
+-type quantityType () :: cONTRACTS|oTHER|cURRENCY|oRIGINALFACE|cURRENTFACE|bONDS|sHARES|pAR.
+-type bookingRefID () :: string.
+-type individualAllocID () :: string.
+-type roundingDirection () :: roundToNearest|roundDown|roundUp.
+-type roundingModulus () :: float.
+-type countryOfIssue () :: country.
+-type stateOrProvinceOfIssue () :: string.
+-type localeOfIssue () :: string.
+-type noRegistDtls () :: numInGroup.
+-type mailingDtls () :: string.
+-type investorCountryOfResidence () :: country.
+-type paymentRef () :: string.
+-type distribPaymentMethod () :: int.
+-type cashDistribCurr () :: currency.
+-type commCurrency () :: currency.
+-type cancellationRights () :: noWaiverAgreement|noExecutionOnly|yes|noInstitutional.
+-type moneyLaunderingStatus () :: exemptAuthorised|exemptMoneyType|exemptBelowLimit|passed|notChecked.
+-type mailingInst () :: string.
+-type transBkdTime () :: uTCTimestamp.
+-type execPriceType () :: singlePrice|offerPriceMinusAdjustmentAmount|offerPriceMinusAdjustmentPercent|offerPrice|creationPricePlusAdjustmentAmount|creationPricePlusAdjustmentPercent|creationPrice|bidPrice.
+-type execPriceAdjustment () :: float.
+-type dateOfBirth () :: localMktDate.
+-type tradeReportTransType () :: new|replace|cancel.
+-type cardHolderName () :: string.
+-type cardNumber () :: string.
+-type cardExpDate () :: localMktDate.
+-type cardIssNo () :: string.
+-type paymentMethod () :: bPAY|aCHCredit|aCHDebit|creditCard|directCredit|directDebit|debitCard|fedWire|highValueClearingSystem|euroclear|telegraphicTransfer|clearstream|cREST|nSCC|cheque.
+-type registAcctType () :: string.
+-type designation () :: string.
+-type taxAdvantageType () :: profitSharingPlan|employerPriorYear|employerCurrentYear|nonFundPrototypeIRA|nonFundQualifiedPlan|definedContributionPlan|employeeCurrentYear|iRARollover|miniInsuranceISA|iRA|employeePriorYear|assetTransfer|selfDirectedIRA|currentYearPayment|uS401K|miniStocksAndSharesISA|miniCashISA|tESSA|maxiISA|none|priorYearPayment|uS457|rothIRAPrototype|rothIRANonPrototype|rothConversionIRAPrototype|rothConversionIRANonPrototype|educationIRAPrototype|educationIRANonPrototype|kEOGH|uS403b.
+-type registRejReasonText () :: string.
+-type fundRenewWaiv () :: no|yes.
+-type cashDistribAgentName () :: string.
+-type cashDistribAgentCode () :: string.
+-type cashDistribAgentAcctNumber () :: string.
+-type cashDistribPayRef () :: string.
+-type cardStartDate () :: localMktDate.
+-type paymentDate () :: localMktDate.
+-type paymentRemitterID () :: string.
+-type registStatus () :: accepted|reminder|rejected|held.
+-type registRejReasonCode () :: invalidDistribInstns|invalidAgentCode|invalidAccountName|noRegDetails|invalidPaymentMethod|invalidPercentage|invalidOwnershipType|invalidTaxExemptType|invalidCountry|invalidDateOfBirth|invalidInvestorIDSource|invalidInvestorID|invalidMailingInstructions|invalidMailingDetails|invalidRegSeqNo|invalidAccountType|invalidAccountNum|invalidRegDetails.
+-type registRefID () :: string.
+-type registDetls () :: string.
+-type noDistribInsts () :: numInGroup.
+-type registEmail () :: string.
+-type distribPercentage () :: percentage.
+-type registID () :: string.
+-type registTransType () :: cancel|new|replace.
+-type execValuationPoint () :: uTCTimestamp.
+-type orderPercent () :: percentage.
+-type ownershipType () :: char.
+-type noContAmts () :: numInGroup.
+-type contAmtType () :: netSettlementAmount|commissionAmount|commissionPercent|initialChargeAmount|initialChargePercent|discountAmount|discountPercent|dilutionLevyAmount|dilutionLevyPercent|exitChargeAmount|exitChargePercent|fundBasedRenewalCommissionPercent|projectedFundValue|fundBasedRenewalCommissionOnFund|fundBasedRenewalCommissionOnOrder.
+-type contAmtValue () :: float.
+-type contAmtCurr () :: currency.
+-type ownerType () :: companyTrustee|nominee|corporateBody|nonProfitOrganization|networkingSubAccount|fiduciaries|trusts|pensionPlan|individualTrustee|publicCompany|privateCompany|individualInvestor|custodianUnderGiftsToMinorsAct.
+-type partySubID () :: string.
+-type nestedPartyID () :: string.
+-type nestedPartyIDSource () :: char.
+-type secondaryClOrdID () :: string.
+-type secondaryExecID () :: string.
+-type orderCapacity () :: risklessPrincipal|individual|principal|agentForOtherMember|agency|proprietary.
+-type orderRestrictions () :: foreignEntity|risklessArbitrage|programTrade|externalMarketParticipant|actingAsMarketMakerOrSpecialistInUnderlying|actingAsMarketMakerOrSpecialistInSecurity|nonIndexArbitrage|indexArbitrage|competingMarketMaker|externalInterConnectedMarketLinkage.
+-type massCancelRequestType () :: cancelOrdersForASecurity|cancelAllOrders|cancelOrdersForATradingSession|cancelOrdersForASecurityType|cancelOrdersForACFICode|cancelOrdersForAnUnderlyingSecurity|cancelOrdersForAProduct.
+-type massCancelResponse () :: cancelOrdersForATradingSession|cancelRequestRejected|cancelAllOrders|cancelOrdersForAProduct|cancelOrdersForASecurityType|cancelOrdersForACFICode|cancelOrdersForASecurity|cancelOrdersForAnUnderlyingSecurity.
+-type massCancelRejectReason () :: invalidOrUnkownUnderlyingSecurity|invalidOrUnknownTradingSession|invalidOrUnknownSecurityType|invalidOrUnknownProduct|invalidOrUnknownSecurity|massCancelNotSupported|invalidOrUnknownCFICode.
+-type totalAffectedOrders () :: int.
+-type noAffectedOrders () :: numInGroup.
+-type affectedOrderID () :: string.
+-type affectedSecondaryOrderID () :: string.
+-type quoteType () :: indicative|tradeable|restrictedTradeable.
+-type nestedPartyRole () :: int.
+-type noNestedPartyIDs () :: numInGroup.
+-type totalAccruedInterestAmt () :: amt.
+-type maturityDate () :: localMktDate.
+-type underlyingMaturityDate () :: localMktDate.
+-type instrRegistry () :: string.
+-type cashMargin () :: marginOpen|marginClose|cash.
+-type nestedPartySubID () :: string.
+-type scope () :: localMarket|national|global.
+-type mDImplicitDelete () :: yes|no.
+-type crossID () :: string.
+-type crossType () :: crossAON|crossIOC|crossOneSide|crossSamePrice.
+-type crossPrioritization () :: sellSideIsPrioritized|none|buySideIsPrioritized.
+-type origCrossID () :: string.
+-type noSides () :: oneSide|bothSides.
+-type username () :: string.
+-type password () :: string.
+-type noLegs () :: numInGroup.
+-type legCurrency () :: currency.
+-type totalNumSecurityTypes () :: int.
+-type noSecurityTypes () :: numInGroup.
+-type securityListRequestType () :: securityTypeAnd|produkt|tradingSessionID|allSecurities|symbol.
+-type securityRequestResult () :: instrumentDataTemporarilyUnavailable|validRequest|invalidOrUnsupportedRequest|requestForInstrumentDataNotSupported|notAuthorizedToRetrieveInstrumentData|noInstrumentsFound.
+-type roundLot () :: qty.
+-type minTradeVol () :: qty.
+-type multiLegRptTypeReq () :: int.
+-type legPositionEffect () :: char.
+-type legCoveredOrUncovered () :: int.
+-type legPrice () :: price.
+-type tradSesStatusRejReason () :: unknownOrInvalidTradingSessionID.
+-type tradeRequestID () :: string.
+-type tradeRequestType () :: advisoriesThatMatchCriteria|unreportedTradesThatMatchCriteria|unmatchedTradesThatMatchCriteria|matchedTradesMatchingCriteria|allTrades.
+-type previouslyReported () :: notReportedToCounterparty|perviouslyReportedToCounterparty.
+-type tradeReportID () :: string.
+-type tradeReportRefID () :: string.
+-type matchStatus () :: compared|uncompared|advisoryOrAlert.
+-type matchType () :: a5ExactMatchSummarizedQuantity|exactMatchMinusBadgesTimes|aCTM6Match|aCTDefaultAfterM2|aCTAcceptedTrade|a2ExactMatchSummarizedQuantity|a3ExactMatchSummarizedQuantity|a4ExactMatchSummarizedQuantity|summarizedMatchMinusBadgesTimes|exactMatchPlus4Badges|exactMatchPlus2BadgesExecTime|exactMatchPlus2Badges|stampedAdvisoriesOrSpecialistAccepts|oCSLockedIn|aCTDefaultTrade|exactMatchPlus4BadgesExecTime|a1ExactMatchSummarizedQuantity|exactMatchPlusExecTime.
+-type oddLot () :: boolean.
+-type noClearingInstructions () :: int.
+-type clearingInstruction () :: manualMode|multilateralNetting|automaticPostingMode|bilateralNettingOnly|clearAgainstCentralCounterparty|automaticGiveUpMode|specialTrade|exClearing|processNormally|excludeFromCentralCounterparty|excludeFromAllNetting.
+-type tradeInputSource () :: string.
+-type tradeInputDevice () :: string.
+-type noDates () :: numInGroup.
+-type accountType () :: houseTrader|houseTraderCrossMargined|carriedNonCustomerSideCrossMargined|floorTrader|carriedNonCustomerSide|carriedCustomerSide|jointBackOfficeAccount.
+-type custOrderCapacity () :: int.
+-type clOrdLinkID () :: string.
+-type massStatusReqID () :: string.
+-type massStatusReqType () :: statusForOrdersForASecurity|statusForOrdersForAnUnderlyingSecurity|statusForOrdersForAProduct|statusForOrdersForACFICode|statusForOrdersForASecurityType|statusForOrdersForATradingSession|statusForOrdersForAPartyID|statusForAllOrders.
+-type origOrdModTime () :: uTCTimestamp.
+-type legSettlmntTyp () :: char.
+-type legFutSettDate () :: localMMktDate.
+-type dayBookingInst () :: auto|speakWithOrderInitiatorBeforeBooking.
+-type bookingUnit () :: aggregatePartialExecutionsOnThisOrder|aggregateExecutionsForThisSymbol|eachPartialExecutionIsABookableUnit.
+-type preallocMethod () :: proRata|doNotProRata.
+-type underlyingCountryOfIssue () :: country.
+-type underlyingStateOrProvinceOfIssue () :: string.
+-type underlyingLocaleOfIssue () :: string.
+-type underlyingInstrRegistry () :: string.
+-type legCountryOfIssue () :: country.
+-type legStateOrProvinceOfIssue () :: string.
+-type legLocaleOfIssue () :: string.
+-type legInstrRegistry () :: string.
+-type legSymbol () :: string.
+-type legSymbolSfx () :: string.
+-type legSecurityID () :: string.
+-type legSecurityIDSource () :: string.
+-type noLegSecurityAltID () :: numInGroup.
+-type legSecurityAltID () :: string.
+-type legSecurityAltIDSource () :: string.
+-type legProduct () :: int.
+-type legCFICode () :: string.
+-type legSecurityType () :: string.
+-type legMaturityMonthYear () :: monthYear.
+-type legMaturityDate () :: localMktDate.
+-type legStrikePrice () :: price.
+-type legOptAttribute () :: char.
+-type legContractMultiplier () :: float.
+-type legCouponRate () :: percentage.
+-type legSecurityExchange () :: exchange.
+-type legIssuer () :: string.
+-type encodedLegIssuerLen () :: length.
+-type encodedLegIssuer () :: data.
+-type legSecurityDesc () :: string.
+-type encodedLegSecurityDescLen () :: length.
+-type encodedLegSecurityDesc () :: data.
+-type legRatioQty () :: float.
+-type legSide () :: char.
+-type tradingSessionSubID () :: string.
+-type allocType () :: buysideReadyToBook|preliminary|sellsideCalculatedUsingPreliminary|readyToBook|calculated|sellsideCalculatedWithoutPreliminary.
+-type noHops () :: numInGroup.
+-type hopCompID () :: string.
+-type hopSendingTime () :: uTCTimestamp.
+-type hopRefID () :: seqNum.
+-type midPx () :: price.
+-type bidYield () :: percentage.
+-type midYield () :: percentage.
+-type offerYield () :: percentage.
+-type clearingFeeIndicator () :: firms106HAnd106J|fifthYearDelegate|fourthYearDelegate|thirdYearDelegate|secondYearDelegate|firstYearDelegate|allOtherOwnershipTypes|gIM|sixthYearDelegate|fullAndAssociateMember|equityMemberAndClearingMember|nonMemberAndCustomer|cBOEMember|lessee106FEmployees.
+-type workingIndicator () :: notWorking|working.
+-type legLastPx () :: price.
+-type priorityIndicator () :: priorityUnchanged|lostPriorityAsResultOfOrderChange.
+-type priceImprovement () :: priceOffset.
+-type price2 () :: price.
+-type lastForwardPoints2 () :: priceOffset.
+-type bidForwardPoints2 () :: priceOffset.
+-type offerForwardPoints2 () :: priceOffset.
+-type rFQReqID () :: string.
+-type mktBidPx () :: price.
+-type mktOfferPx () :: price.
+-type minBidSize () :: qty.
+-type minOfferSize () :: qty.
+-type quoteStatusReqID () :: string.
+-type legalConfirm () :: legalConfirm|doesNotConsituteALegalConfirm.
+-type underlyingLastPx () :: price.
+-type underlyingLastQty () :: qty.
+-type legRefID () :: string.
+-type contraLegRefID () :: string.
+-type settlCurrBidFxRate () :: float.
+-type settlCurrOfferFxRate () :: float.
+-type quoteRequestRejectReason () :: unknownSymbol|exchange|quoteRequestExceedsLimit|tooLateToEnter|invalidPrice|notAuthorizedToRequestQuote.
+-type sideComplianceID () :: string.
+-record( commissionData, {commission :: commission(), commType :: commType(), commCurrency :: commCurrency(), fundRenewWaiv :: fundRenewWaiv()}).
+-record( repeatingReg_instrument_454, {securityAltID :: securityAltID(), securityAltIDSource :: securityAltIDSource()}).
+-record( instrument, {symbol :: symbol(), symbolSfx :: symbolSfx(), securityID :: securityID(), securityIDSource :: securityIDSource(), repeatingReg_instrument_454 = [#repeatingReg_instrument_454{}], produkt :: produkt(), cFICode :: cFICode(), securityType :: securityType(), maturityMonthYear :: maturityMonthYear(), maturityDate :: maturityDate(), couponPaymentDate :: couponPaymentDate(), issueDate :: issueDate(), repoCollateralSecurityType :: repoCollateralSecurityType(), repurchaseTerm :: repurchaseTerm(), repurchaseRate :: repurchaseRate(), factor :: factor(), creditRating :: creditRating(), instrRegistry :: instrRegistry(), countryOfIssue :: countryOfIssue(), stateOrProvinceOfIssue :: stateOrProvinceOfIssue(), localeOfIssue :: localeOfIssue(), redemptionDate :: redemptionDate(), strikePrice :: strikePrice(), optAttribute :: optAttribute(), contractMultiplier :: contractMultiplier(), couponRate :: couponRate(), securityExchange :: securityExchange(), issuer :: issuer(), encodedIssuerLen :: encodedIssuerLen(), encodedIssuer :: encodedIssuer(), securityDesc :: securityDesc(), encodedSecurityDescLen :: encodedSecurityDescLen(), encodedSecurityDesc :: encodedSecurityDesc()}).
+-record( repeatingReg_instrumentLeg_604, {legSecurityAltID :: legSecurityAltID(), legSecurityAltIDSource :: legSecurityAltIDSource()}).
+-record( instrumentLeg, {legSymbol :: legSymbol(), legSymbolSfx :: legSymbolSfx(), legSecurityID :: legSecurityID(), legSecurityIDSource :: legSecurityIDSource(), repeatingReg_instrumentLeg_604 = [#repeatingReg_instrumentLeg_604{}], legProduct :: legProduct(), legCFICode :: legCFICode(), legSecurityType :: legSecurityType(), legMaturityMonthYear :: legMaturityMonthYear(), legMaturityDate :: legMaturityDate(), legCouponPaymentDate :: legCouponPaymentDate(), legIssueDate :: legIssueDate(), legRepoCollateralSecurityType :: legRepoCollateralSecurityType(), legRepurchaseTerm :: legRepurchaseTerm(), legRepurchaseRate :: legRepurchaseRate(), legFactor :: legFactor(), legCreditRating :: legCreditRating(), legInstrRegistry :: legInstrRegistry(), legCountryOfIssue :: legCountryOfIssue(), legStateOrProvinceOfIssue :: legStateOrProvinceOfIssue(), legLocaleOfIssue :: legLocaleOfIssue(), legRedemptionDate :: legRedemptionDate(), legStrikePrice :: legStrikePrice(), legOptAttribute :: legOptAttribute(), legContractMultiplier :: legContractMultiplier(), legCouponRate :: legCouponRate(), legSecurityExchange :: legSecurityExchange(), legIssuer :: legIssuer(), encodedLegIssuerLen :: encodedLegIssuerLen(), encodedLegIssuer :: encodedLegIssuer(), legSecurityDesc :: legSecurityDesc(), encodedLegSecurityDescLen :: encodedLegSecurityDescLen(), encodedLegSecurityDesc :: encodedLegSecurityDesc(), legRatioQty :: legRatioQty(), legSide :: legSide()}).
+-record( repeatingReg_nestedParties_539, {nestedPartyID :: nestedPartyID(), nestedPartyIDSource :: nestedPartyIDSource(), nestedPartyRole :: nestedPartyRole(), nestedPartySubID :: nestedPartySubID()}).
+-record( nestedParties, {repeatingReg_nestedParties_539 = [#repeatingReg_nestedParties_539{}]}).
+-record( orderQtyData, {orderQty :: orderQty(), cashOrderQty :: cashOrderQty(), orderPercent :: orderPercent(), roundingDirection :: roundingDirection(), roundingModulus :: roundingModulus()}).
+-record( repeatingReg_parties_453, {partyID :: partyID(), partyIDSource :: partyIDSource(), partyRole :: partyRole(), partySubID :: partySubID()}).
+-record( parties, {repeatingReg_parties_453 = [#repeatingReg_parties_453{}]}).
+-record( spreadOrBenchmarkCurveData, {spread :: spread(), benchmarkCurveCurrency :: benchmarkCurveCurrency(), benchmarkCurveName :: benchmarkCurveName(), benchmarkCurvePoint :: benchmarkCurvePoint()}).
+-record( repeatingReg_stipulations_232, {stipulationType :: stipulationType(), stipulationValue :: stipulationValue()}).
+-record( stipulations, {repeatingReg_stipulations_232 = [#repeatingReg_stipulations_232{}]}).
+-record( repeatingReg_underlyingInstrument_457, {underlyingSecurityAltID :: underlyingSecurityAltID(), underlyingSecurityAltIDSource :: underlyingSecurityAltIDSource()}).
+-record( underlyingInstrument, {underlyingSymbol :: underlyingSymbol(), underlyingSymbolSfx :: underlyingSymbolSfx(), underlyingSecurityID :: underlyingSecurityID(), underlyingSecurityIDSource :: underlyingSecurityIDSource(), repeatingReg_underlyingInstrument_457 = [#repeatingReg_underlyingInstrument_457{}], underlyingProduct :: underlyingProduct(), underlyingCFICode :: underlyingCFICode(), underlyingSecurityType :: underlyingSecurityType(), underlyingMaturityMonthYear :: underlyingMaturityMonthYear(), underlyingMaturityDate :: underlyingMaturityDate(), underlyingPutOrCall :: underlyingPutOrCall(), underlyingCouponPaymentDate :: underlyingCouponPaymentDate(), underlyingIssueDate :: underlyingIssueDate(), underlyingRepoCollateralSecurityType :: underlyingRepoCollateralSecurityType(), underlyingRepurchaseTerm :: underlyingRepurchaseTerm(), underlyingRepurchaseRate :: underlyingRepurchaseRate(), underlyingFactor :: underlyingFactor(), underlyingCreditRating :: underlyingCreditRating(), underlyingInstrRegistry :: underlyingInstrRegistry(), underlyingCountryOfIssue :: underlyingCountryOfIssue(), underlyingStateOrProvinceOfIssue :: underlyingStateOrProvinceOfIssue(), underlyingLocaleOfIssue :: underlyingLocaleOfIssue(), underlyingRedemptionDate :: underlyingRedemptionDate(), underlyingStrikePrice :: underlyingStrikePrice(), underlyingOptAttribute :: underlyingOptAttribute(), underlyingContractMultiplier :: underlyingContractMultiplier(), underlyingCouponRate :: underlyingCouponRate(), underlyingSecurityExchange :: underlyingSecurityExchange(), underlyingIssuer :: underlyingIssuer(), encodedUnderlyingIssuerLen :: encodedUnderlyingIssuerLen(), encodedUnderlyingIssuer :: encodedUnderlyingIssuer(), underlyingSecurityDesc :: underlyingSecurityDesc(), encodedUnderlyingSecurityDescLen :: encodedUnderlyingSecurityDescLen(), encodedUnderlyingSecurityDesc :: encodedUnderlyingSecurityDesc()}).
+-record( yieldData, {yieldType :: yieldType(), yield :: yield()}).
+-record( repeatingReg_standardHeader_627, {hopCompID :: hopCompID(), hopSendingTime :: hopSendingTime(), hopRefID :: hopRefID()}).
+-record( standardHeader, {beginString :: beginString(), bodyLength :: bodyLength(), msgType :: msgType(), senderCompID :: senderCompID(), targetCompID :: targetCompID(), onBehalfOfCompID :: onBehalfOfCompID(), deliverToCompID :: deliverToCompID(), secureDataLen :: secureDataLen(), secureData :: secureData(), msgSeqNum :: msgSeqNum(), senderSubID :: senderSubID(), senderLocationID :: senderLocationID(), targetSubID :: targetSubID(), targetLocationID :: targetLocationID(), onBehalfOfSubID :: onBehalfOfSubID(), onBehalfOfLocationID :: onBehalfOfLocationID(), deliverToSubID :: deliverToSubID(), deliverToLocationID :: deliverToLocationID(), possDupFlag :: possDupFlag(), possResend :: possResend(), sendingTime :: sendingTime(), origSendingTime :: origSendingTime(), xmlDataLen :: xmlDataLen(), xmlData :: xmlData(), messageEncoding :: messageEncoding(), lastMsgSeqNumProcessed :: lastMsgSeqNumProcessed(), onBehalfOfSendingTime :: onBehalfOfSendingTime(), repeatingReg_standardHeader_627 = [#repeatingReg_standardHeader_627{}]}).
+-record( standardTrailer, {signatureLength :: signatureLength(), signature :: signature(), checkSum :: checkSum()}).
+-record( heartbeat, {standardHeader :: #standardHeader{}, testReqID :: testReqID(), standardTrailer :: #standardTrailer{}}).
+-record( testRequest, {standardHeader :: #standardHeader{}, testReqID :: testReqID(), standardTrailer :: #standardTrailer{}}).
+-record( resendRequest, {standardHeader :: #standardHeader{}, beginSeqNo :: beginSeqNo(), endSeqNo :: endSeqNo(), standardTrailer :: #standardTrailer{}}).
+-record( reject, {standardHeader :: #standardHeader{}, refSeqNum :: refSeqNum(), refTagID :: refTagID(), refMsgType :: refMsgType(), sessionRejectReason :: sessionRejectReason(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( sequenceReset, {standardHeader :: #standardHeader{}, gapFillFlag :: gapFillFlag(), newSeqNo :: newSeqNo(), standardTrailer :: #standardTrailer{}}).
+-record( logout, {standardHeader :: #standardHeader{}, text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_iOI_199, {iOIQualifier :: iOIQualifier()}).
+-record( repeatingReg_iOI_215, {routingType :: routingType(), routingID :: routingID()}).
+-record( iOI, {standardHeader :: #standardHeader{}, iOIid :: iOIid(), iOITransType :: iOITransType(), iOIRefID :: iOIRefID(), instrument :: #instrument{}, side :: side(), quantityType :: quantityType(), iOIQty :: iOIQty(), priceType :: priceType(), price :: price(), currency :: currency(), validUntilTime :: validUntilTime(), iOIQltyInd :: iOIQltyInd(), iOINaturalFlag :: iOINaturalFlag(), repeatingReg_iOI_199 = [#repeatingReg_iOI_199{}], text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), transactTime :: transactTime(), uRLLink :: uRLLink(), repeatingReg_iOI_215 = [#repeatingReg_iOI_215{}], spreadOrBenchmarkCurveData :: #spreadOrBenchmarkCurveData{}, benchmark :: benchmark(), standardTrailer :: #standardTrailer{}}).
+-record( advertisement, {standardHeader :: #standardHeader{}, advId :: advId(), advTransType :: advTransType(), advRefID :: advRefID(), instrument :: #instrument{}, advSide :: advSide(), quantity :: quantity(), price :: price(), currency :: currency(), tradeDate :: tradeDate(), transactTime :: transactTime(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), uRLLink :: uRLLink(), lastMkt :: lastMkt(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_executionReport_382, {contraBroker :: contraBroker(), contraTrader :: contraTrader(), contraTradeQty :: contraTradeQty(), contraTradeTime :: contraTradeTime(), contraLegRefID :: contraLegRefID()}).
+-record( repeatingReg_executionReport_518, {contAmtType :: contAmtType(), contAmtValue :: contAmtValue(), contAmtCurr :: contAmtCurr()}).
+-record( repeatingReg_executionReport_555, {instrumentLeg :: #instrumentLeg{}, legPositionEffect :: legPositionEffect(), legCoveredOrUncovered :: legCoveredOrUncovered(), nestedParties :: #nestedParties{}, legRefID :: legRefID(), legPrice :: legPrice(), legSettlmntTyp :: legSettlmntTyp(), legFutSettDate :: legFutSettDate(), legLastPx :: legLastPx()}).
+-record( executionReport, {standardHeader :: #standardHeader{}, orderID :: orderID(), secondaryOrderID :: secondaryOrderID(), secondaryClOrdID :: secondaryClOrdID(), secondaryExecID :: secondaryExecID(), clOrdID :: clOrdID(), origClOrdID :: origClOrdID(), clOrdLinkID :: clOrdLinkID(), parties :: #parties{}, tradeOriginationDate :: tradeOriginationDate(), repeatingReg_executionReport_382 = [#repeatingReg_executionReport_382{}], listID :: listID(), crossID :: crossID(), origCrossID :: origCrossID(), crossType :: crossType(), execID :: execID(), execRefID :: execRefID(), execType :: execType(), ordStatus :: ordStatus(), workingIndicator :: workingIndicator(), ordRejReason :: ordRejReason(), execRestatementReason :: execRestatementReason(), account :: account(), accountType :: accountType(), dayBookingInst :: dayBookingInst(), bookingUnit :: bookingUnit(), preallocMethod :: preallocMethod(), settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), cashMargin :: cashMargin(), clearingFeeIndicator :: clearingFeeIndicator(), instrument :: #instrument{}, side :: side(), stipulations :: #stipulations{}, quantityType :: quantityType(), orderQtyData :: #orderQtyData{}, ordType :: ordType(), priceType :: priceType(), price :: price(), stopPx :: stopPx(), pegDifference :: pegDifference(), discretionInst :: discretionInst(), discretionOffset :: discretionOffset(), currency :: currency(), complianceID :: complianceID(), solicitedFlag :: solicitedFlag(), timeInForce :: timeInForce(), effectiveTime :: effectiveTime(), expireDate :: expireDate(), expireTime :: expireTime(), execInst :: execInst(), orderCapacity :: orderCapacity(), orderRestrictions :: orderRestrictions(), custOrderCapacity :: custOrderCapacity(), rule80A :: rule80A(), lastQty :: lastQty(), underlyingLastQty :: underlyingLastQty(), lastPx :: lastPx(), underlyingLastPx :: underlyingLastPx(), lastSpotRate :: lastSpotRate(), lastForwardPoints :: lastForwardPoints(), lastMkt :: lastMkt(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), lastCapacity :: lastCapacity(), leavesQty :: leavesQty(), cumQty :: cumQty(), avgPx :: avgPx(), dayOrderQty :: dayOrderQty(), dayCumQty :: dayCumQty(), dayAvgPx :: dayAvgPx(), gTBookingInst :: gTBookingInst(), tradeDate :: tradeDate(), transactTime :: transactTime(), reportToExch :: reportToExch(), commissionData :: #commissionData{}, spreadOrBenchmarkCurveData :: #spreadOrBenchmarkCurveData{}, yieldData :: #yieldData{}, grossTradeAmt :: grossTradeAmt(), numDaysInterest :: numDaysInterest(), exDate :: exDate(), accruedInterestRate :: accruedInterestRate(), accruedInterestAmt :: accruedInterestAmt(), tradedFlatSwitch :: tradedFlatSwitch(), basisFeatureDate :: basisFeatureDate(), basisFeaturePrice :: basisFeaturePrice(), concession :: concession(), totalTakedown :: totalTakedown(), netMoney :: netMoney(), settlCurrAmt :: settlCurrAmt(), settlCurrency :: settlCurrency(), settlCurrFxRate :: settlCurrFxRate(), settlCurrFxRateCalc :: settlCurrFxRateCalc(), handlInst :: handlInst(), minQty :: minQty(), maxFloor :: maxFloor(), positionEffect :: positionEffect(), maxShow :: maxShow(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), futSettDate2 :: futSettDate2(), orderQty2 :: orderQty2(), lastForwardPoints2 :: lastForwardPoints2(), multiLegReportingType :: multiLegReportingType(), cancellationRights :: cancellationRights(), moneyLaunderingStatus :: moneyLaunderingStatus(), registID :: registID(), designation :: designation(), transBkdTime :: transBkdTime(), execValuationPoint :: execValuationPoint(), execPriceType :: execPriceType(), execPriceAdjustment :: execPriceAdjustment(), priorityIndicator :: priorityIndicator(), priceImprovement :: priceImprovement(), repeatingReg_executionReport_518 = [#repeatingReg_executionReport_518{}], repeatingReg_executionReport_555 = [#repeatingReg_executionReport_555{}], standardTrailer :: #standardTrailer{}}).
+-record( orderCancelReject, {standardHeader :: #standardHeader{}, orderID :: orderID(), secondaryOrderID :: secondaryOrderID(), secondaryClOrdID :: secondaryClOrdID(), clOrdID :: clOrdID(), clOrdLinkID :: clOrdLinkID(), origClOrdID :: origClOrdID(), ordStatus :: ordStatus(), workingIndicator :: workingIndicator(), origOrdModTime :: origOrdModTime(), listID :: listID(), account :: account(), accountType :: accountType(), tradeOriginationDate :: tradeOriginationDate(), transactTime :: transactTime(), cxlRejResponseTo :: cxlRejResponseTo(), cxlRejReason :: cxlRejReason(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_logon_384, {refMsgType :: refMsgType(), msgDirection :: msgDirection()}).
+-record( logon, {standardHeader :: #standardHeader{}, encryptMethod :: encryptMethod(), heartBtInt :: heartBtInt(), rawDataLength :: rawDataLength(), rawData :: rawData(), resetSeqNumFlag :: resetSeqNumFlag(), maxMessageSize :: maxMessageSize(), repeatingReg_logon_384 = [#repeatingReg_logon_384{}], testMessageIndicator :: testMessageIndicator(), username :: username(), password :: password(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_news_215, {routingType :: routingType(), routingID :: routingID()}).
+-record( repeatingReg_news_146, {instrument :: #instrument{}}).
+-record( repeatingReg_news_33, {text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText()}).
+-record( news, {standardHeader :: #standardHeader{}, origTime :: origTime(), urgency :: urgency(), headline :: headline(), encodedHeadlineLen :: encodedHeadlineLen(), encodedHeadline :: encodedHeadline(), repeatingReg_news_215 = [#repeatingReg_news_215{}], repeatingReg_news_146 = [#repeatingReg_news_146{}], repeatingReg_news_33 = [#repeatingReg_news_33{}], uRLLink :: uRLLink(), rawDataLength :: rawDataLength(), rawData :: rawData(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_email_215, {routingType :: routingType(), routingID :: routingID()}).
+-record( repeatingReg_email_146, {instrument :: #instrument{}}).
+-record( repeatingReg_email_33, {text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText()}).
+-record( email, {standardHeader :: #standardHeader{}, emailThreadID :: emailThreadID(), emailType :: emailType(), origTime :: origTime(), subject :: subject(), encodedSubjectLen :: encodedSubjectLen(), encodedSubject :: encodedSubject(), repeatingReg_email_215 = [#repeatingReg_email_215{}], repeatingReg_email_146 = [#repeatingReg_email_146{}], orderID :: orderID(), clOrdID :: clOrdID(), repeatingReg_email_33 = [#repeatingReg_email_33{}], rawDataLength :: rawDataLength(), rawData :: rawData(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_newOrderSingle_78, {allocAccount :: allocAccount(), individualAllocID :: individualAllocID(), nestedParties :: #nestedParties{}, allocQty :: allocQty()}).
+-record( repeatingReg_newOrderSingle_386, {tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID()}).
+-record( newOrderSingle, {standardHeader :: #standardHeader{}, clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), clOrdLinkID :: clOrdLinkID(), parties :: #parties{}, tradeOriginationDate :: tradeOriginationDate(), account :: account(), accountType :: accountType(), dayBookingInst :: dayBookingInst(), bookingUnit :: bookingUnit(), preallocMethod :: preallocMethod(), repeatingReg_newOrderSingle_78 = [#repeatingReg_newOrderSingle_78{}], settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), cashMargin :: cashMargin(), clearingFeeIndicator :: clearingFeeIndicator(), handlInst :: handlInst(), execInst :: execInst(), minQty :: minQty(), maxFloor :: maxFloor(), exDestination :: exDestination(), repeatingReg_newOrderSingle_386 = [#repeatingReg_newOrderSingle_386{}], processCode :: processCode(), instrument :: #instrument{}, prevClosePx :: prevClosePx(), side :: side(), locateReqd :: locateReqd(), transactTime :: transactTime(), stipulations :: #stipulations{}, quantityType :: quantityType(), orderQtyData :: #orderQtyData{}, ordType :: ordType(), priceType :: priceType(), price :: price(), stopPx :: stopPx(), spreadOrBenchmarkCurveData :: #spreadOrBenchmarkCurveData{}, yieldData :: #yieldData{}, currency :: currency(), complianceID :: complianceID(), solicitedFlag :: solicitedFlag(), iOIid :: iOIid(), quoteID :: quoteID(), timeInForce :: timeInForce(), effectiveTime :: effectiveTime(), expireDate :: expireDate(), expireTime :: expireTime(), gTBookingInst :: gTBookingInst(), commissionData :: #commissionData{}, orderCapacity :: orderCapacity(), orderRestrictions :: orderRestrictions(), custOrderCapacity :: custOrderCapacity(), rule80A :: rule80A(), forexReq :: forexReq(), settlCurrency :: settlCurrency(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), futSettDate2 :: futSettDate2(), orderQty2 :: orderQty2(), price2 :: price2(), positionEffect :: positionEffect(), coveredOrUncovered :: coveredOrUncovered(), maxShow :: maxShow(), pegDifference :: pegDifference(), discretionInst :: discretionInst(), discretionOffset :: discretionOffset(), cancellationRights :: cancellationRights(), moneyLaunderingStatus :: moneyLaunderingStatus(), registID :: registID(), designation :: designation(), accruedInterestRate :: accruedInterestRate(), accruedInterestAmt :: accruedInterestAmt(), netMoney :: netMoney(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_repeatingReg_newOrderList_73_78, {allocAccount :: allocAccount(), individualAllocID :: individualAllocID(), nestedParties :: #nestedParties{}, allocQty :: allocQty()}).
+-record( repeatingReg_repeatingReg_newOrderList_73_386, {tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID()}).
+-record( repeatingReg_newOrderList_73, {clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), listSeqNo :: listSeqNo(), clOrdLinkID :: clOrdLinkID(), settlInstMode :: settlInstMode(), parties :: #parties{}, tradeOriginationDate :: tradeOriginationDate(), account :: account(), accountType :: accountType(), dayBookingInst :: dayBookingInst(), bookingUnit :: bookingUnit(), preallocMethod :: preallocMethod(), repeatingReg_repeatingReg_newOrderList_73_78 :: [#repeatingReg_repeatingReg_newOrderList_73_78{}], settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), cashMargin :: cashMargin(), clearingFeeIndicator :: clearingFeeIndicator(), handlInst :: handlInst(), execInst :: execInst(), minQty :: minQty(), maxFloor :: maxFloor(), exDestination :: exDestination(), repeatingReg_repeatingReg_newOrderList_73_386 :: [#repeatingReg_repeatingReg_newOrderList_73_386{}], processCode :: processCode(), instrument :: #instrument{}, prevClosePx :: prevClosePx(), side :: side(), sideValueInd :: sideValueInd(), locateReqd :: locateReqd(), transactTime :: transactTime(), stipulations :: #stipulations{}, quantityType :: quantityType(), orderQtyData :: #orderQtyData{}, ordType :: ordType(), priceType :: priceType(), price :: price(), stopPx :: stopPx(), spreadOrBenchmarkCurveData :: #spreadOrBenchmarkCurveData{}, yieldData :: #yieldData{}, currency :: currency(), complianceID :: complianceID(), solicitedFlag :: solicitedFlag(), iOIid :: iOIid(), quoteID :: quoteID(), timeInForce :: timeInForce(), effectiveTime :: effectiveTime(), expireDate :: expireDate(), expireTime :: expireTime(), gTBookingInst :: gTBookingInst(), commissionData :: #commissionData{}, orderCapacity :: orderCapacity(), orderRestrictions :: orderRestrictions(), custOrderCapacity :: custOrderCapacity(), rule80A :: rule80A(), forexReq :: forexReq(), settlCurrency :: settlCurrency(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), futSettDate2 :: futSettDate2(), orderQty2 :: orderQty2(), price2 :: price2(), positionEffect :: positionEffect(), coveredOrUncovered :: coveredOrUncovered(), maxShow :: maxShow(), pegDifference :: pegDifference(), discretionInst :: discretionInst(), discretionOffset :: discretionOffset(), designation :: designation(), accruedInterestRate :: accruedInterestRate(), accruedInterestAmt :: accruedInterestAmt(), netMoney :: netMoney()}).
+-record( newOrderList, {standardHeader :: #standardHeader{}, listID :: listID(), bidID :: bidID(), clientBidID :: clientBidID(), progRptReqs :: progRptReqs(), bidType :: bidType(), progPeriodInterval :: progPeriodInterval(), cancellationRights :: cancellationRights(), moneyLaunderingStatus :: moneyLaunderingStatus(), registID :: registID(), listExecInstType :: listExecInstType(), listExecInst :: listExecInst(), encodedListExecInstLen :: encodedListExecInstLen(), encodedListExecInst :: encodedListExecInst(), totNoOrders :: totNoOrders(), repeatingReg_newOrderList_73 = [#repeatingReg_newOrderList_73{}], standardTrailer :: #standardTrailer{}}).
+-record( orderCancelRequest, {standardHeader :: #standardHeader{}, origClOrdID :: origClOrdID(), orderID :: orderID(), clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), clOrdLinkID :: clOrdLinkID(), listID :: listID(), origOrdModTime :: origOrdModTime(), account :: account(), accountType :: accountType(), parties :: #parties{}, instrument :: #instrument{}, side :: side(), transactTime :: transactTime(), orderQtyData :: #orderQtyData{}, complianceID :: complianceID(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_orderCancelReplaceRequest_78, {allocAccount :: allocAccount(), individualAllocID :: individualAllocID(), nestedParties :: #nestedParties{}, allocQty :: allocQty()}).
+-record( repeatingReg_orderCancelReplaceRequest_386, {tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID()}).
+-record( orderCancelReplaceRequest, {standardHeader :: #standardHeader{}, orderID :: orderID(), parties :: #parties{}, tradeOriginationDate :: tradeOriginationDate(), origClOrdID :: origClOrdID(), clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), clOrdLinkID :: clOrdLinkID(), listID :: listID(), origOrdModTime :: origOrdModTime(), account :: account(), accountType :: accountType(), dayBookingInst :: dayBookingInst(), bookingUnit :: bookingUnit(), preallocMethod :: preallocMethod(), repeatingReg_orderCancelReplaceRequest_78 = [#repeatingReg_orderCancelReplaceRequest_78{}], settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), cashMargin :: cashMargin(), clearingFeeIndicator :: clearingFeeIndicator(), handlInst :: handlInst(), execInst :: execInst(), minQty :: minQty(), maxFloor :: maxFloor(), exDestination :: exDestination(), repeatingReg_orderCancelReplaceRequest_386 = [#repeatingReg_orderCancelReplaceRequest_386{}], instrument :: #instrument{}, side :: side(), transactTime :: transactTime(), quantityType :: quantityType(), orderQtyData :: #orderQtyData{}, ordType :: ordType(), priceType :: priceType(), price :: price(), stopPx :: stopPx(), spreadOrBenchmarkCurveData :: #spreadOrBenchmarkCurveData{}, yieldData :: #yieldData{}, pegDifference :: pegDifference(), discretionInst :: discretionInst(), discretionOffset :: discretionOffset(), complianceID :: complianceID(), solicitedFlag :: solicitedFlag(), currency :: currency(), timeInForce :: timeInForce(), effectiveTime :: effectiveTime(), expireDate :: expireDate(), expireTime :: expireTime(), gTBookingInst :: gTBookingInst(), commissionData :: #commissionData{}, orderCapacity :: orderCapacity(), orderRestrictions :: orderRestrictions(), custOrderCapacity :: custOrderCapacity(), rule80A :: rule80A(), forexReq :: forexReq(), settlCurrency :: settlCurrency(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), futSettDate2 :: futSettDate2(), orderQty2 :: orderQty2(), price2 :: price2(), positionEffect :: positionEffect(), coveredOrUncovered :: coveredOrUncovered(), maxShow :: maxShow(), locateReqd :: locateReqd(), cancellationRights :: cancellationRights(), moneyLaunderingStatus :: moneyLaunderingStatus(), registID :: registID(), designation :: designation(), accruedInterestRate :: accruedInterestRate(), accruedInterestAmt :: accruedInterestAmt(), netMoney :: netMoney(), standardTrailer :: #standardTrailer{}}).
+-record( orderStatusRequest, {standardHeader :: #standardHeader{}, orderID :: orderID(), clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), clOrdLinkID :: clOrdLinkID(), parties :: #parties{}, account :: account(), instrument :: #instrument{}, side :: side(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_allocation_73, {clOrdID :: clOrdID(), orderID :: orderID(), secondaryOrderID :: secondaryOrderID(), secondaryClOrdID :: secondaryClOrdID(), listID :: listID()}).
+-record( repeatingReg_allocation_124, {lastQty :: lastQty(), execID :: execID(), secondaryExecID :: secondaryExecID(), lastPx :: lastPx(), lastCapacity :: lastCapacity()}).
+-record( repeatingReg_repeatingReg_allocation_78_136, {miscFeeAmt :: miscFeeAmt(), miscFeeCurr :: miscFeeCurr(), miscFeeType :: miscFeeType()}).
+-record( repeatingReg_allocation_78, {allocAccount :: allocAccount(), allocPrice :: allocPrice(), allocQty :: allocQty(), individualAllocID :: individualAllocID(), processCode :: processCode(), nestedParties :: #nestedParties{}, notifyBrokerOfCredit :: notifyBrokerOfCredit(), allocHandlInst :: allocHandlInst(), allocText :: allocText(), encodedAllocTextLen :: encodedAllocTextLen(), encodedAllocText :: encodedAllocText(), commissionData :: #commissionData{}, allocAvgPx :: allocAvgPx(), allocNetMoney :: allocNetMoney(), settlCurrAmt :: settlCurrAmt(), settlCurrency :: settlCurrency(), settlCurrFxRate :: settlCurrFxRate(), settlCurrFxRateCalc :: settlCurrFxRateCalc(), accruedInterestAmt :: accruedInterestAmt(), settlInstMode :: settlInstMode(), repeatingReg_repeatingReg_allocation_78_136 :: [#repeatingReg_repeatingReg_allocation_78_136{}]}).
+-record( allocation, {standardHeader :: #standardHeader{}, allocID :: allocID(), allocTransType :: allocTransType(), allocType :: allocType(), refAllocID :: refAllocID(), allocLinkID :: allocLinkID(), allocLinkType :: allocLinkType(), bookingRefID :: bookingRefID(), repeatingReg_allocation_73 = [#repeatingReg_allocation_73{}], repeatingReg_allocation_124 = [#repeatingReg_allocation_124{}], side :: side(), instrument :: #instrument{}, quantity :: quantity(), lastMkt :: lastMkt(), tradeOriginationDate :: tradeOriginationDate(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), priceType :: priceType(), avgPx :: avgPx(), currency :: currency(), avgPrxPrecision :: avgPrxPrecision(), parties :: #parties{}, tradeDate :: tradeDate(), transactTime :: transactTime(), settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), grossTradeAmt :: grossTradeAmt(), concession :: concession(), totalTakedown :: totalTakedown(), netMoney :: netMoney(), positionEffect :: positionEffect(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), numDaysInterest :: numDaysInterest(), accruedInterestRate :: accruedInterestRate(), totalAccruedInterestAmt :: totalAccruedInterestAmt(), legalConfirm :: legalConfirm(), repeatingReg_allocation_78 = [#repeatingReg_allocation_78{}], standardTrailer :: #standardTrailer{}}).
+-record( listCancelRequest, {standardHeader :: #standardHeader{}, listID :: listID(), transactTime :: transactTime(), tradeOriginationDate :: tradeOriginationDate(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( listExecute, {standardHeader :: #standardHeader{}, listID :: listID(), clientBidID :: clientBidID(), bidID :: bidID(), transactTime :: transactTime(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( listStatusRequest, {standardHeader :: #standardHeader{}, listID :: listID(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_listStatus_73, {clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), cumQty :: cumQty(), ordStatus :: ordStatus(), workingIndicator :: workingIndicator(), leavesQty :: leavesQty(), cxlQty :: cxlQty(), avgPx :: avgPx(), ordRejReason :: ordRejReason(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText()}).
+-record( listStatus, {standardHeader :: #standardHeader{}, listID :: listID(), listStatusType :: listStatusType(), noRpts :: noRpts(), listOrderStatus :: listOrderStatus(), rptSeq :: rptSeq(), listStatusText :: listStatusText(), encodedListStatusTextLen :: encodedListStatusTextLen(), encodedListStatusText :: encodedListStatusText(), transactTime :: transactTime(), totNoOrders :: totNoOrders(), repeatingReg_listStatus_73 = [#repeatingReg_listStatus_73{}], standardTrailer :: #standardTrailer{}}).
+-record( allocationAck, {standardHeader :: #standardHeader{}, parties :: #parties{}, allocID :: allocID(), tradeDate :: tradeDate(), transactTime :: transactTime(), allocStatus :: allocStatus(), allocRejCode :: allocRejCode(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), legalConfirm :: legalConfirm(), standardTrailer :: #standardTrailer{}}).
+-record( dontKnowTrade, {standardHeader :: #standardHeader{}, orderID :: orderID(), execID :: execID(), dKReason :: dKReason(), instrument :: #instrument{}, side :: side(), orderQtyData :: #orderQtyData{}, lastQty :: lastQty(), lastPx :: lastPx(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_quoteRequest_146, {instrument :: #instrument{}, prevClosePx :: prevClosePx(), quoteRequestType :: quoteRequestType(), quoteType :: quoteType(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), tradeOriginationDate :: tradeOriginationDate(), stipulations :: #stipulations{}, side :: side(), quantityType :: quantityType(), orderQty :: orderQty(), cashOrderQty :: cashOrderQty(), settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), ordType :: ordType(), futSettDate2 :: futSettDate2(), orderQty2 :: orderQty2(), expireTime :: expireTime(), transactTime :: transactTime(), currency :: currency(), spreadOrBenchmarkCurveData :: #spreadOrBenchmarkCurveData{}, priceType :: priceType(), price :: price(), price2 :: price2(), yieldData :: #yieldData{}}).
+-record( quoteRequest, {standardHeader :: #standardHeader{}, quoteReqID :: quoteReqID(), rFQReqID :: rFQReqID(), repeatingReg_quoteRequest_146 = [#repeatingReg_quoteRequest_146{}], text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( quote, {standardHeader :: #standardHeader{}, quoteReqID :: quoteReqID(), quoteID :: quoteID(), quoteType :: quoteType(), quoteResponseLevel :: quoteResponseLevel(), parties :: #parties{}, account :: account(), accountType :: accountType(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), instrument :: #instrument{}, bidPx :: bidPx(), offerPx :: offerPx(), mktBidPx :: mktBidPx(), mktOfferPx :: mktOfferPx(), minBidSize :: minBidSize(), bidSize :: bidSize(), minOfferSize :: minOfferSize(), offerSize :: offerSize(), validUntilTime :: validUntilTime(), bidSpotRate :: bidSpotRate(), offerSpotRate :: offerSpotRate(), bidForwardPoints :: bidForwardPoints(), offerForwardPoints :: offerForwardPoints(), midPx :: midPx(), bidYield :: bidYield(), midYield :: midYield(), offerYield :: offerYield(), transactTime :: transactTime(), settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), ordType :: ordType(), futSettDate2 :: futSettDate2(), orderQty2 :: orderQty2(), bidForwardPoints2 :: bidForwardPoints2(), offerForwardPoints2 :: offerForwardPoints2(), currency :: currency(), settlCurrBidFxRate :: settlCurrBidFxRate(), settlCurrOfferFxRate :: settlCurrOfferFxRate(), settlCurrFxRateCalc :: settlCurrFxRateCalc(), commission :: commission(), commType :: commType(), custOrderCapacity :: custOrderCapacity(), exDestination :: exDestination(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( settlementInstructions, {standardHeader :: #standardHeader{}, settlInstID :: settlInstID(), settlInstTransType :: settlInstTransType(), settlInstRefID :: settlInstRefID(), settlInstMode :: settlInstMode(), settlInstSource :: settlInstSource(), allocAccount :: allocAccount(), individualAllocID :: individualAllocID(), clOrdID :: clOrdID(), tradeDate :: tradeDate(), allocID :: allocID(), lastMkt :: lastMkt(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), side :: side(), securityType :: securityType(), effectiveTime :: effectiveTime(), transactTime :: transactTime(), parties :: #parties{}, standInstDbType :: standInstDbType(), standInstDbName :: standInstDbName(), standInstDbID :: standInstDbID(), settlDeliveryType :: settlDeliveryType(), settlDepositoryCode :: settlDepositoryCode(), settlBrkrCode :: settlBrkrCode(), settlInstCode :: settlInstCode(), securitySettlAgentName :: securitySettlAgentName(), securitySettlAgentCode :: securitySettlAgentCode(), securitySettlAgentAcctNum :: securitySettlAgentAcctNum(), securitySettlAgentAcctName :: securitySettlAgentAcctName(), securitySettlAgentContactName :: securitySettlAgentContactName(), securitySettlAgentContactPhone :: securitySettlAgentContactPhone(), cashSettlAgentName :: cashSettlAgentName(), cashSettlAgentCode :: cashSettlAgentCode(), cashSettlAgentAcctNum :: cashSettlAgentAcctNum(), cashSettlAgentAcctName :: cashSettlAgentAcctName(), cashSettlAgentContactName :: cashSettlAgentContactName(), cashSettlAgentContactPhone :: cashSettlAgentContactPhone(), paymentMethod :: paymentMethod(), paymentRef :: paymentRef(), cardHolderName :: cardHolderName(), cardNumber :: cardNumber(), cardStartDate :: cardStartDate(), cardExpDate :: cardExpDate(), cardIssNo :: cardIssNo(), paymentDate :: paymentDate(), paymentRemitterID :: paymentRemitterID(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_marketDataRequest_267, {mDEntryType :: mDEntryType()}).
+-record( repeatingReg_marketDataRequest_146, {instrument :: #instrument{}}).
+-record( repeatingReg_marketDataRequest_386, {tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID()}).
+-record( marketDataRequest, {standardHeader :: #standardHeader{}, mDReqID :: mDReqID(), subscriptionRequestType :: subscriptionRequestType(), marketDepth :: marketDepth(), mDUpdateType :: mDUpdateType(), aggregatedBook :: aggregatedBook(), openCloseSettleFlag :: openCloseSettleFlag(), scope :: scope(), mDImplicitDelete :: mDImplicitDelete(), repeatingReg_marketDataRequest_267 = [#repeatingReg_marketDataRequest_267{}], repeatingReg_marketDataRequest_146 = [#repeatingReg_marketDataRequest_146{}], repeatingReg_marketDataRequest_386 = [#repeatingReg_marketDataRequest_386{}], standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_marketDataSnapshotFullRefresh_268, {mDEntryType :: mDEntryType(), mDEntryPx :: mDEntryPx(), currency :: currency(), mDEntrySize :: mDEntrySize(), mDEntryDate :: mDEntryDate(), mDEntryTime :: mDEntryTime(), tickDirection :: tickDirection(), mDMkt :: mDMkt(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), quoteCondition :: quoteCondition(), tradeCondition :: tradeCondition(), mDEntryOriginator :: mDEntryOriginator(), locationID :: locationID(), deskID :: deskID(), openCloseSettleFlag :: openCloseSettleFlag(), timeInForce :: timeInForce(), expireDate :: expireDate(), expireTime :: expireTime(), minQty :: minQty(), execInst :: execInst(), sellerDays :: sellerDays(), orderID :: orderID(), quoteEntryID :: quoteEntryID(), mDEntryBuyer :: mDEntryBuyer(), mDEntrySeller :: mDEntrySeller(), numberOfOrders :: numberOfOrders(), mDEntryPositionNo :: mDEntryPositionNo(), scope :: scope(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText()}).
+-record( marketDataSnapshotFullRefresh, {standardHeader :: #standardHeader{}, mDReqID :: mDReqID(), instrument :: #instrument{}, financialStatus :: financialStatus(), corporateAction :: corporateAction(), totalVolumeTraded :: totalVolumeTraded(), totalVolumeTradedDate :: totalVolumeTradedDate(), totalVolumeTradedTime :: totalVolumeTradedTime(), netChgPrevDay :: netChgPrevDay(), repeatingReg_marketDataSnapshotFullRefresh_268 = [#repeatingReg_marketDataSnapshotFullRefresh_268{}], standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_marketDataIncrementalRefresh_268, {mDUpdateAction :: mDUpdateAction(), deleteReason :: deleteReason(), mDEntryType :: mDEntryType(), mDEntryID :: mDEntryID(), mDEntryRefID :: mDEntryRefID(), instrument :: #instrument{}, financialStatus :: financialStatus(), corporateAction :: corporateAction(), mDEntryPx :: mDEntryPx(), currency :: currency(), mDEntrySize :: mDEntrySize(), mDEntryDate :: mDEntryDate(), mDEntryTime :: mDEntryTime(), tickDirection :: tickDirection(), mDMkt :: mDMkt(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), quoteCondition :: quoteCondition(), tradeCondition :: tradeCondition(), mDEntryOriginator :: mDEntryOriginator(), locationID :: locationID(), deskID :: deskID(), openCloseSettleFlag :: openCloseSettleFlag(), timeInForce :: timeInForce(), expireDate :: expireDate(), expireTime :: expireTime(), minQty :: minQty(), execInst :: execInst(), sellerDays :: sellerDays(), orderID :: orderID(), quoteEntryID :: quoteEntryID(), mDEntryBuyer :: mDEntryBuyer(), mDEntrySeller :: mDEntrySeller(), numberOfOrders :: numberOfOrders(), mDEntryPositionNo :: mDEntryPositionNo(), scope :: scope(), totalVolumeTraded :: totalVolumeTraded(), totalVolumeTradedDate :: totalVolumeTradedDate(), totalVolumeTradedTime :: totalVolumeTradedTime(), netChgPrevDay :: netChgPrevDay(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText()}).
+-record( marketDataIncrementalRefresh, {standardHeader :: #standardHeader{}, mDReqID :: mDReqID(), repeatingReg_marketDataIncrementalRefresh_268 = [#repeatingReg_marketDataIncrementalRefresh_268{}], standardTrailer :: #standardTrailer{}}).
+-record( marketDataRequestReject, {standardHeader :: #standardHeader{}, mDReqID :: mDReqID(), mDReqRejReason :: mDReqRejReason(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_quoteCancel_295, {instrument :: #instrument{}}).
+-record( quoteCancel, {standardHeader :: #standardHeader{}, quoteReqID :: quoteReqID(), quoteID :: quoteID(), quoteCancelType :: quoteCancelType(), quoteResponseLevel :: quoteResponseLevel(), parties :: #parties{}, account :: account(), accountType :: accountType(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), repeatingReg_quoteCancel_295 = [#repeatingReg_quoteCancel_295{}], standardTrailer :: #standardTrailer{}}).
+-record( quoteStatusRequest, {standardHeader :: #standardHeader{}, quoteStatusReqID :: quoteStatusReqID(), quoteID :: quoteID(), instrument :: #instrument{}, parties :: #parties{}, account :: account(), accountType :: accountType(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), subscriptionRequestType :: subscriptionRequestType(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_repeatingReg_massQuoteAcknowledgement_296_295, {quoteEntryID :: quoteEntryID(), instrument :: #instrument{}, bidPx :: bidPx(), offerPx :: offerPx(), bidSize :: bidSize(), offerSize :: offerSize(), validUntilTime :: validUntilTime(), bidSpotRate :: bidSpotRate(), offerSpotRate :: offerSpotRate(), bidForwardPoints :: bidForwardPoints(), offerForwardPoints :: offerForwardPoints(), midPx :: midPx(), bidYield :: bidYield(), midYield :: midYield(), offerYield :: offerYield(), transactTime :: transactTime(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), futSettDate :: futSettDate(), ordType :: ordType(), futSettDate2 :: futSettDate2(), orderQty2 :: orderQty2(), bidForwardPoints2 :: bidForwardPoints2(), offerForwardPoints2 :: offerForwardPoints2(), currency :: currency(), quoteEntryRejectReason :: quoteEntryRejectReason()}).
+-record( repeatingReg_massQuoteAcknowledgement_296, {quoteSetID :: quoteSetID(), underlyingInstrument :: #underlyingInstrument{}, totQuoteEntries :: totQuoteEntries(), repeatingReg_repeatingReg_massQuoteAcknowledgement_296_295 :: [#repeatingReg_repeatingReg_massQuoteAcknowledgement_296_295{}]}).
+-record( massQuoteAcknowledgement, {standardHeader :: #standardHeader{}, quoteReqID :: quoteReqID(), quoteID :: quoteID(), quoteStatus :: quoteStatus(), quoteRejectReason :: quoteRejectReason(), quoteResponseLevel :: quoteResponseLevel(), quoteType :: quoteType(), parties :: #parties{}, account :: account(), accountType :: accountType(), text :: text(), repeatingReg_massQuoteAcknowledgement_296 = [#repeatingReg_massQuoteAcknowledgement_296{}], standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_securityDefinitionRequest_555, {instrumentLeg :: #instrumentLeg{}, legCurrency :: legCurrency()}).
+-record( securityDefinitionRequest, {standardHeader :: #standardHeader{}, securityReqID :: securityReqID(), securityRequestType :: securityRequestType(), instrument :: #instrument{}, currency :: currency(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), repeatingReg_securityDefinitionRequest_555 = [#repeatingReg_securityDefinitionRequest_555{}], subscriptionRequestType :: subscriptionRequestType(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_securityDefinition_555, {instrumentLeg :: #instrumentLeg{}, legCurrency :: legCurrency()}).
+-record( securityDefinition, {standardHeader :: #standardHeader{}, securityReqID :: securityReqID(), securityResponseID :: securityResponseID(), securityResponseType :: securityResponseType(), instrument :: #instrument{}, currency :: currency(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), repeatingReg_securityDefinition_555 = [#repeatingReg_securityDefinition_555{}], roundLot :: roundLot(), minTradeVol :: minTradeVol(), standardTrailer :: #standardTrailer{}}).
+-record( securityStatusRequest, {standardHeader :: #standardHeader{}, securityStatusReqID :: securityStatusReqID(), instrument :: #instrument{}, currency :: currency(), subscriptionRequestType :: subscriptionRequestType(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), standardTrailer :: #standardTrailer{}}).
+-record( securityStatus, {standardHeader :: #standardHeader{}, securityStatusReqID :: securityStatusReqID(), instrument :: #instrument{}, currency :: currency(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), unsolicitedIndicator :: unsolicitedIndicator(), securityTradingStatus :: securityTradingStatus(), financialStatus :: financialStatus(), corporateAction :: corporateAction(), haltReason :: haltReason(), inViewOfCommon :: inViewOfCommon(), dueToRelated :: dueToRelated(), buyVolume :: buyVolume(), sellVolume :: sellVolume(), highPx :: highPx(), lowPx :: lowPx(), lastPx :: lastPx(), transactTime :: transactTime(), adjustment :: adjustment(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( tradingSessionStatusRequest, {standardHeader :: #standardHeader{}, tradSesReqID :: tradSesReqID(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), tradSesMethod :: tradSesMethod(), tradSesMode :: tradSesMode(), subscriptionRequestType :: subscriptionRequestType(), standardTrailer :: #standardTrailer{}}).
+-record( tradingSessionStatus, {standardHeader :: #standardHeader{}, tradSesReqID :: tradSesReqID(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), tradSesMethod :: tradSesMethod(), tradSesMode :: tradSesMode(), unsolicitedIndicator :: unsolicitedIndicator(), tradSesStatus :: tradSesStatus(), tradSesStatusRejReason :: tradSesStatusRejReason(), tradSesStartTime :: tradSesStartTime(), tradSesOpenTime :: tradSesOpenTime(), tradSesPreCloseTime :: tradSesPreCloseTime(), tradSesCloseTime :: tradSesCloseTime(), tradSesEndTime :: tradSesEndTime(), totalVolumeTraded :: totalVolumeTraded(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_repeatingReg_massQuote_296_295, {quoteEntryID :: quoteEntryID(), instrument :: #instrument{}, bidPx :: bidPx(), offerPx :: offerPx(), bidSize :: bidSize(), offerSize :: offerSize(), validUntilTime :: validUntilTime(), bidSpotRate :: bidSpotRate(), offerSpotRate :: offerSpotRate(), bidForwardPoints :: bidForwardPoints(), offerForwardPoints :: offerForwardPoints(), midPx :: midPx(), bidYield :: bidYield(), midYield :: midYield(), offerYield :: offerYield(), transactTime :: transactTime(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), futSettDate :: futSettDate(), ordType :: ordType(), futSettDate2 :: futSettDate2(), orderQty2 :: orderQty2(), bidForwardPoints2 :: bidForwardPoints2(), offerForwardPoints2 :: offerForwardPoints2(), currency :: currency()}).
+-record( repeatingReg_massQuote_296, {quoteSetID :: quoteSetID(), underlyingInstrument :: #underlyingInstrument{}, quoteSetValidUntilTime :: quoteSetValidUntilTime(), totQuoteEntries :: totQuoteEntries(), repeatingReg_repeatingReg_massQuote_296_295 :: [#repeatingReg_repeatingReg_massQuote_296_295{}]}).
+-record( massQuote, {standardHeader :: #standardHeader{}, quoteReqID :: quoteReqID(), quoteID :: quoteID(), quoteType :: quoteType(), quoteResponseLevel :: quoteResponseLevel(), parties :: #parties{}, account :: account(), accountType :: accountType(), defBidSize :: defBidSize(), defOfferSize :: defOfferSize(), repeatingReg_massQuote_296 = [#repeatingReg_massQuote_296{}], standardTrailer :: #standardTrailer{}}).
+-record( businessMessageReject, {standardHeader :: #standardHeader{}, refSeqNum :: refSeqNum(), refMsgType :: refMsgType(), businessRejectRefID :: businessRejectRefID(), businessRejectReason :: businessRejectReason(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_bidRequest_398, {bidDescriptorType :: bidDescriptorType(), bidDescriptor :: bidDescriptor(), sideValueInd :: sideValueInd(), liquidityValue :: liquidityValue(), liquidityNumSecurities :: liquidityNumSecurities(), liquidityPctLow :: liquidityPctLow(), liquidityPctHigh :: liquidityPctHigh(), eFPTrackingError :: eFPTrackingError(), fairValue :: fairValue(), outsideIndexPct :: outsideIndexPct(), valueOfFutures :: valueOfFutures()}).
+-record( repeatingReg_bidRequest_420, {listID :: listID(), side :: side(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), netGrossInd :: netGrossInd(), settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), account :: account()}).
+-record( bidRequest, {standardHeader :: #standardHeader{}, bidID :: bidID(), clientBidID :: clientBidID(), bidRequestTransType :: bidRequestTransType(), listName :: listName(), totalNumSecurities :: totalNumSecurities(), bidType :: bidType(), numTickets :: numTickets(), currency :: currency(), sideValue1 :: sideValue1(), sideValue2 :: sideValue2(), repeatingReg_bidRequest_398 = [#repeatingReg_bidRequest_398{}], repeatingReg_bidRequest_420 = [#repeatingReg_bidRequest_420{}], liquidityIndType :: liquidityIndType(), wtAverageLiquidity :: wtAverageLiquidity(), exchangeForPhysical :: exchangeForPhysical(), outMainCntryUIndex :: outMainCntryUIndex(), crossPercent :: crossPercent(), progRptReqs :: progRptReqs(), progPeriodInterval :: progPeriodInterval(), incTaxInd :: incTaxInd(), forexReq :: forexReq(), numBidders :: numBidders(), tradeDate :: tradeDate(), tradeType :: tradeType(), basisPxType :: basisPxType(), strikeTime :: strikeTime(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_bidResponse_420, {commissionData :: #commissionData{}, listID :: listID(), country :: country(), side :: side(), price :: price(), priceType :: priceType(), fairValue :: fairValue(), netGrossInd :: netGrossInd(), settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText()}).
+-record( bidResponse, {standardHeader :: #standardHeader{}, bidID :: bidID(), clientBidID :: clientBidID(), repeatingReg_bidResponse_420 = [#repeatingReg_bidResponse_420{}], standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_listStrikePrice_428, {instrument :: #instrument{}, prevClosePx :: prevClosePx(), clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), side :: side(), price :: price(), currency :: currency(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText()}).
+-record( listStrikePrice, {standardHeader :: #standardHeader{}, listID :: listID(), totNoStrikes :: totNoStrikes(), repeatingReg_listStrikePrice_428 = [#repeatingReg_listStrikePrice_428{}], standardTrailer :: #standardTrailer{}}).
+-record( xMLnonFIX, {standardHeader :: #standardHeader{}, standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_registrationInstructions_473, {registDetls :: registDetls(), registEmail :: registEmail(), mailingDtls :: mailingDtls(), mailingInst :: mailingInst(), nestedParties :: #nestedParties{}, ownerType :: ownerType(), dateOfBirth :: dateOfBirth(), investorCountryOfResidence :: investorCountryOfResidence()}).
+-record( repeatingReg_registrationInstructions_510, {distribPaymentMethod :: distribPaymentMethod(), distribPercentage :: distribPercentage(), cashDistribCurr :: cashDistribCurr(), cashDistribAgentName :: cashDistribAgentName(), cashDistribAgentCode :: cashDistribAgentCode(), cashDistribAgentAcctNumber :: cashDistribAgentAcctNumber(), cashDistribPayRef :: cashDistribPayRef()}).
+-record( registrationInstructions, {standardHeader :: #standardHeader{}, registID :: registID(), registTransType :: registTransType(), registRefID :: registRefID(), clOrdID :: clOrdID(), parties :: #parties{}, account :: account(), registAcctType :: registAcctType(), taxAdvantageType :: taxAdvantageType(), ownershipType :: ownershipType(), repeatingReg_registrationInstructions_473 = [#repeatingReg_registrationInstructions_473{}], repeatingReg_registrationInstructions_510 = [#repeatingReg_registrationInstructions_510{}], standardTrailer :: #standardTrailer{}}).
+-record( registrationInstructionsResponse, {standardHeader :: #standardHeader{}, registID :: registID(), registTransType :: registTransType(), registRefID :: registRefID(), clOrdID :: clOrdID(), parties :: #parties{}, account :: account(), registStatus :: registStatus(), registRejReasonCode :: registRejReasonCode(), registRejReasonText :: registRejReasonText(), standardTrailer :: #standardTrailer{}}).
+-record( orderMassCancelRequest, {standardHeader :: #standardHeader{}, clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), massCancelRequestType :: massCancelRequestType(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), instrument :: #instrument{}, underlyingInstrument :: #underlyingInstrument{}, side :: side(), transactTime :: transactTime(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_orderMassCancelReport_534, {origClOrdID :: origClOrdID(), affectedOrderID :: affectedOrderID(), affectedSecondaryOrderID :: affectedSecondaryOrderID()}).
+-record( orderMassCancelReport, {standardHeader :: #standardHeader{}, clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), orderID :: orderID(), secondaryOrderID :: secondaryOrderID(), massCancelRequestType :: massCancelRequestType(), massCancelResponse :: massCancelResponse(), massCancelRejectReason :: massCancelRejectReason(), totalAffectedOrders :: totalAffectedOrders(), repeatingReg_orderMassCancelReport_534 = [#repeatingReg_orderMassCancelReport_534{}], tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), instrument :: #instrument{}, underlyingInstrument :: #underlyingInstrument{}, side :: side(), transactTime :: transactTime(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_repeatingReg_newOrderCross_552_78, {allocAccount :: allocAccount(), individualAllocID :: individualAllocID(), nestedParties :: #nestedParties{}, allocQty :: allocQty()}).
+-record( repeatingReg_newOrderCross_552, {side :: side(), clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), clOrdLinkID :: clOrdLinkID(), parties :: #parties{}, tradeOriginationDate :: tradeOriginationDate(), account :: account(), accountType :: accountType(), dayBookingInst :: dayBookingInst(), bookingUnit :: bookingUnit(), preallocMethod :: preallocMethod(), repeatingReg_repeatingReg_newOrderCross_552_78 :: [#repeatingReg_repeatingReg_newOrderCross_552_78{}], quantityType :: quantityType(), orderQtyData :: #orderQtyData{}, commissionData :: #commissionData{}, orderCapacity :: orderCapacity(), orderRestrictions :: orderRestrictions(), custOrderCapacity :: custOrderCapacity(), forexReq :: forexReq(), settlCurrency :: settlCurrency(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), positionEffect :: positionEffect(), coveredOrUncovered :: coveredOrUncovered(), cashMargin :: cashMargin(), clearingFeeIndicator :: clearingFeeIndicator(), solicitedFlag :: solicitedFlag(), sideComplianceID :: sideComplianceID()}).
+-record( repeatingReg_newOrderCross_386, {tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID()}).
+-record( newOrderCross, {standardHeader :: #standardHeader{}, crossID :: crossID(), crossType :: crossType(), crossPrioritization :: crossPrioritization(), repeatingReg_newOrderCross_552 = [#repeatingReg_newOrderCross_552{}], instrument :: #instrument{}, settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), handlInst :: handlInst(), execInst :: execInst(), minQty :: minQty(), maxFloor :: maxFloor(), exDestination :: exDestination(), repeatingReg_newOrderCross_386 = [#repeatingReg_newOrderCross_386{}], processCode :: processCode(), prevClosePx :: prevClosePx(), locateReqd :: locateReqd(), transactTime :: transactTime(), stipulations :: #stipulations{}, ordType :: ordType(), priceType :: priceType(), price :: price(), stopPx :: stopPx(), spreadOrBenchmarkCurveData :: #spreadOrBenchmarkCurveData{}, yieldData :: #yieldData{}, currency :: currency(), complianceID :: complianceID(), iOIid :: iOIid(), quoteID :: quoteID(), timeInForce :: timeInForce(), effectiveTime :: effectiveTime(), expireDate :: expireDate(), expireTime :: expireTime(), gTBookingInst :: gTBookingInst(), maxShow :: maxShow(), pegDifference :: pegDifference(), discretionInst :: discretionInst(), discretionOffset :: discretionOffset(), cancellationRights :: cancellationRights(), moneyLaunderingStatus :: moneyLaunderingStatus(), registID :: registID(), designation :: designation(), accruedInterestRate :: accruedInterestRate(), accruedInterestAmt :: accruedInterestAmt(), netMoney :: netMoney(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_repeatingReg_crossOrderCancelReplaceRequest_552_78, {allocAccount :: allocAccount(), individualAllocID :: individualAllocID(), nestedParties :: #nestedParties{}, allocQty :: allocQty()}).
+-record( repeatingReg_crossOrderCancelReplaceRequest_552, {side :: side(), origClOrdID :: origClOrdID(), clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), clOrdLinkID :: clOrdLinkID(), origOrdModTime :: origOrdModTime(), parties :: #parties{}, tradeOriginationDate :: tradeOriginationDate(), account :: account(), accountType :: accountType(), dayBookingInst :: dayBookingInst(), bookingUnit :: bookingUnit(), preallocMethod :: preallocMethod(), repeatingReg_repeatingReg_crossOrderCancelReplaceRequest_552_78 :: [#repeatingReg_repeatingReg_crossOrderCancelReplaceRequest_552_78{}], quantityType :: quantityType(), orderQtyData :: #orderQtyData{}, commissionData :: #commissionData{}, orderCapacity :: orderCapacity(), orderRestrictions :: orderRestrictions(), custOrderCapacity :: custOrderCapacity(), forexReq :: forexReq(), settlCurrency :: settlCurrency(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), positionEffect :: positionEffect(), coveredOrUncovered :: coveredOrUncovered(), cashMargin :: cashMargin(), clearingFeeIndicator :: clearingFeeIndicator(), solicitedFlag :: solicitedFlag(), sideComplianceID :: sideComplianceID()}).
+-record( repeatingReg_crossOrderCancelReplaceRequest_386, {tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID()}).
+-record( crossOrderCancelReplaceRequest, {standardHeader :: #standardHeader{}, orderID :: orderID(), crossID :: crossID(), origCrossID :: origCrossID(), crossType :: crossType(), crossPrioritization :: crossPrioritization(), repeatingReg_crossOrderCancelReplaceRequest_552 = [#repeatingReg_crossOrderCancelReplaceRequest_552{}], instrument :: #instrument{}, settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), handlInst :: handlInst(), execInst :: execInst(), minQty :: minQty(), maxFloor :: maxFloor(), exDestination :: exDestination(), repeatingReg_crossOrderCancelReplaceRequest_386 = [#repeatingReg_crossOrderCancelReplaceRequest_386{}], processCode :: processCode(), prevClosePx :: prevClosePx(), locateReqd :: locateReqd(), transactTime :: transactTime(), stipulations :: #stipulations{}, ordType :: ordType(), priceType :: priceType(), price :: price(), stopPx :: stopPx(), spreadOrBenchmarkCurveData :: #spreadOrBenchmarkCurveData{}, yieldData :: #yieldData{}, currency :: currency(), complianceID :: complianceID(), iOIid :: iOIid(), quoteID :: quoteID(), timeInForce :: timeInForce(), effectiveTime :: effectiveTime(), expireDate :: expireDate(), expireTime :: expireTime(), gTBookingInst :: gTBookingInst(), maxShow :: maxShow(), pegDifference :: pegDifference(), discretionInst :: discretionInst(), discretionOffset :: discretionOffset(), cancellationRights :: cancellationRights(), moneyLaunderingStatus :: moneyLaunderingStatus(), registID :: registID(), designation :: designation(), accruedInterestRate :: accruedInterestRate(), accruedInterestAmt :: accruedInterestAmt(), netMoney :: netMoney(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_crossOrderCancelRequest_552, {side :: side(), origClOrdID :: origClOrdID(), clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), clOrdLinkID :: clOrdLinkID(), origOrdModTime :: origOrdModTime(), parties :: #parties{}, tradeOriginationDate :: tradeOriginationDate(), orderQtyData :: #orderQtyData{}, complianceID :: complianceID(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText()}).
+-record( crossOrderCancelRequest, {standardHeader :: #standardHeader{}, orderID :: orderID(), crossID :: crossID(), origCrossID :: origCrossID(), crossType :: crossType(), crossPrioritization :: crossPrioritization(), repeatingReg_crossOrderCancelRequest_552 = [#repeatingReg_crossOrderCancelRequest_552{}], instrument :: #instrument{}, transactTime :: transactTime(), standardTrailer :: #standardTrailer{}}).
+-record( securityTypeRequest, {standardHeader :: #standardHeader{}, securityReqID :: securityReqID(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_securityTypes_558, {securityType :: securityType(), produkt :: produkt(), cFICode :: cFICode()}).
+-record( securityTypes, {standardHeader :: #standardHeader{}, securityReqID :: securityReqID(), securityResponseID :: securityResponseID(), securityResponseType :: securityResponseType(), totalNumSecurityTypes :: totalNumSecurityTypes(), repeatingReg_securityTypes_558 = [#repeatingReg_securityTypes_558{}], text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), subscriptionRequestType :: subscriptionRequestType(), standardTrailer :: #standardTrailer{}}).
+-record( securityListRequest, {standardHeader :: #standardHeader{}, securityReqID :: securityReqID(), securityListRequestType :: securityListRequestType(), instrument :: #instrument{}, currency :: currency(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), subscriptionRequestType :: subscriptionRequestType(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_repeatingReg_securityList_146_555, {instrumentLeg :: #instrumentLeg{}, legCurrency :: legCurrency()}).
+-record( repeatingReg_securityList_146, {instrument :: #instrument{}, currency :: currency(), repeatingReg_repeatingReg_securityList_146_555 :: [#repeatingReg_repeatingReg_securityList_146_555{}], roundLot :: roundLot(), minTradeVol :: minTradeVol(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText()}).
+-record( securityList, {standardHeader :: #standardHeader{}, securityReqID :: securityReqID(), securityResponseID :: securityResponseID(), securityRequestResult :: securityRequestResult(), totalNumSecurities :: totalNumSecurities(), repeatingReg_securityList_146 = [#repeatingReg_securityList_146{}], standardTrailer :: #standardTrailer{}}).
+-record( derivativeSecurityListRequest, {standardHeader :: #standardHeader{}, securityReqID :: securityReqID(), securityListRequestType :: securityListRequestType(), underlyingInstrument :: #underlyingInstrument{}, currency :: currency(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), subscriptionRequestType :: subscriptionRequestType(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_repeatingReg_derivativeSecurityList_146_555, {instrumentLeg :: #instrumentLeg{}, legCurrency :: legCurrency()}).
+-record( repeatingReg_derivativeSecurityList_146, {instrument :: #instrument{}, currency :: currency(), repeatingReg_repeatingReg_derivativeSecurityList_146_555 :: [#repeatingReg_repeatingReg_derivativeSecurityList_146_555{}], tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText()}).
+-record( derivativeSecurityList, {standardHeader :: #standardHeader{}, securityReqID :: securityReqID(), securityResponseID :: securityResponseID(), securityRequestResult :: securityRequestResult(), underlyingInstrument :: #underlyingInstrument{}, totalNumSecurities :: totalNumSecurities(), repeatingReg_derivativeSecurityList_146 = [#repeatingReg_derivativeSecurityList_146{}], standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_newOrderMultileg_78, {allocAccount :: allocAccount(), individualAllocID :: individualAllocID(), allocQty :: allocQty()}).
+-record( repeatingReg_newOrderMultileg_386, {tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID()}).
+-record( repeatingReg_newOrderMultileg_555, {instrumentLeg :: #instrumentLeg{}, legPositionEffect :: legPositionEffect(), legCoveredOrUncovered :: legCoveredOrUncovered(), nestedParties :: #nestedParties{}, legRefID :: legRefID(), legPrice :: legPrice(), legSettlmntTyp :: legSettlmntTyp(), legFutSettDate :: legFutSettDate()}).
+-record( newOrderMultileg, {standardHeader :: #standardHeader{}, clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), clOrdLinkID :: clOrdLinkID(), parties :: #parties{}, account :: account(), accountType :: accountType(), dayBookingInst :: dayBookingInst(), bookingUnit :: bookingUnit(), preallocMethod :: preallocMethod(), repeatingReg_newOrderMultileg_78 = [#repeatingReg_newOrderMultileg_78{}], settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), cashMargin :: cashMargin(), clearingFeeIndicator :: clearingFeeIndicator(), handlInst :: handlInst(), execInst :: execInst(), minQty :: minQty(), maxFloor :: maxFloor(), exDestination :: exDestination(), repeatingReg_newOrderMultileg_386 = [#repeatingReg_newOrderMultileg_386{}], processCode :: processCode(), side :: side(), instrument :: #instrument{}, prevClosePx :: prevClosePx(), repeatingReg_newOrderMultileg_555 = [#repeatingReg_newOrderMultileg_555{}], locateReqd :: locateReqd(), transactTime :: transactTime(), quantityType :: quantityType(), orderQtyData :: #orderQtyData{}, ordType :: ordType(), priceType :: priceType(), price :: price(), stopPx :: stopPx(), currency :: currency(), complianceID :: complianceID(), solicitedFlag :: solicitedFlag(), iOIid :: iOIid(), quoteID :: quoteID(), timeInForce :: timeInForce(), effectiveTime :: effectiveTime(), expireDate :: expireDate(), expireTime :: expireTime(), gTBookingInst :: gTBookingInst(), commissionData :: #commissionData{}, orderCapacity :: orderCapacity(), orderRestrictions :: orderRestrictions(), custOrderCapacity :: custOrderCapacity(), forexReq :: forexReq(), settlCurrency :: settlCurrency(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), positionEffect :: positionEffect(), coveredOrUncovered :: coveredOrUncovered(), maxShow :: maxShow(), pegDifference :: pegDifference(), discretionInst :: discretionInst(), discretionOffset :: discretionOffset(), cancellationRights :: cancellationRights(), moneyLaunderingStatus :: moneyLaunderingStatus(), registID :: registID(), designation :: designation(), multiLegRptTypeReq :: multiLegRptTypeReq(), netMoney :: netMoney(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_multilegOrderCancelReplaceRequest_78, {allocAccount :: allocAccount(), individualAllocID :: individualAllocID(), allocQty :: allocQty()}).
+-record( repeatingReg_multilegOrderCancelReplaceRequest_386, {tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID()}).
+-record( repeatingReg_multilegOrderCancelReplaceRequest_555, {instrumentLeg :: #instrumentLeg{}, legPositionEffect :: legPositionEffect(), legCoveredOrUncovered :: legCoveredOrUncovered(), nestedParties :: #nestedParties{}, legRefID :: legRefID(), legPrice :: legPrice(), legSettlmntTyp :: legSettlmntTyp(), legFutSettDate :: legFutSettDate()}).
+-record( multilegOrderCancelReplaceRequest, {standardHeader :: #standardHeader{}, orderID :: orderID(), origClOrdID :: origClOrdID(), clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), clOrdLinkID :: clOrdLinkID(), origOrdModTime :: origOrdModTime(), parties :: #parties{}, account :: account(), accountType :: accountType(), dayBookingInst :: dayBookingInst(), bookingUnit :: bookingUnit(), preallocMethod :: preallocMethod(), repeatingReg_multilegOrderCancelReplaceRequest_78 = [#repeatingReg_multilegOrderCancelReplaceRequest_78{}], settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), cashMargin :: cashMargin(), clearingFeeIndicator :: clearingFeeIndicator(), handlInst :: handlInst(), execInst :: execInst(), minQty :: minQty(), maxFloor :: maxFloor(), exDestination :: exDestination(), repeatingReg_multilegOrderCancelReplaceRequest_386 = [#repeatingReg_multilegOrderCancelReplaceRequest_386{}], processCode :: processCode(), side :: side(), instrument :: #instrument{}, prevClosePx :: prevClosePx(), repeatingReg_multilegOrderCancelReplaceRequest_555 = [#repeatingReg_multilegOrderCancelReplaceRequest_555{}], locateReqd :: locateReqd(), transactTime :: transactTime(), quantityType :: quantityType(), orderQtyData :: #orderQtyData{}, ordType :: ordType(), priceType :: priceType(), price :: price(), stopPx :: stopPx(), currency :: currency(), complianceID :: complianceID(), solicitedFlag :: solicitedFlag(), iOIid :: iOIid(), quoteID :: quoteID(), timeInForce :: timeInForce(), effectiveTime :: effectiveTime(), expireDate :: expireDate(), expireTime :: expireTime(), gTBookingInst :: gTBookingInst(), commissionData :: #commissionData{}, orderCapacity :: orderCapacity(), orderRestrictions :: orderRestrictions(), custOrderCapacity :: custOrderCapacity(), forexReq :: forexReq(), settlCurrency :: settlCurrency(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), positionEffect :: positionEffect(), coveredOrUncovered :: coveredOrUncovered(), maxShow :: maxShow(), pegDifference :: pegDifference(), discretionInst :: discretionInst(), discretionOffset :: discretionOffset(), cancellationRights :: cancellationRights(), moneyLaunderingStatus :: moneyLaunderingStatus(), registID :: registID(), designation :: designation(), multiLegRptTypeReq :: multiLegRptTypeReq(), netMoney :: netMoney(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_tradeCaptureReportRequest_580, {tradeDate :: tradeDate(), transactTime :: transactTime()}).
+-record( tradeCaptureReportRequest, {standardHeader :: #standardHeader{}, tradeRequestID :: tradeRequestID(), tradeRequestType :: tradeRequestType(), subscriptionRequestType :: subscriptionRequestType(), execID :: execID(), orderID :: orderID(), clOrdID :: clOrdID(), matchStatus :: matchStatus(), parties :: #parties{}, instrument :: #instrument{}, repeatingReg_tradeCaptureReportRequest_580 = [#repeatingReg_tradeCaptureReportRequest_580{}], side :: side(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), tradeInputSource :: tradeInputSource(), tradeInputDevice :: tradeInputDevice(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_repeatingReg_tradeCaptureReport_552_576, {clearingInstruction :: clearingInstruction()}).
+-record( repeatingReg_repeatingReg_tradeCaptureReport_552_518, {contAmtType :: contAmtType(), contAmtValue :: contAmtValue(), contAmtCurr :: contAmtCurr()}).
+-record( repeatingReg_repeatingReg_tradeCaptureReport_552_136, {miscFeeAmt :: miscFeeAmt(), miscFeeCurr :: miscFeeCurr(), miscFeeType :: miscFeeType()}).
+-record( repeatingReg_tradeCaptureReport_552, {side :: side(), orderID :: orderID(), secondaryOrderID :: secondaryOrderID(), clOrdID :: clOrdID(), parties :: #parties{}, account :: account(), accountType :: accountType(), processCode :: processCode(), oddLot :: oddLot(), repeatingReg_repeatingReg_tradeCaptureReport_552_576 :: [#repeatingReg_repeatingReg_tradeCaptureReport_552_576{}], clearingFeeIndicator :: clearingFeeIndicator(), tradeInputSource :: tradeInputSource(), tradeInputDevice :: tradeInputDevice(), currency :: currency(), complianceID :: complianceID(), solicitedFlag :: solicitedFlag(), orderCapacity :: orderCapacity(), orderRestrictions :: orderRestrictions(), custOrderCapacity :: custOrderCapacity(), transBkdTime :: transBkdTime(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), commissionData :: #commissionData{}, grossTradeAmt :: grossTradeAmt(), numDaysInterest :: numDaysInterest(), exDate :: exDate(), accruedInterestRate :: accruedInterestRate(), accruedInterestAmt :: accruedInterestAmt(), concession :: concession(), totalTakedown :: totalTakedown(), netMoney :: netMoney(), settlCurrAmt :: settlCurrAmt(), settlCurrency :: settlCurrency(), settlCurrFxRate :: settlCurrFxRate(), settlCurrFxRateCalc :: settlCurrFxRateCalc(), positionEffect :: positionEffect(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), multiLegReportingType :: multiLegReportingType(), repeatingReg_repeatingReg_tradeCaptureReport_552_518 :: [#repeatingReg_repeatingReg_tradeCaptureReport_552_518{}], repeatingReg_repeatingReg_tradeCaptureReport_552_136 :: [#repeatingReg_repeatingReg_tradeCaptureReport_552_136{}]}).
+-record( tradeCaptureReport, {standardHeader :: #standardHeader{}, tradeReportID :: tradeReportID(), tradeReportTransType :: tradeReportTransType(), tradeRequestID :: tradeRequestID(), execType :: execType(), tradeReportRefID :: tradeReportRefID(), execID :: execID(), secondaryExecID :: secondaryExecID(), execRestatementReason :: execRestatementReason(), previouslyReported :: previouslyReported(), instrument :: #instrument{}, orderQtyData :: #orderQtyData{}, lastQty :: lastQty(), lastPx :: lastPx(), lastSpotRate :: lastSpotRate(), lastForwardPoints :: lastForwardPoints(), lastMkt :: lastMkt(), tradeDate :: tradeDate(), transactTime :: transactTime(), settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), matchStatus :: matchStatus(), matchType :: matchType(), repeatingReg_tradeCaptureReport_552 = [#repeatingReg_tradeCaptureReport_552{}], standardTrailer :: #standardTrailer{}}).
+-record( orderMassStatusRequest, {standardHeader :: #standardHeader{}, massStatusReqID :: massStatusReqID(), massStatusReqType :: massStatusReqType(), parties :: #parties{}, account :: account(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), instrument :: #instrument{}, underlyingInstrument :: #underlyingInstrument{}, side :: side(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_quoteRequestReject_146, {instrument :: #instrument{}, prevClosePx :: prevClosePx(), quoteRequestType :: quoteRequestType(), quoteType :: quoteType(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), tradeOriginationDate :: tradeOriginationDate(), stipulations :: #stipulations{}, side :: side(), quantityType :: quantityType(), orderQty :: orderQty(), cashOrderQty :: cashOrderQty(), settlmntTyp :: settlmntTyp(), futSettDate :: futSettDate(), ordType :: ordType(), futSettDate2 :: futSettDate2(), orderQty2 :: orderQty2(), expireTime :: expireTime(), transactTime :: transactTime(), currency :: currency(), spreadOrBenchmarkCurveData :: #spreadOrBenchmarkCurveData{}, priceType :: priceType(), price :: price(), price2 :: price2(), yieldData :: #yieldData{}}).
+-record( quoteRequestReject, {standardHeader :: #standardHeader{}, quoteReqID :: quoteReqID(), rFQReqID :: rFQReqID(), quoteRequestRejectReason :: quoteRequestRejectReason(), repeatingReg_quoteRequestReject_146 = [#repeatingReg_quoteRequestReject_146{}], text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
+-record( repeatingReg_rFQRequest_146, {instrument :: #instrument{}, prevClosePx :: prevClosePx(), quoteRequestType :: quoteRequestType(), quoteType :: quoteType(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID()}).
+-record( rFQRequest, {standardHeader :: #standardHeader{}, rFQReqID :: rFQReqID(), repeatingReg_rFQRequest_146 = [#repeatingReg_rFQRequest_146{}], subscriptionRequestType :: subscriptionRequestType(), standardTrailer :: #standardTrailer{}}).
+-record( quoteStatusReport, {standardHeader :: #standardHeader{}, quoteStatusReqID :: quoteStatusReqID(), quoteReqID :: quoteReqID(), quoteID :: quoteID(), quoteType :: quoteType(), parties :: #parties{}, account :: account(), accountType :: accountType(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), instrument :: #instrument{}, bidPx :: bidPx(), offerPx :: offerPx(), mktBidPx :: mktBidPx(), mktOfferPx :: mktOfferPx(), minBidSize :: minBidSize(), bidSize :: bidSize(), minOfferSize :: minOfferSize(), offerSize :: offerSize(), validUntilTime :: validUntilTime(), bidSpotRate :: bidSpotRate(), offerSpotRate :: offerSpotRate(), bidForwardPoints :: bidForwardPoints(), offerForwardPoints :: offerForwardPoints(), midPx :: midPx(), bidYield :: bidYield(), midYield :: midYield(), offerYield :: offerYield(), transactTime :: transactTime(), futSettDate :: futSettDate(), ordType :: ordType(), futSettDate2 :: futSettDate2(), orderQty2 :: orderQty2(), bidForwardPoints2 :: bidForwardPoints2(), offerForwardPoints2 :: offerForwardPoints2(), currency :: currency(), settlCurrBidFxRate :: settlCurrBidFxRate(), settlCurrOfferFxRate :: settlCurrOfferFxRate(), settlCurrFxRateCalc :: settlCurrFxRateCalc(), commission :: commission(), commType :: commType(), custOrderCapacity :: custOrderCapacity(), exDestination :: exDestination(), quoteStatus :: quoteStatus(), standardTrailer :: #standardTrailer{}}).

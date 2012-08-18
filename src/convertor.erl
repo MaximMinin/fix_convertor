@@ -10,7 +10,7 @@
 %%
 %% Exported Functions
 %%
--export([convertFixToRecord/2, convertRecordtoFix/2]).
+-export([convertFixToRecord/2, convertRecordtoFix/2, format/2]).
 
 %%
 %% API Functions
@@ -28,6 +28,48 @@ convertRecordtoFix(Record, FixVersion) ->
     RecordName = erlang:element(1, Record),
     Rec = Utils:getRecord(RecordName),
     convertToBinary(Utils, erlang:tuple_to_list(Record), erlang:tuple_to_list(Rec), <<>>).
+
+format(Record, FixVersion) ->
+    Utils = erlang:list_to_atom(lists:concat([util_convert_to_record_, FixVersion])),
+    RecordName = erlang:element(1, Record),
+    Rec = Utils:getRecord(RecordName),
+    convertToString(Utils, erlang:tuple_to_list(Record), erlang:tuple_to_list(Rec), []).
+
+convertToString(Utils, [Name|Record], [Name|Rec], ToReturn) when erlang:is_atom(Name)->
+    convertToString(Utils, Record, Rec, ToReturn);
+convertToString(Utils, [undefined|Vals], [_N|Names], ToReturn) ->
+    convertToString(Utils, Vals, Names, ToReturn);
+convertToString(Utils, [Value|Record], [Fieldname|Rec], ToReturn) when erlang:is_atom(Fieldname) and erlang:is_float(Value)->
+    String = lists:concat(["|", Fieldname, " = ", io_lib:format("~.6f",[Value])]),
+    convertToString(Utils, Record, Rec, [String|ToReturn]);
+convertToString(Utils, [Value|Record], [Fieldname|Rec], ToReturn) when erlang:is_atom(Fieldname) and erlang:is_integer(Value)->
+    String = lists:concat(["|", Fieldname, " = ", erlang:integer_to_list(Value)]),
+    convertToString(Utils, Record, Rec, [String|ToReturn]);
+convertToString(Utils, [Value|Record], [Fieldname|Rec], ToReturn) when erlang:is_atom(Fieldname) and erlang:is_atom(Value) ->
+    String = lists:concat(["|", Fieldname, " = ",  Value]),
+    convertToString(Utils, Record, Rec, [String|ToReturn]);
+convertToString(Utils, [Value|Record], [Fieldname|Rec], ToReturn) when erlang:is_atom(Fieldname) and erlang:is_binary(Value) ->
+    String = lists:concat(["|", Fieldname, " = ",erlang:binary_to_list(Value)]),
+    convertToString(Utils, Record, Rec, [String|ToReturn]);
+convertToString(Utils, [Value|Record], [Field|Rec], ToReturn) when erlang:is_tuple(Field)->
+    String = convertToString(Utils, erlang:tuple_to_list(Value), erlang:tuple_to_list(Field), ToReturn),
+    convertToString(Utils, Record, Rec, [String|ToReturn]);
+convertToString(Utils, [Value|Record], [Field|Rec], ToReturn) when erlang:is_list(Field)->
+    [F] =  Field, 
+    L = lists:map(fun(R) ->  convertToString(Utils, 
+                                             erlang:tuple_to_list(R), 
+                                             erlang:tuple_to_list(F), 
+                                             []) end, 
+                  Value),
+   String = case L == []  of
+        false ->
+            [lists:concat(["|", erlang:element(1, F), " = ", erlang:integer_to_list(erlang:length(Value)), "|"])|L];
+        true ->
+            ""
+    end,
+    convertToString(Utils, Record, Rec, [String|ToReturn]);
+convertToString(_Utils, [], _Rec, ToReturn) ->
+    lists:reverse(ToReturn).
 
 %%
 %% Local Functions

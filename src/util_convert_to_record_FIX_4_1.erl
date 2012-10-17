@@ -883,6 +883,8 @@ getRecord(repeatingReg_allocation_124)->
     #repeatingReg_allocation_124{};
 getRecord(repeatingReg_allocation_78)->
     #repeatingReg_allocation_78{};
+getRecord(repeatingReg_repeatingReg_allocation_78_136)->
+    #repeatingReg_repeatingReg_allocation_78_136{};
 getRecord(allocation)->
     #allocation{};
 getRecord(listCancelRequest)->

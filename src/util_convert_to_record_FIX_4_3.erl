@@ -2923,6 +2923,10 @@ getRecord(newOrderSingle)->
     #newOrderSingle{};
 getRecord(repeatingReg_newOrderList_73)->
     #repeatingReg_newOrderList_73{};
+getRecord(repeatingReg_repeatingReg_newOrderList_73_78)->
+    #repeatingReg_repeatingReg_newOrderList_73_78{};
+getRecord(repeatingReg_repeatingReg_newOrderList_73_386)->
+    #repeatingReg_repeatingReg_newOrderList_73_386{};
 getRecord(newOrderList)->
     #newOrderList{};
 getRecord(orderCancelRequest)->
@@ -2941,6 +2945,8 @@ getRecord(repeatingReg_allocation_124)->
     #repeatingReg_allocation_124{};
 getRecord(repeatingReg_allocation_78)->
     #repeatingReg_allocation_78{};
+getRecord(repeatingReg_repeatingReg_allocation_78_136)->
+    #repeatingReg_repeatingReg_allocation_78_136{};
 getRecord(allocation)->
     #allocation{};
 getRecord(listCancelRequest)->
@@ -2991,6 +2997,8 @@ getRecord(quoteStatusRequest)->
     #quoteStatusRequest{};
 getRecord(repeatingReg_massQuoteAcknowledgement_296)->
     #repeatingReg_massQuoteAcknowledgement_296{};
+getRecord(repeatingReg_repeatingReg_massQuoteAcknowledgement_296_295)->
+    #repeatingReg_repeatingReg_massQuoteAcknowledgement_296_295{};
 getRecord(massQuoteAcknowledgement)->
     #massQuoteAcknowledgement{};
 getRecord(repeatingReg_securityDefinitionRequest_555)->
@@ -3011,6 +3019,8 @@ getRecord(tradingSessionStatus)->
     #tradingSessionStatus{};
 getRecord(repeatingReg_massQuote_296)->
     #repeatingReg_massQuote_296{};
+getRecord(repeatingReg_repeatingReg_massQuote_296_295)->
+    #repeatingReg_repeatingReg_massQuote_296_295{};
 getRecord(massQuote)->
     #massQuote{};
 getRecord(businessMessageReject)->
@@ -3047,12 +3057,16 @@ getRecord(orderMassCancelReport)->
     #orderMassCancelReport{};
 getRecord(repeatingReg_newOrderCross_552)->
     #repeatingReg_newOrderCross_552{};
+getRecord(repeatingReg_repeatingReg_newOrderCross_552_78)->
+    #repeatingReg_repeatingReg_newOrderCross_552_78{};
 getRecord(repeatingReg_newOrderCross_386)->
     #repeatingReg_newOrderCross_386{};
 getRecord(newOrderCross)->
     #newOrderCross{};
 getRecord(repeatingReg_crossOrderCancelReplaceRequest_552)->
     #repeatingReg_crossOrderCancelReplaceRequest_552{};
+getRecord(repeatingReg_repeatingReg_crossOrderCancelReplaceRequest_552_78)->
+    #repeatingReg_repeatingReg_crossOrderCancelReplaceRequest_552_78{};
 getRecord(repeatingReg_crossOrderCancelReplaceRequest_386)->
     #repeatingReg_crossOrderCancelReplaceRequest_386{};
 getRecord(crossOrderCancelReplaceRequest)->
@@ -3071,12 +3085,16 @@ getRecord(securityListRequest)->
     #securityListRequest{};
 getRecord(repeatingReg_securityList_146)->
     #repeatingReg_securityList_146{};
+getRecord(repeatingReg_repeatingReg_securityList_146_555)->
+    #repeatingReg_repeatingReg_securityList_146_555{};
 getRecord(securityList)->
     #securityList{};
 getRecord(derivativeSecurityListRequest)->
     #derivativeSecurityListRequest{};
 getRecord(repeatingReg_derivativeSecurityList_146)->
     #repeatingReg_derivativeSecurityList_146{};
+getRecord(repeatingReg_repeatingReg_derivativeSecurityList_146_555)->
+    #repeatingReg_repeatingReg_derivativeSecurityList_146_555{};
 getRecord(derivativeSecurityList)->
     #derivativeSecurityList{};
 getRecord(repeatingReg_newOrderMultileg_78)->
@@ -3101,6 +3119,12 @@ getRecord(tradeCaptureReportRequest)->
     #tradeCaptureReportRequest{};
 getRecord(repeatingReg_tradeCaptureReport_552)->
     #repeatingReg_tradeCaptureReport_552{};
+getRecord(repeatingReg_repeatingReg_tradeCaptureReport_552_576)->
+    #repeatingReg_repeatingReg_tradeCaptureReport_552_576{};
+getRecord(repeatingReg_repeatingReg_tradeCaptureReport_552_518)->
+    #repeatingReg_repeatingReg_tradeCaptureReport_552_518{};
+getRecord(repeatingReg_repeatingReg_tradeCaptureReport_552_136)->
+    #repeatingReg_repeatingReg_tradeCaptureReport_552_136{};
 getRecord(tradeCaptureReport)->
     #tradeCaptureReport{};
 getRecord(orderMassStatusRequest)->

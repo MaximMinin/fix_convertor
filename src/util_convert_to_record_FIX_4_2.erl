@@ -240,7 +240,7 @@ convert(msgType, <<"Z">>) ->
 convert(msgType, <<"a">>) -> 
     quoteStatusRequest;
 convert(msgType, <<"b">>) -> 
-    massQuoteAcknowledgement;
+    quoteAcknowledgement;
 convert(msgType, <<"c">>) -> 
     securityDefinitionRequest;
 convert(msgType, <<"d">>) -> 
@@ -1617,6 +1617,10 @@ getRecord(orderSingle)->
     #orderSingle{};
 getRecord(repeatingReg_orderList_73)->
     #repeatingReg_orderList_73{};
+getRecord(repeatingReg_repeatingReg_orderList_73_78)->
+    #repeatingReg_repeatingReg_orderList_73_78{};
+getRecord(repeatingReg_repeatingReg_orderList_73_386)->
+    #repeatingReg_repeatingReg_orderList_73_386{};
 getRecord(orderList)->
     #orderList{};
 getRecord(orderCancelRequest)->
@@ -1635,6 +1639,8 @@ getRecord(repeatingReg_allocation_124)->
     #repeatingReg_allocation_124{};
 getRecord(repeatingReg_allocation_78)->
     #repeatingReg_allocation_78{};
+getRecord(repeatingReg_repeatingReg_allocation_78_136)->
+    #repeatingReg_repeatingReg_allocation_78_136{};
 getRecord(allocation)->
     #allocation{};
 getRecord(listCancelRequest)->
@@ -1683,6 +1689,8 @@ getRecord(quoteStatusRequest)->
     #quoteStatusRequest{};
 getRecord(repeatingReg_quoteAcknowledgement_296)->
     #repeatingReg_quoteAcknowledgement_296{};
+getRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295)->
+    #repeatingReg_repeatingReg_quoteAcknowledgement_296_295{};
 getRecord(quoteAcknowledgement)->
     #quoteAcknowledgement{};
 getRecord(repeatingReg_securityDefinitionRequest_146)->
@@ -1703,6 +1711,8 @@ getRecord(tradingSessionStatus)->
     #tradingSessionStatus{};
 getRecord(repeatingReg_massQuote_296)->
     #repeatingReg_massQuote_296{};
+getRecord(repeatingReg_repeatingReg_massQuote_296_295)->
+    #repeatingReg_repeatingReg_massQuote_296_295{};
 getRecord(massQuote)->
     #massQuote{};
 getRecord(businessMessageReject)->
@@ -6777,7 +6787,7 @@ reconvert(msgType, quoteCancel) ->
     <<"Z">>;
 reconvert(msgType, quoteStatusRequest) -> 
     <<"a">>;
-reconvert(msgType, massQuoteAcknowledgement) -> 
+reconvert(msgType, quoteAcknowledgement) -> 
     <<"b">>;
 reconvert(msgType, securityDefinitionRequest) -> 
     <<"c">>;

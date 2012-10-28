@@ -198,7 +198,7 @@ convert(msgType, <<"B">>) ->
 convert(msgType, <<"C">>) -> 
     email;
 convert(msgType, <<"D">>) -> 
-    newOrderSingle;
+    orderSingle;
 convert(msgType, <<"E">>) -> 
     newOrderList;
 convert(msgType, <<"F">>) -> 
@@ -2313,7 +2313,7 @@ reconvert(msgType, news) ->
     <<"B">>;
 reconvert(msgType, email) -> 
     <<"C">>;
-reconvert(msgType, newOrderSingle) -> 
+reconvert(msgType, orderSingle) -> 
     <<"D">>;
 reconvert(msgType, newOrderList) -> 
     <<"E">>;

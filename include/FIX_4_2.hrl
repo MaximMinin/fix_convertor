@@ -48,7 +48,7 @@
 -type lastShares () :: qty.
 -type linesOfText () :: int.
 -type msgSeqNum () :: int.
--type msgType () :: heartbeat|testRequest|resendRequest|reject|sequenceReset|logout|iOI|advertisement|executionReport|orderCancelReject|logon|news|email|newOrderSingle|newOrderList|orderCancelRequest|orderCancelReplaceRequest|orderStatusRequest|allocationInstruction|listCancelRequest|listExecute|listStatusRequest|listStatus|allocationInstructionAck|dontKnowTrade|quoteRequest|quote|settlementInstructions|marketDataRequest|marketDataSnapshotFullRefresh|marketDataIncrementalRefresh|marketDataRequestReject|quoteCancel|quoteStatusRequest|quoteAcknowledgement|securityDefinitionRequest|securityDefinition|securityStatusRequest|securityStatus|tradingSessionStatusRequest|tradingSessionStatus|massQuote|businessMessageReject|bidRequest|bidResponse|listStrikePrice.
+-type msgType () :: heartbeat|testRequest|resendRequest|reject|sequenceReset|logout|iOI|advertisement|executionReport|orderCancelReject|logon|news|email|orderSingle|newOrderList|orderCancelRequest|orderCancelReplaceRequest|orderStatusRequest|allocationInstruction|listCancelRequest|listExecute|listStatusRequest|listStatus|allocationInstructionAck|dontKnowTrade|quoteRequest|quote|settlementInstructions|marketDataRequest|marketDataSnapshotFullRefresh|marketDataIncrementalRefresh|marketDataRequestReject|quoteCancel|quoteStatusRequest|quoteAcknowledgement|securityDefinitionRequest|securityDefinition|securityStatusRequest|securityStatus|tradingSessionStatusRequest|tradingSessionStatus|massQuote|businessMessageReject|bidRequest|bidResponse|listStrikePrice.
 -type newSeqNo () :: int.
 -type orderID () :: string.
 -type orderQty () :: qty.

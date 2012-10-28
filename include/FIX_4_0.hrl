@@ -38,7 +38,7 @@
 -type lastShares () :: int.
 -type linesOfText () :: int.
 -type msgSeqNum () :: int.
--type msgType () :: heartbeat|testRequest|resendRequest|reject|sequenceReset|logout|iOI|advertisement|executionReport|orderCancelReject|logon|news|email|newOrderSingle|newOrderList|orderCancelRequest|orderCancelReplaceRequest|orderStatusRequest|allocationInstruction|listCancelRequest|listExecute|listStatusRequest|listStatus|allocationInstructionAck|dontKnowTrade|quoteRequest|quote.
+-type msgType () :: heartbeat|testRequest|resendRequest|reject|sequenceReset|logout|iOI|advertisement|executionReport|orderCancelReject|logon|news|email|orderSingle|newOrderList|orderCancelRequest|orderCancelReplaceRequest|orderStatusRequest|allocationInstruction|listCancelRequest|listExecute|listStatusRequest|listStatus|allocationInstructionAck|dontKnowTrade|quoteRequest|quote.
 -type newSeqNo () :: int.
 -type orderID () :: char.
 -type orderQty () :: int.

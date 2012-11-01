@@ -10,11 +10,17 @@
 %%
 %% Exported Functions
 %%
--export([convert/2, reconvert/2, getMessageName/1, getRecord/1, getFieldName/1, getTagId/1, setFieldInRecord/4]).
+-export([convert/2, reconvert/2, getMessageName/1, getRecord/1, getFieldName/1, getTagId/1, setFieldInRecord/4, setMsgSeqNum/2]).
     
 %%
 %% API Functions
 %%
+
+setMsgSeqNum(Record, Num) ->
+    Header = erlang:element(2, Record),
+    NewHeader = Header#standardHeader{msgSeqNum = Num},
+    erlang:setelement(2, Record, NewHeader).
+
 convert(advSide, <<"B">>) -> 
     buy;
 convert(advSide, <<"S">>) -> 

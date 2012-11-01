@@ -10,7 +10,7 @@
 %%
 %% Exported Functions
 %%
--export([convertFixToRecord/2, convertRecordtoFix/2, format/2]).
+-export([convertFixToRecord/2, convertRecordtoFix/2, format/2, setMsgSeqNum/3]).
 
 %%
 %% API Functions
@@ -34,6 +34,11 @@ format(Record, FixVersion) ->
     RecordName = erlang:element(1, Record),
     Rec = Utils:getRecord(RecordName),
     convertToString(Utils, erlang:tuple_to_list(Record), erlang:tuple_to_list(Rec), []).
+
+setMsgSeqNum(Record, Num, FixVersion)->
+    Utils = erlang:list_to_atom(lists:concat([util_convert_to_record_, FixVersion])),
+    Utils:setMsgSeqNum(Record, Num).
+    
 
 convertToString(Utils, [Name|Record], [Name|Rec], ToReturn) when erlang:is_atom(Name)->
     convertToString(Utils, Record, Rec, ToReturn);

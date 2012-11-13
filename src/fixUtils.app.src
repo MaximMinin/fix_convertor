@@ -7,6 +7,5 @@
                   kernel,
                   stdlib
                  ]},
-  {mod, { fixUtils_app, []}},
   {env, []}
  ]}.

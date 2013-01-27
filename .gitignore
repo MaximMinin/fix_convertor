@@ -1,3 +1,4 @@
+rebar
 *.beam
 *.app
 lib/fixUtils/.eunit/*

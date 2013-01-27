@@ -10,202 +10,170 @@
 %%
 %% Exported Functions
 %%
--export([convertFixToRecord/2, convertRecordtoFix/2, format/2, setMsgSeqNum/3]).
+-export([convertFixToRecord/2, convertRecordToFix/2, format/2, setMsgSeqNum/3]).
 
 %%
 %% API Functions
 %%
 convertFixToRecord(Message, FixVersion) ->
-    Utils = erlang:list_to_atom(lists:concat([util_convert_to_record_, FixVersion])),
-    Fields = lists:map(fun(X)-> binary:split(X, <<"=">>) end, binary:split(Message, <<1>>, [global])),
-    {Recordname, FieldsList} = prepare(Utils, Fields, error, []),
-    Record = Utils:getRecord(Recordname), 
-    {RecordWithValues, _FieldsListsNew} = config(Utils, Recordname, Record, FieldsList),
-    RecordWithValues.
+    Utils = getUtilsFun(FixVersion),
+    Fields = lists:map(fun(X)-> case binary:split(X, <<"=">>) of
+                                     [Tag, Value] -> 
+                                        {Utils:getFieldName(Tag), Value};
+                                     _Else -> {nil,nil}
+                                end
+                       end, binary:split(Message, <<1>>, [global])),
+    {msgType, Type} = lists:keyfind(msgType,1,Fields),
+    Recordname = Utils:getMessageName(Type),
+    Record = Utils:getRecord(Recordname),
+    Def = tuple_to_list(Record),
+    {R, _} =convertFix2Record(Utils, Recordname, Record, Def, Fields),
+    R.
 
-convertRecordtoFix(Record, FixVersion) ->
-    Utils = erlang:list_to_atom(lists:concat([util_convert_to_record_, FixVersion])),
-    RecordName = erlang:element(1, Record),
+convertRecordToFix(Record, FixVersion) ->
+    Utils = getUtilsFun(FixVersion),
+    RecordName = element(1, Record),
     Rec = Utils:getRecord(RecordName),
-    convertToBinary(Utils, erlang:tuple_to_list(Record), erlang:tuple_to_list(Rec), <<>>).
+    Bin = convert2Binary(Utils, tuple_to_list(Record), tuple_to_list(Rec)),
+    completeBinary(Utils, Bin).
 
 format(Record, FixVersion) ->
-    Utils = erlang:list_to_atom(lists:concat([util_convert_to_record_, FixVersion])),
-    RecordName = erlang:element(1, Record),
+    Utils = getUtilsFun(FixVersion),
+    RecordName = element(1, Record),
     Rec = Utils:getRecord(RecordName),
-    convertToString(Utils, erlang:tuple_to_list(Record), erlang:tuple_to_list(Rec), []).
+    S = convertToString(Utils, tuple_to_list(Record), tuple_to_list(Rec)),
+    lists:sublist(S, length(S)-1).
 
 setMsgSeqNum(Record, Num, FixVersion)->
-    Utils = erlang:list_to_atom(lists:concat([util_convert_to_record_, FixVersion])),
+    Utils = getUtilsFun(FixVersion),
     Utils:setMsgSeqNum(Record, Num).
-    
-
-convertToString(Utils, [Name|Record], [Name|Rec], ToReturn) when erlang:is_atom(Name)->
-    convertToString(Utils, Record, Rec, ToReturn);
-convertToString(Utils, [undefined|Vals], [_N|Names], ToReturn) ->
-    convertToString(Utils, Vals, Names, ToReturn);
-convertToString(Utils, [Value|Record], [Fieldname|Rec], ToReturn) when erlang:is_atom(Fieldname) and erlang:is_float(Value)->
-    String = lists:concat(["|", Fieldname, " = ", io_lib:format("~.6f",[Value])]),
-    convertToString(Utils, Record, Rec, [String|ToReturn]);
-convertToString(Utils, [Value|Record], [Fieldname|Rec], ToReturn) when erlang:is_atom(Fieldname) and erlang:is_integer(Value)->
-    String = lists:concat(["|", Fieldname, " = ", erlang:integer_to_list(Value)]),
-    convertToString(Utils, Record, Rec, [String|ToReturn]);
-convertToString(Utils, [Value|Record], [Fieldname|Rec], ToReturn) when erlang:is_atom(Fieldname) and erlang:is_atom(Value) ->
-    String = lists:concat(["|", Fieldname, " = ",  Value]),
-    convertToString(Utils, Record, Rec, [String|ToReturn]);
-convertToString(Utils, [Value|Record], [Fieldname|Rec], ToReturn) when erlang:is_atom(Fieldname) and erlang:is_binary(Value) ->
-    String = lists:concat(["|", Fieldname, " = ",erlang:binary_to_list(Value)]),
-    convertToString(Utils, Record, Rec, [String|ToReturn]);
-convertToString(Utils, [Value|Record], [Field|Rec], ToReturn) when erlang:is_tuple(Field)->
-    String = convertToString(Utils, erlang:tuple_to_list(Value), erlang:tuple_to_list(Field), ToReturn),
-    convertToString(Utils, Record, Rec, [String|ToReturn]);
-convertToString(Utils, [Value|Record], [Field|Rec], ToReturn) when erlang:is_list(Field)->
-    [F] =  Field, 
-    L = lists:map(fun(R) ->  convertToString(Utils, 
-                                             erlang:tuple_to_list(R), 
-                                             erlang:tuple_to_list(F), 
-                                             []) end, 
-                  Value),
-   String = case L == []  of
-        false ->
-            [lists:concat(["|", erlang:element(1, F), " = ", erlang:integer_to_list(erlang:length(Value)), "|"])|L];
-        true ->
-            ""
-    end,
-    convertToString(Utils, Record, Rec, [String|ToReturn]);
-convertToString(_Utils, [], _Rec, ToReturn) ->
-    lists:reverse(ToReturn).
 
 %%
 %% Local Functions
 %%
-convertToBinary(Utils, [_auto|Record], [bodyLength|Rec], Bin) ->
-    convertToBinary(Utils, Record, Rec, Bin);
-convertToBinary(Utils, [_auto|Record], [beginString|Rec], Bin) ->
-    convertToBinary(Utils, Record, Rec, Bin);
-convertToBinary(Utils, [_auto|Record], [checkSum|Rec], B) ->
+getUtilsFun(FixVersion) ->
+    list_to_atom(lists:concat([util_convert_to_record_, FixVersion])).
+    
+convertToString(Utils, Record, Def) ->
+lists:flatten([convert2String(Utils, N, V) || 
+               {V, N}  <- lists:zip(Record, Def), 
+                          V =/= N, V =/= undefined]).
+
+convert2String(Utils, Name, Value) ->
+     case get_type(Name) of
+         atom -> 
+                case get_type(Value) of
+                    float -> lists:concat([Name, "=", io_lib:format("~.6f",[Value]), ","]);
+                    integer -> lists:concat([Name, "=", integer_to_list(Value), ","]);
+                    binary -> lists:concat([Name, "=",binary_to_list(Value), ","]);
+                    atom -> lists:concat([Name, "=",Value, ","])
+                end;
+         tuple ->
+                convertToString(Utils, tuple_to_list(Value), tuple_to_list(Name));
+         list ->
+                [Def] =  Name, 
+                T = lists:flatten(lists:map(fun(Rec) ->  convertToString(Utils, 
+                                                     tuple_to_list(Rec), 
+                                                     tuple_to_list(Def)) end, Value)),
+                lists:concat([element(1, Def), "=[",lists:sublist(T, length(T)-1),"],"])
+     end.                         
+ 
+get_type(V) when is_atom(V) -> atom;
+get_type(V) when is_float(V) -> float;
+get_type(V) when is_tuple(V) -> tuple;
+get_type(V) when is_list(V) -> list; 
+get_type(V) when is_binary(V) -> binary;
+get_type(V) when is_integer(V) -> integer;
+get_type(V) -> io:format("ERROR:~p~n", [V]).
+
+convert2Binary(Utils, Record, Def)->
+    L=lists:flatten([convert2Binary_2(Utils, N, V) || 
+                         {V, N}  <- lists:zip(Record, Def),
+                                    N =/= bodyLength,
+                                    N =/= beginString,
+                                    N =/= checkSum,
+                                    V =/= undefined,
+                                    V =/= N]),
+    erlang:list_to_bitstring(L).
+
+convert2Binary_2(Utils, Def, Value)->
+     case get_type(Def) of
+         atom -> 
+                case get_type(Value) of
+                    float -> [Utils:getTagId(Def), "=", io_lib:format("~.6f",[Value]), 1];
+                    integer -> [Utils:getTagId(Def), "=", integer_to_list(Value), 1];
+                    binary -> [Utils:getTagId(Def), "=", Value, 1];
+                    atom -> [Utils:getTagId(Def), "=",Utils:reconvert(Def, Value), 1]
+                end;
+         tuple -> convert2Binary(Utils, tuple_to_list(Value), tuple_to_list(Def));
+         list ->
+                [NewDef] =  Def, 
+                T = lists:flatten(lists:map(fun(Rec) ->  convert2Binary(Utils, 
+                                                     tuple_to_list(Rec), 
+                                                     tuple_to_list(NewDef)) end, Value)),
+                case T of
+                    [<<>>] -> [];
+                    _Else -> io:format("REP:~w~n", [T]),
+                        TagAsBin = atom_to_binary(element(1, NewDef), utf8),
+                        [TagId|_] = lists:reverse(binary:split(TagAsBin, <<"_">>, [global])),
+                        [TagId, "=", integer_to_list(length(Value)), 1, T]
+                end
+     end.                         
+
+completeBinary(Utils, B) ->
     BodyLengthTag = Utils:getTagId(bodyLength),
-    BodyLength = erlang:list_to_binary(erlang:integer_to_list(erlang:length(erlang:binary_to_list(B)))),
+    BodyLength = integer_to_list(byte_size(B)),
     BeginStringTag = Utils:getTagId(beginString),
-    Version  = lists:map(fun(X) -> case X == 95 of
-                                       true -> 46;
+    Version  = lists:map(fun(X) -> case X == $_ of
+                                       true -> $.;
                                        false -> X end end, 
-                                   string:sub_string(erlang:atom_to_list(Utils), 24)),
-    Bin = erlang:list_to_binary([BeginStringTag, <<"=">>, Version, 1, BodyLengthTag, <<"=">>, BodyLength, 1, B]),
+                                   string:sub_string(atom_to_list(Utils), 24)),
+    Bin = list_to_bitstring([BeginStringTag, <<"=">>, Version, 1, 
+                             BodyLengthTag, <<"=">>, BodyLength, 1, B]),
     C = lists:sum(erlang:binary_to_list(Bin)) rem 256,
+    Checksum =
     case C >= 100 of
-        true ->
-            Checksum = erlang:integer_to_list(C);
+        true -> integer_to_list(C);
         false ->
             case C >= 10 of
-                true ->
-                    Checksum = lists:concat(["0", C]);
-                false ->
-                    Checksum = lists:concat(["00", C])
+                true -> lists:concat(["0", C]);
+                false -> lists:concat(["00", C])
             end
     end,
-    convertToBinary(Utils, 
-                    Record, 
-                    Rec, 
-                    erlang:list_to_binary([Bin, 
-                                           Utils:getTagId(checkSum), 
-                                           <<"=">>, 
-                                            Checksum,
-                                            1
-                                            ]));
-convertToBinary(Utils, [Name|Record], [Name|Rec], Bin) when erlang:is_atom(Name)->
-    convertToBinary(Utils, Record, Rec, Bin);
-convertToBinary(Utils, [undefined|Record], [Fieldname|Rec], Bin) when erlang:is_atom(Fieldname)->
-    convertToBinary(Utils, Record, Rec, Bin);
-convertToBinary(Utils, [Value|Record], [Fieldname|Rec], Bin) when erlang:is_atom(Fieldname) and erlang:is_float(Value)->
-    Bin_1 = erlang:list_to_binary([Bin, Utils:getTagId(Fieldname), <<"=">>, erlang:list_to_binary(io_lib:format("~.6f",[Value])), 1]),
-    convertToBinary(Utils, Record, Rec, Bin_1);
-convertToBinary(Utils, [Value|Record], [Fieldname|Rec], Bin) when erlang:is_atom(Fieldname) and erlang:is_integer(Value)->
-    Bin_1 = erlang:list_to_binary([Bin, Utils:getTagId(Fieldname), <<"=">>, erlang:list_to_binary(erlang:integer_to_list(Value)), 1]),
-    convertToBinary(Utils, Record, Rec, Bin_1);
-convertToBinary(Utils, [Value|Record], [Fieldname|Rec], Bin) when erlang:is_atom(Fieldname) ->
-    Bin_1 = erlang:list_to_binary([Bin, Utils:getTagId(Fieldname), <<"=">>, Utils:reconvert(Fieldname, Value), 1]),
-    convertToBinary(Utils, Record, Rec, Bin_1);
-convertToBinary(Utils, [Value|Record], [Fieldname|Rec], Bin) when erlang:is_atom(Fieldname)->
-    Bin_1 = erlang:list_to_binary([Bin, Utils:getTagId(Fieldname), <<"=">>, Value, 1]),
-    convertToBinary(Utils, Record, Rec, Bin_1);
-convertToBinary(Utils, [Value|Record], [Field|Rec], Bin) when erlang:is_tuple(Field)->
-    Bin_1 = convertToBinary(Utils, erlang:tuple_to_list(Value), erlang:tuple_to_list(Field), Bin),
-    convertToBinary(Utils, Record, Rec, Bin_1);
-convertToBinary(Utils, [Value|Record], [Field|Rec], Bin) when erlang:is_list(Field)->
-    [F] =  Field, 
-    L = lists:map(fun(R) ->  convertToBinary(Utils, 
-                                             erlang:tuple_to_list(R), 
-                                             erlang:tuple_to_list(F), 
-                                             <<>>) end, 
-                  Value),
-    case L == [<<>>]  of
-        false ->
-            [TagId|_] = lists:reverse(binary:split(erlang:atom_to_binary(erlang:element(1, F), utf8), <<"_">>, [global])),
-            Bin_1 = erlang:list_to_binary([Bin, TagId, <<"=">>, erlang:integer_to_list(erlang:length(Value)), 1, L]);
-        true ->
-            Bin_1 = Bin
-    end,
-    convertToBinary(Utils, Record, Rec, Bin_1);
-convertToBinary(_Utils, [], _Rec, Bin) ->
-    Bin.
+    list_to_bitstring([Bin, Utils:getTagId(checkSum), <<"=">>, Checksum, 1]).
 
-prepare(Mod, [[<<"35">>, Recordtype] |Fields], _, FieldsList) ->
-    prepare(Mod, Fields, Mod:getMessageName(Recordtype), [{Mod:getFieldName(<<"35">>), Recordtype}|FieldsList]);
-prepare(Mod, [[F, V] |Fields], Recordname, FieldsList) ->
-    prepare(Mod, Fields, Recordname, [{Mod:getFieldName(F), V}|FieldsList]);
-prepare(_Mod, [[<<>>]], Recordname, FieldsList) -> {Recordname, lists:reverse(FieldsList)};
-prepare(_Mod, [], Recordname, FieldsList) -> {Recordname, lists:reverse(FieldsList)}. 
-
-config (Utils, RecordName, Record, FieldsList) ->
-    Rec = erlang:tuple_to_list(Record),
-    {Fields, Components, RepeatingGroups} = sort(Rec, {[],[],[]}),
-    {Record_1, FieldsList_1} = setFields(Utils, Record, RecordName, FieldsList, Fields),
-    {Record_2, FieldsList_2} = configComponents(Utils, RecordName, Record_1, FieldsList_1, Components),
-    configRepeatingGroups(Utils, RecordName, Record_2, FieldsList_2, RepeatingGroups, [], error).
-
-configComponents(Utils, ParentRecordName, ParentRecord, FieldsList, [C|Comp]) ->
-    RecordName = erlang:element(1, C),
-    Record = Utils:getRecord(RecordName),
-    {Record_1, FieldsList_1} = config(Utils, RecordName, Record, FieldsList),
-    ParentRecord_1 = Utils:setFieldInRecord(ParentRecordName, RecordName, ParentRecord, Record_1),
-    configComponents (Utils, ParentRecordName, ParentRecord_1, FieldsList_1, Comp);
-configComponents(_Utils, _ParentRecordName, ParentRecord, FieldsList, []) ->
-    {ParentRecord, FieldsList}.
-
-configRepeatingGroups(_Utils, _ParentRecordName, ParentRecord, FieldsList, [], [], error) -> {ParentRecord, FieldsList};
-configRepeatingGroups(Utils, ParentRecordName, ParentRecord, FieldsList, [], [], RecordName) ->
-    {Record_1, FieldsList} = config(Utils, RecordName, Utils:getRecord(RecordName), FieldsList),
-    ParentRecord_1 = Utils:setFieldInRecord(ParentRecordName, RecordName, ParentRecord, [Record_1]),
-    {ParentRecord_1, FieldsList};
-configRepeatingGroups(Utils, ParentRecordName, ParentRecord, FieldsList, [], RepeatingRecords, RecordName) ->
-    ParentRecord_1 = Utils:setFieldInRecord(ParentRecordName, RecordName, ParentRecord, lists:reverse(RepeatingRecords)),
-    {ParentRecord_1, FieldsList};
-configRepeatingGroups(Utils, ParentRecordName, ParentRecord, FieldsList, RepeatingGroups, RepeatingRecords, _) ->
-    [R|Rep] = RepeatingGroups,
-    RecordName = erlang:element(1, R),
-    Record = Utils:getRecord(RecordName),
-    {Record_1, FieldsList_1} = config(Utils, RecordName, Record, FieldsList),
-    case FieldsList_1 == FieldsList of
-        true ->
-            configRepeatingGroups (Utils, ParentRecordName, ParentRecord, FieldsList_1, Rep, RepeatingRecords, RecordName);
-        false ->
-            configRepeatingGroups (Utils, ParentRecordName, ParentRecord, FieldsList_1, RepeatingGroups, [Record_1|RepeatingRecords], RecordName)
-    end.
-    
-setFields(Utils, Rec, RecName, List, [RecName|Fields]) -> setFields(Utils, Rec, RecName, List, Fields);
-setFields(Utils, Rec, RecName, List, [F|Fields]) ->
-    case lists:keyfind(F, 1, List) of
-        false ->
-            setFields(Utils, Utils:setFieldInRecord(RecName, F, Rec, undefined), RecName, List, Fields);
+convertFix2Record(Utils, Recordname, Record, [F|Def], Fields) when is_atom(F) ->
+    {NewRecord, NewFields} = case lists:keyfind(F, 1, Fields) of
         {F, Value} ->
-            setFields(Utils, Utils:setFieldInRecord(RecName, F, Rec, Utils:convert(F, Value)), RecName, lists:keydelete(F, 1, List), Fields)
-    end;
-setFields(_Utils, Rec, _RecName, List, [] )-> {Rec, List}.
+            {Utils:setFieldInRecord(Recordname, F, Record, Utils:convert(F, Value)),
+             lists:keydelete(F,1,Fields)};
+        false ->
+            {case Utils:setFieldInRecord(Recordname, F, Record, undefined) of
+                error -> Record;
+                R -> R end, Fields}
+    end,
+    convertFix2Record(Utils, Recordname, NewRecord, Def,  NewFields);
+convertFix2Record(Utils, Recordname, Record, [F|Def], Fields) when is_tuple(F) ->
+    Tag = element(1,F),
+    {R, NewFields} = convertFix2Record(Utils, Tag, F, tuple_to_list(F), Fields),
+    NewRecord = Utils:setFieldInRecord(Recordname, Tag, Record, R), 
+    convertFix2Record(Utils, Recordname, NewRecord, Def, NewFields);
+convertFix2Record(Utils, Recordname, Record, [F|Def], Fields) when is_list(F)->
+    [RG] = F,
+    Tag = element(1,RG),
+    R = convertRepeatingGroup(Utils, Tag, RG, Fields, []),
+    NewRecord = Utils:setFieldInRecord(Recordname, Tag, Record, R), 
+    convertFix2Record(Utils, Recordname, NewRecord, Def, Fields);
+convertFix2Record(Utils, Recordname, Record, [], Fields) ->
+    {Record, Fields}.
 
-sort([F|Rec], {Fields, Comp, Repeatings}) when erlang:is_atom(F) -> sort(Rec, {[F|Fields], Comp, Repeatings});
-sort([F|Rec], {Fields, Comp, Repeatings}) when erlang:is_tuple(F) -> sort(Rec, {Fields, [F|Comp], Repeatings});
-sort([F|Rec], {Fields, Comp, Repeatings}) when erlang:is_list(F) ->
-    [R] = F,
-    sort(Rec, {Fields, Comp, [R|Repeatings]});
-sort([], ToReturn) -> ToReturn. 
+convertRepeatingGroup(Utils, Recordname, Def, Fields, ToReturn)->
+    case convertFix2Record(Utils, Recordname, Def, tuple_to_list(Def), Fields) of
+        {Record, Fields}  -> 
+            case ToReturn of
+                [] -> {R,_}=convertFix2Record(Utils, Recordname, Def, tuple_to_list(Def), []),
+                    [R];
+                _Else -> lists:reverse(ToReturn)
+            end;
+        {Record, NewFields} -> convertRepeatingGroup(Utils, Recordname, Def, NewFields, [Record|ToReturn])
+    end.

@@ -5,12 +5,12 @@
 %%
 %% Include files
 %%
--include("util_FIXT_1_1.hrl").
+-include("FIXT_1_1.hrl").
     
 %%
 %% Exported Functions
 %%
--export([convert/2, reconvert/2, getMessageName/1, getRecord/1, getFieldName/1, getTagId/1, setFieldInRecord/4, setMsgSeqNum/2]).
+-export([convert/2, reconvert/2, getMessageName/1, getRecord/1, getFieldName/1, getTagId/1, setFieldInRecord/4, setMsgSeqNum/2, get_record_def/1]).
     
 %%
 %% API Functions
@@ -181,6 +181,35 @@ convert(sessionStatus, <<"8">>) ->
     passwordExpired;
 convert(_Name, Bin) ->
     Bin.
+get_record_def(standardTrailer) -> 
+    [standardTrailer, signatureLength, signature, checkSum];
+get_record_def(repeatingReg_hopGrp_627) -> 
+    [repeatingReg_hopGrp_627, hopCompID, hopSendingTime, hopRefID];
+get_record_def(hopGrp) -> 
+    [hopGrp, [[repeatingReg_hopGrp_627]]];
+get_record_def(msgTypeGrp) -> 
+    [msgTypeGrp, any];
+get_record_def(standardHeader) -> 
+    [standardHeader, beginString, bodyLength, msgType, applVerID, applExtID, cstmApplVerID, senderCompID, targetCompID, onBehalfOfCompID, deliverToCompID, secureDataLen, secureData, msgSeqNum, senderSubID, senderLocationID, targetSubID, targetLocationID, onBehalfOfSubID, onBehalfOfLocationID, deliverToSubID, deliverToLocationID, possDupFlag, possResend, sendingTime, origSendingTime, xmlDataLen, xmlData, messageEncoding, lastMsgSeqNumProcessed, [hopGrp]];
+get_record_def(heartbeat) -> 
+    [heartbeat, [standardHeader], testReqID, [standardTrailer]];
+get_record_def(testRequest) -> 
+    [testRequest, [standardHeader], testReqID, [standardTrailer]];
+get_record_def(resendRequest) -> 
+    [resendRequest, [standardHeader], beginSeqNo, endSeqNo, [standardTrailer]];
+get_record_def(reject) -> 
+    [reject, [standardHeader], refSeqNum, refTagID, refMsgType, refApplVerID, refApplExtID, refCstmApplVerID, sessionRejectReason, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(sequenceReset) -> 
+    [sequenceReset, [standardHeader], gapFillFlag, newSeqNo, [standardTrailer]];
+get_record_def(logout) -> 
+    [logout, [standardHeader], sessionStatus, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(logon) -> 
+    [logon, [standardHeader], encryptMethod, heartBtInt, rawDataLength, rawData, resetSeqNumFlag, nextExpectedMsgSeqNum, maxMessageSize, [msgTypeGrp], testMessageIndicator, username, password, newPassword, encryptedPasswordMethod, encryptedPasswordLen, encryptedPassword, encryptedNewPasswordLen, encryptedNewPassword, sessionStatus, defaultApplVerID, defaultApplExtID, defaultCstmApplVerID, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(xMLnonFIX) -> 
+    [xMLnonFIX, any];
+get_record_def(_Else) -> 
+    error.
+
 getRecord(standardTrailer)->
     #standardTrailer{};
 getRecord(repeatingReg_hopGrp_627)->

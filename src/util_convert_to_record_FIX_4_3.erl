@@ -5,12 +5,12 @@
 %%
 %% Include files
 %%
--include("util_FIX_4_3.hrl").
+-include("FIX_4_3.hrl").
     
 %%
 %% Exported Functions
 %%
--export([convert/2, reconvert/2, getMessageName/1, getRecord/1, getFieldName/1, getTagId/1, setFieldInRecord/4, setMsgSeqNum/2]).
+-export([convert/2, reconvert/2, getMessageName/1, getRecord/1, getFieldName/1, getTagId/1, setFieldInRecord/4, setMsgSeqNum/2, get_record_def/1]).
     
 %%
 %% API Functions
@@ -2833,6 +2833,321 @@ convert(quoteRequestRejectReason, <<"6">>) ->
     notAuthorizedToRequestQuote;
 convert(_Name, Bin) ->
     Bin.
+get_record_def(commissionData) -> 
+    [commissionData, commission, commType, commCurrency, fundRenewWaiv];
+get_record_def(repeatingReg_instrument_454) -> 
+    [repeatingReg_instrument_454, securityAltID, securityAltIDSource];
+get_record_def(instrument) -> 
+    [instrument, symbol, symbolSfx, securityID, securityIDSource, [[repeatingReg_instrument_454]], produkt, cFICode, securityType, maturityMonthYear, maturityDate, couponPaymentDate, issueDate, repoCollateralSecurityType, repurchaseTerm, repurchaseRate, factor, creditRating, instrRegistry, countryOfIssue, stateOrProvinceOfIssue, localeOfIssue, redemptionDate, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc];
+get_record_def(repeatingReg_instrumentLeg_604) -> 
+    [repeatingReg_instrumentLeg_604, legSecurityAltID, legSecurityAltIDSource];
+get_record_def(instrumentLeg) -> 
+    [instrumentLeg, legSymbol, legSymbolSfx, legSecurityID, legSecurityIDSource, [[repeatingReg_instrumentLeg_604]], legProduct, legCFICode, legSecurityType, legMaturityMonthYear, legMaturityDate, legCouponPaymentDate, legIssueDate, legRepoCollateralSecurityType, legRepurchaseTerm, legRepurchaseRate, legFactor, legCreditRating, legInstrRegistry, legCountryOfIssue, legStateOrProvinceOfIssue, legLocaleOfIssue, legRedemptionDate, legStrikePrice, legOptAttribute, legContractMultiplier, legCouponRate, legSecurityExchange, legIssuer, encodedLegIssuerLen, encodedLegIssuer, legSecurityDesc, encodedLegSecurityDescLen, encodedLegSecurityDesc, legRatioQty, legSide];
+get_record_def(repeatingReg_nestedParties_539) -> 
+    [repeatingReg_nestedParties_539, nestedPartyID, nestedPartyIDSource, nestedPartyRole, nestedPartySubID];
+get_record_def(nestedParties) -> 
+    [nestedParties, [[repeatingReg_nestedParties_539]]];
+get_record_def(orderQtyData) -> 
+    [orderQtyData, orderQty, cashOrderQty, orderPercent, roundingDirection, roundingModulus];
+get_record_def(repeatingReg_parties_453) -> 
+    [repeatingReg_parties_453, partyID, partyIDSource, partyRole, partySubID];
+get_record_def(parties) -> 
+    [parties, [[repeatingReg_parties_453]]];
+get_record_def(spreadOrBenchmarkCurveData) -> 
+    [spreadOrBenchmarkCurveData, spread, benchmarkCurveCurrency, benchmarkCurveName, benchmarkCurvePoint];
+get_record_def(repeatingReg_stipulations_232) -> 
+    [repeatingReg_stipulations_232, stipulationType, stipulationValue];
+get_record_def(stipulations) -> 
+    [stipulations, [[repeatingReg_stipulations_232]]];
+get_record_def(repeatingReg_underlyingInstrument_457) -> 
+    [repeatingReg_underlyingInstrument_457, underlyingSecurityAltID, underlyingSecurityAltIDSource];
+get_record_def(underlyingInstrument) -> 
+    [underlyingInstrument, underlyingSymbol, underlyingSymbolSfx, underlyingSecurityID, underlyingSecurityIDSource, [[repeatingReg_underlyingInstrument_457]], underlyingProduct, underlyingCFICode, underlyingSecurityType, underlyingMaturityMonthYear, underlyingMaturityDate, underlyingPutOrCall, underlyingCouponPaymentDate, underlyingIssueDate, underlyingRepoCollateralSecurityType, underlyingRepurchaseTerm, underlyingRepurchaseRate, underlyingFactor, underlyingCreditRating, underlyingInstrRegistry, underlyingCountryOfIssue, underlyingStateOrProvinceOfIssue, underlyingLocaleOfIssue, underlyingRedemptionDate, underlyingStrikePrice, underlyingOptAttribute, underlyingContractMultiplier, underlyingCouponRate, underlyingSecurityExchange, underlyingIssuer, encodedUnderlyingIssuerLen, encodedUnderlyingIssuer, underlyingSecurityDesc, encodedUnderlyingSecurityDescLen, encodedUnderlyingSecurityDesc];
+get_record_def(yieldData) -> 
+    [yieldData, yieldType, yield];
+get_record_def(repeatingReg_standardHeader_627) -> 
+    [repeatingReg_standardHeader_627, hopCompID, hopSendingTime, hopRefID];
+get_record_def(standardHeader) -> 
+    [standardHeader, beginString, bodyLength, msgType, senderCompID, targetCompID, onBehalfOfCompID, deliverToCompID, secureDataLen, secureData, msgSeqNum, senderSubID, senderLocationID, targetSubID, targetLocationID, onBehalfOfSubID, onBehalfOfLocationID, deliverToSubID, deliverToLocationID, possDupFlag, possResend, sendingTime, origSendingTime, xmlDataLen, xmlData, messageEncoding, lastMsgSeqNumProcessed, onBehalfOfSendingTime, [[repeatingReg_standardHeader_627]]];
+get_record_def(standardTrailer) -> 
+    [standardTrailer, signatureLength, signature, checkSum];
+get_record_def(heartbeat) -> 
+    [heartbeat, [standardHeader], testReqID, [standardTrailer]];
+get_record_def(testRequest) -> 
+    [testRequest, [standardHeader], testReqID, [standardTrailer]];
+get_record_def(resendRequest) -> 
+    [resendRequest, [standardHeader], beginSeqNo, endSeqNo, [standardTrailer]];
+get_record_def(reject) -> 
+    [reject, [standardHeader], refSeqNum, refTagID, refMsgType, sessionRejectReason, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(sequenceReset) -> 
+    [sequenceReset, [standardHeader], gapFillFlag, newSeqNo, [standardTrailer]];
+get_record_def(logout) -> 
+    [logout, [standardHeader], text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(repeatingReg_iOI_199) -> 
+    [repeatingReg_iOI_199, iOIQualifier];
+get_record_def(repeatingReg_iOI_215) -> 
+    [repeatingReg_iOI_215, routingType, routingID];
+get_record_def(iOI) -> 
+    [iOI, [standardHeader], iOIid, iOITransType, iOIRefID, [instrument], side, quantityType, iOIQty, priceType, price, currency, validUntilTime, iOIQltyInd, iOINaturalFlag, [[repeatingReg_iOI_199]], text, encodedTextLen, encodedText, transactTime, uRLLink, [[repeatingReg_iOI_215]], [spreadOrBenchmarkCurveData], benchmark, [standardTrailer]];
+get_record_def(advertisement) -> 
+    [advertisement, [standardHeader], advId, advTransType, advRefID, [instrument], advSide, quantity, price, currency, tradeDate, transactTime, text, encodedTextLen, encodedText, uRLLink, lastMkt, tradingSessionID, tradingSessionSubID, [standardTrailer]];
+get_record_def(repeatingReg_executionReport_382) -> 
+    [repeatingReg_executionReport_382, contraBroker, contraTrader, contraTradeQty, contraTradeTime, contraLegRefID];
+get_record_def(repeatingReg_executionReport_518) -> 
+    [repeatingReg_executionReport_518, contAmtType, contAmtValue, contAmtCurr];
+get_record_def(repeatingReg_executionReport_555) -> 
+    [repeatingReg_executionReport_555, [instrumentLeg], legPositionEffect, legCoveredOrUncovered, [nestedParties], legRefID, legPrice, legSettlmntTyp, legFutSettDate, legLastPx];
+get_record_def(executionReport) -> 
+    [executionReport, [standardHeader], orderID, secondaryOrderID, secondaryClOrdID, secondaryExecID, clOrdID, origClOrdID, clOrdLinkID, [parties], tradeOriginationDate, [[repeatingReg_executionReport_382]], listID, crossID, origCrossID, crossType, execID, execRefID, execType, ordStatus, workingIndicator, ordRejReason, execRestatementReason, account, accountType, dayBookingInst, bookingUnit, preallocMethod, settlmntTyp, futSettDate, cashMargin, clearingFeeIndicator, [instrument], side, [stipulations], quantityType, [orderQtyData], ordType, priceType, price, stopPx, pegDifference, discretionInst, discretionOffset, currency, complianceID, solicitedFlag, timeInForce, effectiveTime, expireDate, expireTime, execInst, orderCapacity, orderRestrictions, custOrderCapacity, rule80A, lastQty, underlyingLastQty, lastPx, underlyingLastPx, lastSpotRate, lastForwardPoints, lastMkt, tradingSessionID, tradingSessionSubID, lastCapacity, leavesQty, cumQty, avgPx, dayOrderQty, dayCumQty, dayAvgPx, gTBookingInst, tradeDate, transactTime, reportToExch, [commissionData], [spreadOrBenchmarkCurveData], [yieldData], grossTradeAmt, numDaysInterest, exDate, accruedInterestRate, accruedInterestAmt, tradedFlatSwitch, basisFeatureDate, basisFeaturePrice, concession, totalTakedown, netMoney, settlCurrAmt, settlCurrency, settlCurrFxRate, settlCurrFxRateCalc, handlInst, minQty, maxFloor, positionEffect, maxShow, text, encodedTextLen, encodedText, futSettDate2, orderQty2, lastForwardPoints2, multiLegReportingType, cancellationRights, moneyLaunderingStatus, registID, designation, transBkdTime, execValuationPoint, execPriceType, execPriceAdjustment, priorityIndicator, priceImprovement, [[repeatingReg_executionReport_518]], [[repeatingReg_executionReport_555]], [standardTrailer]];
+get_record_def(orderCancelReject) -> 
+    [orderCancelReject, [standardHeader], orderID, secondaryOrderID, secondaryClOrdID, clOrdID, clOrdLinkID, origClOrdID, ordStatus, workingIndicator, origOrdModTime, listID, account, accountType, tradeOriginationDate, transactTime, cxlRejResponseTo, cxlRejReason, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(repeatingReg_logon_384) -> 
+    [repeatingReg_logon_384, refMsgType, msgDirection];
+get_record_def(logon) -> 
+    [logon, [standardHeader], encryptMethod, heartBtInt, rawDataLength, rawData, resetSeqNumFlag, maxMessageSize, [[repeatingReg_logon_384]], testMessageIndicator, username, password, [standardTrailer]];
+get_record_def(repeatingReg_news_215) -> 
+    [repeatingReg_news_215, routingType, routingID];
+get_record_def(repeatingReg_news_146) -> 
+    [repeatingReg_news_146, [instrument]];
+get_record_def(repeatingReg_news_33) -> 
+    [repeatingReg_news_33, text, encodedTextLen, encodedText];
+get_record_def(news) -> 
+    [news, [standardHeader], origTime, urgency, headline, encodedHeadlineLen, encodedHeadline, [[repeatingReg_news_215]], [[repeatingReg_news_146]], [[repeatingReg_news_33]], uRLLink, rawDataLength, rawData, [standardTrailer]];
+get_record_def(repeatingReg_email_215) -> 
+    [repeatingReg_email_215, routingType, routingID];
+get_record_def(repeatingReg_email_146) -> 
+    [repeatingReg_email_146, [instrument]];
+get_record_def(repeatingReg_email_33) -> 
+    [repeatingReg_email_33, text, encodedTextLen, encodedText];
+get_record_def(email) -> 
+    [email, [standardHeader], emailThreadID, emailType, origTime, subject, encodedSubjectLen, encodedSubject, [[repeatingReg_email_215]], [[repeatingReg_email_146]], orderID, clOrdID, [[repeatingReg_email_33]], rawDataLength, rawData, [standardTrailer]];
+get_record_def(repeatingReg_newOrderSingle_78) -> 
+    [repeatingReg_newOrderSingle_78, allocAccount, individualAllocID, [nestedParties], allocQty];
+get_record_def(repeatingReg_newOrderSingle_386) -> 
+    [repeatingReg_newOrderSingle_386, tradingSessionID, tradingSessionSubID];
+get_record_def(newOrderSingle) -> 
+    [newOrderSingle, [standardHeader], clOrdID, secondaryClOrdID, clOrdLinkID, [parties], tradeOriginationDate, account, accountType, dayBookingInst, bookingUnit, preallocMethod, [[repeatingReg_newOrderSingle_78]], settlmntTyp, futSettDate, cashMargin, clearingFeeIndicator, handlInst, execInst, minQty, maxFloor, exDestination, [[repeatingReg_newOrderSingle_386]], processCode, [instrument], prevClosePx, side, locateReqd, transactTime, [stipulations], quantityType, [orderQtyData], ordType, priceType, price, stopPx, [spreadOrBenchmarkCurveData], [yieldData], currency, complianceID, solicitedFlag, iOIid, quoteID, timeInForce, effectiveTime, expireDate, expireTime, gTBookingInst, [commissionData], orderCapacity, orderRestrictions, custOrderCapacity, rule80A, forexReq, settlCurrency, text, encodedTextLen, encodedText, futSettDate2, orderQty2, price2, positionEffect, coveredOrUncovered, maxShow, pegDifference, discretionInst, discretionOffset, cancellationRights, moneyLaunderingStatus, registID, designation, accruedInterestRate, accruedInterestAmt, netMoney, [standardTrailer]];
+get_record_def(repeatingReg_repeatingReg_newOrderList_73_78) -> 
+    [repeatingReg_repeatingReg_newOrderList_73_78, allocAccount, individualAllocID, [nestedParties], allocQty];
+get_record_def(repeatingReg_repeatingReg_newOrderList_73_386) -> 
+    [repeatingReg_repeatingReg_newOrderList_73_386, tradingSessionID, tradingSessionSubID];
+get_record_def(repeatingReg_newOrderList_73) -> 
+    [repeatingReg_newOrderList_73, clOrdID, secondaryClOrdID, listSeqNo, clOrdLinkID, settlInstMode, [parties], tradeOriginationDate, account, accountType, dayBookingInst, bookingUnit, preallocMethod, [[repeatingReg_repeatingReg_newOrderList_73_78]], settlmntTyp, futSettDate, cashMargin, clearingFeeIndicator, handlInst, execInst, minQty, maxFloor, exDestination, [[repeatingReg_repeatingReg_newOrderList_73_386]], processCode, [instrument], prevClosePx, side, sideValueInd, locateReqd, transactTime, [stipulations], quantityType, [orderQtyData], ordType, priceType, price, stopPx, [spreadOrBenchmarkCurveData], [yieldData], currency, complianceID, solicitedFlag, iOIid, quoteID, timeInForce, effectiveTime, expireDate, expireTime, gTBookingInst, [commissionData], orderCapacity, orderRestrictions, custOrderCapacity, rule80A, forexReq, settlCurrency, text, encodedTextLen, encodedText, futSettDate2, orderQty2, price2, positionEffect, coveredOrUncovered, maxShow, pegDifference, discretionInst, discretionOffset, designation, accruedInterestRate, accruedInterestAmt, netMoney];
+get_record_def(newOrderList) -> 
+    [newOrderList, [standardHeader], listID, bidID, clientBidID, progRptReqs, bidType, progPeriodInterval, cancellationRights, moneyLaunderingStatus, registID, listExecInstType, listExecInst, encodedListExecInstLen, encodedListExecInst, totNoOrders, [[repeatingReg_newOrderList_73]], [standardTrailer]];
+get_record_def(orderCancelRequest) -> 
+    [orderCancelRequest, [standardHeader], origClOrdID, orderID, clOrdID, secondaryClOrdID, clOrdLinkID, listID, origOrdModTime, account, accountType, [parties], [instrument], side, transactTime, [orderQtyData], complianceID, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(repeatingReg_orderCancelReplaceRequest_78) -> 
+    [repeatingReg_orderCancelReplaceRequest_78, allocAccount, individualAllocID, [nestedParties], allocQty];
+get_record_def(repeatingReg_orderCancelReplaceRequest_386) -> 
+    [repeatingReg_orderCancelReplaceRequest_386, tradingSessionID, tradingSessionSubID];
+get_record_def(orderCancelReplaceRequest) -> 
+    [orderCancelReplaceRequest, [standardHeader], orderID, [parties], tradeOriginationDate, origClOrdID, clOrdID, secondaryClOrdID, clOrdLinkID, listID, origOrdModTime, account, accountType, dayBookingInst, bookingUnit, preallocMethod, [[repeatingReg_orderCancelReplaceRequest_78]], settlmntTyp, futSettDate, cashMargin, clearingFeeIndicator, handlInst, execInst, minQty, maxFloor, exDestination, [[repeatingReg_orderCancelReplaceRequest_386]], [instrument], side, transactTime, quantityType, [orderQtyData], ordType, priceType, price, stopPx, [spreadOrBenchmarkCurveData], [yieldData], pegDifference, discretionInst, discretionOffset, complianceID, solicitedFlag, currency, timeInForce, effectiveTime, expireDate, expireTime, gTBookingInst, [commissionData], orderCapacity, orderRestrictions, custOrderCapacity, rule80A, forexReq, settlCurrency, text, encodedTextLen, encodedText, futSettDate2, orderQty2, price2, positionEffect, coveredOrUncovered, maxShow, locateReqd, cancellationRights, moneyLaunderingStatus, registID, designation, accruedInterestRate, accruedInterestAmt, netMoney, [standardTrailer]];
+get_record_def(orderStatusRequest) -> 
+    [orderStatusRequest, [standardHeader], orderID, clOrdID, secondaryClOrdID, clOrdLinkID, [parties], account, [instrument], side, [standardTrailer]];
+get_record_def(repeatingReg_allocation_73) -> 
+    [repeatingReg_allocation_73, clOrdID, orderID, secondaryOrderID, secondaryClOrdID, listID];
+get_record_def(repeatingReg_allocation_124) -> 
+    [repeatingReg_allocation_124, lastQty, execID, secondaryExecID, lastPx, lastCapacity];
+get_record_def(repeatingReg_repeatingReg_allocation_78_136) -> 
+    [repeatingReg_repeatingReg_allocation_78_136, miscFeeAmt, miscFeeCurr, miscFeeType];
+get_record_def(repeatingReg_allocation_78) -> 
+    [repeatingReg_allocation_78, allocAccount, allocPrice, allocQty, individualAllocID, processCode, [nestedParties], notifyBrokerOfCredit, allocHandlInst, allocText, encodedAllocTextLen, encodedAllocText, [commissionData], allocAvgPx, allocNetMoney, settlCurrAmt, settlCurrency, settlCurrFxRate, settlCurrFxRateCalc, accruedInterestAmt, settlInstMode, [[repeatingReg_repeatingReg_allocation_78_136]]];
+get_record_def(allocation) -> 
+    [allocation, [standardHeader], allocID, allocTransType, allocType, refAllocID, allocLinkID, allocLinkType, bookingRefID, [[repeatingReg_allocation_73]], [[repeatingReg_allocation_124]], side, [instrument], quantity, lastMkt, tradeOriginationDate, tradingSessionID, tradingSessionSubID, priceType, avgPx, currency, avgPrxPrecision, [parties], tradeDate, transactTime, settlmntTyp, futSettDate, grossTradeAmt, concession, totalTakedown, netMoney, positionEffect, text, encodedTextLen, encodedText, numDaysInterest, accruedInterestRate, totalAccruedInterestAmt, legalConfirm, [[repeatingReg_allocation_78]], [standardTrailer]];
+get_record_def(listCancelRequest) -> 
+    [listCancelRequest, [standardHeader], listID, transactTime, tradeOriginationDate, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(listExecute) -> 
+    [listExecute, [standardHeader], listID, clientBidID, bidID, transactTime, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(listStatusRequest) -> 
+    [listStatusRequest, [standardHeader], listID, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(repeatingReg_listStatus_73) -> 
+    [repeatingReg_listStatus_73, clOrdID, secondaryClOrdID, cumQty, ordStatus, workingIndicator, leavesQty, cxlQty, avgPx, ordRejReason, text, encodedTextLen, encodedText];
+get_record_def(listStatus) -> 
+    [listStatus, [standardHeader], listID, listStatusType, noRpts, listOrderStatus, rptSeq, listStatusText, encodedListStatusTextLen, encodedListStatusText, transactTime, totNoOrders, [[repeatingReg_listStatus_73]], [standardTrailer]];
+get_record_def(allocationAck) -> 
+    [allocationAck, [standardHeader], [parties], allocID, tradeDate, transactTime, allocStatus, allocRejCode, text, encodedTextLen, encodedText, legalConfirm, [standardTrailer]];
+get_record_def(dontKnowTrade) -> 
+    [dontKnowTrade, [standardHeader], orderID, execID, dKReason, [instrument], side, [orderQtyData], lastQty, lastPx, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(repeatingReg_quoteRequest_146) -> 
+    [repeatingReg_quoteRequest_146, [instrument], prevClosePx, quoteRequestType, quoteType, tradingSessionID, tradingSessionSubID, tradeOriginationDate, [stipulations], side, quantityType, orderQty, cashOrderQty, settlmntTyp, futSettDate, ordType, futSettDate2, orderQty2, expireTime, transactTime, currency, [spreadOrBenchmarkCurveData], priceType, price, price2, [yieldData]];
+get_record_def(quoteRequest) -> 
+    [quoteRequest, [standardHeader], quoteReqID, rFQReqID, [[repeatingReg_quoteRequest_146]], text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(quote) -> 
+    [quote, [standardHeader], quoteReqID, quoteID, quoteType, quoteResponseLevel, [parties], account, accountType, tradingSessionID, tradingSessionSubID, [instrument], bidPx, offerPx, mktBidPx, mktOfferPx, minBidSize, bidSize, minOfferSize, offerSize, validUntilTime, bidSpotRate, offerSpotRate, bidForwardPoints, offerForwardPoints, midPx, bidYield, midYield, offerYield, transactTime, settlmntTyp, futSettDate, ordType, futSettDate2, orderQty2, bidForwardPoints2, offerForwardPoints2, currency, settlCurrBidFxRate, settlCurrOfferFxRate, settlCurrFxRateCalc, commission, commType, custOrderCapacity, exDestination, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(settlementInstructions) -> 
+    [settlementInstructions, [standardHeader], settlInstID, settlInstTransType, settlInstRefID, settlInstMode, settlInstSource, allocAccount, individualAllocID, clOrdID, tradeDate, allocID, lastMkt, tradingSessionID, tradingSessionSubID, side, securityType, effectiveTime, transactTime, [parties], standInstDbType, standInstDbName, standInstDbID, settlDeliveryType, settlDepositoryCode, settlBrkrCode, settlInstCode, securitySettlAgentName, securitySettlAgentCode, securitySettlAgentAcctNum, securitySettlAgentAcctName, securitySettlAgentContactName, securitySettlAgentContactPhone, cashSettlAgentName, cashSettlAgentCode, cashSettlAgentAcctNum, cashSettlAgentAcctName, cashSettlAgentContactName, cashSettlAgentContactPhone, paymentMethod, paymentRef, cardHolderName, cardNumber, cardStartDate, cardExpDate, cardIssNo, paymentDate, paymentRemitterID, [standardTrailer]];
+get_record_def(repeatingReg_marketDataRequest_267) -> 
+    [repeatingReg_marketDataRequest_267, mDEntryType];
+get_record_def(repeatingReg_marketDataRequest_146) -> 
+    [repeatingReg_marketDataRequest_146, [instrument]];
+get_record_def(repeatingReg_marketDataRequest_386) -> 
+    [repeatingReg_marketDataRequest_386, tradingSessionID, tradingSessionSubID];
+get_record_def(marketDataRequest) -> 
+    [marketDataRequest, [standardHeader], mDReqID, subscriptionRequestType, marketDepth, mDUpdateType, aggregatedBook, openCloseSettleFlag, scope, mDImplicitDelete, [[repeatingReg_marketDataRequest_267]], [[repeatingReg_marketDataRequest_146]], [[repeatingReg_marketDataRequest_386]], [standardTrailer]];
+get_record_def(repeatingReg_marketDataSnapshotFullRefresh_268) -> 
+    [repeatingReg_marketDataSnapshotFullRefresh_268, mDEntryType, mDEntryPx, currency, mDEntrySize, mDEntryDate, mDEntryTime, tickDirection, mDMkt, tradingSessionID, tradingSessionSubID, quoteCondition, tradeCondition, mDEntryOriginator, locationID, deskID, openCloseSettleFlag, timeInForce, expireDate, expireTime, minQty, execInst, sellerDays, orderID, quoteEntryID, mDEntryBuyer, mDEntrySeller, numberOfOrders, mDEntryPositionNo, scope, text, encodedTextLen, encodedText];
+get_record_def(marketDataSnapshotFullRefresh) -> 
+    [marketDataSnapshotFullRefresh, [standardHeader], mDReqID, [instrument], financialStatus, corporateAction, totalVolumeTraded, totalVolumeTradedDate, totalVolumeTradedTime, netChgPrevDay, [[repeatingReg_marketDataSnapshotFullRefresh_268]], [standardTrailer]];
+get_record_def(repeatingReg_marketDataIncrementalRefresh_268) -> 
+    [repeatingReg_marketDataIncrementalRefresh_268, mDUpdateAction, deleteReason, mDEntryType, mDEntryID, mDEntryRefID, [instrument], financialStatus, corporateAction, mDEntryPx, currency, mDEntrySize, mDEntryDate, mDEntryTime, tickDirection, mDMkt, tradingSessionID, tradingSessionSubID, quoteCondition, tradeCondition, mDEntryOriginator, locationID, deskID, openCloseSettleFlag, timeInForce, expireDate, expireTime, minQty, execInst, sellerDays, orderID, quoteEntryID, mDEntryBuyer, mDEntrySeller, numberOfOrders, mDEntryPositionNo, scope, totalVolumeTraded, totalVolumeTradedDate, totalVolumeTradedTime, netChgPrevDay, text, encodedTextLen, encodedText];
+get_record_def(marketDataIncrementalRefresh) -> 
+    [marketDataIncrementalRefresh, [standardHeader], mDReqID, [[repeatingReg_marketDataIncrementalRefresh_268]], [standardTrailer]];
+get_record_def(marketDataRequestReject) -> 
+    [marketDataRequestReject, [standardHeader], mDReqID, mDReqRejReason, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(repeatingReg_quoteCancel_295) -> 
+    [repeatingReg_quoteCancel_295, [instrument]];
+get_record_def(quoteCancel) -> 
+    [quoteCancel, [standardHeader], quoteReqID, quoteID, quoteCancelType, quoteResponseLevel, [parties], account, accountType, tradingSessionID, tradingSessionSubID, [[repeatingReg_quoteCancel_295]], [standardTrailer]];
+get_record_def(quoteStatusRequest) -> 
+    [quoteStatusRequest, [standardHeader], quoteStatusReqID, quoteID, [instrument], [parties], account, accountType, tradingSessionID, tradingSessionSubID, subscriptionRequestType, [standardTrailer]];
+get_record_def(repeatingReg_repeatingReg_massQuoteAcknowledgement_296_295) -> 
+    [repeatingReg_repeatingReg_massQuoteAcknowledgement_296_295, quoteEntryID, [instrument], bidPx, offerPx, bidSize, offerSize, validUntilTime, bidSpotRate, offerSpotRate, bidForwardPoints, offerForwardPoints, midPx, bidYield, midYield, offerYield, transactTime, tradingSessionID, tradingSessionSubID, futSettDate, ordType, futSettDate2, orderQty2, bidForwardPoints2, offerForwardPoints2, currency, quoteEntryRejectReason];
+get_record_def(repeatingReg_massQuoteAcknowledgement_296) -> 
+    [repeatingReg_massQuoteAcknowledgement_296, quoteSetID, [underlyingInstrument], totQuoteEntries, [[repeatingReg_repeatingReg_massQuoteAcknowledgement_296_295]]];
+get_record_def(massQuoteAcknowledgement) -> 
+    [massQuoteAcknowledgement, [standardHeader], quoteReqID, quoteID, quoteStatus, quoteRejectReason, quoteResponseLevel, quoteType, [parties], account, accountType, text, [[repeatingReg_massQuoteAcknowledgement_296]], [standardTrailer]];
+get_record_def(repeatingReg_securityDefinitionRequest_555) -> 
+    [repeatingReg_securityDefinitionRequest_555, [instrumentLeg], legCurrency];
+get_record_def(securityDefinitionRequest) -> 
+    [securityDefinitionRequest, [standardHeader], securityReqID, securityRequestType, [instrument], currency, text, encodedTextLen, encodedText, tradingSessionID, tradingSessionSubID, [[repeatingReg_securityDefinitionRequest_555]], subscriptionRequestType, [standardTrailer]];
+get_record_def(repeatingReg_securityDefinition_555) -> 
+    [repeatingReg_securityDefinition_555, [instrumentLeg], legCurrency];
+get_record_def(securityDefinition) -> 
+    [securityDefinition, [standardHeader], securityReqID, securityResponseID, securityResponseType, [instrument], currency, tradingSessionID, tradingSessionSubID, text, encodedTextLen, encodedText, [[repeatingReg_securityDefinition_555]], roundLot, minTradeVol, [standardTrailer]];
+get_record_def(securityStatusRequest) -> 
+    [securityStatusRequest, [standardHeader], securityStatusReqID, [instrument], currency, subscriptionRequestType, tradingSessionID, tradingSessionSubID, [standardTrailer]];
+get_record_def(securityStatus) -> 
+    [securityStatus, [standardHeader], securityStatusReqID, [instrument], currency, tradingSessionID, tradingSessionSubID, unsolicitedIndicator, securityTradingStatus, financialStatus, corporateAction, haltReason, inViewOfCommon, dueToRelated, buyVolume, sellVolume, highPx, lowPx, lastPx, transactTime, adjustment, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(tradingSessionStatusRequest) -> 
+    [tradingSessionStatusRequest, [standardHeader], tradSesReqID, tradingSessionID, tradingSessionSubID, tradSesMethod, tradSesMode, subscriptionRequestType, [standardTrailer]];
+get_record_def(tradingSessionStatus) -> 
+    [tradingSessionStatus, [standardHeader], tradSesReqID, tradingSessionID, tradingSessionSubID, tradSesMethod, tradSesMode, unsolicitedIndicator, tradSesStatus, tradSesStatusRejReason, tradSesStartTime, tradSesOpenTime, tradSesPreCloseTime, tradSesCloseTime, tradSesEndTime, totalVolumeTraded, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(repeatingReg_repeatingReg_massQuote_296_295) -> 
+    [repeatingReg_repeatingReg_massQuote_296_295, quoteEntryID, [instrument], bidPx, offerPx, bidSize, offerSize, validUntilTime, bidSpotRate, offerSpotRate, bidForwardPoints, offerForwardPoints, midPx, bidYield, midYield, offerYield, transactTime, tradingSessionID, tradingSessionSubID, futSettDate, ordType, futSettDate2, orderQty2, bidForwardPoints2, offerForwardPoints2, currency];
+get_record_def(repeatingReg_massQuote_296) -> 
+    [repeatingReg_massQuote_296, quoteSetID, [underlyingInstrument], quoteSetValidUntilTime, totQuoteEntries, [[repeatingReg_repeatingReg_massQuote_296_295]]];
+get_record_def(massQuote) -> 
+    [massQuote, [standardHeader], quoteReqID, quoteID, quoteType, quoteResponseLevel, [parties], account, accountType, defBidSize, defOfferSize, [[repeatingReg_massQuote_296]], [standardTrailer]];
+get_record_def(businessMessageReject) -> 
+    [businessMessageReject, [standardHeader], refSeqNum, refMsgType, businessRejectRefID, businessRejectReason, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(repeatingReg_bidRequest_398) -> 
+    [repeatingReg_bidRequest_398, bidDescriptorType, bidDescriptor, sideValueInd, liquidityValue, liquidityNumSecurities, liquidityPctLow, liquidityPctHigh, eFPTrackingError, fairValue, outsideIndexPct, valueOfFutures];
+get_record_def(repeatingReg_bidRequest_420) -> 
+    [repeatingReg_bidRequest_420, listID, side, tradingSessionID, tradingSessionSubID, netGrossInd, settlmntTyp, futSettDate, account];
+get_record_def(bidRequest) -> 
+    [bidRequest, [standardHeader], bidID, clientBidID, bidRequestTransType, listName, totalNumSecurities, bidType, numTickets, currency, sideValue1, sideValue2, [[repeatingReg_bidRequest_398]], [[repeatingReg_bidRequest_420]], liquidityIndType, wtAverageLiquidity, exchangeForPhysical, outMainCntryUIndex, crossPercent, progRptReqs, progPeriodInterval, incTaxInd, forexReq, numBidders, tradeDate, tradeType, basisPxType, strikeTime, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(repeatingReg_bidResponse_420) -> 
+    [repeatingReg_bidResponse_420, [commissionData], listID, country, side, price, priceType, fairValue, netGrossInd, settlmntTyp, futSettDate, tradingSessionID, tradingSessionSubID, text, encodedTextLen, encodedText];
+get_record_def(bidResponse) -> 
+    [bidResponse, [standardHeader], bidID, clientBidID, [[repeatingReg_bidResponse_420]], [standardTrailer]];
+get_record_def(repeatingReg_listStrikePrice_428) -> 
+    [repeatingReg_listStrikePrice_428, [instrument], prevClosePx, clOrdID, secondaryClOrdID, side, price, currency, text, encodedTextLen, encodedText];
+get_record_def(listStrikePrice) -> 
+    [listStrikePrice, [standardHeader], listID, totNoStrikes, [[repeatingReg_listStrikePrice_428]], [standardTrailer]];
+get_record_def(xMLnonFIX) -> 
+    [xMLnonFIX, [standardHeader], [standardTrailer]];
+get_record_def(repeatingReg_registrationInstructions_473) -> 
+    [repeatingReg_registrationInstructions_473, registDetls, registEmail, mailingDtls, mailingInst, [nestedParties], ownerType, dateOfBirth, investorCountryOfResidence];
+get_record_def(repeatingReg_registrationInstructions_510) -> 
+    [repeatingReg_registrationInstructions_510, distribPaymentMethod, distribPercentage, cashDistribCurr, cashDistribAgentName, cashDistribAgentCode, cashDistribAgentAcctNumber, cashDistribPayRef];
+get_record_def(registrationInstructions) -> 
+    [registrationInstructions, [standardHeader], registID, registTransType, registRefID, clOrdID, [parties], account, registAcctType, taxAdvantageType, ownershipType, [[repeatingReg_registrationInstructions_473]], [[repeatingReg_registrationInstructions_510]], [standardTrailer]];
+get_record_def(registrationInstructionsResponse) -> 
+    [registrationInstructionsResponse, [standardHeader], registID, registTransType, registRefID, clOrdID, [parties], account, registStatus, registRejReasonCode, registRejReasonText, [standardTrailer]];
+get_record_def(orderMassCancelRequest) -> 
+    [orderMassCancelRequest, [standardHeader], clOrdID, secondaryClOrdID, massCancelRequestType, tradingSessionID, tradingSessionSubID, [instrument], [underlyingInstrument], side, transactTime, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(repeatingReg_orderMassCancelReport_534) -> 
+    [repeatingReg_orderMassCancelReport_534, origClOrdID, affectedOrderID, affectedSecondaryOrderID];
+get_record_def(orderMassCancelReport) -> 
+    [orderMassCancelReport, [standardHeader], clOrdID, secondaryClOrdID, orderID, secondaryOrderID, massCancelRequestType, massCancelResponse, massCancelRejectReason, totalAffectedOrders, [[repeatingReg_orderMassCancelReport_534]], tradingSessionID, tradingSessionSubID, [instrument], [underlyingInstrument], side, transactTime, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(repeatingReg_repeatingReg_newOrderCross_552_78) -> 
+    [repeatingReg_repeatingReg_newOrderCross_552_78, allocAccount, individualAllocID, [nestedParties], allocQty];
+get_record_def(repeatingReg_newOrderCross_552) -> 
+    [repeatingReg_newOrderCross_552, side, clOrdID, secondaryClOrdID, clOrdLinkID, [parties], tradeOriginationDate, account, accountType, dayBookingInst, bookingUnit, preallocMethod, [[repeatingReg_repeatingReg_newOrderCross_552_78]], quantityType, [orderQtyData], [commissionData], orderCapacity, orderRestrictions, custOrderCapacity, forexReq, settlCurrency, text, encodedTextLen, encodedText, positionEffect, coveredOrUncovered, cashMargin, clearingFeeIndicator, solicitedFlag, sideComplianceID];
+get_record_def(repeatingReg_newOrderCross_386) -> 
+    [repeatingReg_newOrderCross_386, tradingSessionID, tradingSessionSubID];
+get_record_def(newOrderCross) -> 
+    [newOrderCross, [standardHeader], crossID, crossType, crossPrioritization, [[repeatingReg_newOrderCross_552]], [instrument], settlmntTyp, futSettDate, handlInst, execInst, minQty, maxFloor, exDestination, [[repeatingReg_newOrderCross_386]], processCode, prevClosePx, locateReqd, transactTime, [stipulations], ordType, priceType, price, stopPx, [spreadOrBenchmarkCurveData], [yieldData], currency, complianceID, iOIid, quoteID, timeInForce, effectiveTime, expireDate, expireTime, gTBookingInst, maxShow, pegDifference, discretionInst, discretionOffset, cancellationRights, moneyLaunderingStatus, registID, designation, accruedInterestRate, accruedInterestAmt, netMoney, [standardTrailer]];
+get_record_def(repeatingReg_repeatingReg_crossOrderCancelReplaceRequest_552_78) -> 
+    [repeatingReg_repeatingReg_crossOrderCancelReplaceRequest_552_78, allocAccount, individualAllocID, [nestedParties], allocQty];
+get_record_def(repeatingReg_crossOrderCancelReplaceRequest_552) -> 
+    [repeatingReg_crossOrderCancelReplaceRequest_552, side, origClOrdID, clOrdID, secondaryClOrdID, clOrdLinkID, origOrdModTime, [parties], tradeOriginationDate, account, accountType, dayBookingInst, bookingUnit, preallocMethod, [[repeatingReg_repeatingReg_crossOrderCancelReplaceRequest_552_78]], quantityType, [orderQtyData], [commissionData], orderCapacity, orderRestrictions, custOrderCapacity, forexReq, settlCurrency, text, encodedTextLen, encodedText, positionEffect, coveredOrUncovered, cashMargin, clearingFeeIndicator, solicitedFlag, sideComplianceID];
+get_record_def(repeatingReg_crossOrderCancelReplaceRequest_386) -> 
+    [repeatingReg_crossOrderCancelReplaceRequest_386, tradingSessionID, tradingSessionSubID];
+get_record_def(crossOrderCancelReplaceRequest) -> 
+    [crossOrderCancelReplaceRequest, [standardHeader], orderID, crossID, origCrossID, crossType, crossPrioritization, [[repeatingReg_crossOrderCancelReplaceRequest_552]], [instrument], settlmntTyp, futSettDate, handlInst, execInst, minQty, maxFloor, exDestination, [[repeatingReg_crossOrderCancelReplaceRequest_386]], processCode, prevClosePx, locateReqd, transactTime, [stipulations], ordType, priceType, price, stopPx, [spreadOrBenchmarkCurveData], [yieldData], currency, complianceID, iOIid, quoteID, timeInForce, effectiveTime, expireDate, expireTime, gTBookingInst, maxShow, pegDifference, discretionInst, discretionOffset, cancellationRights, moneyLaunderingStatus, registID, designation, accruedInterestRate, accruedInterestAmt, netMoney, [standardTrailer]];
+get_record_def(repeatingReg_crossOrderCancelRequest_552) -> 
+    [repeatingReg_crossOrderCancelRequest_552, side, origClOrdID, clOrdID, secondaryClOrdID, clOrdLinkID, origOrdModTime, [parties], tradeOriginationDate, [orderQtyData], complianceID, text, encodedTextLen, encodedText];
+get_record_def(crossOrderCancelRequest) -> 
+    [crossOrderCancelRequest, [standardHeader], orderID, crossID, origCrossID, crossType, crossPrioritization, [[repeatingReg_crossOrderCancelRequest_552]], [instrument], transactTime, [standardTrailer]];
+get_record_def(securityTypeRequest) -> 
+    [securityTypeRequest, [standardHeader], securityReqID, text, encodedTextLen, encodedText, tradingSessionID, tradingSessionSubID, [standardTrailer]];
+get_record_def(repeatingReg_securityTypes_558) -> 
+    [repeatingReg_securityTypes_558, securityType, produkt, cFICode];
+get_record_def(securityTypes) -> 
+    [securityTypes, [standardHeader], securityReqID, securityResponseID, securityResponseType, totalNumSecurityTypes, [[repeatingReg_securityTypes_558]], text, encodedTextLen, encodedText, tradingSessionID, tradingSessionSubID, subscriptionRequestType, [standardTrailer]];
+get_record_def(securityListRequest) -> 
+    [securityListRequest, [standardHeader], securityReqID, securityListRequestType, [instrument], currency, text, encodedTextLen, encodedText, tradingSessionID, tradingSessionSubID, subscriptionRequestType, [standardTrailer]];
+get_record_def(repeatingReg_repeatingReg_securityList_146_555) -> 
+    [repeatingReg_repeatingReg_securityList_146_555, [instrumentLeg], legCurrency];
+get_record_def(repeatingReg_securityList_146) -> 
+    [repeatingReg_securityList_146, [instrument], currency, [[repeatingReg_repeatingReg_securityList_146_555]], roundLot, minTradeVol, tradingSessionID, tradingSessionSubID, text, encodedTextLen, encodedText];
+get_record_def(securityList) -> 
+    [securityList, [standardHeader], securityReqID, securityResponseID, securityRequestResult, totalNumSecurities, [[repeatingReg_securityList_146]], [standardTrailer]];
+get_record_def(derivativeSecurityListRequest) -> 
+    [derivativeSecurityListRequest, [standardHeader], securityReqID, securityListRequestType, [underlyingInstrument], currency, text, encodedTextLen, encodedText, tradingSessionID, tradingSessionSubID, subscriptionRequestType, [standardTrailer]];
+get_record_def(repeatingReg_repeatingReg_derivativeSecurityList_146_555) -> 
+    [repeatingReg_repeatingReg_derivativeSecurityList_146_555, [instrumentLeg], legCurrency];
+get_record_def(repeatingReg_derivativeSecurityList_146) -> 
+    [repeatingReg_derivativeSecurityList_146, [instrument], currency, [[repeatingReg_repeatingReg_derivativeSecurityList_146_555]], tradingSessionID, tradingSessionSubID, text, encodedTextLen, encodedText];
+get_record_def(derivativeSecurityList) -> 
+    [derivativeSecurityList, [standardHeader], securityReqID, securityResponseID, securityRequestResult, [underlyingInstrument], totalNumSecurities, [[repeatingReg_derivativeSecurityList_146]], [standardTrailer]];
+get_record_def(repeatingReg_newOrderMultileg_78) -> 
+    [repeatingReg_newOrderMultileg_78, allocAccount, individualAllocID, allocQty];
+get_record_def(repeatingReg_newOrderMultileg_386) -> 
+    [repeatingReg_newOrderMultileg_386, tradingSessionID, tradingSessionSubID];
+get_record_def(repeatingReg_newOrderMultileg_555) -> 
+    [repeatingReg_newOrderMultileg_555, [instrumentLeg], legPositionEffect, legCoveredOrUncovered, [nestedParties], legRefID, legPrice, legSettlmntTyp, legFutSettDate];
+get_record_def(newOrderMultileg) -> 
+    [newOrderMultileg, [standardHeader], clOrdID, secondaryClOrdID, clOrdLinkID, [parties], account, accountType, dayBookingInst, bookingUnit, preallocMethod, [[repeatingReg_newOrderMultileg_78]], settlmntTyp, futSettDate, cashMargin, clearingFeeIndicator, handlInst, execInst, minQty, maxFloor, exDestination, [[repeatingReg_newOrderMultileg_386]], processCode, side, [instrument], prevClosePx, [[repeatingReg_newOrderMultileg_555]], locateReqd, transactTime, quantityType, [orderQtyData], ordType, priceType, price, stopPx, currency, complianceID, solicitedFlag, iOIid, quoteID, timeInForce, effectiveTime, expireDate, expireTime, gTBookingInst, [commissionData], orderCapacity, orderRestrictions, custOrderCapacity, forexReq, settlCurrency, text, encodedTextLen, encodedText, positionEffect, coveredOrUncovered, maxShow, pegDifference, discretionInst, discretionOffset, cancellationRights, moneyLaunderingStatus, registID, designation, multiLegRptTypeReq, netMoney, [standardTrailer]];
+get_record_def(repeatingReg_multilegOrderCancelReplaceRequest_78) -> 
+    [repeatingReg_multilegOrderCancelReplaceRequest_78, allocAccount, individualAllocID, allocQty];
+get_record_def(repeatingReg_multilegOrderCancelReplaceRequest_386) -> 
+    [repeatingReg_multilegOrderCancelReplaceRequest_386, tradingSessionID, tradingSessionSubID];
+get_record_def(repeatingReg_multilegOrderCancelReplaceRequest_555) -> 
+    [repeatingReg_multilegOrderCancelReplaceRequest_555, [instrumentLeg], legPositionEffect, legCoveredOrUncovered, [nestedParties], legRefID, legPrice, legSettlmntTyp, legFutSettDate];
+get_record_def(multilegOrderCancelReplaceRequest) -> 
+    [multilegOrderCancelReplaceRequest, [standardHeader], orderID, origClOrdID, clOrdID, secondaryClOrdID, clOrdLinkID, origOrdModTime, [parties], account, accountType, dayBookingInst, bookingUnit, preallocMethod, [[repeatingReg_multilegOrderCancelReplaceRequest_78]], settlmntTyp, futSettDate, cashMargin, clearingFeeIndicator, handlInst, execInst, minQty, maxFloor, exDestination, [[repeatingReg_multilegOrderCancelReplaceRequest_386]], processCode, side, [instrument], prevClosePx, [[repeatingReg_multilegOrderCancelReplaceRequest_555]], locateReqd, transactTime, quantityType, [orderQtyData], ordType, priceType, price, stopPx, currency, complianceID, solicitedFlag, iOIid, quoteID, timeInForce, effectiveTime, expireDate, expireTime, gTBookingInst, [commissionData], orderCapacity, orderRestrictions, custOrderCapacity, forexReq, settlCurrency, text, encodedTextLen, encodedText, positionEffect, coveredOrUncovered, maxShow, pegDifference, discretionInst, discretionOffset, cancellationRights, moneyLaunderingStatus, registID, designation, multiLegRptTypeReq, netMoney, [standardTrailer]];
+get_record_def(repeatingReg_tradeCaptureReportRequest_580) -> 
+    [repeatingReg_tradeCaptureReportRequest_580, tradeDate, transactTime];
+get_record_def(tradeCaptureReportRequest) -> 
+    [tradeCaptureReportRequest, [standardHeader], tradeRequestID, tradeRequestType, subscriptionRequestType, execID, orderID, clOrdID, matchStatus, [parties], [instrument], [[repeatingReg_tradeCaptureReportRequest_580]], side, text, encodedTextLen, encodedText, tradeInputSource, tradeInputDevice, [standardTrailer]];
+get_record_def(repeatingReg_repeatingReg_tradeCaptureReport_552_576) -> 
+    [repeatingReg_repeatingReg_tradeCaptureReport_552_576, clearingInstruction];
+get_record_def(repeatingReg_repeatingReg_tradeCaptureReport_552_518) -> 
+    [repeatingReg_repeatingReg_tradeCaptureReport_552_518, contAmtType, contAmtValue, contAmtCurr];
+get_record_def(repeatingReg_repeatingReg_tradeCaptureReport_552_136) -> 
+    [repeatingReg_repeatingReg_tradeCaptureReport_552_136, miscFeeAmt, miscFeeCurr, miscFeeType];
+get_record_def(repeatingReg_tradeCaptureReport_552) -> 
+    [repeatingReg_tradeCaptureReport_552, side, orderID, secondaryOrderID, clOrdID, [parties], account, accountType, processCode, oddLot, [[repeatingReg_repeatingReg_tradeCaptureReport_552_576]], clearingFeeIndicator, tradeInputSource, tradeInputDevice, currency, complianceID, solicitedFlag, orderCapacity, orderRestrictions, custOrderCapacity, transBkdTime, tradingSessionID, tradingSessionSubID, [commissionData], grossTradeAmt, numDaysInterest, exDate, accruedInterestRate, accruedInterestAmt, concession, totalTakedown, netMoney, settlCurrAmt, settlCurrency, settlCurrFxRate, settlCurrFxRateCalc, positionEffect, text, encodedTextLen, encodedText, multiLegReportingType, [[repeatingReg_repeatingReg_tradeCaptureReport_552_518]], [[repeatingReg_repeatingReg_tradeCaptureReport_552_136]]];
+get_record_def(tradeCaptureReport) -> 
+    [tradeCaptureReport, [standardHeader], tradeReportID, tradeReportTransType, tradeRequestID, execType, tradeReportRefID, execID, secondaryExecID, execRestatementReason, previouslyReported, [instrument], [orderQtyData], lastQty, lastPx, lastSpotRate, lastForwardPoints, lastMkt, tradeDate, transactTime, settlmntTyp, futSettDate, matchStatus, matchType, [[repeatingReg_tradeCaptureReport_552]], [standardTrailer]];
+get_record_def(orderMassStatusRequest) -> 
+    [orderMassStatusRequest, [standardHeader], massStatusReqID, massStatusReqType, [parties], account, tradingSessionID, tradingSessionSubID, [instrument], [underlyingInstrument], side, [standardTrailer]];
+get_record_def(repeatingReg_quoteRequestReject_146) -> 
+    [repeatingReg_quoteRequestReject_146, [instrument], prevClosePx, quoteRequestType, quoteType, tradingSessionID, tradingSessionSubID, tradeOriginationDate, [stipulations], side, quantityType, orderQty, cashOrderQty, settlmntTyp, futSettDate, ordType, futSettDate2, orderQty2, expireTime, transactTime, currency, [spreadOrBenchmarkCurveData], priceType, price, price2, [yieldData]];
+get_record_def(quoteRequestReject) -> 
+    [quoteRequestReject, [standardHeader], quoteReqID, rFQReqID, quoteRequestRejectReason, [[repeatingReg_quoteRequestReject_146]], text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(repeatingReg_rFQRequest_146) -> 
+    [repeatingReg_rFQRequest_146, [instrument], prevClosePx, quoteRequestType, quoteType, tradingSessionID, tradingSessionSubID];
+get_record_def(rFQRequest) -> 
+    [rFQRequest, [standardHeader], rFQReqID, [[repeatingReg_rFQRequest_146]], subscriptionRequestType, [standardTrailer]];
+get_record_def(quoteStatusReport) -> 
+    [quoteStatusReport, [standardHeader], quoteStatusReqID, quoteReqID, quoteID, quoteType, [parties], account, accountType, tradingSessionID, tradingSessionSubID, [instrument], bidPx, offerPx, mktBidPx, mktOfferPx, minBidSize, bidSize, minOfferSize, offerSize, validUntilTime, bidSpotRate, offerSpotRate, bidForwardPoints, offerForwardPoints, midPx, bidYield, midYield, offerYield, transactTime, futSettDate, ordType, futSettDate2, orderQty2, bidForwardPoints2, offerForwardPoints2, currency, settlCurrBidFxRate, settlCurrOfferFxRate, settlCurrFxRateCalc, commission, commType, custOrderCapacity, exDestination, quoteStatus, [standardTrailer]];
+get_record_def(_Else) -> 
+    error.
+
 getRecord(commissionData)->
     #commissionData{};
 getRecord(repeatingReg_instrument_454)->

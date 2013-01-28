@@ -41,5 +41,11 @@ simple_test()->
     RecAA = convertor:convertFixToRecord(A, "FIX_4_2"),
     ?assertEqual(RecA, RecAA),
     BinA = convertor:convertRecordToFix(RecA, "FIX_4_2"),
-    ?assertEqual(A, BinA).
+    ?assertEqual(A, BinA),
+    Nums = lists:seq(1, 5000),
+    T1 = erlang:now(),
+    lists:map(fun(_X) -> convertor:convertFixToRecord(A, "FIX_4_2") end, Nums),
+    T2 = erlang:now(),
+    Dif = timer:now_diff(T2, T1),
+    ?assert(Dif < 1000000).
 

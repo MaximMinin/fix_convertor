@@ -33,7 +33,6 @@
 -type commission () :: amt.
 -type commType () :: pointsPerBondOrContract|perUnit|percent|absolute|percentageWaivedEnhancedUnits|percentageWaivedCashDiscount.
 -type cumQty () :: qty.
--type currency () :: currency.
 -type endSeqNo () :: seqNum.
 -type execID () :: string.
 -type execInst () :: tryToStop|midPricePeg|marketPeg|cancelOnSystemFailure|primaryPeg|suspend|customerDisplayInstruction|netting|pegToVWAP|tradeAlong|percentOfVolume|stayOnOfferSide|work|overTheDay|held|participateDoNotInitiate|strictScale|tryToScale|stayOnBidSide|noCross|openingPeg|callFirst|nonNegotiable|doNotIncrease|doNotReduce|allOrNone|reinstateOnSystemFailure|institutionsOnly|reinstateOnTradingHalt|cancelOnTradingHalt|lastPeg|goAlong|oKToCross|notHeld.
@@ -60,7 +59,6 @@
 -type origClOrdID () :: string.
 -type origTime () :: uTCTimestamp.
 -type possDupFlag () :: originalTransmission|possibleDuplicate.
--type price () :: price.
 -type refSeqNum () :: seqNum.
 -type rule80A () :: agentForOtherMember|shortExemptTransactionAType|programOrderMember|shortExemptTransactionForPrincipal|shortExemptTransactionWType|shortExemptTransactionIType|individualInvestor|proprietaryAlgo|agencyAlgo|programOrderOtherMember|agencySingleOrder|proprietaryTransactionAffiliated|principal|transactionNonMember|specialistTrades|transactionUnaffiliatedMember|agencyIndexArb|allOtherOrdersAsAgentForOtherMember|shortExemptTransactionMemberNotAffliated|agencyNonAlgo|shortExemptTransactionNonMember|shortExemptTransactionMemberAffliated|proprietaryNonAlgo.
 -type securityID () :: string.
@@ -419,7 +417,6 @@
 -type tradeType () :: vWAPGuarantee|agency|guaranteedClose|riskTrade.
 -type basisPxType () :: vWAPThroughAnAfternoonSession|open|others|strike|vWAPThroughAnAfternoonSessionExcept|vWAPThroughADayExcept|vWAPThroughAMorningSession|vWAPThroughADay|sQ|currentPrice|closingPrice|closingPriceAtMorningSession|vWAPThroughAMorningSessionExcept.
 -type noBidComponents () :: numInGroup.
--type country () :: country.
 -type totNoStrikes () :: int.
 -type priceType () :: fixedAmount|percentage|discount|spread|tEDPrice|tEDYield|premium|perUnit.
 -type dayOrderQty () :: qty.

@@ -26,22 +26,22 @@ convertFixToRecord(Message, FixVersion) ->
     {msgType, Type} = lists:keyfind(msgType,1,Fields),
     Recordname = Utils:getMessageName(Type),
     Record = Utils:getRecord(Recordname),
-    Def = tuple_to_list(Record),
+    Def = Utils:get_record_def(Recordname),
     {R, _} =convertFix2Record(Utils, Recordname, Record, Def, Fields),
     R.
 
 convertRecordToFix(Record, FixVersion) ->
     Utils = getUtilsFun(FixVersion),
     RecordName = element(1, Record),
-    Rec = Utils:getRecord(RecordName),
-    Bin = convert2Binary(Utils, tuple_to_list(Record), tuple_to_list(Rec)),
+    Rec = Utils:get_record_def(RecordName),
+    Bin = convert2Binary(Utils, tuple_to_list(Record), Rec),
     completeBinary(Utils, Bin).
 
 format(Record, FixVersion) ->
     Utils = getUtilsFun(FixVersion),
     RecordName = element(1, Record),
-    Rec = Utils:getRecord(RecordName),
-    S = convertToString(Utils, tuple_to_list(Record), tuple_to_list(Rec)),
+    Rec = Utils:get_record_def(RecordName),
+    S = convertToString(Utils, tuple_to_list(Record), Rec),
     lists:sublist(S, length(S)-1).
 
 setMsgSeqNum(Record, Num, FixVersion)->
@@ -60,22 +60,21 @@ lists:flatten([convert2String(Utils, N, V) ||
                           V =/= N, V =/= undefined]).
 
 convert2String(Utils, Name, Value) ->
-     case get_type(Name) of
-         atom -> 
-                case get_type(Value) of
-                    float -> lists:concat([Name, "=", io_lib:format("~.6f",[Value]), ","]);
-                    integer -> lists:concat([Name, "=", integer_to_list(Value), ","]);
-                    binary -> lists:concat([Name, "=",binary_to_list(Value), ","]);
-                    atom -> lists:concat([Name, "=",Value, ","])
-                end;
-         tuple ->
-                convertToString(Utils, tuple_to_list(Value), tuple_to_list(Name));
-         list ->
-                [Def] =  Name, 
+     case Name of
+         [[List]] ->
                 T = lists:flatten(lists:map(fun(Rec) ->  convertToString(Utils, 
                                                      tuple_to_list(Rec), 
-                                                     tuple_to_list(Def)) end, Value)),
-                lists:concat([element(1, Def), "=[",lists:sublist(T, length(T)-1),"],"])
+                                                     Utils:get_record_def(List)) end, Value)),
+                lists:concat([element(1, List), "=[",lists:sublist(T, length(T)-1),"],"]);
+         [Tuple] ->
+                convertToString(Utils, tuple_to_list(Value), Utils:get_record_def(Tuple));
+         Atom -> 
+                case get_type(Value) of
+                    float -> lists:concat([Atom, "=", io_lib:format("~.6f",[Value]), ","]);
+                    integer -> lists:concat([Atom, "=", integer_to_list(Value), ","]);
+                    binary -> lists:concat([Atom, "=",binary_to_list(Value), ","]);
+                    atom -> lists:concat([Atom, "=",Value, ","])
+                end
      end.                         
  
 get_type(V) when is_atom(V) -> atom;
@@ -97,26 +96,25 @@ convert2Binary(Utils, Record, Def)->
     erlang:list_to_bitstring(L).
 
 convert2Binary_2(Utils, Def, Value)->
-     case get_type(Def) of
-         atom -> 
+     case Def of
+         [[List]] ->
+                T = lists:flatten(lists:map(fun(Rec) ->  convert2Binary(Utils, 
+                                                     tuple_to_list(Rec), 
+                                                     Utils:get_record_def(List)) end, Value)),
+                case T of
+                    [<<>>] -> [];
+                    _Else -> 
+                        TagAsBin = atom_to_binary(List, utf8),
+                        [TagId|_] = lists:reverse(binary:split(TagAsBin, <<"_">>, [global])),
+                        [TagId, "=", integer_to_list(length(Value)), 1, T]
+                end;
+         [Tuple] -> convert2Binary(Utils, tuple_to_list(Value), Utils:get_record_def(Tuple));
+         Atom -> 
                 case get_type(Value) of
                     float -> [Utils:getTagId(Def), "=", io_lib:format("~.6f",[Value]), 1];
                     integer -> [Utils:getTagId(Def), "=", integer_to_list(Value), 1];
                     binary -> [Utils:getTagId(Def), "=", Value, 1];
                     atom -> [Utils:getTagId(Def), "=",Utils:reconvert(Def, Value), 1]
-                end;
-         tuple -> convert2Binary(Utils, tuple_to_list(Value), tuple_to_list(Def));
-         list ->
-                [NewDef] =  Def, 
-                T = lists:flatten(lists:map(fun(Rec) ->  convert2Binary(Utils, 
-                                                     tuple_to_list(Rec), 
-                                                     tuple_to_list(NewDef)) end, Value)),
-                case T of
-                    [<<>>] -> [];
-                    _Else -> io:format("REP:~w~n", [T]),
-                        TagAsBin = atom_to_binary(element(1, NewDef), utf8),
-                        [TagId|_] = lists:reverse(binary:split(TagAsBin, <<"_">>, [global])),
-                        [TagId, "=", integer_to_list(length(Value)), 1, T]
                 end
      end.                         
 
@@ -142,36 +140,31 @@ completeBinary(Utils, B) ->
     end,
     list_to_bitstring([Bin, Utils:getTagId(checkSum), <<"=">>, Checksum, 1]).
 
+convertFix2Record(Utils, Recordname, Record, [[[F]]|Def], Fields) ->
+    R = convertRepeatingGroup(Utils, F, F, Fields, []),
+    NewRecord = Utils:setFieldInRecord(Recordname, F, Record, R), 
+    convertFix2Record(Utils, Recordname, NewRecord, Def, Fields);
+convertFix2Record(Utils, Recordname, Record, [[F]|Def], Fields) ->
+    {R, NewFields} = convertFix2Record(Utils, F, Utils:getRecord(F), Utils:get_record_def(F), Fields),
+    NewRecord = Utils:setFieldInRecord(Recordname, F, Record, R), 
+    convertFix2Record(Utils, Recordname, NewRecord, Def, NewFields);
 convertFix2Record(Utils, Recordname, Record, [F|Def], Fields) when is_atom(F) ->
     {NewRecord, NewFields} = case lists:keyfind(F, 1, Fields) of
         {F, Value} ->
             {Utils:setFieldInRecord(Recordname, F, Record, Utils:convert(F, Value)),
              lists:keydelete(F,1,Fields)};
         false ->
-            {case Utils:setFieldInRecord(Recordname, F, Record, undefined) of
-                error -> Record;
-                R -> R end, Fields}
+            {Record, Fields}
     end,
     convertFix2Record(Utils, Recordname, NewRecord, Def,  NewFields);
-convertFix2Record(Utils, Recordname, Record, [F|Def], Fields) when is_tuple(F) ->
-    Tag = element(1,F),
-    {R, NewFields} = convertFix2Record(Utils, Tag, F, tuple_to_list(F), Fields),
-    NewRecord = Utils:setFieldInRecord(Recordname, Tag, Record, R), 
-    convertFix2Record(Utils, Recordname, NewRecord, Def, NewFields);
-convertFix2Record(Utils, Recordname, Record, [F|Def], Fields) when is_list(F)->
-    [RG] = F,
-    Tag = element(1,RG),
-    R = convertRepeatingGroup(Utils, Tag, RG, Fields, []),
-    NewRecord = Utils:setFieldInRecord(Recordname, Tag, Record, R), 
-    convertFix2Record(Utils, Recordname, NewRecord, Def, Fields);
 convertFix2Record(Utils, Recordname, Record, [], Fields) ->
     {Record, Fields}.
 
 convertRepeatingGroup(Utils, Recordname, Def, Fields, ToReturn)->
-    case convertFix2Record(Utils, Recordname, Def, tuple_to_list(Def), Fields) of
+    case convertFix2Record(Utils, Recordname, Utils:getRecord(Def), Utils:get_record_def(Def), Fields) of
         {Record, Fields}  -> 
             case ToReturn of
-                [] -> {R,_}=convertFix2Record(Utils, Recordname, Def, tuple_to_list(Def), []),
+                [] -> {R,_}=convertFix2Record(Utils, Recordname, Utils:getRecord(Def), Utils:get_record_def(Def), []),
                     [R];
                 _Else -> lists:reverse(ToReturn)
             end;

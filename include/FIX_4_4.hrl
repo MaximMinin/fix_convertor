@@ -35,7 +35,6 @@
 -type commission () :: amt.
 -type commType () :: perUnit|percent|absolute|percentageWaivedCashDiscount|percentageWaivedEnhancedUnits|pointsPerBondOrContract.
 -type cumQty () :: qty.
--type currency () :: currency.
 -type endSeqNo () :: seqNum.
 -type execID () :: string.
 -type execInst () :: notHeld|work|goAlong|overTheDay|held|participateDoNotInitiate|strictScale|tryToScale|stayOnBidSide|stayOnOfferSide|noCross|oKToCross|callFirst|percentOfVolume|doNotIncrease|doNotReduce|allOrNone|reinstateOnSystemFailure|institutionsOnly|reinstateOnTradingHalt|cancelOnTradingHalt|lastPeg|midPricePeg|nonNegotiable|openingPeg|marketPeg|cancelOnSystemFailure|primaryPeg|suspend|customerDisplayInstruction|netting|pegToVWAP|tradeAlong|tryToStop|cancelIfNotBest|trailingStopPeg|strictLimit|ignorePriceValidityChecks|pegToLimitPrice|workToTargetStrategy.
@@ -62,7 +61,6 @@
 -type origClOrdID () :: string.
 -type origTime () :: uTCTimestamp.
 -type possDupFlag () :: possibleDuplicate|originalTransmission.
--type price () :: price.
 -type refSeqNum () :: seqNum.
 -type securityID () :: string.
 -type senderCompID () :: string.
@@ -406,7 +404,6 @@
 -type bidTradeType () :: riskTrade|vWAPGuarantee|agency|guaranteedClose.
 -type basisPxType () :: closingPriceAtMorningSession|closingPrice|currentPrice|sQ|vWAPThroughADay|vWAPThroughAMorningSession|vWAPThroughAnAfternoonSession|vWAPThroughADayExcept|vWAPThroughAMorningSessionExcept|vWAPThroughAnAfternoonSessionExcept|strike|open|others.
 -type noBidComponents () :: numInGroup.
--type country () :: country.
 -type totNoStrikes () :: int.
 -type priceType () :: percentage|perUnit|fixedAmount|discount|premium|spread|tEDPrice|tEDYield|yield|fixedCabinetTradePrice|variableCabinetTradePrice.
 -type dayOrderQty () :: qty.

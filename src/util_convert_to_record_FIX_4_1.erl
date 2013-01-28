@@ -5,12 +5,12 @@
 %%
 %% Include files
 %%
--include("util_FIX_4_1.hrl").
+-include("FIX_4_1.hrl").
     
 %%
 %% Exported Functions
 %%
--export([convert/2, reconvert/2, getMessageName/1, getRecord/1, getFieldName/1, getTagId/1, setFieldInRecord/4, setMsgSeqNum/2]).
+-export([convert/2, reconvert/2, getMessageName/1, getRecord/1, getFieldName/1, getTagId/1, setFieldInRecord/4, setMsgSeqNum/2, get_record_def/1]).
     
 %%
 %% API Functions
@@ -833,6 +833,89 @@ convert(pegDifference, Bin) ->
     bin_to_num(Bin);
 convert(_Name, Bin) ->
     Bin.
+get_record_def(standardHeader) -> 
+    [standardHeader, beginString, bodyLength, msgType, senderCompID, targetCompID, onBehalfOfCompID, deliverToCompID, secureDataLen, secureData, msgSeqNum, senderSubID, senderLocationID, targetSubID, targetLocationID, onBehalfOfSubID, onBehalfOfLocationID, deliverToSubID, deliverToLocationID, possDupFlag, possResend, sendingTime, origSendingTime];
+get_record_def(standardTrailer) -> 
+    [standardTrailer, signatureLength, signature, checkSum];
+get_record_def(heartbeat) -> 
+    [heartbeat, [standardHeader], testReqID, [standardTrailer]];
+get_record_def(testRequest) -> 
+    [testRequest, [standardHeader], testReqID, [standardTrailer]];
+get_record_def(resendRequest) -> 
+    [resendRequest, [standardHeader], beginSeqNo, endSeqNo, [standardTrailer]];
+get_record_def(reject) -> 
+    [reject, [standardHeader], refSeqNum, text, [standardTrailer]];
+get_record_def(sequenceReset) -> 
+    [sequenceReset, [standardHeader], gapFillFlag, newSeqNo, [standardTrailer]];
+get_record_def(logout) -> 
+    [logout, [standardHeader], text, [standardTrailer]];
+get_record_def(repeatingReg_iOI_199) -> 
+    [repeatingReg_iOI_199, iOIQualifier];
+get_record_def(iOI) -> 
+    [iOI, [standardHeader], iOIid, iOITransType, iOIRefID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, securityExchange, issuer, securityDesc, side, iOIShares, price, currency, validUntilTime, iOIQltyInd, iOIOthSvc, iOINaturalFlag, [[repeatingReg_iOI_199]], text, transactTime, uRLLink, [standardTrailer]];
+get_record_def(advertisement) -> 
+    [advertisement, [standardHeader], advId, advTransType, advRefID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, securityExchange, issuer, securityDesc, advSide, shares, price, currency, tradeDate, transactTime, text, uRLLink, lastMkt, [standardTrailer]];
+get_record_def(executionReport) -> 
+    [executionReport, [standardHeader], orderID, secondaryOrderID, clOrdID, origClOrdID, clientID, execBroker, listID, execID, execTransType, execRefID, execType, ordStatus, ordRejReason, account, settlmntTyp, futSettDate, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, securityExchange, issuer, securityDesc, side, orderQty, ordType, price, stopPx, pegDifference, currency, timeInForce, expireTime, execInst, rule80A, lastShares, lastPx, lastSpotRate, lastForwardPoints, lastMkt, lastCapacity, leavesQty, cumQty, avgPx, tradeDate, transactTime, reportToExch, commission, commType, settlCurrAmt, settlCurrency, settlCurrFxRate, settlCurrFxRateCalc, text, [standardTrailer]];
+get_record_def(orderCancelReject) -> 
+    [orderCancelReject, [standardHeader], orderID, secondaryOrderID, clOrdID, origClOrdID, ordStatus, clientID, execBroker, listID, cxlRejReason, text, [standardTrailer]];
+get_record_def(logon) -> 
+    [logon, [standardHeader], encryptMethod, heartBtInt, rawDataLength, rawData, resetSeqNumFlag, [standardTrailer]];
+get_record_def(repeatingReg_news_146) -> 
+    [repeatingReg_news_146, relatdSym, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, securityExchange, issuer, securityDesc];
+get_record_def(repeatingReg_news_33) -> 
+    [repeatingReg_news_33, text];
+get_record_def(news) -> 
+    [news, [standardHeader], origTime, urgency, headline, [[repeatingReg_news_146]], [[repeatingReg_news_33]], uRLLink, rawDataLength, rawData, [standardTrailer]];
+get_record_def(repeatingReg_email_146) -> 
+    [repeatingReg_email_146, relatdSym, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, securityExchange, issuer, securityDesc];
+get_record_def(repeatingReg_email_33) -> 
+    [repeatingReg_email_33, text];
+get_record_def(email) -> 
+    [email, [standardHeader], emailThreadID, emailType, origTime, subject, [[repeatingReg_email_146]], orderID, clOrdID, [[repeatingReg_email_33]], rawDataLength, rawData, [standardTrailer]];
+get_record_def(orderSingle) -> 
+    [orderSingle, [standardHeader], clOrdID, clientID, execBroker, account, settlmntTyp, futSettDate, handlInst, execInst, minQty, maxFloor, exDestination, processCode, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, securityExchange, issuer, securityDesc, prevClosePx, side, locateReqd, orderQty, cashOrderQty, ordType, price, stopPx, currency, iOIid, quoteID, timeInForce, expireTime, commission, commType, rule80A, forexReq, settlCurrency, text, futSettDate2, orderQty2, openClose, coveredOrUncovered, customerOrFirm, maxShow, pegDifference, [standardTrailer]];
+get_record_def(orderList) -> 
+    [orderList, [standardHeader], listID, waveNo, listSeqNo, listNoOrds, listExecInst, clOrdID, clientID, execBroker, account, settlmntTyp, futSettDate, handlInst, execInst, minQty, maxFloor, exDestination, processCode, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, securityExchange, issuer, securityDesc, prevClosePx, side, locateReqd, orderQty, ordType, price, stopPx, pegDifference, currency, timeInForce, expireTime, commission, commType, rule80A, forexReq, settlCurrency, text, futSettDate2, orderQty2, openClose, coveredOrUncovered, customerOrFirm, maxShow, [standardTrailer]];
+get_record_def(orderCancelRequest) -> 
+    [orderCancelRequest, [standardHeader], origClOrdID, orderID, clOrdID, listID, clientID, execBroker, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, securityExchange, issuer, securityDesc, side, orderQty, cashOrderQty, text, [standardTrailer]];
+get_record_def(orderCancelReplaceRequest) -> 
+    [orderCancelReplaceRequest, [standardHeader], orderID, clientID, execBroker, origClOrdID, clOrdID, listID, account, settlmntTyp, futSettDate, handlInst, execInst, minQty, maxFloor, exDestination, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, securityExchange, issuer, securityDesc, side, orderQty, cashOrderQty, ordType, price, stopPx, pegDifference, currency, timeInForce, expireTime, commission, commType, rule80A, forexReq, settlCurrency, text, futSettDate2, orderQty2, openClose, coveredOrUncovered, customerOrFirm, maxShow, locateReqd, [standardTrailer]];
+get_record_def(orderStatusRequest) -> 
+    [orderStatusRequest, [standardHeader], orderID, clOrdID, clientID, execBroker, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, securityExchange, issuer, securityDesc, side, [standardTrailer]];
+get_record_def(repeatingReg_allocation_73) -> 
+    [repeatingReg_allocation_73, clOrdID, orderID, secondaryOrderID, listID, waveNo];
+get_record_def(repeatingReg_allocation_124) -> 
+    [repeatingReg_allocation_124, lastShares, execID, lastPx, lastCapacity];
+get_record_def(repeatingReg_repeatingReg_allocation_78_136) -> 
+    [repeatingReg_repeatingReg_allocation_78_136, miscFeeAmt, miscFeeCurr, miscFeeType];
+get_record_def(repeatingReg_allocation_78) -> 
+    [repeatingReg_allocation_78, allocAccount, allocShares, processCode, brokerOfCredit, notifyBrokerOfCredit, allocHandlInst, allocText, execBroker, clientID, commission, commType, allocAvgPx, allocNetMoney, settlCurrAmt, settlCurrency, settlCurrFxRate, settlCurrFxRateCalc, accruedInterestAmt, settlInstMode, [[repeatingReg_repeatingReg_allocation_78_136]]];
+get_record_def(allocation) -> 
+    [allocation, [standardHeader], allocID, allocTransType, refAllocID, allocLinkID, allocLinkType, [[repeatingReg_allocation_73]], [[repeatingReg_allocation_124]], side, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, securityExchange, issuer, securityDesc, shares, lastMkt, avgPx, currency, avgPrxPrecision, tradeDate, transactTime, settlmntTyp, futSettDate, netMoney, openClose, text, numDaysInterest, accruedInterestRate, [[repeatingReg_allocation_78]], [standardTrailer]];
+get_record_def(listCancelRequest) -> 
+    [listCancelRequest, [standardHeader], listID, waveNo, text, [standardTrailer]];
+get_record_def(listExecute) -> 
+    [listExecute, [standardHeader], listID, waveNo, text, [standardTrailer]];
+get_record_def(listStatusRequest) -> 
+    [listStatusRequest, [standardHeader], listID, waveNo, text, [standardTrailer]];
+get_record_def(repeatingReg_listStatus_73) -> 
+    [repeatingReg_listStatus_73, clOrdID, cumQty, leavesQty, cxlQty, avgPx];
+get_record_def(listStatus) -> 
+    [listStatus, [standardHeader], listID, waveNo, noRpts, rptSeq, [[repeatingReg_listStatus_73]], [standardTrailer]];
+get_record_def(allocationInstructionAck) -> 
+    [allocationInstructionAck, [standardHeader], clientID, execBroker, allocID, tradeDate, transactTime, allocStatus, allocRejCode, text, [standardTrailer]];
+get_record_def(dontKnowTrade) -> 
+    [dontKnowTrade, [standardHeader], orderID, execID, dKReason, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, securityExchange, issuer, securityDesc, side, orderQty, cashOrderQty, lastShares, lastPx, text, [standardTrailer]];
+get_record_def(quoteRequest) -> 
+    [quoteRequest, [standardHeader], quoteReqID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, securityExchange, issuer, securityDesc, prevClosePx, side, orderQty, futSettDate, ordType, futSettDate2, orderQty2, [standardTrailer]];
+get_record_def(quote) -> 
+    [quote, [standardHeader], quoteReqID, quoteID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, securityExchange, issuer, securityDesc, bidPx, offerPx, bidSize, offerSize, validUntilTime, bidSpotRate, offerSpotRate, bidForwardPoints, offerForwardPoints, transactTime, futSettDate, ordType, futSettDate2, orderQty2, [standardTrailer]];
+get_record_def(settlementInstructions) -> 
+    [settlementInstructions, [standardHeader], settlInstID, settlInstTransType, settlInstMode, settlInstSource, allocAccount, settlLocation, tradeDate, allocID, lastMkt, side, securityType, effectiveTime, transactTime, clientID, execBroker, standInstDbType, standInstDbName, standInstDbID, settlDeliveryType, settlDepositoryCode, settlBrkrCode, settlInstCode, securitySettlAgentName, securitySettlAgentCode, securitySettlAgentAcctNum, securitySettlAgentAcctName, securitySettlAgentContactName, securitySettlAgentContactPhone, cashSettlAgentName, cashSettlAgentCode, cashSettlAgentAcctNum, cashSettlAgentAcctName, cashSettlAgentContactName, cashSettlAgentContactPhone, [standardTrailer]];
+get_record_def(_Else) -> 
+    error.
+
 getRecord(standardHeader)->
     #standardHeader{};
 getRecord(standardTrailer)->

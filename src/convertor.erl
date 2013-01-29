@@ -65,7 +65,12 @@ convert2String(Utils, Name, Value) ->
                 T = lists:flatten(lists:map(fun(Rec) ->  convertToString(Utils, 
                                                      tuple_to_list(Rec), 
                                                      Utils:get_record_def(List)) end, Value)),
-                lists:concat([element(1, List), "=[",lists:sublist(T, length(T)-1),"],"]);
+                case T of
+                    [] ->
+                        lists:concat([List, "=[],"]);
+                    _Else ->
+                        lists:concat([List, "=[",lists:sublist(T, length(T)-1),"],"])
+                end;
          [Tuple] ->
                 convertToString(Utils, tuple_to_list(Value), Utils:get_record_def(Tuple));
          Atom -> 

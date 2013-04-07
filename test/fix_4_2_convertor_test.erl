@@ -48,7 +48,11 @@ simple_test()->
     T2 = erlang:now(),
     lists:map(fun(_X) -> convertor:format(RecA, "FIX_4_2") end, Nums),
     T3 = erlang:now(),
+    lists:map(fun(_X) -> convertor:convertRecordToFix(RecA, "FIX_4_2") end, Nums),
+    T4 = erlang:now(),
     Dif = timer:now_diff(T2, T1),
     Dif2 = timer:now_diff(T3, T2),
+    Dif3 = timer:now_diff(T4, T3),
     ?assert(Dif < 1000000),
-    ?assert(Dif2 < 1000000).
+    ?assert(Dif2 < 1000000),
+    ?assert(Dif3 < 1000000).

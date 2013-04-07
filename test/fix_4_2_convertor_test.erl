@@ -30,11 +30,11 @@ simple_test()->
                                                                                 targetCompID = <<"TRGT">>,
                                                                                 msgSeqNum = 2,
                                                                                 sendingTime = <<"20110802-10:00:00">>},
-                                             repeatingReg_marketDataIncrementalRefresh_268 = 
-                                                 [#repeatingReg_marketDataIncrementalRefresh_268{mDUpdateAction = change,
+                                             rgr_marketDataIncrementalRefresh_268 = 
+                                                 [#rgr_marketDataIncrementalRefresh_268{mDUpdateAction = change,
                                                                                                      mDEntryRefID = <<"0001">>,
                                                                                                     mDEntryPx = 10},
-                                                  #repeatingReg_marketDataIncrementalRefresh_268{mDUpdateAction = change,
+                                                  #rgr_marketDataIncrementalRefresh_268{mDUpdateAction = change,
                                                                                                     mDEntryRefID = <<"0002">>,
                                                                                                     mDEntryPx = 11}],
                                             standardTrailer = #standardTrailer{checkSum = <<"114">>}},

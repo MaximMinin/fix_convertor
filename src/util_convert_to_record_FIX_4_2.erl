@@ -1581,132 +1581,132 @@ get_record_def(sequenceReset) ->
     [sequenceReset, [standardHeader], gapFillFlag, newSeqNo, [standardTrailer]];
 get_record_def(logout) -> 
     [logout, [standardHeader], text, encodedTextLen, encodedText, [standardTrailer]];
-get_record_def(repeatingReg_iOI_199) -> 
-    [repeatingReg_iOI_199, iOIQualifier];
-get_record_def(repeatingReg_iOI_215) -> 
-    [repeatingReg_iOI_215, routingType, routingID];
+get_record_def(rgr_iOI_199) -> 
+    [rgr_iOI_199, iOIQualifier];
+get_record_def(rgr_iOI_215) -> 
+    [rgr_iOI_215, routingType, routingID];
 get_record_def(iOI) -> 
-    [iOI, [standardHeader], iOIid, iOITransType, iOIRefID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, side, iOIShares, price, currency, validUntilTime, iOIQltyInd, iOINaturalFlag, [[repeatingReg_iOI_199]], text, encodedTextLen, encodedText, transactTime, uRLLink, [[repeatingReg_iOI_215]], spreadToBenchmark, benchmark, [standardTrailer]];
+    [iOI, [standardHeader], iOIid, iOITransType, iOIRefID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, side, iOIShares, price, currency, validUntilTime, iOIQltyInd, iOINaturalFlag, [[rgr_iOI_199]], text, encodedTextLen, encodedText, transactTime, uRLLink, [[rgr_iOI_215]], spreadToBenchmark, benchmark, [standardTrailer]];
 get_record_def(advertisement) -> 
     [advertisement, [standardHeader], advId, advTransType, advRefID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, advSide, shares, price, currency, tradeDate, transactTime, text, encodedTextLen, encodedText, uRLLink, lastMkt, tradingSessionID, [standardTrailer]];
-get_record_def(repeatingReg_executionReport_382) -> 
-    [repeatingReg_executionReport_382, contraBroker, contraTrader, contraTradeQty, contraTradeTime];
+get_record_def(rgr_executionReport_382) -> 
+    [rgr_executionReport_382, contraBroker, contraTrader, contraTradeQty, contraTradeTime];
 get_record_def(executionReport) -> 
-    [executionReport, [standardHeader], orderID, secondaryOrderID, clOrdID, origClOrdID, clientID, execBroker, [[repeatingReg_executionReport_382]], listID, execID, execTransType, execRefID, execType, ordStatus, ordRejReason, execRestatementReason, account, settlmntTyp, futSettDate, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, side, orderQty, cashOrderQty, ordType, price, stopPx, pegDifference, discretionInst, discretionOffset, currency, complianceID, solicitedFlag, timeInForce, effectiveTime, expireDate, expireTime, execInst, rule80A, lastShares, lastPx, lastSpotRate, lastForwardPoints, lastMkt, tradingSessionID, lastCapacity, leavesQty, cumQty, avgPx, dayOrderQty, dayCumQty, dayAvgPx, gTBookingInst, tradeDate, transactTime, reportToExch, commission, commType, grossTradeAmt, settlCurrAmt, settlCurrency, settlCurrFxRate, settlCurrFxRateCalc, handlInst, minQty, maxFloor, openClose, maxShow, text, encodedTextLen, encodedText, futSettDate2, orderQty2, clearingFirm, clearingAccount, multiLegReportingType, [standardTrailer]];
+    [executionReport, [standardHeader], orderID, secondaryOrderID, clOrdID, origClOrdID, clientID, execBroker, [[rgr_executionReport_382]], listID, execID, execTransType, execRefID, execType, ordStatus, ordRejReason, execRestatementReason, account, settlmntTyp, futSettDate, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, side, orderQty, cashOrderQty, ordType, price, stopPx, pegDifference, discretionInst, discretionOffset, currency, complianceID, solicitedFlag, timeInForce, effectiveTime, expireDate, expireTime, execInst, rule80A, lastShares, lastPx, lastSpotRate, lastForwardPoints, lastMkt, tradingSessionID, lastCapacity, leavesQty, cumQty, avgPx, dayOrderQty, dayCumQty, dayAvgPx, gTBookingInst, tradeDate, transactTime, reportToExch, commission, commType, grossTradeAmt, settlCurrAmt, settlCurrency, settlCurrFxRate, settlCurrFxRateCalc, handlInst, minQty, maxFloor, openClose, maxShow, text, encodedTextLen, encodedText, futSettDate2, orderQty2, clearingFirm, clearingAccount, multiLegReportingType, [standardTrailer]];
 get_record_def(orderCancelReject) -> 
     [orderCancelReject, [standardHeader], orderID, secondaryOrderID, clOrdID, origClOrdID, ordStatus, clientID, execBroker, listID, account, transactTime, cxlRejResponseTo, cxlRejReason, text, encodedTextLen, encodedText, [standardTrailer]];
-get_record_def(repeatingReg_logon_384) -> 
-    [repeatingReg_logon_384, refMsgType, msgDirection];
+get_record_def(rgr_logon_384) -> 
+    [rgr_logon_384, refMsgType, msgDirection];
 get_record_def(logon) -> 
-    [logon, [standardHeader], encryptMethod, heartBtInt, rawDataLength, rawData, resetSeqNumFlag, maxMessageSize, [[repeatingReg_logon_384]], [standardTrailer]];
-get_record_def(repeatingReg_news_215) -> 
-    [repeatingReg_news_215, routingType, routingID];
-get_record_def(repeatingReg_news_146) -> 
-    [repeatingReg_news_146, relatdSym, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc];
-get_record_def(repeatingReg_news_33) -> 
-    [repeatingReg_news_33, text, encodedTextLen, encodedText];
+    [logon, [standardHeader], encryptMethod, heartBtInt, rawDataLength, rawData, resetSeqNumFlag, maxMessageSize, [[rgr_logon_384]], [standardTrailer]];
+get_record_def(rgr_news_215) -> 
+    [rgr_news_215, routingType, routingID];
+get_record_def(rgr_news_146) -> 
+    [rgr_news_146, relatdSym, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc];
+get_record_def(rgr_news_33) -> 
+    [rgr_news_33, text, encodedTextLen, encodedText];
 get_record_def(news) -> 
-    [news, [standardHeader], origTime, urgency, headline, encodedHeadlineLen, encodedHeadline, [[repeatingReg_news_215]], [[repeatingReg_news_146]], [[repeatingReg_news_33]], uRLLink, rawDataLength, rawData, [standardTrailer]];
-get_record_def(repeatingReg_email_215) -> 
-    [repeatingReg_email_215, routingType, routingID];
-get_record_def(repeatingReg_email_146) -> 
-    [repeatingReg_email_146, relatdSym, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc];
-get_record_def(repeatingReg_email_33) -> 
-    [repeatingReg_email_33, text, encodedTextLen, encodedText];
+    [news, [standardHeader], origTime, urgency, headline, encodedHeadlineLen, encodedHeadline, [[rgr_news_215]], [[rgr_news_146]], [[rgr_news_33]], uRLLink, rawDataLength, rawData, [standardTrailer]];
+get_record_def(rgr_email_215) -> 
+    [rgr_email_215, routingType, routingID];
+get_record_def(rgr_email_146) -> 
+    [rgr_email_146, relatdSym, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc];
+get_record_def(rgr_email_33) -> 
+    [rgr_email_33, text, encodedTextLen, encodedText];
 get_record_def(email) -> 
-    [email, [standardHeader], emailThreadID, emailType, origTime, subject, encodedSubjectLen, encodedSubject, [[repeatingReg_email_215]], [[repeatingReg_email_146]], orderID, clOrdID, [[repeatingReg_email_33]], rawDataLength, rawData, [standardTrailer]];
-get_record_def(repeatingReg_orderSingle_78) -> 
-    [repeatingReg_orderSingle_78, allocAccount, allocShares];
-get_record_def(repeatingReg_orderSingle_386) -> 
-    [repeatingReg_orderSingle_386, tradingSessionID];
+    [email, [standardHeader], emailThreadID, emailType, origTime, subject, encodedSubjectLen, encodedSubject, [[rgr_email_215]], [[rgr_email_146]], orderID, clOrdID, [[rgr_email_33]], rawDataLength, rawData, [standardTrailer]];
+get_record_def(rgr_orderSingle_78) -> 
+    [rgr_orderSingle_78, allocAccount, allocShares];
+get_record_def(rgr_orderSingle_386) -> 
+    [rgr_orderSingle_386, tradingSessionID];
 get_record_def(orderSingle) -> 
-    [orderSingle, [standardHeader], clOrdID, clientID, execBroker, account, [[repeatingReg_orderSingle_78]], settlmntTyp, futSettDate, handlInst, execInst, minQty, maxFloor, exDestination, [[repeatingReg_orderSingle_386]], processCode, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, prevClosePx, side, locateReqd, transactTime, orderQty, cashOrderQty, ordType, price, stopPx, currency, complianceID, solicitedFlag, iOIid, quoteID, timeInForce, effectiveTime, expireDate, expireTime, gTBookingInst, commission, commType, rule80A, forexReq, settlCurrency, text, encodedTextLen, encodedText, futSettDate2, orderQty2, openClose, coveredOrUncovered, customerOrFirm, maxShow, pegDifference, discretionInst, discretionOffset, clearingFirm, clearingAccount, [standardTrailer]];
-get_record_def(repeatingReg_repeatingReg_orderList_73_78) -> 
-    [repeatingReg_repeatingReg_orderList_73_78, allocAccount, allocShares];
-get_record_def(repeatingReg_repeatingReg_orderList_73_386) -> 
-    [repeatingReg_repeatingReg_orderList_73_386, tradingSessionID];
-get_record_def(repeatingReg_orderList_73) -> 
-    [repeatingReg_orderList_73, clOrdID, listSeqNo, settlInstMode, clientID, execBroker, account, [[repeatingReg_repeatingReg_orderList_73_78]], settlmntTyp, futSettDate, handlInst, execInst, minQty, maxFloor, exDestination, [[repeatingReg_repeatingReg_orderList_73_386]], processCode, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, prevClosePx, side, sideValueInd, locateReqd, transactTime, orderQty, cashOrderQty, ordType, price, stopPx, currency, complianceID, solicitedFlag, iOIid, quoteID, timeInForce, effectiveTime, expireDate, expireTime, gTBookingInst, commission, commType, rule80A, forexReq, settlCurrency, text, encodedTextLen, encodedText, futSettDate2, orderQty2, openClose, coveredOrUncovered, customerOrFirm, maxShow, pegDifference, discretionInst, discretionOffset, clearingFirm, clearingAccount];
+    [orderSingle, [standardHeader], clOrdID, clientID, execBroker, account, [[rgr_orderSingle_78]], settlmntTyp, futSettDate, handlInst, execInst, minQty, maxFloor, exDestination, [[rgr_orderSingle_386]], processCode, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, prevClosePx, side, locateReqd, transactTime, orderQty, cashOrderQty, ordType, price, stopPx, currency, complianceID, solicitedFlag, iOIid, quoteID, timeInForce, effectiveTime, expireDate, expireTime, gTBookingInst, commission, commType, rule80A, forexReq, settlCurrency, text, encodedTextLen, encodedText, futSettDate2, orderQty2, openClose, coveredOrUncovered, customerOrFirm, maxShow, pegDifference, discretionInst, discretionOffset, clearingFirm, clearingAccount, [standardTrailer]];
+get_record_def(rgr_rgr_orderList_73_78) -> 
+    [rgr_rgr_orderList_73_78, allocAccount, allocShares];
+get_record_def(rgr_rgr_orderList_73_386) -> 
+    [rgr_rgr_orderList_73_386, tradingSessionID];
+get_record_def(rgr_orderList_73) -> 
+    [rgr_orderList_73, clOrdID, listSeqNo, settlInstMode, clientID, execBroker, account, [[rgr_rgr_orderList_73_78]], settlmntTyp, futSettDate, handlInst, execInst, minQty, maxFloor, exDestination, [[rgr_rgr_orderList_73_386]], processCode, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, prevClosePx, side, sideValueInd, locateReqd, transactTime, orderQty, cashOrderQty, ordType, price, stopPx, currency, complianceID, solicitedFlag, iOIid, quoteID, timeInForce, effectiveTime, expireDate, expireTime, gTBookingInst, commission, commType, rule80A, forexReq, settlCurrency, text, encodedTextLen, encodedText, futSettDate2, orderQty2, openClose, coveredOrUncovered, customerOrFirm, maxShow, pegDifference, discretionInst, discretionOffset, clearingFirm, clearingAccount];
 get_record_def(orderList) -> 
-    [orderList, [standardHeader], listID, bidID, clientBidID, progRptReqs, bidType, progPeriodInterval, listExecInstType, listExecInst, encodedListExecInstLen, encodedListExecInst, totNoOrders, [[repeatingReg_orderList_73]], [standardTrailer]];
+    [orderList, [standardHeader], listID, bidID, clientBidID, progRptReqs, bidType, progPeriodInterval, listExecInstType, listExecInst, encodedListExecInstLen, encodedListExecInst, totNoOrders, [[rgr_orderList_73]], [standardTrailer]];
 get_record_def(orderCancelRequest) -> 
     [orderCancelRequest, [standardHeader], origClOrdID, orderID, clOrdID, listID, account, clientID, execBroker, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, side, transactTime, orderQty, cashOrderQty, complianceID, solicitedFlag, text, encodedTextLen, encodedText, [standardTrailer]];
-get_record_def(repeatingReg_orderCancelReplaceRequest_78) -> 
-    [repeatingReg_orderCancelReplaceRequest_78, allocAccount, allocShares];
-get_record_def(repeatingReg_orderCancelReplaceRequest_386) -> 
-    [repeatingReg_orderCancelReplaceRequest_386, tradingSessionID];
+get_record_def(rgr_orderCancelReplaceRequest_78) -> 
+    [rgr_orderCancelReplaceRequest_78, allocAccount, allocShares];
+get_record_def(rgr_orderCancelReplaceRequest_386) -> 
+    [rgr_orderCancelReplaceRequest_386, tradingSessionID];
 get_record_def(orderCancelReplaceRequest) -> 
-    [orderCancelReplaceRequest, [standardHeader], orderID, clientID, execBroker, origClOrdID, clOrdID, listID, account, [[repeatingReg_orderCancelReplaceRequest_78]], settlmntTyp, futSettDate, handlInst, execInst, minQty, maxFloor, exDestination, [[repeatingReg_orderCancelReplaceRequest_386]], symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, side, transactTime, orderQty, cashOrderQty, ordType, price, stopPx, pegDifference, discretionInst, discretionOffset, complianceID, solicitedFlag, currency, timeInForce, effectiveTime, expireDate, expireTime, gTBookingInst, commission, commType, rule80A, forexReq, settlCurrency, text, encodedTextLen, encodedText, futSettDate2, orderQty2, openClose, coveredOrUncovered, customerOrFirm, maxShow, locateReqd, clearingFirm, clearingAccount, [standardTrailer]];
+    [orderCancelReplaceRequest, [standardHeader], orderID, clientID, execBroker, origClOrdID, clOrdID, listID, account, [[rgr_orderCancelReplaceRequest_78]], settlmntTyp, futSettDate, handlInst, execInst, minQty, maxFloor, exDestination, [[rgr_orderCancelReplaceRequest_386]], symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, side, transactTime, orderQty, cashOrderQty, ordType, price, stopPx, pegDifference, discretionInst, discretionOffset, complianceID, solicitedFlag, currency, timeInForce, effectiveTime, expireDate, expireTime, gTBookingInst, commission, commType, rule80A, forexReq, settlCurrency, text, encodedTextLen, encodedText, futSettDate2, orderQty2, openClose, coveredOrUncovered, customerOrFirm, maxShow, locateReqd, clearingFirm, clearingAccount, [standardTrailer]];
 get_record_def(orderStatusRequest) -> 
     [orderStatusRequest, [standardHeader], orderID, clOrdID, clientID, account, execBroker, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, side, [standardTrailer]];
-get_record_def(repeatingReg_allocation_73) -> 
-    [repeatingReg_allocation_73, clOrdID, orderID, secondaryOrderID, listID, waveNo];
-get_record_def(repeatingReg_allocation_124) -> 
-    [repeatingReg_allocation_124, lastShares, execID, lastPx, lastCapacity];
-get_record_def(repeatingReg_repeatingReg_allocation_78_136) -> 
-    [repeatingReg_repeatingReg_allocation_78_136, miscFeeAmt, miscFeeCurr, miscFeeType];
-get_record_def(repeatingReg_allocation_78) -> 
-    [repeatingReg_allocation_78, allocAccount, allocPrice, allocShares, processCode, brokerOfCredit, notifyBrokerOfCredit, allocHandlInst, allocText, encodedAllocTextLen, encodedAllocText, execBroker, clientID, commission, commType, allocAvgPx, allocNetMoney, settlCurrAmt, settlCurrency, settlCurrFxRate, settlCurrFxRateCalc, accruedInterestAmt, settlInstMode, [[repeatingReg_repeatingReg_allocation_78_136]]];
+get_record_def(rgr_allocation_73) -> 
+    [rgr_allocation_73, clOrdID, orderID, secondaryOrderID, listID, waveNo];
+get_record_def(rgr_allocation_124) -> 
+    [rgr_allocation_124, lastShares, execID, lastPx, lastCapacity];
+get_record_def(rgr_rgr_allocation_78_136) -> 
+    [rgr_rgr_allocation_78_136, miscFeeAmt, miscFeeCurr, miscFeeType];
+get_record_def(rgr_allocation_78) -> 
+    [rgr_allocation_78, allocAccount, allocPrice, allocShares, processCode, brokerOfCredit, notifyBrokerOfCredit, allocHandlInst, allocText, encodedAllocTextLen, encodedAllocText, execBroker, clientID, commission, commType, allocAvgPx, allocNetMoney, settlCurrAmt, settlCurrency, settlCurrFxRate, settlCurrFxRateCalc, accruedInterestAmt, settlInstMode, [[rgr_rgr_allocation_78_136]]];
 get_record_def(allocation) -> 
-    [allocation, [standardHeader], allocID, allocTransType, refAllocID, allocLinkID, allocLinkType, [[repeatingReg_allocation_73]], [[repeatingReg_allocation_124]], side, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, shares, lastMkt, tradingSessionID, avgPx, currency, avgPrxPrecision, tradeDate, transactTime, settlmntTyp, futSettDate, grossTradeAmt, netMoney, openClose, text, encodedTextLen, encodedText, numDaysInterest, accruedInterestRate, [[repeatingReg_allocation_78]], [standardTrailer]];
+    [allocation, [standardHeader], allocID, allocTransType, refAllocID, allocLinkID, allocLinkType, [[rgr_allocation_73]], [[rgr_allocation_124]], side, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, shares, lastMkt, tradingSessionID, avgPx, currency, avgPrxPrecision, tradeDate, transactTime, settlmntTyp, futSettDate, grossTradeAmt, netMoney, openClose, text, encodedTextLen, encodedText, numDaysInterest, accruedInterestRate, [[rgr_allocation_78]], [standardTrailer]];
 get_record_def(listCancelRequest) -> 
     [listCancelRequest, [standardHeader], listID, transactTime, text, encodedTextLen, encodedText, [standardTrailer]];
 get_record_def(listExecute) -> 
     [listExecute, [standardHeader], listID, clientBidID, bidID, transactTime, text, encodedTextLen, encodedText, [standardTrailer]];
 get_record_def(listStatusRequest) -> 
     [listStatusRequest, [standardHeader], listID, text, encodedTextLen, encodedText, [standardTrailer]];
-get_record_def(repeatingReg_listStatus_73) -> 
-    [repeatingReg_listStatus_73, clOrdID, cumQty, ordStatus, leavesQty, cxlQty, avgPx, ordRejReason, text, encodedTextLen, encodedText];
+get_record_def(rgr_listStatus_73) -> 
+    [rgr_listStatus_73, clOrdID, cumQty, ordStatus, leavesQty, cxlQty, avgPx, ordRejReason, text, encodedTextLen, encodedText];
 get_record_def(listStatus) -> 
-    [listStatus, [standardHeader], listID, listStatusType, noRpts, listOrderStatus, rptSeq, listStatusText, encodedListStatusTextLen, encodedListStatusText, transactTime, totNoOrders, [[repeatingReg_listStatus_73]], [standardTrailer]];
+    [listStatus, [standardHeader], listID, listStatusType, noRpts, listOrderStatus, rptSeq, listStatusText, encodedListStatusTextLen, encodedListStatusText, transactTime, totNoOrders, [[rgr_listStatus_73]], [standardTrailer]];
 get_record_def(allocationInstructionAck) -> 
     [allocationInstructionAck, [standardHeader], clientID, execBroker, allocID, tradeDate, transactTime, allocStatus, allocRejCode, text, encodedTextLen, encodedText, [standardTrailer]];
 get_record_def(dontKnowTrade) -> 
     [dontKnowTrade, [standardHeader], orderID, execID, dKReason, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, side, orderQty, cashOrderQty, lastShares, lastPx, text, encodedTextLen, encodedText, [standardTrailer]];
-get_record_def(repeatingReg_quoteRequest_146) -> 
-    [repeatingReg_quoteRequest_146, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, prevClosePx, quoteRequestType, tradingSessionID, side, orderQty, futSettDate, ordType, futSettDate2, orderQty2, expireTime, transactTime, currency];
+get_record_def(rgr_quoteRequest_146) -> 
+    [rgr_quoteRequest_146, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, prevClosePx, quoteRequestType, tradingSessionID, side, orderQty, futSettDate, ordType, futSettDate2, orderQty2, expireTime, transactTime, currency];
 get_record_def(quoteRequest) -> 
-    [quoteRequest, [standardHeader], quoteReqID, [[repeatingReg_quoteRequest_146]], [standardTrailer]];
+    [quoteRequest, [standardHeader], quoteReqID, [[rgr_quoteRequest_146]], [standardTrailer]];
 get_record_def(quote) -> 
     [quote, [standardHeader], quoteReqID, quoteID, quoteResponseLevel, tradingSessionID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, bidPx, offerPx, bidSize, offerSize, validUntilTime, bidSpotRate, offerSpotRate, bidForwardPoints, offerForwardPoints, transactTime, futSettDate, ordType, futSettDate2, orderQty2, currency, [standardTrailer]];
 get_record_def(settlementInstructions) -> 
     [settlementInstructions, [standardHeader], settlInstID, settlInstTransType, settlInstRefID, settlInstMode, settlInstSource, allocAccount, settlLocation, tradeDate, allocID, lastMkt, tradingSessionID, side, securityType, effectiveTime, transactTime, clientID, execBroker, standInstDbType, standInstDbName, standInstDbID, settlDeliveryType, settlDepositoryCode, settlBrkrCode, settlInstCode, securitySettlAgentName, securitySettlAgentCode, securitySettlAgentAcctNum, securitySettlAgentAcctName, securitySettlAgentContactName, securitySettlAgentContactPhone, cashSettlAgentName, cashSettlAgentCode, cashSettlAgentAcctNum, cashSettlAgentAcctName, cashSettlAgentContactName, cashSettlAgentContactPhone, [standardTrailer]];
-get_record_def(repeatingReg_marketDataRequest_267) -> 
-    [repeatingReg_marketDataRequest_267, mDEntryType];
-get_record_def(repeatingReg_marketDataRequest_146) -> 
-    [repeatingReg_marketDataRequest_146, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, tradingSessionID];
+get_record_def(rgr_marketDataRequest_267) -> 
+    [rgr_marketDataRequest_267, mDEntryType];
+get_record_def(rgr_marketDataRequest_146) -> 
+    [rgr_marketDataRequest_146, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, tradingSessionID];
 get_record_def(marketDataRequest) -> 
-    [marketDataRequest, [standardHeader], mDReqID, subscriptionRequestType, marketDepth, mDUpdateType, aggregatedBook, [[repeatingReg_marketDataRequest_267]], [[repeatingReg_marketDataRequest_146]], [standardTrailer]];
-get_record_def(repeatingReg_marketDataSnapshotFullRefresh_268) -> 
-    [repeatingReg_marketDataSnapshotFullRefresh_268, mDEntryType, mDEntryPx, currency, mDEntrySize, mDEntryDate, mDEntryTime, tickDirection, mDMkt, tradingSessionID, quoteCondition, tradeCondition, mDEntryOriginator, locationID, deskID, openCloseSettleFlag, timeInForce, expireDate, expireTime, minQty, execInst, sellerDays, orderID, quoteEntryID, mDEntryBuyer, mDEntrySeller, numberOfOrders, mDEntryPositionNo, text, encodedTextLen, encodedText];
+    [marketDataRequest, [standardHeader], mDReqID, subscriptionRequestType, marketDepth, mDUpdateType, aggregatedBook, [[rgr_marketDataRequest_267]], [[rgr_marketDataRequest_146]], [standardTrailer]];
+get_record_def(rgr_marketDataSnapshotFullRefresh_268) -> 
+    [rgr_marketDataSnapshotFullRefresh_268, mDEntryType, mDEntryPx, currency, mDEntrySize, mDEntryDate, mDEntryTime, tickDirection, mDMkt, tradingSessionID, quoteCondition, tradeCondition, mDEntryOriginator, locationID, deskID, openCloseSettleFlag, timeInForce, expireDate, expireTime, minQty, execInst, sellerDays, orderID, quoteEntryID, mDEntryBuyer, mDEntrySeller, numberOfOrders, mDEntryPositionNo, text, encodedTextLen, encodedText];
 get_record_def(marketDataSnapshotFullRefresh) -> 
-    [marketDataSnapshotFullRefresh, [standardHeader], mDReqID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, financialStatus, corporateAction, totalVolumeTraded, [[repeatingReg_marketDataSnapshotFullRefresh_268]], [standardTrailer]];
-get_record_def(repeatingReg_marketDataIncrementalRefresh_268) -> 
-    [repeatingReg_marketDataIncrementalRefresh_268, mDUpdateAction, deleteReason, mDEntryType, mDEntryID, mDEntryRefID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, financialStatus, corporateAction, mDEntryPx, currency, mDEntrySize, mDEntryDate, mDEntryTime, tickDirection, mDMkt, tradingSessionID, quoteCondition, tradeCondition, mDEntryOriginator, locationID, deskID, openCloseSettleFlag, timeInForce, expireDate, expireTime, minQty, execInst, sellerDays, orderID, quoteEntryID, mDEntryBuyer, mDEntrySeller, numberOfOrders, mDEntryPositionNo, totalVolumeTraded, text, encodedTextLen, encodedText];
+    [marketDataSnapshotFullRefresh, [standardHeader], mDReqID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, financialStatus, corporateAction, totalVolumeTraded, [[rgr_marketDataSnapshotFullRefresh_268]], [standardTrailer]];
+get_record_def(rgr_marketDataIncrementalRefresh_268) -> 
+    [rgr_marketDataIncrementalRefresh_268, mDUpdateAction, deleteReason, mDEntryType, mDEntryID, mDEntryRefID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, financialStatus, corporateAction, mDEntryPx, currency, mDEntrySize, mDEntryDate, mDEntryTime, tickDirection, mDMkt, tradingSessionID, quoteCondition, tradeCondition, mDEntryOriginator, locationID, deskID, openCloseSettleFlag, timeInForce, expireDate, expireTime, minQty, execInst, sellerDays, orderID, quoteEntryID, mDEntryBuyer, mDEntrySeller, numberOfOrders, mDEntryPositionNo, totalVolumeTraded, text, encodedTextLen, encodedText];
 get_record_def(marketDataIncrementalRefresh) -> 
-    [marketDataIncrementalRefresh, [standardHeader], mDReqID, [[repeatingReg_marketDataIncrementalRefresh_268]], [standardTrailer]];
+    [marketDataIncrementalRefresh, [standardHeader], mDReqID, [[rgr_marketDataIncrementalRefresh_268]], [standardTrailer]];
 get_record_def(marketDataRequestReject) -> 
     [marketDataRequestReject, [standardHeader], mDReqID, mDReqRejReason, text, encodedTextLen, encodedText, [standardTrailer]];
-get_record_def(repeatingReg_quoteCancel_295) -> 
-    [repeatingReg_quoteCancel_295, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, underlyingSymbol];
+get_record_def(rgr_quoteCancel_295) -> 
+    [rgr_quoteCancel_295, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, underlyingSymbol];
 get_record_def(quoteCancel) -> 
-    [quoteCancel, [standardHeader], quoteReqID, quoteID, quoteCancelType, quoteResponseLevel, tradingSessionID, [[repeatingReg_quoteCancel_295]], [standardTrailer]];
+    [quoteCancel, [standardHeader], quoteReqID, quoteID, quoteCancelType, quoteResponseLevel, tradingSessionID, [[rgr_quoteCancel_295]], [standardTrailer]];
 get_record_def(quoteStatusRequest) -> 
     [quoteStatusRequest, [standardHeader], quoteID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, side, tradingSessionID, [standardTrailer]];
-get_record_def(repeatingReg_repeatingReg_quoteAcknowledgement_296_295) -> 
-    [repeatingReg_repeatingReg_quoteAcknowledgement_296_295, quoteEntryID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, quoteEntryRejectReason];
-get_record_def(repeatingReg_quoteAcknowledgement_296) -> 
-    [repeatingReg_quoteAcknowledgement_296, quoteSetID, underlyingSymbol, underlyingSymbolSfx, underlyingSecurityID, underlyingIDSource, underlyingSecurityType, underlyingMaturityMonthYear, underlyingMaturityDay, underlyingPutOrCall, underlyingStrikePrice, underlyingOptAttribute, underlyingContractMultiplier, underlyingCouponRate, underlyingSecurityExchange, underlyingIssuer, encodedUnderlyingIssuerLen, encodedUnderlyingIssuer, underlyingSecurityDesc, encodedUnderlyingSecurityDescLen, encodedUnderlyingSecurityDesc, totQuoteEntries, [[repeatingReg_repeatingReg_quoteAcknowledgement_296_295]]];
+get_record_def(rgr_rgr_quoteAcknowledgement_296_295) -> 
+    [rgr_rgr_quoteAcknowledgement_296_295, quoteEntryID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, quoteEntryRejectReason];
+get_record_def(rgr_quoteAcknowledgement_296) -> 
+    [rgr_quoteAcknowledgement_296, quoteSetID, underlyingSymbol, underlyingSymbolSfx, underlyingSecurityID, underlyingIDSource, underlyingSecurityType, underlyingMaturityMonthYear, underlyingMaturityDay, underlyingPutOrCall, underlyingStrikePrice, underlyingOptAttribute, underlyingContractMultiplier, underlyingCouponRate, underlyingSecurityExchange, underlyingIssuer, encodedUnderlyingIssuerLen, encodedUnderlyingIssuer, underlyingSecurityDesc, encodedUnderlyingSecurityDescLen, encodedUnderlyingSecurityDesc, totQuoteEntries, [[rgr_rgr_quoteAcknowledgement_296_295]]];
 get_record_def(quoteAcknowledgement) -> 
-    [quoteAcknowledgement, [standardHeader], quoteReqID, quoteID, quoteAckStatus, quoteRejectReason, quoteResponseLevel, tradingSessionID, text, [[repeatingReg_quoteAcknowledgement_296]], [standardTrailer]];
-get_record_def(repeatingReg_securityDefinitionRequest_146) -> 
-    [repeatingReg_securityDefinitionRequest_146, underlyingSymbol, underlyingSymbolSfx, underlyingSecurityID, underlyingIDSource, underlyingSecurityType, underlyingMaturityMonthYear, underlyingMaturityDay, underlyingPutOrCall, underlyingStrikePrice, underlyingOptAttribute, underlyingContractMultiplier, underlyingCouponRate, underlyingSecurityExchange, underlyingIssuer, encodedUnderlyingIssuerLen, encodedUnderlyingIssuer, underlyingSecurityDesc, encodedUnderlyingSecurityDescLen, encodedUnderlyingSecurityDesc, ratioQty, side, underlyingCurrency];
+    [quoteAcknowledgement, [standardHeader], quoteReqID, quoteID, quoteAckStatus, quoteRejectReason, quoteResponseLevel, tradingSessionID, text, [[rgr_quoteAcknowledgement_296]], [standardTrailer]];
+get_record_def(rgr_securityDefinitionRequest_146) -> 
+    [rgr_securityDefinitionRequest_146, underlyingSymbol, underlyingSymbolSfx, underlyingSecurityID, underlyingIDSource, underlyingSecurityType, underlyingMaturityMonthYear, underlyingMaturityDay, underlyingPutOrCall, underlyingStrikePrice, underlyingOptAttribute, underlyingContractMultiplier, underlyingCouponRate, underlyingSecurityExchange, underlyingIssuer, encodedUnderlyingIssuerLen, encodedUnderlyingIssuer, underlyingSecurityDesc, encodedUnderlyingSecurityDescLen, encodedUnderlyingSecurityDesc, ratioQty, side, underlyingCurrency];
 get_record_def(securityDefinitionRequest) -> 
-    [securityDefinitionRequest, [standardHeader], securityReqID, securityRequestType, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, currency, text, encodedTextLen, encodedText, tradingSessionID, [[repeatingReg_securityDefinitionRequest_146]], [standardTrailer]];
-get_record_def(repeatingReg_securityDefinition_146) -> 
-    [repeatingReg_securityDefinition_146, underlyingSymbol, underlyingSymbolSfx, underlyingSecurityID, underlyingIDSource, underlyingSecurityType, underlyingMaturityMonthYear, underlyingMaturityDay, underlyingPutOrCall, underlyingStrikePrice, underlyingOptAttribute, underlyingContractMultiplier, underlyingCouponRate, underlyingSecurityExchange, underlyingIssuer, encodedUnderlyingIssuerLen, encodedUnderlyingIssuer, underlyingSecurityDesc, encodedUnderlyingSecurityDescLen, encodedUnderlyingSecurityDesc, ratioQty, side, underlyingCurrency];
+    [securityDefinitionRequest, [standardHeader], securityReqID, securityRequestType, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, currency, text, encodedTextLen, encodedText, tradingSessionID, [[rgr_securityDefinitionRequest_146]], [standardTrailer]];
+get_record_def(rgr_securityDefinition_146) -> 
+    [rgr_securityDefinition_146, underlyingSymbol, underlyingSymbolSfx, underlyingSecurityID, underlyingIDSource, underlyingSecurityType, underlyingMaturityMonthYear, underlyingMaturityDay, underlyingPutOrCall, underlyingStrikePrice, underlyingOptAttribute, underlyingContractMultiplier, underlyingCouponRate, underlyingSecurityExchange, underlyingIssuer, encodedUnderlyingIssuerLen, encodedUnderlyingIssuer, underlyingSecurityDesc, encodedUnderlyingSecurityDescLen, encodedUnderlyingSecurityDesc, ratioQty, side, underlyingCurrency];
 get_record_def(securityDefinition) -> 
-    [securityDefinition, [standardHeader], securityReqID, securityResponseID, securityResponseType, totalNumSecurities, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, currency, tradingSessionID, text, encodedTextLen, encodedText, [[repeatingReg_securityDefinition_146]], [standardTrailer]];
+    [securityDefinition, [standardHeader], securityReqID, securityResponseID, securityResponseType, totalNumSecurities, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, currency, tradingSessionID, text, encodedTextLen, encodedText, [[rgr_securityDefinition_146]], [standardTrailer]];
 get_record_def(securityStatusRequest) -> 
     [securityStatusRequest, [standardHeader], securityStatusReqID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, currency, subscriptionRequestType, tradingSessionID, [standardTrailer]];
 get_record_def(securityStatus) -> 
@@ -1715,28 +1715,28 @@ get_record_def(tradingSessionStatusRequest) ->
     [tradingSessionStatusRequest, [standardHeader], tradSesReqID, tradingSessionID, tradSesMethod, tradSesMode, subscriptionRequestType, [standardTrailer]];
 get_record_def(tradingSessionStatus) -> 
     [tradingSessionStatus, [standardHeader], tradSesReqID, tradingSessionID, tradSesMethod, tradSesMode, unsolicitedIndicator, tradSesStatus, tradSesStartTime, tradSesOpenTime, tradSesPreCloseTime, tradSesCloseTime, tradSesEndTime, totalVolumeTraded, text, encodedTextLen, encodedText, [standardTrailer]];
-get_record_def(repeatingReg_repeatingReg_massQuote_296_295) -> 
-    [repeatingReg_repeatingReg_massQuote_296_295, quoteEntryID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, bidPx, offerPx, bidSize, offerSize, validUntilTime, bidSpotRate, offerSpotRate, bidForwardPoints, offerForwardPoints, transactTime, tradingSessionID, futSettDate, ordType, futSettDate2, orderQty2, currency];
-get_record_def(repeatingReg_massQuote_296) -> 
-    [repeatingReg_massQuote_296, quoteSetID, underlyingSymbol, underlyingSymbolSfx, underlyingSecurityID, underlyingIDSource, underlyingSecurityType, underlyingMaturityMonthYear, underlyingMaturityDay, underlyingPutOrCall, underlyingStrikePrice, underlyingOptAttribute, underlyingContractMultiplier, underlyingCouponRate, underlyingSecurityExchange, underlyingIssuer, encodedUnderlyingIssuerLen, encodedUnderlyingIssuer, underlyingSecurityDesc, encodedUnderlyingSecurityDescLen, encodedUnderlyingSecurityDesc, quoteSetValidUntilTime, totQuoteEntries, [[repeatingReg_repeatingReg_massQuote_296_295]]];
+get_record_def(rgr_rgr_massQuote_296_295) -> 
+    [rgr_rgr_massQuote_296_295, quoteEntryID, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, bidPx, offerPx, bidSize, offerSize, validUntilTime, bidSpotRate, offerSpotRate, bidForwardPoints, offerForwardPoints, transactTime, tradingSessionID, futSettDate, ordType, futSettDate2, orderQty2, currency];
+get_record_def(rgr_massQuote_296) -> 
+    [rgr_massQuote_296, quoteSetID, underlyingSymbol, underlyingSymbolSfx, underlyingSecurityID, underlyingIDSource, underlyingSecurityType, underlyingMaturityMonthYear, underlyingMaturityDay, underlyingPutOrCall, underlyingStrikePrice, underlyingOptAttribute, underlyingContractMultiplier, underlyingCouponRate, underlyingSecurityExchange, underlyingIssuer, encodedUnderlyingIssuerLen, encodedUnderlyingIssuer, underlyingSecurityDesc, encodedUnderlyingSecurityDescLen, encodedUnderlyingSecurityDesc, quoteSetValidUntilTime, totQuoteEntries, [[rgr_rgr_massQuote_296_295]]];
 get_record_def(massQuote) -> 
-    [massQuote, [standardHeader], quoteReqID, quoteID, quoteResponseLevel, defBidSize, defOfferSize, [[repeatingReg_massQuote_296]], [standardTrailer]];
+    [massQuote, [standardHeader], quoteReqID, quoteID, quoteResponseLevel, defBidSize, defOfferSize, [[rgr_massQuote_296]], [standardTrailer]];
 get_record_def(businessMessageReject) -> 
     [businessMessageReject, [standardHeader], refSeqNum, refMsgType, businessRejectRefID, businessRejectReason, text, encodedTextLen, encodedText, [standardTrailer]];
-get_record_def(repeatingReg_bidRequest_398) -> 
-    [repeatingReg_bidRequest_398, bidDescriptorType, bidDescriptor, sideValueInd, liquidityValue, liquidityNumSecurities, liquidityPctLow, liquidityPctHigh, eFPTrackingError, fairValue, outsideIndexPct, valueOfFutures];
-get_record_def(repeatingReg_bidRequest_420) -> 
-    [repeatingReg_bidRequest_420, listID, side, tradingSessionID, netGrossInd, settlmntTyp, futSettDate, account];
+get_record_def(rgr_bidRequest_398) -> 
+    [rgr_bidRequest_398, bidDescriptorType, bidDescriptor, sideValueInd, liquidityValue, liquidityNumSecurities, liquidityPctLow, liquidityPctHigh, eFPTrackingError, fairValue, outsideIndexPct, valueOfFutures];
+get_record_def(rgr_bidRequest_420) -> 
+    [rgr_bidRequest_420, listID, side, tradingSessionID, netGrossInd, settlmntTyp, futSettDate, account];
 get_record_def(bidRequest) -> 
-    [bidRequest, [standardHeader], bidID, clientBidID, bidRequestTransType, listName, totalNumSecurities, bidType, numTickets, currency, sideValue1, sideValue2, [[repeatingReg_bidRequest_398]], [[repeatingReg_bidRequest_420]], liquidityIndType, wtAverageLiquidity, exchangeForPhysical, outMainCntryUIndex, crossPercent, progRptReqs, progPeriodInterval, incTaxInd, forexReq, numBidders, tradeDate, tradeType, basisPxType, strikeTime, text, encodedTextLen, encodedText, [standardTrailer]];
-get_record_def(repeatingReg_bidResponse_420) -> 
-    [repeatingReg_bidResponse_420, commission, commType, listID, country, side, price, priceType, fairValue, netGrossInd, settlmntTyp, futSettDate, tradingSessionID, text, encodedTextLen, encodedText];
+    [bidRequest, [standardHeader], bidID, clientBidID, bidRequestTransType, listName, totalNumSecurities, bidType, numTickets, currency, sideValue1, sideValue2, [[rgr_bidRequest_398]], [[rgr_bidRequest_420]], liquidityIndType, wtAverageLiquidity, exchangeForPhysical, outMainCntryUIndex, crossPercent, progRptReqs, progPeriodInterval, incTaxInd, forexReq, numBidders, tradeDate, tradeType, basisPxType, strikeTime, text, encodedTextLen, encodedText, [standardTrailer]];
+get_record_def(rgr_bidResponse_420) -> 
+    [rgr_bidResponse_420, commission, commType, listID, country, side, price, priceType, fairValue, netGrossInd, settlmntTyp, futSettDate, tradingSessionID, text, encodedTextLen, encodedText];
 get_record_def(bidResponse) -> 
-    [bidResponse, [standardHeader], bidID, clientBidID, [[repeatingReg_bidResponse_420]], [standardTrailer]];
-get_record_def(repeatingReg_listStrikePrice_428) -> 
-    [repeatingReg_listStrikePrice_428, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, prevClosePx, clOrdID, side, price, currency, text, encodedTextLen, encodedText];
+    [bidResponse, [standardHeader], bidID, clientBidID, [[rgr_bidResponse_420]], [standardTrailer]];
+get_record_def(rgr_listStrikePrice_428) -> 
+    [rgr_listStrikePrice_428, symbol, symbolSfx, securityID, iDSource, securityType, maturityMonthYear, maturityDay, putOrCall, strikePrice, optAttribute, contractMultiplier, couponRate, securityExchange, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, prevClosePx, clOrdID, side, price, currency, text, encodedTextLen, encodedText];
 get_record_def(listStrikePrice) -> 
-    [listStrikePrice, [standardHeader], listID, totNoStrikes, [[repeatingReg_listStrikePrice_428]], [standardTrailer]];
+    [listStrikePrice, [standardHeader], listID, totNoStrikes, [[rgr_listStrikePrice_428]], [standardTrailer]];
 get_record_def(_Else) -> 
     error.
 
@@ -1756,72 +1756,72 @@ getRecord(sequenceReset)->
     #sequenceReset{};
 getRecord(logout)->
     #logout{};
-getRecord(repeatingReg_iOI_199)->
-    #repeatingReg_iOI_199{};
-getRecord(repeatingReg_iOI_215)->
-    #repeatingReg_iOI_215{};
+getRecord(rgr_iOI_199)->
+    #rgr_iOI_199{};
+getRecord(rgr_iOI_215)->
+    #rgr_iOI_215{};
 getRecord(iOI)->
     #iOI{};
 getRecord(advertisement)->
     #advertisement{};
-getRecord(repeatingReg_executionReport_382)->
-    #repeatingReg_executionReport_382{};
+getRecord(rgr_executionReport_382)->
+    #rgr_executionReport_382{};
 getRecord(executionReport)->
     #executionReport{};
 getRecord(orderCancelReject)->
     #orderCancelReject{};
-getRecord(repeatingReg_logon_384)->
-    #repeatingReg_logon_384{};
+getRecord(rgr_logon_384)->
+    #rgr_logon_384{};
 getRecord(logon)->
     #logon{};
-getRecord(repeatingReg_news_215)->
-    #repeatingReg_news_215{};
-getRecord(repeatingReg_news_146)->
-    #repeatingReg_news_146{};
-getRecord(repeatingReg_news_33)->
-    #repeatingReg_news_33{};
+getRecord(rgr_news_215)->
+    #rgr_news_215{};
+getRecord(rgr_news_146)->
+    #rgr_news_146{};
+getRecord(rgr_news_33)->
+    #rgr_news_33{};
 getRecord(news)->
     #news{};
-getRecord(repeatingReg_email_215)->
-    #repeatingReg_email_215{};
-getRecord(repeatingReg_email_146)->
-    #repeatingReg_email_146{};
-getRecord(repeatingReg_email_33)->
-    #repeatingReg_email_33{};
+getRecord(rgr_email_215)->
+    #rgr_email_215{};
+getRecord(rgr_email_146)->
+    #rgr_email_146{};
+getRecord(rgr_email_33)->
+    #rgr_email_33{};
 getRecord(email)->
     #email{};
-getRecord(repeatingReg_orderSingle_78)->
-    #repeatingReg_orderSingle_78{};
-getRecord(repeatingReg_orderSingle_386)->
-    #repeatingReg_orderSingle_386{};
+getRecord(rgr_orderSingle_78)->
+    #rgr_orderSingle_78{};
+getRecord(rgr_orderSingle_386)->
+    #rgr_orderSingle_386{};
 getRecord(orderSingle)->
     #orderSingle{};
-getRecord(repeatingReg_orderList_73)->
-    #repeatingReg_orderList_73{};
-getRecord(repeatingReg_repeatingReg_orderList_73_78)->
-    #repeatingReg_repeatingReg_orderList_73_78{};
-getRecord(repeatingReg_repeatingReg_orderList_73_386)->
-    #repeatingReg_repeatingReg_orderList_73_386{};
+getRecord(rgr_orderList_73)->
+    #rgr_orderList_73{};
+getRecord(rgr_rgr_orderList_73_78)->
+    #rgr_rgr_orderList_73_78{};
+getRecord(rgr_rgr_orderList_73_386)->
+    #rgr_rgr_orderList_73_386{};
 getRecord(orderList)->
     #orderList{};
 getRecord(orderCancelRequest)->
     #orderCancelRequest{};
-getRecord(repeatingReg_orderCancelReplaceRequest_78)->
-    #repeatingReg_orderCancelReplaceRequest_78{};
-getRecord(repeatingReg_orderCancelReplaceRequest_386)->
-    #repeatingReg_orderCancelReplaceRequest_386{};
+getRecord(rgr_orderCancelReplaceRequest_78)->
+    #rgr_orderCancelReplaceRequest_78{};
+getRecord(rgr_orderCancelReplaceRequest_386)->
+    #rgr_orderCancelReplaceRequest_386{};
 getRecord(orderCancelReplaceRequest)->
     #orderCancelReplaceRequest{};
 getRecord(orderStatusRequest)->
     #orderStatusRequest{};
-getRecord(repeatingReg_allocation_73)->
-    #repeatingReg_allocation_73{};
-getRecord(repeatingReg_allocation_124)->
-    #repeatingReg_allocation_124{};
-getRecord(repeatingReg_allocation_78)->
-    #repeatingReg_allocation_78{};
-getRecord(repeatingReg_repeatingReg_allocation_78_136)->
-    #repeatingReg_repeatingReg_allocation_78_136{};
+getRecord(rgr_allocation_73)->
+    #rgr_allocation_73{};
+getRecord(rgr_allocation_124)->
+    #rgr_allocation_124{};
+getRecord(rgr_allocation_78)->
+    #rgr_allocation_78{};
+getRecord(rgr_rgr_allocation_78_136)->
+    #rgr_rgr_allocation_78_136{};
 getRecord(allocation)->
     #allocation{};
 getRecord(listCancelRequest)->
@@ -1830,56 +1830,56 @@ getRecord(listExecute)->
     #listExecute{};
 getRecord(listStatusRequest)->
     #listStatusRequest{};
-getRecord(repeatingReg_listStatus_73)->
-    #repeatingReg_listStatus_73{};
+getRecord(rgr_listStatus_73)->
+    #rgr_listStatus_73{};
 getRecord(listStatus)->
     #listStatus{};
 getRecord(allocationInstructionAck)->
     #allocationInstructionAck{};
 getRecord(dontKnowTrade)->
     #dontKnowTrade{};
-getRecord(repeatingReg_quoteRequest_146)->
-    #repeatingReg_quoteRequest_146{};
+getRecord(rgr_quoteRequest_146)->
+    #rgr_quoteRequest_146{};
 getRecord(quoteRequest)->
     #quoteRequest{};
 getRecord(quote)->
     #quote{};
 getRecord(settlementInstructions)->
     #settlementInstructions{};
-getRecord(repeatingReg_marketDataRequest_267)->
-    #repeatingReg_marketDataRequest_267{};
-getRecord(repeatingReg_marketDataRequest_146)->
-    #repeatingReg_marketDataRequest_146{};
+getRecord(rgr_marketDataRequest_267)->
+    #rgr_marketDataRequest_267{};
+getRecord(rgr_marketDataRequest_146)->
+    #rgr_marketDataRequest_146{};
 getRecord(marketDataRequest)->
     #marketDataRequest{};
-getRecord(repeatingReg_marketDataSnapshotFullRefresh_268)->
-    #repeatingReg_marketDataSnapshotFullRefresh_268{};
+getRecord(rgr_marketDataSnapshotFullRefresh_268)->
+    #rgr_marketDataSnapshotFullRefresh_268{};
 getRecord(marketDataSnapshotFullRefresh)->
     #marketDataSnapshotFullRefresh{};
-getRecord(repeatingReg_marketDataIncrementalRefresh_268)->
-    #repeatingReg_marketDataIncrementalRefresh_268{};
+getRecord(rgr_marketDataIncrementalRefresh_268)->
+    #rgr_marketDataIncrementalRefresh_268{};
 getRecord(marketDataIncrementalRefresh)->
     #marketDataIncrementalRefresh{};
 getRecord(marketDataRequestReject)->
     #marketDataRequestReject{};
-getRecord(repeatingReg_quoteCancel_295)->
-    #repeatingReg_quoteCancel_295{};
+getRecord(rgr_quoteCancel_295)->
+    #rgr_quoteCancel_295{};
 getRecord(quoteCancel)->
     #quoteCancel{};
 getRecord(quoteStatusRequest)->
     #quoteStatusRequest{};
-getRecord(repeatingReg_quoteAcknowledgement_296)->
-    #repeatingReg_quoteAcknowledgement_296{};
-getRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295)->
-    #repeatingReg_repeatingReg_quoteAcknowledgement_296_295{};
+getRecord(rgr_quoteAcknowledgement_296)->
+    #rgr_quoteAcknowledgement_296{};
+getRecord(rgr_rgr_quoteAcknowledgement_296_295)->
+    #rgr_rgr_quoteAcknowledgement_296_295{};
 getRecord(quoteAcknowledgement)->
     #quoteAcknowledgement{};
-getRecord(repeatingReg_securityDefinitionRequest_146)->
-    #repeatingReg_securityDefinitionRequest_146{};
+getRecord(rgr_securityDefinitionRequest_146)->
+    #rgr_securityDefinitionRequest_146{};
 getRecord(securityDefinitionRequest)->
     #securityDefinitionRequest{};
-getRecord(repeatingReg_securityDefinition_146)->
-    #repeatingReg_securityDefinition_146{};
+getRecord(rgr_securityDefinition_146)->
+    #rgr_securityDefinition_146{};
 getRecord(securityDefinition)->
     #securityDefinition{};
 getRecord(securityStatusRequest)->
@@ -1890,26 +1890,26 @@ getRecord(tradingSessionStatusRequest)->
     #tradingSessionStatusRequest{};
 getRecord(tradingSessionStatus)->
     #tradingSessionStatus{};
-getRecord(repeatingReg_massQuote_296)->
-    #repeatingReg_massQuote_296{};
-getRecord(repeatingReg_repeatingReg_massQuote_296_295)->
-    #repeatingReg_repeatingReg_massQuote_296_295{};
+getRecord(rgr_massQuote_296)->
+    #rgr_massQuote_296{};
+getRecord(rgr_rgr_massQuote_296_295)->
+    #rgr_rgr_massQuote_296_295{};
 getRecord(massQuote)->
     #massQuote{};
 getRecord(businessMessageReject)->
     #businessMessageReject{};
-getRecord(repeatingReg_bidRequest_398)->
-    #repeatingReg_bidRequest_398{};
-getRecord(repeatingReg_bidRequest_420)->
-    #repeatingReg_bidRequest_420{};
+getRecord(rgr_bidRequest_398)->
+    #rgr_bidRequest_398{};
+getRecord(rgr_bidRequest_420)->
+    #rgr_bidRequest_420{};
 getRecord(bidRequest)->
     #bidRequest{};
-getRecord(repeatingReg_bidResponse_420)->
-    #repeatingReg_bidResponse_420{};
+getRecord(rgr_bidResponse_420)->
+    #rgr_bidResponse_420{};
 getRecord(bidResponse)->
     #bidResponse{};
-getRecord(repeatingReg_listStrikePrice_428)->
-    #repeatingReg_listStrikePrice_428{};
+getRecord(rgr_listStrikePrice_428)->
+    #rgr_listStrikePrice_428{};
 getRecord(listStrikePrice)->
     #listStrikePrice{}.
 setFieldInRecord(standardHeader, beginString, Record, Value)->
@@ -2088,10 +2088,10 @@ setFieldInRecord(iOI, iOIQltyInd, Record, Value)->
     erlang:setelement(#iOI.iOIQltyInd, Record, Value);
 setFieldInRecord(iOI, iOINaturalFlag, Record, Value)->
     erlang:setelement(#iOI.iOINaturalFlag, Record, Value);
-setFieldInRecord(iOI, repeatingReg_iOI_199, Record, Value)->
-   erlang:setelement(#iOI.repeatingReg_iOI_199, Record, Value);
-setFieldInRecord(repeatingReg_iOI_199, iOIQualifier, Record, Value)->
-   erlang:setelement(#repeatingReg_iOI_199.iOIQualifier, Record, Value);
+setFieldInRecord(iOI, rgr_iOI_199, Record, Value)->
+   erlang:setelement(#iOI.rgr_iOI_199, Record, Value);
+setFieldInRecord(rgr_iOI_199, iOIQualifier, Record, Value)->
+   erlang:setelement(#rgr_iOI_199.iOIQualifier, Record, Value);
 setFieldInRecord(iOI, text, Record, Value)->
     erlang:setelement(#iOI.text, Record, Value);
 setFieldInRecord(iOI, encodedTextLen, Record, Value)->
@@ -2102,12 +2102,12 @@ setFieldInRecord(iOI, transactTime, Record, Value)->
     erlang:setelement(#iOI.transactTime, Record, Value);
 setFieldInRecord(iOI, uRLLink, Record, Value)->
     erlang:setelement(#iOI.uRLLink, Record, Value);
-setFieldInRecord(iOI, repeatingReg_iOI_215, Record, Value)->
-   erlang:setelement(#iOI.repeatingReg_iOI_215, Record, Value);
-setFieldInRecord(repeatingReg_iOI_215, routingType, Record, Value)->
-   erlang:setelement(#repeatingReg_iOI_215.routingType, Record, Value);
-setFieldInRecord(repeatingReg_iOI_215, routingID, Record, Value)->
-   erlang:setelement(#repeatingReg_iOI_215.routingID, Record, Value);
+setFieldInRecord(iOI, rgr_iOI_215, Record, Value)->
+   erlang:setelement(#iOI.rgr_iOI_215, Record, Value);
+setFieldInRecord(rgr_iOI_215, routingType, Record, Value)->
+   erlang:setelement(#rgr_iOI_215.routingType, Record, Value);
+setFieldInRecord(rgr_iOI_215, routingID, Record, Value)->
+   erlang:setelement(#rgr_iOI_215.routingID, Record, Value);
 setFieldInRecord(iOI, spreadToBenchmark, Record, Value)->
     erlang:setelement(#iOI.spreadToBenchmark, Record, Value);
 setFieldInRecord(iOI, benchmark, Record, Value)->
@@ -2200,16 +2200,16 @@ setFieldInRecord(executionReport, clientID, Record, Value)->
     erlang:setelement(#executionReport.clientID, Record, Value);
 setFieldInRecord(executionReport, execBroker, Record, Value)->
     erlang:setelement(#executionReport.execBroker, Record, Value);
-setFieldInRecord(executionReport, repeatingReg_executionReport_382, Record, Value)->
-   erlang:setelement(#executionReport.repeatingReg_executionReport_382, Record, Value);
-setFieldInRecord(repeatingReg_executionReport_382, contraBroker, Record, Value)->
-   erlang:setelement(#repeatingReg_executionReport_382.contraBroker, Record, Value);
-setFieldInRecord(repeatingReg_executionReport_382, contraTrader, Record, Value)->
-   erlang:setelement(#repeatingReg_executionReport_382.contraTrader, Record, Value);
-setFieldInRecord(repeatingReg_executionReport_382, contraTradeQty, Record, Value)->
-   erlang:setelement(#repeatingReg_executionReport_382.contraTradeQty, Record, Value);
-setFieldInRecord(repeatingReg_executionReport_382, contraTradeTime, Record, Value)->
-   erlang:setelement(#repeatingReg_executionReport_382.contraTradeTime, Record, Value);
+setFieldInRecord(executionReport, rgr_executionReport_382, Record, Value)->
+   erlang:setelement(#executionReport.rgr_executionReport_382, Record, Value);
+setFieldInRecord(rgr_executionReport_382, contraBroker, Record, Value)->
+   erlang:setelement(#rgr_executionReport_382.contraBroker, Record, Value);
+setFieldInRecord(rgr_executionReport_382, contraTrader, Record, Value)->
+   erlang:setelement(#rgr_executionReport_382.contraTrader, Record, Value);
+setFieldInRecord(rgr_executionReport_382, contraTradeQty, Record, Value)->
+   erlang:setelement(#rgr_executionReport_382.contraTradeQty, Record, Value);
+setFieldInRecord(rgr_executionReport_382, contraTradeTime, Record, Value)->
+   erlang:setelement(#rgr_executionReport_382.contraTradeTime, Record, Value);
 setFieldInRecord(executionReport, listID, Record, Value)->
     erlang:setelement(#executionReport.listID, Record, Value);
 setFieldInRecord(executionReport, execID, Record, Value)->
@@ -2430,12 +2430,12 @@ setFieldInRecord(logon, resetSeqNumFlag, Record, Value)->
     erlang:setelement(#logon.resetSeqNumFlag, Record, Value);
 setFieldInRecord(logon, maxMessageSize, Record, Value)->
     erlang:setelement(#logon.maxMessageSize, Record, Value);
-setFieldInRecord(logon, repeatingReg_logon_384, Record, Value)->
-   erlang:setelement(#logon.repeatingReg_logon_384, Record, Value);
-setFieldInRecord(repeatingReg_logon_384, refMsgType, Record, Value)->
-   erlang:setelement(#repeatingReg_logon_384.refMsgType, Record, Value);
-setFieldInRecord(repeatingReg_logon_384, msgDirection, Record, Value)->
-   erlang:setelement(#repeatingReg_logon_384.msgDirection, Record, Value);
+setFieldInRecord(logon, rgr_logon_384, Record, Value)->
+   erlang:setelement(#logon.rgr_logon_384, Record, Value);
+setFieldInRecord(rgr_logon_384, refMsgType, Record, Value)->
+   erlang:setelement(#rgr_logon_384.refMsgType, Record, Value);
+setFieldInRecord(rgr_logon_384, msgDirection, Record, Value)->
+   erlang:setelement(#rgr_logon_384.msgDirection, Record, Value);
 setFieldInRecord(logon, standardTrailer, Record, Value)->
     erlang:setelement(#logon.standardTrailer, Record, Value);
 setFieldInRecord(news, standardHeader, Record, Value)->
@@ -2450,60 +2450,60 @@ setFieldInRecord(news, encodedHeadlineLen, Record, Value)->
     erlang:setelement(#news.encodedHeadlineLen, Record, Value);
 setFieldInRecord(news, encodedHeadline, Record, Value)->
     erlang:setelement(#news.encodedHeadline, Record, Value);
-setFieldInRecord(news, repeatingReg_news_215, Record, Value)->
-   erlang:setelement(#news.repeatingReg_news_215, Record, Value);
-setFieldInRecord(repeatingReg_news_215, routingType, Record, Value)->
-   erlang:setelement(#repeatingReg_news_215.routingType, Record, Value);
-setFieldInRecord(repeatingReg_news_215, routingID, Record, Value)->
-   erlang:setelement(#repeatingReg_news_215.routingID, Record, Value);
-setFieldInRecord(news, repeatingReg_news_146, Record, Value)->
-   erlang:setelement(#news.repeatingReg_news_146, Record, Value);
-setFieldInRecord(repeatingReg_news_146, relatdSym, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.relatdSym, Record, Value);
-setFieldInRecord(repeatingReg_news_146, symbolSfx, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.symbolSfx, Record, Value);
-setFieldInRecord(repeatingReg_news_146, securityID, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.securityID, Record, Value);
-setFieldInRecord(repeatingReg_news_146, iDSource, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.iDSource, Record, Value);
-setFieldInRecord(repeatingReg_news_146, securityType, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.securityType, Record, Value);
-setFieldInRecord(repeatingReg_news_146, maturityMonthYear, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.maturityMonthYear, Record, Value);
-setFieldInRecord(repeatingReg_news_146, maturityDay, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.maturityDay, Record, Value);
-setFieldInRecord(repeatingReg_news_146, putOrCall, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.putOrCall, Record, Value);
-setFieldInRecord(repeatingReg_news_146, strikePrice, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.strikePrice, Record, Value);
-setFieldInRecord(repeatingReg_news_146, optAttribute, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.optAttribute, Record, Value);
-setFieldInRecord(repeatingReg_news_146, contractMultiplier, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.contractMultiplier, Record, Value);
-setFieldInRecord(repeatingReg_news_146, couponRate, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.couponRate, Record, Value);
-setFieldInRecord(repeatingReg_news_146, securityExchange, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.securityExchange, Record, Value);
-setFieldInRecord(repeatingReg_news_146, issuer, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.issuer, Record, Value);
-setFieldInRecord(repeatingReg_news_146, encodedIssuerLen, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.encodedIssuerLen, Record, Value);
-setFieldInRecord(repeatingReg_news_146, encodedIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.encodedIssuer, Record, Value);
-setFieldInRecord(repeatingReg_news_146, securityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.securityDesc, Record, Value);
-setFieldInRecord(repeatingReg_news_146, encodedSecurityDescLen, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.encodedSecurityDescLen, Record, Value);
-setFieldInRecord(repeatingReg_news_146, encodedSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_news_146.encodedSecurityDesc, Record, Value);
-setFieldInRecord(news, repeatingReg_news_33, Record, Value)->
-   erlang:setelement(#news.repeatingReg_news_33, Record, Value);
-setFieldInRecord(repeatingReg_news_33, text, Record, Value)->
-   erlang:setelement(#repeatingReg_news_33.text, Record, Value);
-setFieldInRecord(repeatingReg_news_33, encodedTextLen, Record, Value)->
-   erlang:setelement(#repeatingReg_news_33.encodedTextLen, Record, Value);
-setFieldInRecord(repeatingReg_news_33, encodedText, Record, Value)->
-   erlang:setelement(#repeatingReg_news_33.encodedText, Record, Value);
+setFieldInRecord(news, rgr_news_215, Record, Value)->
+   erlang:setelement(#news.rgr_news_215, Record, Value);
+setFieldInRecord(rgr_news_215, routingType, Record, Value)->
+   erlang:setelement(#rgr_news_215.routingType, Record, Value);
+setFieldInRecord(rgr_news_215, routingID, Record, Value)->
+   erlang:setelement(#rgr_news_215.routingID, Record, Value);
+setFieldInRecord(news, rgr_news_146, Record, Value)->
+   erlang:setelement(#news.rgr_news_146, Record, Value);
+setFieldInRecord(rgr_news_146, relatdSym, Record, Value)->
+   erlang:setelement(#rgr_news_146.relatdSym, Record, Value);
+setFieldInRecord(rgr_news_146, symbolSfx, Record, Value)->
+   erlang:setelement(#rgr_news_146.symbolSfx, Record, Value);
+setFieldInRecord(rgr_news_146, securityID, Record, Value)->
+   erlang:setelement(#rgr_news_146.securityID, Record, Value);
+setFieldInRecord(rgr_news_146, iDSource, Record, Value)->
+   erlang:setelement(#rgr_news_146.iDSource, Record, Value);
+setFieldInRecord(rgr_news_146, securityType, Record, Value)->
+   erlang:setelement(#rgr_news_146.securityType, Record, Value);
+setFieldInRecord(rgr_news_146, maturityMonthYear, Record, Value)->
+   erlang:setelement(#rgr_news_146.maturityMonthYear, Record, Value);
+setFieldInRecord(rgr_news_146, maturityDay, Record, Value)->
+   erlang:setelement(#rgr_news_146.maturityDay, Record, Value);
+setFieldInRecord(rgr_news_146, putOrCall, Record, Value)->
+   erlang:setelement(#rgr_news_146.putOrCall, Record, Value);
+setFieldInRecord(rgr_news_146, strikePrice, Record, Value)->
+   erlang:setelement(#rgr_news_146.strikePrice, Record, Value);
+setFieldInRecord(rgr_news_146, optAttribute, Record, Value)->
+   erlang:setelement(#rgr_news_146.optAttribute, Record, Value);
+setFieldInRecord(rgr_news_146, contractMultiplier, Record, Value)->
+   erlang:setelement(#rgr_news_146.contractMultiplier, Record, Value);
+setFieldInRecord(rgr_news_146, couponRate, Record, Value)->
+   erlang:setelement(#rgr_news_146.couponRate, Record, Value);
+setFieldInRecord(rgr_news_146, securityExchange, Record, Value)->
+   erlang:setelement(#rgr_news_146.securityExchange, Record, Value);
+setFieldInRecord(rgr_news_146, issuer, Record, Value)->
+   erlang:setelement(#rgr_news_146.issuer, Record, Value);
+setFieldInRecord(rgr_news_146, encodedIssuerLen, Record, Value)->
+   erlang:setelement(#rgr_news_146.encodedIssuerLen, Record, Value);
+setFieldInRecord(rgr_news_146, encodedIssuer, Record, Value)->
+   erlang:setelement(#rgr_news_146.encodedIssuer, Record, Value);
+setFieldInRecord(rgr_news_146, securityDesc, Record, Value)->
+   erlang:setelement(#rgr_news_146.securityDesc, Record, Value);
+setFieldInRecord(rgr_news_146, encodedSecurityDescLen, Record, Value)->
+   erlang:setelement(#rgr_news_146.encodedSecurityDescLen, Record, Value);
+setFieldInRecord(rgr_news_146, encodedSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_news_146.encodedSecurityDesc, Record, Value);
+setFieldInRecord(news, rgr_news_33, Record, Value)->
+   erlang:setelement(#news.rgr_news_33, Record, Value);
+setFieldInRecord(rgr_news_33, text, Record, Value)->
+   erlang:setelement(#rgr_news_33.text, Record, Value);
+setFieldInRecord(rgr_news_33, encodedTextLen, Record, Value)->
+   erlang:setelement(#rgr_news_33.encodedTextLen, Record, Value);
+setFieldInRecord(rgr_news_33, encodedText, Record, Value)->
+   erlang:setelement(#rgr_news_33.encodedText, Record, Value);
 setFieldInRecord(news, uRLLink, Record, Value)->
     erlang:setelement(#news.uRLLink, Record, Value);
 setFieldInRecord(news, rawDataLength, Record, Value)->
@@ -2526,64 +2526,64 @@ setFieldInRecord(email, encodedSubjectLen, Record, Value)->
     erlang:setelement(#email.encodedSubjectLen, Record, Value);
 setFieldInRecord(email, encodedSubject, Record, Value)->
     erlang:setelement(#email.encodedSubject, Record, Value);
-setFieldInRecord(email, repeatingReg_email_215, Record, Value)->
-   erlang:setelement(#email.repeatingReg_email_215, Record, Value);
-setFieldInRecord(repeatingReg_email_215, routingType, Record, Value)->
-   erlang:setelement(#repeatingReg_email_215.routingType, Record, Value);
-setFieldInRecord(repeatingReg_email_215, routingID, Record, Value)->
-   erlang:setelement(#repeatingReg_email_215.routingID, Record, Value);
-setFieldInRecord(email, repeatingReg_email_146, Record, Value)->
-   erlang:setelement(#email.repeatingReg_email_146, Record, Value);
-setFieldInRecord(repeatingReg_email_146, relatdSym, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.relatdSym, Record, Value);
-setFieldInRecord(repeatingReg_email_146, symbolSfx, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.symbolSfx, Record, Value);
-setFieldInRecord(repeatingReg_email_146, securityID, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.securityID, Record, Value);
-setFieldInRecord(repeatingReg_email_146, iDSource, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.iDSource, Record, Value);
-setFieldInRecord(repeatingReg_email_146, securityType, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.securityType, Record, Value);
-setFieldInRecord(repeatingReg_email_146, maturityMonthYear, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.maturityMonthYear, Record, Value);
-setFieldInRecord(repeatingReg_email_146, maturityDay, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.maturityDay, Record, Value);
-setFieldInRecord(repeatingReg_email_146, putOrCall, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.putOrCall, Record, Value);
-setFieldInRecord(repeatingReg_email_146, strikePrice, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.strikePrice, Record, Value);
-setFieldInRecord(repeatingReg_email_146, optAttribute, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.optAttribute, Record, Value);
-setFieldInRecord(repeatingReg_email_146, contractMultiplier, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.contractMultiplier, Record, Value);
-setFieldInRecord(repeatingReg_email_146, couponRate, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.couponRate, Record, Value);
-setFieldInRecord(repeatingReg_email_146, securityExchange, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.securityExchange, Record, Value);
-setFieldInRecord(repeatingReg_email_146, issuer, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.issuer, Record, Value);
-setFieldInRecord(repeatingReg_email_146, encodedIssuerLen, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.encodedIssuerLen, Record, Value);
-setFieldInRecord(repeatingReg_email_146, encodedIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.encodedIssuer, Record, Value);
-setFieldInRecord(repeatingReg_email_146, securityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.securityDesc, Record, Value);
-setFieldInRecord(repeatingReg_email_146, encodedSecurityDescLen, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.encodedSecurityDescLen, Record, Value);
-setFieldInRecord(repeatingReg_email_146, encodedSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_email_146.encodedSecurityDesc, Record, Value);
+setFieldInRecord(email, rgr_email_215, Record, Value)->
+   erlang:setelement(#email.rgr_email_215, Record, Value);
+setFieldInRecord(rgr_email_215, routingType, Record, Value)->
+   erlang:setelement(#rgr_email_215.routingType, Record, Value);
+setFieldInRecord(rgr_email_215, routingID, Record, Value)->
+   erlang:setelement(#rgr_email_215.routingID, Record, Value);
+setFieldInRecord(email, rgr_email_146, Record, Value)->
+   erlang:setelement(#email.rgr_email_146, Record, Value);
+setFieldInRecord(rgr_email_146, relatdSym, Record, Value)->
+   erlang:setelement(#rgr_email_146.relatdSym, Record, Value);
+setFieldInRecord(rgr_email_146, symbolSfx, Record, Value)->
+   erlang:setelement(#rgr_email_146.symbolSfx, Record, Value);
+setFieldInRecord(rgr_email_146, securityID, Record, Value)->
+   erlang:setelement(#rgr_email_146.securityID, Record, Value);
+setFieldInRecord(rgr_email_146, iDSource, Record, Value)->
+   erlang:setelement(#rgr_email_146.iDSource, Record, Value);
+setFieldInRecord(rgr_email_146, securityType, Record, Value)->
+   erlang:setelement(#rgr_email_146.securityType, Record, Value);
+setFieldInRecord(rgr_email_146, maturityMonthYear, Record, Value)->
+   erlang:setelement(#rgr_email_146.maturityMonthYear, Record, Value);
+setFieldInRecord(rgr_email_146, maturityDay, Record, Value)->
+   erlang:setelement(#rgr_email_146.maturityDay, Record, Value);
+setFieldInRecord(rgr_email_146, putOrCall, Record, Value)->
+   erlang:setelement(#rgr_email_146.putOrCall, Record, Value);
+setFieldInRecord(rgr_email_146, strikePrice, Record, Value)->
+   erlang:setelement(#rgr_email_146.strikePrice, Record, Value);
+setFieldInRecord(rgr_email_146, optAttribute, Record, Value)->
+   erlang:setelement(#rgr_email_146.optAttribute, Record, Value);
+setFieldInRecord(rgr_email_146, contractMultiplier, Record, Value)->
+   erlang:setelement(#rgr_email_146.contractMultiplier, Record, Value);
+setFieldInRecord(rgr_email_146, couponRate, Record, Value)->
+   erlang:setelement(#rgr_email_146.couponRate, Record, Value);
+setFieldInRecord(rgr_email_146, securityExchange, Record, Value)->
+   erlang:setelement(#rgr_email_146.securityExchange, Record, Value);
+setFieldInRecord(rgr_email_146, issuer, Record, Value)->
+   erlang:setelement(#rgr_email_146.issuer, Record, Value);
+setFieldInRecord(rgr_email_146, encodedIssuerLen, Record, Value)->
+   erlang:setelement(#rgr_email_146.encodedIssuerLen, Record, Value);
+setFieldInRecord(rgr_email_146, encodedIssuer, Record, Value)->
+   erlang:setelement(#rgr_email_146.encodedIssuer, Record, Value);
+setFieldInRecord(rgr_email_146, securityDesc, Record, Value)->
+   erlang:setelement(#rgr_email_146.securityDesc, Record, Value);
+setFieldInRecord(rgr_email_146, encodedSecurityDescLen, Record, Value)->
+   erlang:setelement(#rgr_email_146.encodedSecurityDescLen, Record, Value);
+setFieldInRecord(rgr_email_146, encodedSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_email_146.encodedSecurityDesc, Record, Value);
 setFieldInRecord(email, orderID, Record, Value)->
     erlang:setelement(#email.orderID, Record, Value);
 setFieldInRecord(email, clOrdID, Record, Value)->
     erlang:setelement(#email.clOrdID, Record, Value);
-setFieldInRecord(email, repeatingReg_email_33, Record, Value)->
-   erlang:setelement(#email.repeatingReg_email_33, Record, Value);
-setFieldInRecord(repeatingReg_email_33, text, Record, Value)->
-   erlang:setelement(#repeatingReg_email_33.text, Record, Value);
-setFieldInRecord(repeatingReg_email_33, encodedTextLen, Record, Value)->
-   erlang:setelement(#repeatingReg_email_33.encodedTextLen, Record, Value);
-setFieldInRecord(repeatingReg_email_33, encodedText, Record, Value)->
-   erlang:setelement(#repeatingReg_email_33.encodedText, Record, Value);
+setFieldInRecord(email, rgr_email_33, Record, Value)->
+   erlang:setelement(#email.rgr_email_33, Record, Value);
+setFieldInRecord(rgr_email_33, text, Record, Value)->
+   erlang:setelement(#rgr_email_33.text, Record, Value);
+setFieldInRecord(rgr_email_33, encodedTextLen, Record, Value)->
+   erlang:setelement(#rgr_email_33.encodedTextLen, Record, Value);
+setFieldInRecord(rgr_email_33, encodedText, Record, Value)->
+   erlang:setelement(#rgr_email_33.encodedText, Record, Value);
 setFieldInRecord(email, rawDataLength, Record, Value)->
     erlang:setelement(#email.rawDataLength, Record, Value);
 setFieldInRecord(email, rawData, Record, Value)->
@@ -2600,12 +2600,12 @@ setFieldInRecord(orderSingle, execBroker, Record, Value)->
     erlang:setelement(#orderSingle.execBroker, Record, Value);
 setFieldInRecord(orderSingle, account, Record, Value)->
     erlang:setelement(#orderSingle.account, Record, Value);
-setFieldInRecord(orderSingle, repeatingReg_orderSingle_78, Record, Value)->
-   erlang:setelement(#orderSingle.repeatingReg_orderSingle_78, Record, Value);
-setFieldInRecord(repeatingReg_orderSingle_78, allocAccount, Record, Value)->
-   erlang:setelement(#repeatingReg_orderSingle_78.allocAccount, Record, Value);
-setFieldInRecord(repeatingReg_orderSingle_78, allocShares, Record, Value)->
-   erlang:setelement(#repeatingReg_orderSingle_78.allocShares, Record, Value);
+setFieldInRecord(orderSingle, rgr_orderSingle_78, Record, Value)->
+   erlang:setelement(#orderSingle.rgr_orderSingle_78, Record, Value);
+setFieldInRecord(rgr_orderSingle_78, allocAccount, Record, Value)->
+   erlang:setelement(#rgr_orderSingle_78.allocAccount, Record, Value);
+setFieldInRecord(rgr_orderSingle_78, allocShares, Record, Value)->
+   erlang:setelement(#rgr_orderSingle_78.allocShares, Record, Value);
 setFieldInRecord(orderSingle, settlmntTyp, Record, Value)->
     erlang:setelement(#orderSingle.settlmntTyp, Record, Value);
 setFieldInRecord(orderSingle, futSettDate, Record, Value)->
@@ -2620,10 +2620,10 @@ setFieldInRecord(orderSingle, maxFloor, Record, Value)->
     erlang:setelement(#orderSingle.maxFloor, Record, Value);
 setFieldInRecord(orderSingle, exDestination, Record, Value)->
     erlang:setelement(#orderSingle.exDestination, Record, Value);
-setFieldInRecord(orderSingle, repeatingReg_orderSingle_386, Record, Value)->
-   erlang:setelement(#orderSingle.repeatingReg_orderSingle_386, Record, Value);
-setFieldInRecord(repeatingReg_orderSingle_386, tradingSessionID, Record, Value)->
-   erlang:setelement(#repeatingReg_orderSingle_386.tradingSessionID, Record, Value);
+setFieldInRecord(orderSingle, rgr_orderSingle_386, Record, Value)->
+   erlang:setelement(#orderSingle.rgr_orderSingle_386, Record, Value);
+setFieldInRecord(rgr_orderSingle_386, tradingSessionID, Record, Value)->
+   erlang:setelement(#rgr_orderSingle_386.tradingSessionID, Record, Value);
 setFieldInRecord(orderSingle, processCode, Record, Value)->
     erlang:setelement(#orderSingle.processCode, Record, Value);
 setFieldInRecord(orderSingle, symbol, Record, Value)->
@@ -2766,166 +2766,166 @@ setFieldInRecord(orderList, encodedListExecInst, Record, Value)->
     erlang:setelement(#orderList.encodedListExecInst, Record, Value);
 setFieldInRecord(orderList, totNoOrders, Record, Value)->
     erlang:setelement(#orderList.totNoOrders, Record, Value);
-setFieldInRecord(orderList, repeatingReg_orderList_73, Record, Value)->
-   erlang:setelement(#orderList.repeatingReg_orderList_73, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, clOrdID, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.clOrdID, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, listSeqNo, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.listSeqNo, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, settlInstMode, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.settlInstMode, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, clientID, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.clientID, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, execBroker, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.execBroker, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, account, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.account, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, repeatingReg_repeatingReg_orderList_73_78, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.repeatingReg_repeatingReg_orderList_73_78, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, repeatingReg_repeatingReg_orderList_73_78, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.repeatingReg_repeatingReg_orderList_73_78, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_orderList_73_78, allocAccount, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_orderList_73_78.allocAccount, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_orderList_73_78, allocShares, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_orderList_73_78.allocShares, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, settlmntTyp, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.settlmntTyp, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, futSettDate, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.futSettDate, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, handlInst, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.handlInst, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, execInst, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.execInst, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, minQty, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.minQty, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, maxFloor, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.maxFloor, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, exDestination, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.exDestination, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, repeatingReg_repeatingReg_orderList_73_386, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.repeatingReg_repeatingReg_orderList_73_386, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, repeatingReg_repeatingReg_orderList_73_386, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.repeatingReg_repeatingReg_orderList_73_386, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_orderList_73_386, tradingSessionID, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_orderList_73_386.tradingSessionID, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, processCode, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.processCode, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, symbol, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.symbol, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, symbolSfx, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.symbolSfx, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, securityID, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.securityID, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, iDSource, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.iDSource, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, securityType, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.securityType, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, maturityMonthYear, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.maturityMonthYear, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, maturityDay, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.maturityDay, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, putOrCall, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.putOrCall, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, strikePrice, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.strikePrice, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, optAttribute, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.optAttribute, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, contractMultiplier, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.contractMultiplier, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, couponRate, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.couponRate, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, securityExchange, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.securityExchange, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, issuer, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.issuer, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, encodedIssuerLen, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.encodedIssuerLen, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, encodedIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.encodedIssuer, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, securityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.securityDesc, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, encodedSecurityDescLen, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.encodedSecurityDescLen, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, encodedSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.encodedSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, prevClosePx, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.prevClosePx, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, side, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.side, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, sideValueInd, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.sideValueInd, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, locateReqd, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.locateReqd, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, transactTime, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.transactTime, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, orderQty, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.orderQty, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, cashOrderQty, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.cashOrderQty, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, ordType, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.ordType, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, price, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.price, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, stopPx, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.stopPx, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, currency, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.currency, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, complianceID, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.complianceID, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, solicitedFlag, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.solicitedFlag, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, iOIid, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.iOIid, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, quoteID, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.quoteID, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, timeInForce, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.timeInForce, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, effectiveTime, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.effectiveTime, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, expireDate, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.expireDate, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, expireTime, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.expireTime, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, gTBookingInst, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.gTBookingInst, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, commission, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.commission, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, commType, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.commType, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, rule80A, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.rule80A, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, forexReq, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.forexReq, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, settlCurrency, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.settlCurrency, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, text, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.text, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, encodedTextLen, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.encodedTextLen, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, encodedText, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.encodedText, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, futSettDate2, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.futSettDate2, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, orderQty2, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.orderQty2, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, openClose, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.openClose, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, coveredOrUncovered, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.coveredOrUncovered, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, customerOrFirm, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.customerOrFirm, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, maxShow, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.maxShow, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, pegDifference, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.pegDifference, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, discretionInst, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.discretionInst, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, discretionOffset, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.discretionOffset, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, clearingFirm, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.clearingFirm, Record, Value);
-setFieldInRecord(repeatingReg_orderList_73, clearingAccount, Record, Value)->
-   erlang:setelement(#repeatingReg_orderList_73.clearingAccount, Record, Value);
+setFieldInRecord(orderList, rgr_orderList_73, Record, Value)->
+   erlang:setelement(#orderList.rgr_orderList_73, Record, Value);
+setFieldInRecord(rgr_orderList_73, clOrdID, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.clOrdID, Record, Value);
+setFieldInRecord(rgr_orderList_73, listSeqNo, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.listSeqNo, Record, Value);
+setFieldInRecord(rgr_orderList_73, settlInstMode, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.settlInstMode, Record, Value);
+setFieldInRecord(rgr_orderList_73, clientID, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.clientID, Record, Value);
+setFieldInRecord(rgr_orderList_73, execBroker, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.execBroker, Record, Value);
+setFieldInRecord(rgr_orderList_73, account, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.account, Record, Value);
+setFieldInRecord(rgr_orderList_73, rgr_rgr_orderList_73_78, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.rgr_rgr_orderList_73_78, Record, Value);
+setFieldInRecord(rgr_orderList_73, rgr_rgr_orderList_73_78, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.rgr_rgr_orderList_73_78, Record, Value);
+setFieldInRecord(rgr_rgr_orderList_73_78, allocAccount, Record, Value)->
+   erlang:setelement(#rgr_rgr_orderList_73_78.allocAccount, Record, Value);
+setFieldInRecord(rgr_rgr_orderList_73_78, allocShares, Record, Value)->
+   erlang:setelement(#rgr_rgr_orderList_73_78.allocShares, Record, Value);
+setFieldInRecord(rgr_orderList_73, settlmntTyp, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.settlmntTyp, Record, Value);
+setFieldInRecord(rgr_orderList_73, futSettDate, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.futSettDate, Record, Value);
+setFieldInRecord(rgr_orderList_73, handlInst, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.handlInst, Record, Value);
+setFieldInRecord(rgr_orderList_73, execInst, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.execInst, Record, Value);
+setFieldInRecord(rgr_orderList_73, minQty, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.minQty, Record, Value);
+setFieldInRecord(rgr_orderList_73, maxFloor, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.maxFloor, Record, Value);
+setFieldInRecord(rgr_orderList_73, exDestination, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.exDestination, Record, Value);
+setFieldInRecord(rgr_orderList_73, rgr_rgr_orderList_73_386, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.rgr_rgr_orderList_73_386, Record, Value);
+setFieldInRecord(rgr_orderList_73, rgr_rgr_orderList_73_386, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.rgr_rgr_orderList_73_386, Record, Value);
+setFieldInRecord(rgr_rgr_orderList_73_386, tradingSessionID, Record, Value)->
+   erlang:setelement(#rgr_rgr_orderList_73_386.tradingSessionID, Record, Value);
+setFieldInRecord(rgr_orderList_73, processCode, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.processCode, Record, Value);
+setFieldInRecord(rgr_orderList_73, symbol, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.symbol, Record, Value);
+setFieldInRecord(rgr_orderList_73, symbolSfx, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.symbolSfx, Record, Value);
+setFieldInRecord(rgr_orderList_73, securityID, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.securityID, Record, Value);
+setFieldInRecord(rgr_orderList_73, iDSource, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.iDSource, Record, Value);
+setFieldInRecord(rgr_orderList_73, securityType, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.securityType, Record, Value);
+setFieldInRecord(rgr_orderList_73, maturityMonthYear, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.maturityMonthYear, Record, Value);
+setFieldInRecord(rgr_orderList_73, maturityDay, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.maturityDay, Record, Value);
+setFieldInRecord(rgr_orderList_73, putOrCall, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.putOrCall, Record, Value);
+setFieldInRecord(rgr_orderList_73, strikePrice, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.strikePrice, Record, Value);
+setFieldInRecord(rgr_orderList_73, optAttribute, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.optAttribute, Record, Value);
+setFieldInRecord(rgr_orderList_73, contractMultiplier, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.contractMultiplier, Record, Value);
+setFieldInRecord(rgr_orderList_73, couponRate, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.couponRate, Record, Value);
+setFieldInRecord(rgr_orderList_73, securityExchange, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.securityExchange, Record, Value);
+setFieldInRecord(rgr_orderList_73, issuer, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.issuer, Record, Value);
+setFieldInRecord(rgr_orderList_73, encodedIssuerLen, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.encodedIssuerLen, Record, Value);
+setFieldInRecord(rgr_orderList_73, encodedIssuer, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.encodedIssuer, Record, Value);
+setFieldInRecord(rgr_orderList_73, securityDesc, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.securityDesc, Record, Value);
+setFieldInRecord(rgr_orderList_73, encodedSecurityDescLen, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.encodedSecurityDescLen, Record, Value);
+setFieldInRecord(rgr_orderList_73, encodedSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.encodedSecurityDesc, Record, Value);
+setFieldInRecord(rgr_orderList_73, prevClosePx, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.prevClosePx, Record, Value);
+setFieldInRecord(rgr_orderList_73, side, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.side, Record, Value);
+setFieldInRecord(rgr_orderList_73, sideValueInd, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.sideValueInd, Record, Value);
+setFieldInRecord(rgr_orderList_73, locateReqd, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.locateReqd, Record, Value);
+setFieldInRecord(rgr_orderList_73, transactTime, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.transactTime, Record, Value);
+setFieldInRecord(rgr_orderList_73, orderQty, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.orderQty, Record, Value);
+setFieldInRecord(rgr_orderList_73, cashOrderQty, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.cashOrderQty, Record, Value);
+setFieldInRecord(rgr_orderList_73, ordType, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.ordType, Record, Value);
+setFieldInRecord(rgr_orderList_73, price, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.price, Record, Value);
+setFieldInRecord(rgr_orderList_73, stopPx, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.stopPx, Record, Value);
+setFieldInRecord(rgr_orderList_73, currency, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.currency, Record, Value);
+setFieldInRecord(rgr_orderList_73, complianceID, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.complianceID, Record, Value);
+setFieldInRecord(rgr_orderList_73, solicitedFlag, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.solicitedFlag, Record, Value);
+setFieldInRecord(rgr_orderList_73, iOIid, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.iOIid, Record, Value);
+setFieldInRecord(rgr_orderList_73, quoteID, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.quoteID, Record, Value);
+setFieldInRecord(rgr_orderList_73, timeInForce, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.timeInForce, Record, Value);
+setFieldInRecord(rgr_orderList_73, effectiveTime, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.effectiveTime, Record, Value);
+setFieldInRecord(rgr_orderList_73, expireDate, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.expireDate, Record, Value);
+setFieldInRecord(rgr_orderList_73, expireTime, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.expireTime, Record, Value);
+setFieldInRecord(rgr_orderList_73, gTBookingInst, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.gTBookingInst, Record, Value);
+setFieldInRecord(rgr_orderList_73, commission, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.commission, Record, Value);
+setFieldInRecord(rgr_orderList_73, commType, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.commType, Record, Value);
+setFieldInRecord(rgr_orderList_73, rule80A, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.rule80A, Record, Value);
+setFieldInRecord(rgr_orderList_73, forexReq, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.forexReq, Record, Value);
+setFieldInRecord(rgr_orderList_73, settlCurrency, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.settlCurrency, Record, Value);
+setFieldInRecord(rgr_orderList_73, text, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.text, Record, Value);
+setFieldInRecord(rgr_orderList_73, encodedTextLen, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.encodedTextLen, Record, Value);
+setFieldInRecord(rgr_orderList_73, encodedText, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.encodedText, Record, Value);
+setFieldInRecord(rgr_orderList_73, futSettDate2, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.futSettDate2, Record, Value);
+setFieldInRecord(rgr_orderList_73, orderQty2, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.orderQty2, Record, Value);
+setFieldInRecord(rgr_orderList_73, openClose, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.openClose, Record, Value);
+setFieldInRecord(rgr_orderList_73, coveredOrUncovered, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.coveredOrUncovered, Record, Value);
+setFieldInRecord(rgr_orderList_73, customerOrFirm, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.customerOrFirm, Record, Value);
+setFieldInRecord(rgr_orderList_73, maxShow, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.maxShow, Record, Value);
+setFieldInRecord(rgr_orderList_73, pegDifference, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.pegDifference, Record, Value);
+setFieldInRecord(rgr_orderList_73, discretionInst, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.discretionInst, Record, Value);
+setFieldInRecord(rgr_orderList_73, discretionOffset, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.discretionOffset, Record, Value);
+setFieldInRecord(rgr_orderList_73, clearingFirm, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.clearingFirm, Record, Value);
+setFieldInRecord(rgr_orderList_73, clearingAccount, Record, Value)->
+   erlang:setelement(#rgr_orderList_73.clearingAccount, Record, Value);
 setFieldInRecord(orderList, standardTrailer, Record, Value)->
     erlang:setelement(#orderList.standardTrailer, Record, Value);
 setFieldInRecord(orderCancelRequest, standardHeader, Record, Value)->
@@ -3018,12 +3018,12 @@ setFieldInRecord(orderCancelReplaceRequest, listID, Record, Value)->
     erlang:setelement(#orderCancelReplaceRequest.listID, Record, Value);
 setFieldInRecord(orderCancelReplaceRequest, account, Record, Value)->
     erlang:setelement(#orderCancelReplaceRequest.account, Record, Value);
-setFieldInRecord(orderCancelReplaceRequest, repeatingReg_orderCancelReplaceRequest_78, Record, Value)->
-   erlang:setelement(#orderCancelReplaceRequest.repeatingReg_orderCancelReplaceRequest_78, Record, Value);
-setFieldInRecord(repeatingReg_orderCancelReplaceRequest_78, allocAccount, Record, Value)->
-   erlang:setelement(#repeatingReg_orderCancelReplaceRequest_78.allocAccount, Record, Value);
-setFieldInRecord(repeatingReg_orderCancelReplaceRequest_78, allocShares, Record, Value)->
-   erlang:setelement(#repeatingReg_orderCancelReplaceRequest_78.allocShares, Record, Value);
+setFieldInRecord(orderCancelReplaceRequest, rgr_orderCancelReplaceRequest_78, Record, Value)->
+   erlang:setelement(#orderCancelReplaceRequest.rgr_orderCancelReplaceRequest_78, Record, Value);
+setFieldInRecord(rgr_orderCancelReplaceRequest_78, allocAccount, Record, Value)->
+   erlang:setelement(#rgr_orderCancelReplaceRequest_78.allocAccount, Record, Value);
+setFieldInRecord(rgr_orderCancelReplaceRequest_78, allocShares, Record, Value)->
+   erlang:setelement(#rgr_orderCancelReplaceRequest_78.allocShares, Record, Value);
 setFieldInRecord(orderCancelReplaceRequest, settlmntTyp, Record, Value)->
     erlang:setelement(#orderCancelReplaceRequest.settlmntTyp, Record, Value);
 setFieldInRecord(orderCancelReplaceRequest, futSettDate, Record, Value)->
@@ -3038,10 +3038,10 @@ setFieldInRecord(orderCancelReplaceRequest, maxFloor, Record, Value)->
     erlang:setelement(#orderCancelReplaceRequest.maxFloor, Record, Value);
 setFieldInRecord(orderCancelReplaceRequest, exDestination, Record, Value)->
     erlang:setelement(#orderCancelReplaceRequest.exDestination, Record, Value);
-setFieldInRecord(orderCancelReplaceRequest, repeatingReg_orderCancelReplaceRequest_386, Record, Value)->
-   erlang:setelement(#orderCancelReplaceRequest.repeatingReg_orderCancelReplaceRequest_386, Record, Value);
-setFieldInRecord(repeatingReg_orderCancelReplaceRequest_386, tradingSessionID, Record, Value)->
-   erlang:setelement(#repeatingReg_orderCancelReplaceRequest_386.tradingSessionID, Record, Value);
+setFieldInRecord(orderCancelReplaceRequest, rgr_orderCancelReplaceRequest_386, Record, Value)->
+   erlang:setelement(#orderCancelReplaceRequest.rgr_orderCancelReplaceRequest_386, Record, Value);
+setFieldInRecord(rgr_orderCancelReplaceRequest_386, tradingSessionID, Record, Value)->
+   erlang:setelement(#rgr_orderCancelReplaceRequest_386.tradingSessionID, Record, Value);
 setFieldInRecord(orderCancelReplaceRequest, symbol, Record, Value)->
     erlang:setelement(#orderCancelReplaceRequest.symbol, Record, Value);
 setFieldInRecord(orderCancelReplaceRequest, symbolSfx, Record, Value)->
@@ -3218,28 +3218,28 @@ setFieldInRecord(allocation, allocLinkID, Record, Value)->
     erlang:setelement(#allocation.allocLinkID, Record, Value);
 setFieldInRecord(allocation, allocLinkType, Record, Value)->
     erlang:setelement(#allocation.allocLinkType, Record, Value);
-setFieldInRecord(allocation, repeatingReg_allocation_73, Record, Value)->
-   erlang:setelement(#allocation.repeatingReg_allocation_73, Record, Value);
-setFieldInRecord(repeatingReg_allocation_73, clOrdID, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_73.clOrdID, Record, Value);
-setFieldInRecord(repeatingReg_allocation_73, orderID, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_73.orderID, Record, Value);
-setFieldInRecord(repeatingReg_allocation_73, secondaryOrderID, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_73.secondaryOrderID, Record, Value);
-setFieldInRecord(repeatingReg_allocation_73, listID, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_73.listID, Record, Value);
-setFieldInRecord(repeatingReg_allocation_73, waveNo, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_73.waveNo, Record, Value);
-setFieldInRecord(allocation, repeatingReg_allocation_124, Record, Value)->
-   erlang:setelement(#allocation.repeatingReg_allocation_124, Record, Value);
-setFieldInRecord(repeatingReg_allocation_124, lastShares, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_124.lastShares, Record, Value);
-setFieldInRecord(repeatingReg_allocation_124, execID, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_124.execID, Record, Value);
-setFieldInRecord(repeatingReg_allocation_124, lastPx, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_124.lastPx, Record, Value);
-setFieldInRecord(repeatingReg_allocation_124, lastCapacity, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_124.lastCapacity, Record, Value);
+setFieldInRecord(allocation, rgr_allocation_73, Record, Value)->
+   erlang:setelement(#allocation.rgr_allocation_73, Record, Value);
+setFieldInRecord(rgr_allocation_73, clOrdID, Record, Value)->
+   erlang:setelement(#rgr_allocation_73.clOrdID, Record, Value);
+setFieldInRecord(rgr_allocation_73, orderID, Record, Value)->
+   erlang:setelement(#rgr_allocation_73.orderID, Record, Value);
+setFieldInRecord(rgr_allocation_73, secondaryOrderID, Record, Value)->
+   erlang:setelement(#rgr_allocation_73.secondaryOrderID, Record, Value);
+setFieldInRecord(rgr_allocation_73, listID, Record, Value)->
+   erlang:setelement(#rgr_allocation_73.listID, Record, Value);
+setFieldInRecord(rgr_allocation_73, waveNo, Record, Value)->
+   erlang:setelement(#rgr_allocation_73.waveNo, Record, Value);
+setFieldInRecord(allocation, rgr_allocation_124, Record, Value)->
+   erlang:setelement(#allocation.rgr_allocation_124, Record, Value);
+setFieldInRecord(rgr_allocation_124, lastShares, Record, Value)->
+   erlang:setelement(#rgr_allocation_124.lastShares, Record, Value);
+setFieldInRecord(rgr_allocation_124, execID, Record, Value)->
+   erlang:setelement(#rgr_allocation_124.execID, Record, Value);
+setFieldInRecord(rgr_allocation_124, lastPx, Record, Value)->
+   erlang:setelement(#rgr_allocation_124.lastPx, Record, Value);
+setFieldInRecord(rgr_allocation_124, lastCapacity, Record, Value)->
+   erlang:setelement(#rgr_allocation_124.lastCapacity, Record, Value);
 setFieldInRecord(allocation, side, Record, Value)->
     erlang:setelement(#allocation.side, Record, Value);
 setFieldInRecord(allocation, symbol, Record, Value)->
@@ -3316,62 +3316,62 @@ setFieldInRecord(allocation, numDaysInterest, Record, Value)->
     erlang:setelement(#allocation.numDaysInterest, Record, Value);
 setFieldInRecord(allocation, accruedInterestRate, Record, Value)->
     erlang:setelement(#allocation.accruedInterestRate, Record, Value);
-setFieldInRecord(allocation, repeatingReg_allocation_78, Record, Value)->
-   erlang:setelement(#allocation.repeatingReg_allocation_78, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, allocAccount, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.allocAccount, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, allocPrice, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.allocPrice, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, allocShares, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.allocShares, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, processCode, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.processCode, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, brokerOfCredit, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.brokerOfCredit, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, notifyBrokerOfCredit, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.notifyBrokerOfCredit, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, allocHandlInst, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.allocHandlInst, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, allocText, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.allocText, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, encodedAllocTextLen, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.encodedAllocTextLen, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, encodedAllocText, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.encodedAllocText, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, execBroker, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.execBroker, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, clientID, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.clientID, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, commission, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.commission, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, commType, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.commType, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, allocAvgPx, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.allocAvgPx, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, allocNetMoney, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.allocNetMoney, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, settlCurrAmt, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.settlCurrAmt, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, settlCurrency, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.settlCurrency, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, settlCurrFxRate, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.settlCurrFxRate, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, settlCurrFxRateCalc, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.settlCurrFxRateCalc, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, accruedInterestAmt, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.accruedInterestAmt, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, settlInstMode, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.settlInstMode, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, repeatingReg_repeatingReg_allocation_78_136, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.repeatingReg_repeatingReg_allocation_78_136, Record, Value);
-setFieldInRecord(repeatingReg_allocation_78, repeatingReg_repeatingReg_allocation_78_136, Record, Value)->
-   erlang:setelement(#repeatingReg_allocation_78.repeatingReg_repeatingReg_allocation_78_136, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_allocation_78_136, miscFeeAmt, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_allocation_78_136.miscFeeAmt, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_allocation_78_136, miscFeeCurr, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_allocation_78_136.miscFeeCurr, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_allocation_78_136, miscFeeType, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_allocation_78_136.miscFeeType, Record, Value);
+setFieldInRecord(allocation, rgr_allocation_78, Record, Value)->
+   erlang:setelement(#allocation.rgr_allocation_78, Record, Value);
+setFieldInRecord(rgr_allocation_78, allocAccount, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.allocAccount, Record, Value);
+setFieldInRecord(rgr_allocation_78, allocPrice, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.allocPrice, Record, Value);
+setFieldInRecord(rgr_allocation_78, allocShares, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.allocShares, Record, Value);
+setFieldInRecord(rgr_allocation_78, processCode, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.processCode, Record, Value);
+setFieldInRecord(rgr_allocation_78, brokerOfCredit, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.brokerOfCredit, Record, Value);
+setFieldInRecord(rgr_allocation_78, notifyBrokerOfCredit, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.notifyBrokerOfCredit, Record, Value);
+setFieldInRecord(rgr_allocation_78, allocHandlInst, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.allocHandlInst, Record, Value);
+setFieldInRecord(rgr_allocation_78, allocText, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.allocText, Record, Value);
+setFieldInRecord(rgr_allocation_78, encodedAllocTextLen, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.encodedAllocTextLen, Record, Value);
+setFieldInRecord(rgr_allocation_78, encodedAllocText, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.encodedAllocText, Record, Value);
+setFieldInRecord(rgr_allocation_78, execBroker, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.execBroker, Record, Value);
+setFieldInRecord(rgr_allocation_78, clientID, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.clientID, Record, Value);
+setFieldInRecord(rgr_allocation_78, commission, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.commission, Record, Value);
+setFieldInRecord(rgr_allocation_78, commType, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.commType, Record, Value);
+setFieldInRecord(rgr_allocation_78, allocAvgPx, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.allocAvgPx, Record, Value);
+setFieldInRecord(rgr_allocation_78, allocNetMoney, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.allocNetMoney, Record, Value);
+setFieldInRecord(rgr_allocation_78, settlCurrAmt, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.settlCurrAmt, Record, Value);
+setFieldInRecord(rgr_allocation_78, settlCurrency, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.settlCurrency, Record, Value);
+setFieldInRecord(rgr_allocation_78, settlCurrFxRate, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.settlCurrFxRate, Record, Value);
+setFieldInRecord(rgr_allocation_78, settlCurrFxRateCalc, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.settlCurrFxRateCalc, Record, Value);
+setFieldInRecord(rgr_allocation_78, accruedInterestAmt, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.accruedInterestAmt, Record, Value);
+setFieldInRecord(rgr_allocation_78, settlInstMode, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.settlInstMode, Record, Value);
+setFieldInRecord(rgr_allocation_78, rgr_rgr_allocation_78_136, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.rgr_rgr_allocation_78_136, Record, Value);
+setFieldInRecord(rgr_allocation_78, rgr_rgr_allocation_78_136, Record, Value)->
+   erlang:setelement(#rgr_allocation_78.rgr_rgr_allocation_78_136, Record, Value);
+setFieldInRecord(rgr_rgr_allocation_78_136, miscFeeAmt, Record, Value)->
+   erlang:setelement(#rgr_rgr_allocation_78_136.miscFeeAmt, Record, Value);
+setFieldInRecord(rgr_rgr_allocation_78_136, miscFeeCurr, Record, Value)->
+   erlang:setelement(#rgr_rgr_allocation_78_136.miscFeeCurr, Record, Value);
+setFieldInRecord(rgr_rgr_allocation_78_136, miscFeeType, Record, Value)->
+   erlang:setelement(#rgr_rgr_allocation_78_136.miscFeeType, Record, Value);
 setFieldInRecord(allocation, standardTrailer, Record, Value)->
     erlang:setelement(#allocation.standardTrailer, Record, Value);
 setFieldInRecord(listCancelRequest, standardHeader, Record, Value)->
@@ -3440,28 +3440,28 @@ setFieldInRecord(listStatus, transactTime, Record, Value)->
     erlang:setelement(#listStatus.transactTime, Record, Value);
 setFieldInRecord(listStatus, totNoOrders, Record, Value)->
     erlang:setelement(#listStatus.totNoOrders, Record, Value);
-setFieldInRecord(listStatus, repeatingReg_listStatus_73, Record, Value)->
-   erlang:setelement(#listStatus.repeatingReg_listStatus_73, Record, Value);
-setFieldInRecord(repeatingReg_listStatus_73, clOrdID, Record, Value)->
-   erlang:setelement(#repeatingReg_listStatus_73.clOrdID, Record, Value);
-setFieldInRecord(repeatingReg_listStatus_73, cumQty, Record, Value)->
-   erlang:setelement(#repeatingReg_listStatus_73.cumQty, Record, Value);
-setFieldInRecord(repeatingReg_listStatus_73, ordStatus, Record, Value)->
-   erlang:setelement(#repeatingReg_listStatus_73.ordStatus, Record, Value);
-setFieldInRecord(repeatingReg_listStatus_73, leavesQty, Record, Value)->
-   erlang:setelement(#repeatingReg_listStatus_73.leavesQty, Record, Value);
-setFieldInRecord(repeatingReg_listStatus_73, cxlQty, Record, Value)->
-   erlang:setelement(#repeatingReg_listStatus_73.cxlQty, Record, Value);
-setFieldInRecord(repeatingReg_listStatus_73, avgPx, Record, Value)->
-   erlang:setelement(#repeatingReg_listStatus_73.avgPx, Record, Value);
-setFieldInRecord(repeatingReg_listStatus_73, ordRejReason, Record, Value)->
-   erlang:setelement(#repeatingReg_listStatus_73.ordRejReason, Record, Value);
-setFieldInRecord(repeatingReg_listStatus_73, text, Record, Value)->
-   erlang:setelement(#repeatingReg_listStatus_73.text, Record, Value);
-setFieldInRecord(repeatingReg_listStatus_73, encodedTextLen, Record, Value)->
-   erlang:setelement(#repeatingReg_listStatus_73.encodedTextLen, Record, Value);
-setFieldInRecord(repeatingReg_listStatus_73, encodedText, Record, Value)->
-   erlang:setelement(#repeatingReg_listStatus_73.encodedText, Record, Value);
+setFieldInRecord(listStatus, rgr_listStatus_73, Record, Value)->
+   erlang:setelement(#listStatus.rgr_listStatus_73, Record, Value);
+setFieldInRecord(rgr_listStatus_73, clOrdID, Record, Value)->
+   erlang:setelement(#rgr_listStatus_73.clOrdID, Record, Value);
+setFieldInRecord(rgr_listStatus_73, cumQty, Record, Value)->
+   erlang:setelement(#rgr_listStatus_73.cumQty, Record, Value);
+setFieldInRecord(rgr_listStatus_73, ordStatus, Record, Value)->
+   erlang:setelement(#rgr_listStatus_73.ordStatus, Record, Value);
+setFieldInRecord(rgr_listStatus_73, leavesQty, Record, Value)->
+   erlang:setelement(#rgr_listStatus_73.leavesQty, Record, Value);
+setFieldInRecord(rgr_listStatus_73, cxlQty, Record, Value)->
+   erlang:setelement(#rgr_listStatus_73.cxlQty, Record, Value);
+setFieldInRecord(rgr_listStatus_73, avgPx, Record, Value)->
+   erlang:setelement(#rgr_listStatus_73.avgPx, Record, Value);
+setFieldInRecord(rgr_listStatus_73, ordRejReason, Record, Value)->
+   erlang:setelement(#rgr_listStatus_73.ordRejReason, Record, Value);
+setFieldInRecord(rgr_listStatus_73, text, Record, Value)->
+   erlang:setelement(#rgr_listStatus_73.text, Record, Value);
+setFieldInRecord(rgr_listStatus_73, encodedTextLen, Record, Value)->
+   erlang:setelement(#rgr_listStatus_73.encodedTextLen, Record, Value);
+setFieldInRecord(rgr_listStatus_73, encodedText, Record, Value)->
+   erlang:setelement(#rgr_listStatus_73.encodedText, Record, Value);
 setFieldInRecord(listStatus, standardTrailer, Record, Value)->
     erlang:setelement(#listStatus.standardTrailer, Record, Value);
 setFieldInRecord(allocationInstructionAck, standardHeader, Record, Value)->
@@ -3556,70 +3556,70 @@ setFieldInRecord(quoteRequest, standardHeader, Record, Value)->
     erlang:setelement(#quoteRequest.standardHeader, Record, Value);
 setFieldInRecord(quoteRequest, quoteReqID, Record, Value)->
     erlang:setelement(#quoteRequest.quoteReqID, Record, Value);
-setFieldInRecord(quoteRequest, repeatingReg_quoteRequest_146, Record, Value)->
-   erlang:setelement(#quoteRequest.repeatingReg_quoteRequest_146, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, symbol, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.symbol, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, symbolSfx, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.symbolSfx, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, securityID, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.securityID, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, iDSource, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.iDSource, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, securityType, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.securityType, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, maturityMonthYear, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.maturityMonthYear, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, maturityDay, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.maturityDay, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, putOrCall, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.putOrCall, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, strikePrice, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.strikePrice, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, optAttribute, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.optAttribute, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, contractMultiplier, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.contractMultiplier, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, couponRate, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.couponRate, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, securityExchange, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.securityExchange, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, issuer, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.issuer, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, encodedIssuerLen, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.encodedIssuerLen, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, encodedIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.encodedIssuer, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, securityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.securityDesc, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, encodedSecurityDescLen, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.encodedSecurityDescLen, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, encodedSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.encodedSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, prevClosePx, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.prevClosePx, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, quoteRequestType, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.quoteRequestType, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, tradingSessionID, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.tradingSessionID, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, side, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.side, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, orderQty, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.orderQty, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, futSettDate, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.futSettDate, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, ordType, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.ordType, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, futSettDate2, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.futSettDate2, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, orderQty2, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.orderQty2, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, expireTime, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.expireTime, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, transactTime, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.transactTime, Record, Value);
-setFieldInRecord(repeatingReg_quoteRequest_146, currency, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteRequest_146.currency, Record, Value);
+setFieldInRecord(quoteRequest, rgr_quoteRequest_146, Record, Value)->
+   erlang:setelement(#quoteRequest.rgr_quoteRequest_146, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, symbol, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.symbol, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, symbolSfx, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.symbolSfx, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, securityID, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.securityID, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, iDSource, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.iDSource, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, securityType, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.securityType, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, maturityMonthYear, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.maturityMonthYear, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, maturityDay, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.maturityDay, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, putOrCall, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.putOrCall, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, strikePrice, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.strikePrice, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, optAttribute, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.optAttribute, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, contractMultiplier, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.contractMultiplier, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, couponRate, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.couponRate, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, securityExchange, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.securityExchange, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, issuer, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.issuer, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, encodedIssuerLen, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.encodedIssuerLen, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, encodedIssuer, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.encodedIssuer, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, securityDesc, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.securityDesc, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, encodedSecurityDescLen, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.encodedSecurityDescLen, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, encodedSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.encodedSecurityDesc, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, prevClosePx, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.prevClosePx, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, quoteRequestType, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.quoteRequestType, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, tradingSessionID, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.tradingSessionID, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, side, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.side, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, orderQty, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.orderQty, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, futSettDate, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.futSettDate, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, ordType, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.ordType, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, futSettDate2, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.futSettDate2, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, orderQty2, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.orderQty2, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, expireTime, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.expireTime, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, transactTime, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.transactTime, Record, Value);
+setFieldInRecord(rgr_quoteRequest_146, currency, Record, Value)->
+   erlang:setelement(#rgr_quoteRequest_146.currency, Record, Value);
 setFieldInRecord(quoteRequest, standardTrailer, Record, Value)->
     erlang:setelement(#quoteRequest.standardTrailer, Record, Value);
 setFieldInRecord(quote, standardHeader, Record, Value)->
@@ -3790,52 +3790,52 @@ setFieldInRecord(marketDataRequest, mDUpdateType, Record, Value)->
     erlang:setelement(#marketDataRequest.mDUpdateType, Record, Value);
 setFieldInRecord(marketDataRequest, aggregatedBook, Record, Value)->
     erlang:setelement(#marketDataRequest.aggregatedBook, Record, Value);
-setFieldInRecord(marketDataRequest, repeatingReg_marketDataRequest_267, Record, Value)->
-   erlang:setelement(#marketDataRequest.repeatingReg_marketDataRequest_267, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_267, mDEntryType, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_267.mDEntryType, Record, Value);
-setFieldInRecord(marketDataRequest, repeatingReg_marketDataRequest_146, Record, Value)->
-   erlang:setelement(#marketDataRequest.repeatingReg_marketDataRequest_146, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, symbol, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.symbol, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, symbolSfx, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.symbolSfx, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, securityID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.securityID, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, iDSource, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.iDSource, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, securityType, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.securityType, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, maturityMonthYear, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.maturityMonthYear, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, maturityDay, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.maturityDay, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, putOrCall, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.putOrCall, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, strikePrice, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.strikePrice, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, optAttribute, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.optAttribute, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, contractMultiplier, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.contractMultiplier, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, couponRate, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.couponRate, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, securityExchange, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.securityExchange, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, issuer, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.issuer, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, encodedIssuerLen, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.encodedIssuerLen, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, encodedIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.encodedIssuer, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, securityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.securityDesc, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, encodedSecurityDescLen, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.encodedSecurityDescLen, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, encodedSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.encodedSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_marketDataRequest_146, tradingSessionID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataRequest_146.tradingSessionID, Record, Value);
+setFieldInRecord(marketDataRequest, rgr_marketDataRequest_267, Record, Value)->
+   erlang:setelement(#marketDataRequest.rgr_marketDataRequest_267, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_267, mDEntryType, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_267.mDEntryType, Record, Value);
+setFieldInRecord(marketDataRequest, rgr_marketDataRequest_146, Record, Value)->
+   erlang:setelement(#marketDataRequest.rgr_marketDataRequest_146, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, symbol, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.symbol, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, symbolSfx, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.symbolSfx, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, securityID, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.securityID, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, iDSource, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.iDSource, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, securityType, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.securityType, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, maturityMonthYear, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.maturityMonthYear, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, maturityDay, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.maturityDay, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, putOrCall, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.putOrCall, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, strikePrice, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.strikePrice, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, optAttribute, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.optAttribute, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, contractMultiplier, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.contractMultiplier, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, couponRate, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.couponRate, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, securityExchange, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.securityExchange, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, issuer, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.issuer, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, encodedIssuerLen, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.encodedIssuerLen, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, encodedIssuer, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.encodedIssuer, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, securityDesc, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.securityDesc, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, encodedSecurityDescLen, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.encodedSecurityDescLen, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, encodedSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.encodedSecurityDesc, Record, Value);
+setFieldInRecord(rgr_marketDataRequest_146, tradingSessionID, Record, Value)->
+   erlang:setelement(#rgr_marketDataRequest_146.tradingSessionID, Record, Value);
 setFieldInRecord(marketDataRequest, standardTrailer, Record, Value)->
     erlang:setelement(#marketDataRequest.standardTrailer, Record, Value);
 setFieldInRecord(marketDataSnapshotFullRefresh, standardHeader, Record, Value)->
@@ -3886,188 +3886,188 @@ setFieldInRecord(marketDataSnapshotFullRefresh, corporateAction, Record, Value)-
     erlang:setelement(#marketDataSnapshotFullRefresh.corporateAction, Record, Value);
 setFieldInRecord(marketDataSnapshotFullRefresh, totalVolumeTraded, Record, Value)->
     erlang:setelement(#marketDataSnapshotFullRefresh.totalVolumeTraded, Record, Value);
-setFieldInRecord(marketDataSnapshotFullRefresh, repeatingReg_marketDataSnapshotFullRefresh_268, Record, Value)->
-   erlang:setelement(#marketDataSnapshotFullRefresh.repeatingReg_marketDataSnapshotFullRefresh_268, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, mDEntryType, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.mDEntryType, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, mDEntryPx, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.mDEntryPx, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, currency, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.currency, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, mDEntrySize, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.mDEntrySize, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, mDEntryDate, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.mDEntryDate, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, mDEntryTime, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.mDEntryTime, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, tickDirection, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.tickDirection, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, mDMkt, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.mDMkt, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, tradingSessionID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.tradingSessionID, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, quoteCondition, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.quoteCondition, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, tradeCondition, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.tradeCondition, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, mDEntryOriginator, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.mDEntryOriginator, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, locationID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.locationID, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, deskID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.deskID, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, openCloseSettleFlag, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.openCloseSettleFlag, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, timeInForce, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.timeInForce, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, expireDate, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.expireDate, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, expireTime, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.expireTime, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, minQty, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.minQty, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, execInst, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.execInst, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, sellerDays, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.sellerDays, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, orderID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.orderID, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, quoteEntryID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.quoteEntryID, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, mDEntryBuyer, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.mDEntryBuyer, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, mDEntrySeller, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.mDEntrySeller, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, numberOfOrders, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.numberOfOrders, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, mDEntryPositionNo, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.mDEntryPositionNo, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, text, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.text, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, encodedTextLen, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.encodedTextLen, Record, Value);
-setFieldInRecord(repeatingReg_marketDataSnapshotFullRefresh_268, encodedText, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataSnapshotFullRefresh_268.encodedText, Record, Value);
+setFieldInRecord(marketDataSnapshotFullRefresh, rgr_marketDataSnapshotFullRefresh_268, Record, Value)->
+   erlang:setelement(#marketDataSnapshotFullRefresh.rgr_marketDataSnapshotFullRefresh_268, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, mDEntryType, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.mDEntryType, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, mDEntryPx, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.mDEntryPx, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, currency, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.currency, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, mDEntrySize, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.mDEntrySize, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, mDEntryDate, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.mDEntryDate, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, mDEntryTime, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.mDEntryTime, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, tickDirection, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.tickDirection, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, mDMkt, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.mDMkt, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, tradingSessionID, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.tradingSessionID, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, quoteCondition, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.quoteCondition, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, tradeCondition, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.tradeCondition, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, mDEntryOriginator, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.mDEntryOriginator, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, locationID, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.locationID, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, deskID, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.deskID, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, openCloseSettleFlag, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.openCloseSettleFlag, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, timeInForce, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.timeInForce, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, expireDate, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.expireDate, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, expireTime, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.expireTime, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, minQty, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.minQty, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, execInst, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.execInst, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, sellerDays, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.sellerDays, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, orderID, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.orderID, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, quoteEntryID, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.quoteEntryID, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, mDEntryBuyer, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.mDEntryBuyer, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, mDEntrySeller, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.mDEntrySeller, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, numberOfOrders, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.numberOfOrders, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, mDEntryPositionNo, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.mDEntryPositionNo, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, text, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.text, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, encodedTextLen, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.encodedTextLen, Record, Value);
+setFieldInRecord(rgr_marketDataSnapshotFullRefresh_268, encodedText, Record, Value)->
+   erlang:setelement(#rgr_marketDataSnapshotFullRefresh_268.encodedText, Record, Value);
 setFieldInRecord(marketDataSnapshotFullRefresh, standardTrailer, Record, Value)->
     erlang:setelement(#marketDataSnapshotFullRefresh.standardTrailer, Record, Value);
 setFieldInRecord(marketDataIncrementalRefresh, standardHeader, Record, Value)->
     erlang:setelement(#marketDataIncrementalRefresh.standardHeader, Record, Value);
 setFieldInRecord(marketDataIncrementalRefresh, mDReqID, Record, Value)->
     erlang:setelement(#marketDataIncrementalRefresh.mDReqID, Record, Value);
-setFieldInRecord(marketDataIncrementalRefresh, repeatingReg_marketDataIncrementalRefresh_268, Record, Value)->
-   erlang:setelement(#marketDataIncrementalRefresh.repeatingReg_marketDataIncrementalRefresh_268, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, mDUpdateAction, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.mDUpdateAction, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, deleteReason, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.deleteReason, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, mDEntryType, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.mDEntryType, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, mDEntryID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.mDEntryID, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, mDEntryRefID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.mDEntryRefID, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, symbol, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.symbol, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, symbolSfx, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.symbolSfx, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, securityID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.securityID, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, iDSource, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.iDSource, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, securityType, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.securityType, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, maturityMonthYear, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.maturityMonthYear, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, maturityDay, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.maturityDay, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, putOrCall, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.putOrCall, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, strikePrice, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.strikePrice, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, optAttribute, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.optAttribute, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, contractMultiplier, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.contractMultiplier, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, couponRate, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.couponRate, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, securityExchange, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.securityExchange, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, issuer, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.issuer, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, encodedIssuerLen, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.encodedIssuerLen, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, encodedIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.encodedIssuer, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, securityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.securityDesc, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, encodedSecurityDescLen, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.encodedSecurityDescLen, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, encodedSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.encodedSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, financialStatus, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.financialStatus, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, corporateAction, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.corporateAction, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, mDEntryPx, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.mDEntryPx, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, currency, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.currency, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, mDEntrySize, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.mDEntrySize, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, mDEntryDate, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.mDEntryDate, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, mDEntryTime, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.mDEntryTime, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, tickDirection, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.tickDirection, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, mDMkt, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.mDMkt, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, tradingSessionID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.tradingSessionID, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, quoteCondition, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.quoteCondition, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, tradeCondition, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.tradeCondition, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, mDEntryOriginator, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.mDEntryOriginator, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, locationID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.locationID, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, deskID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.deskID, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, openCloseSettleFlag, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.openCloseSettleFlag, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, timeInForce, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.timeInForce, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, expireDate, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.expireDate, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, expireTime, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.expireTime, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, minQty, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.minQty, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, execInst, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.execInst, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, sellerDays, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.sellerDays, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, orderID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.orderID, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, quoteEntryID, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.quoteEntryID, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, mDEntryBuyer, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.mDEntryBuyer, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, mDEntrySeller, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.mDEntrySeller, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, numberOfOrders, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.numberOfOrders, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, mDEntryPositionNo, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.mDEntryPositionNo, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, totalVolumeTraded, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.totalVolumeTraded, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, text, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.text, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, encodedTextLen, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.encodedTextLen, Record, Value);
-setFieldInRecord(repeatingReg_marketDataIncrementalRefresh_268, encodedText, Record, Value)->
-   erlang:setelement(#repeatingReg_marketDataIncrementalRefresh_268.encodedText, Record, Value);
+setFieldInRecord(marketDataIncrementalRefresh, rgr_marketDataIncrementalRefresh_268, Record, Value)->
+   erlang:setelement(#marketDataIncrementalRefresh.rgr_marketDataIncrementalRefresh_268, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, mDUpdateAction, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.mDUpdateAction, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, deleteReason, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.deleteReason, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, mDEntryType, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.mDEntryType, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, mDEntryID, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.mDEntryID, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, mDEntryRefID, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.mDEntryRefID, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, symbol, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.symbol, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, symbolSfx, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.symbolSfx, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, securityID, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.securityID, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, iDSource, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.iDSource, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, securityType, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.securityType, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, maturityMonthYear, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.maturityMonthYear, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, maturityDay, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.maturityDay, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, putOrCall, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.putOrCall, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, strikePrice, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.strikePrice, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, optAttribute, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.optAttribute, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, contractMultiplier, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.contractMultiplier, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, couponRate, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.couponRate, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, securityExchange, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.securityExchange, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, issuer, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.issuer, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, encodedIssuerLen, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.encodedIssuerLen, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, encodedIssuer, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.encodedIssuer, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, securityDesc, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.securityDesc, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, encodedSecurityDescLen, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.encodedSecurityDescLen, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, encodedSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.encodedSecurityDesc, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, financialStatus, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.financialStatus, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, corporateAction, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.corporateAction, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, mDEntryPx, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.mDEntryPx, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, currency, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.currency, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, mDEntrySize, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.mDEntrySize, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, mDEntryDate, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.mDEntryDate, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, mDEntryTime, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.mDEntryTime, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, tickDirection, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.tickDirection, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, mDMkt, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.mDMkt, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, tradingSessionID, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.tradingSessionID, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, quoteCondition, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.quoteCondition, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, tradeCondition, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.tradeCondition, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, mDEntryOriginator, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.mDEntryOriginator, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, locationID, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.locationID, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, deskID, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.deskID, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, openCloseSettleFlag, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.openCloseSettleFlag, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, timeInForce, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.timeInForce, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, expireDate, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.expireDate, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, expireTime, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.expireTime, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, minQty, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.minQty, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, execInst, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.execInst, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, sellerDays, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.sellerDays, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, orderID, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.orderID, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, quoteEntryID, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.quoteEntryID, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, mDEntryBuyer, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.mDEntryBuyer, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, mDEntrySeller, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.mDEntrySeller, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, numberOfOrders, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.numberOfOrders, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, mDEntryPositionNo, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.mDEntryPositionNo, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, totalVolumeTraded, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.totalVolumeTraded, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, text, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.text, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, encodedTextLen, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.encodedTextLen, Record, Value);
+setFieldInRecord(rgr_marketDataIncrementalRefresh_268, encodedText, Record, Value)->
+   erlang:setelement(#rgr_marketDataIncrementalRefresh_268.encodedText, Record, Value);
 setFieldInRecord(marketDataIncrementalRefresh, standardTrailer, Record, Value)->
     erlang:setelement(#marketDataIncrementalRefresh.standardTrailer, Record, Value);
 setFieldInRecord(marketDataRequestReject, standardHeader, Record, Value)->
@@ -4096,48 +4096,48 @@ setFieldInRecord(quoteCancel, quoteResponseLevel, Record, Value)->
     erlang:setelement(#quoteCancel.quoteResponseLevel, Record, Value);
 setFieldInRecord(quoteCancel, tradingSessionID, Record, Value)->
     erlang:setelement(#quoteCancel.tradingSessionID, Record, Value);
-setFieldInRecord(quoteCancel, repeatingReg_quoteCancel_295, Record, Value)->
-   erlang:setelement(#quoteCancel.repeatingReg_quoteCancel_295, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, symbol, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.symbol, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, symbolSfx, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.symbolSfx, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, securityID, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.securityID, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, iDSource, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.iDSource, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, securityType, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.securityType, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, maturityMonthYear, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.maturityMonthYear, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, maturityDay, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.maturityDay, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, putOrCall, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.putOrCall, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, strikePrice, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.strikePrice, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, optAttribute, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.optAttribute, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, contractMultiplier, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.contractMultiplier, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, couponRate, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.couponRate, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, securityExchange, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.securityExchange, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, issuer, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.issuer, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, encodedIssuerLen, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.encodedIssuerLen, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, encodedIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.encodedIssuer, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, securityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.securityDesc, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, encodedSecurityDescLen, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.encodedSecurityDescLen, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, encodedSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.encodedSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_quoteCancel_295, underlyingSymbol, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteCancel_295.underlyingSymbol, Record, Value);
+setFieldInRecord(quoteCancel, rgr_quoteCancel_295, Record, Value)->
+   erlang:setelement(#quoteCancel.rgr_quoteCancel_295, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, symbol, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.symbol, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, symbolSfx, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.symbolSfx, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, securityID, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.securityID, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, iDSource, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.iDSource, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, securityType, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.securityType, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, maturityMonthYear, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.maturityMonthYear, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, maturityDay, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.maturityDay, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, putOrCall, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.putOrCall, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, strikePrice, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.strikePrice, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, optAttribute, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.optAttribute, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, contractMultiplier, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.contractMultiplier, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, couponRate, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.couponRate, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, securityExchange, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.securityExchange, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, issuer, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.issuer, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, encodedIssuerLen, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.encodedIssuerLen, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, encodedIssuer, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.encodedIssuer, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, securityDesc, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.securityDesc, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, encodedSecurityDescLen, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.encodedSecurityDescLen, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, encodedSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.encodedSecurityDesc, Record, Value);
+setFieldInRecord(rgr_quoteCancel_295, underlyingSymbol, Record, Value)->
+   erlang:setelement(#rgr_quoteCancel_295.underlyingSymbol, Record, Value);
 setFieldInRecord(quoteCancel, standardTrailer, Record, Value)->
     erlang:setelement(#quoteCancel.standardTrailer, Record, Value);
 setFieldInRecord(quoteStatusRequest, standardHeader, Record, Value)->
@@ -4204,96 +4204,96 @@ setFieldInRecord(quoteAcknowledgement, tradingSessionID, Record, Value)->
     erlang:setelement(#quoteAcknowledgement.tradingSessionID, Record, Value);
 setFieldInRecord(quoteAcknowledgement, text, Record, Value)->
     erlang:setelement(#quoteAcknowledgement.text, Record, Value);
-setFieldInRecord(quoteAcknowledgement, repeatingReg_quoteAcknowledgement_296, Record, Value)->
-   erlang:setelement(#quoteAcknowledgement.repeatingReg_quoteAcknowledgement_296, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, quoteSetID, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.quoteSetID, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingSymbol, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingSymbol, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingSymbolSfx, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingSymbolSfx, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingSecurityID, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingSecurityID, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingIDSource, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingIDSource, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingSecurityType, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingSecurityType, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingMaturityMonthYear, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingMaturityMonthYear, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingMaturityDay, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingMaturityDay, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingPutOrCall, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingPutOrCall, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingStrikePrice, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingStrikePrice, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingOptAttribute, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingOptAttribute, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingContractMultiplier, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingContractMultiplier, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingCouponRate, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingCouponRate, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingSecurityExchange, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingSecurityExchange, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingIssuer, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, encodedUnderlyingIssuerLen, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.encodedUnderlyingIssuerLen, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, encodedUnderlyingIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.encodedUnderlyingIssuer, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, underlyingSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.underlyingSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, encodedUnderlyingSecurityDescLen, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.encodedUnderlyingSecurityDescLen, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, encodedUnderlyingSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.encodedUnderlyingSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, totQuoteEntries, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.totQuoteEntries, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, repeatingReg_repeatingReg_quoteAcknowledgement_296_295, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.repeatingReg_repeatingReg_quoteAcknowledgement_296_295, Record, Value);
-setFieldInRecord(repeatingReg_quoteAcknowledgement_296, repeatingReg_repeatingReg_quoteAcknowledgement_296_295, Record, Value)->
-   erlang:setelement(#repeatingReg_quoteAcknowledgement_296.repeatingReg_repeatingReg_quoteAcknowledgement_296_295, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, quoteEntryID, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.quoteEntryID, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, symbol, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.symbol, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, symbolSfx, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.symbolSfx, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, securityID, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.securityID, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, iDSource, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.iDSource, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, securityType, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.securityType, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, maturityMonthYear, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.maturityMonthYear, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, maturityDay, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.maturityDay, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, putOrCall, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.putOrCall, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, strikePrice, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.strikePrice, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, optAttribute, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.optAttribute, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, contractMultiplier, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.contractMultiplier, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, couponRate, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.couponRate, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, securityExchange, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.securityExchange, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, issuer, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.issuer, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, encodedIssuerLen, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.encodedIssuerLen, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, encodedIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.encodedIssuer, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, securityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.securityDesc, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, encodedSecurityDescLen, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.encodedSecurityDescLen, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, encodedSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.encodedSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_quoteAcknowledgement_296_295, quoteEntryRejectReason, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_quoteAcknowledgement_296_295.quoteEntryRejectReason, Record, Value);
+setFieldInRecord(quoteAcknowledgement, rgr_quoteAcknowledgement_296, Record, Value)->
+   erlang:setelement(#quoteAcknowledgement.rgr_quoteAcknowledgement_296, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, quoteSetID, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.quoteSetID, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingSymbol, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingSymbol, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingSymbolSfx, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingSymbolSfx, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingSecurityID, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingSecurityID, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingIDSource, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingIDSource, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingSecurityType, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingSecurityType, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingMaturityMonthYear, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingMaturityMonthYear, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingMaturityDay, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingMaturityDay, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingPutOrCall, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingPutOrCall, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingStrikePrice, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingStrikePrice, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingOptAttribute, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingOptAttribute, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingContractMultiplier, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingContractMultiplier, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingCouponRate, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingCouponRate, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingSecurityExchange, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingSecurityExchange, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingIssuer, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingIssuer, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, encodedUnderlyingIssuerLen, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.encodedUnderlyingIssuerLen, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, encodedUnderlyingIssuer, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.encodedUnderlyingIssuer, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, underlyingSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.underlyingSecurityDesc, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, encodedUnderlyingSecurityDescLen, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.encodedUnderlyingSecurityDescLen, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, encodedUnderlyingSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.encodedUnderlyingSecurityDesc, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, totQuoteEntries, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.totQuoteEntries, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, rgr_rgr_quoteAcknowledgement_296_295, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.rgr_rgr_quoteAcknowledgement_296_295, Record, Value);
+setFieldInRecord(rgr_quoteAcknowledgement_296, rgr_rgr_quoteAcknowledgement_296_295, Record, Value)->
+   erlang:setelement(#rgr_quoteAcknowledgement_296.rgr_rgr_quoteAcknowledgement_296_295, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, quoteEntryID, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.quoteEntryID, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, symbol, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.symbol, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, symbolSfx, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.symbolSfx, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, securityID, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.securityID, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, iDSource, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.iDSource, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, securityType, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.securityType, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, maturityMonthYear, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.maturityMonthYear, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, maturityDay, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.maturityDay, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, putOrCall, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.putOrCall, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, strikePrice, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.strikePrice, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, optAttribute, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.optAttribute, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, contractMultiplier, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.contractMultiplier, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, couponRate, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.couponRate, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, securityExchange, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.securityExchange, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, issuer, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.issuer, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, encodedIssuerLen, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.encodedIssuerLen, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, encodedIssuer, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.encodedIssuer, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, securityDesc, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.securityDesc, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, encodedSecurityDescLen, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.encodedSecurityDescLen, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, encodedSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.encodedSecurityDesc, Record, Value);
+setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, quoteEntryRejectReason, Record, Value)->
+   erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.quoteEntryRejectReason, Record, Value);
 setFieldInRecord(quoteAcknowledgement, standardTrailer, Record, Value)->
     erlang:setelement(#quoteAcknowledgement.standardTrailer, Record, Value);
 setFieldInRecord(securityDefinitionRequest, standardHeader, Record, Value)->
@@ -4350,52 +4350,52 @@ setFieldInRecord(securityDefinitionRequest, encodedText, Record, Value)->
     erlang:setelement(#securityDefinitionRequest.encodedText, Record, Value);
 setFieldInRecord(securityDefinitionRequest, tradingSessionID, Record, Value)->
     erlang:setelement(#securityDefinitionRequest.tradingSessionID, Record, Value);
-setFieldInRecord(securityDefinitionRequest, repeatingReg_securityDefinitionRequest_146, Record, Value)->
-   erlang:setelement(#securityDefinitionRequest.repeatingReg_securityDefinitionRequest_146, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingSymbol, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingSymbol, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingSymbolSfx, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingSymbolSfx, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingSecurityID, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingSecurityID, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingIDSource, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingIDSource, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingSecurityType, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingSecurityType, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingMaturityMonthYear, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingMaturityMonthYear, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingMaturityDay, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingMaturityDay, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingPutOrCall, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingPutOrCall, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingStrikePrice, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingStrikePrice, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingOptAttribute, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingOptAttribute, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingContractMultiplier, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingContractMultiplier, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingCouponRate, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingCouponRate, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingSecurityExchange, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingSecurityExchange, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingIssuer, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, encodedUnderlyingIssuerLen, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.encodedUnderlyingIssuerLen, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, encodedUnderlyingIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.encodedUnderlyingIssuer, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, encodedUnderlyingSecurityDescLen, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.encodedUnderlyingSecurityDescLen, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, encodedUnderlyingSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.encodedUnderlyingSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, ratioQty, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.ratioQty, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, side, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.side, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinitionRequest_146, underlyingCurrency, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinitionRequest_146.underlyingCurrency, Record, Value);
+setFieldInRecord(securityDefinitionRequest, rgr_securityDefinitionRequest_146, Record, Value)->
+   erlang:setelement(#securityDefinitionRequest.rgr_securityDefinitionRequest_146, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingSymbol, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingSymbol, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingSymbolSfx, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingSymbolSfx, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingSecurityID, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingSecurityID, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingIDSource, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingIDSource, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingSecurityType, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingSecurityType, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingMaturityMonthYear, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingMaturityMonthYear, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingMaturityDay, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingMaturityDay, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingPutOrCall, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingPutOrCall, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingStrikePrice, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingStrikePrice, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingOptAttribute, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingOptAttribute, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingContractMultiplier, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingContractMultiplier, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingCouponRate, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingCouponRate, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingSecurityExchange, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingSecurityExchange, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingIssuer, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingIssuer, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, encodedUnderlyingIssuerLen, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.encodedUnderlyingIssuerLen, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, encodedUnderlyingIssuer, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.encodedUnderlyingIssuer, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingSecurityDesc, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, encodedUnderlyingSecurityDescLen, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.encodedUnderlyingSecurityDescLen, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, encodedUnderlyingSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.encodedUnderlyingSecurityDesc, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, ratioQty, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.ratioQty, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, side, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.side, Record, Value);
+setFieldInRecord(rgr_securityDefinitionRequest_146, underlyingCurrency, Record, Value)->
+   erlang:setelement(#rgr_securityDefinitionRequest_146.underlyingCurrency, Record, Value);
 setFieldInRecord(securityDefinitionRequest, standardTrailer, Record, Value)->
     erlang:setelement(#securityDefinitionRequest.standardTrailer, Record, Value);
 setFieldInRecord(securityDefinition, standardHeader, Record, Value)->
@@ -4456,52 +4456,52 @@ setFieldInRecord(securityDefinition, encodedTextLen, Record, Value)->
     erlang:setelement(#securityDefinition.encodedTextLen, Record, Value);
 setFieldInRecord(securityDefinition, encodedText, Record, Value)->
     erlang:setelement(#securityDefinition.encodedText, Record, Value);
-setFieldInRecord(securityDefinition, repeatingReg_securityDefinition_146, Record, Value)->
-   erlang:setelement(#securityDefinition.repeatingReg_securityDefinition_146, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingSymbol, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingSymbol, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingSymbolSfx, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingSymbolSfx, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingSecurityID, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingSecurityID, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingIDSource, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingIDSource, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingSecurityType, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingSecurityType, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingMaturityMonthYear, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingMaturityMonthYear, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingMaturityDay, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingMaturityDay, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingPutOrCall, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingPutOrCall, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingStrikePrice, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingStrikePrice, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingOptAttribute, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingOptAttribute, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingContractMultiplier, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingContractMultiplier, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingCouponRate, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingCouponRate, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingSecurityExchange, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingSecurityExchange, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingIssuer, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, encodedUnderlyingIssuerLen, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.encodedUnderlyingIssuerLen, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, encodedUnderlyingIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.encodedUnderlyingIssuer, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, encodedUnderlyingSecurityDescLen, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.encodedUnderlyingSecurityDescLen, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, encodedUnderlyingSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.encodedUnderlyingSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, ratioQty, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.ratioQty, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, side, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.side, Record, Value);
-setFieldInRecord(repeatingReg_securityDefinition_146, underlyingCurrency, Record, Value)->
-   erlang:setelement(#repeatingReg_securityDefinition_146.underlyingCurrency, Record, Value);
+setFieldInRecord(securityDefinition, rgr_securityDefinition_146, Record, Value)->
+   erlang:setelement(#securityDefinition.rgr_securityDefinition_146, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingSymbol, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingSymbol, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingSymbolSfx, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingSymbolSfx, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingSecurityID, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingSecurityID, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingIDSource, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingIDSource, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingSecurityType, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingSecurityType, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingMaturityMonthYear, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingMaturityMonthYear, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingMaturityDay, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingMaturityDay, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingPutOrCall, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingPutOrCall, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingStrikePrice, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingStrikePrice, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingOptAttribute, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingOptAttribute, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingContractMultiplier, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingContractMultiplier, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingCouponRate, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingCouponRate, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingSecurityExchange, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingSecurityExchange, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingIssuer, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingIssuer, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, encodedUnderlyingIssuerLen, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.encodedUnderlyingIssuerLen, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, encodedUnderlyingIssuer, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.encodedUnderlyingIssuer, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingSecurityDesc, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, encodedUnderlyingSecurityDescLen, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.encodedUnderlyingSecurityDescLen, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, encodedUnderlyingSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.encodedUnderlyingSecurityDesc, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, ratioQty, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.ratioQty, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, side, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.side, Record, Value);
+setFieldInRecord(rgr_securityDefinition_146, underlyingCurrency, Record, Value)->
+   erlang:setelement(#rgr_securityDefinition_146.underlyingCurrency, Record, Value);
 setFieldInRecord(securityDefinition, standardTrailer, Record, Value)->
     erlang:setelement(#securityDefinition.standardTrailer, Record, Value);
 setFieldInRecord(securityStatusRequest, standardHeader, Record, Value)->
@@ -4690,128 +4690,128 @@ setFieldInRecord(massQuote, defBidSize, Record, Value)->
     erlang:setelement(#massQuote.defBidSize, Record, Value);
 setFieldInRecord(massQuote, defOfferSize, Record, Value)->
     erlang:setelement(#massQuote.defOfferSize, Record, Value);
-setFieldInRecord(massQuote, repeatingReg_massQuote_296, Record, Value)->
-   erlang:setelement(#massQuote.repeatingReg_massQuote_296, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, quoteSetID, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.quoteSetID, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingSymbol, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingSymbol, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingSymbolSfx, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingSymbolSfx, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingSecurityID, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingSecurityID, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingIDSource, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingIDSource, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingSecurityType, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingSecurityType, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingMaturityMonthYear, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingMaturityMonthYear, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingMaturityDay, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingMaturityDay, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingPutOrCall, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingPutOrCall, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingStrikePrice, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingStrikePrice, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingOptAttribute, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingOptAttribute, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingContractMultiplier, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingContractMultiplier, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingCouponRate, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingCouponRate, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingSecurityExchange, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingSecurityExchange, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingIssuer, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, encodedUnderlyingIssuerLen, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.encodedUnderlyingIssuerLen, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, encodedUnderlyingIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.encodedUnderlyingIssuer, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, underlyingSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.underlyingSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, encodedUnderlyingSecurityDescLen, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.encodedUnderlyingSecurityDescLen, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, encodedUnderlyingSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.encodedUnderlyingSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, quoteSetValidUntilTime, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.quoteSetValidUntilTime, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, totQuoteEntries, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.totQuoteEntries, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, repeatingReg_repeatingReg_massQuote_296_295, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.repeatingReg_repeatingReg_massQuote_296_295, Record, Value);
-setFieldInRecord(repeatingReg_massQuote_296, repeatingReg_repeatingReg_massQuote_296_295, Record, Value)->
-   erlang:setelement(#repeatingReg_massQuote_296.repeatingReg_repeatingReg_massQuote_296_295, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, quoteEntryID, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.quoteEntryID, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, symbol, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.symbol, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, symbolSfx, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.symbolSfx, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, securityID, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.securityID, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, iDSource, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.iDSource, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, securityType, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.securityType, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, maturityMonthYear, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.maturityMonthYear, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, maturityDay, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.maturityDay, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, putOrCall, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.putOrCall, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, strikePrice, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.strikePrice, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, optAttribute, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.optAttribute, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, contractMultiplier, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.contractMultiplier, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, couponRate, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.couponRate, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, securityExchange, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.securityExchange, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, issuer, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.issuer, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, encodedIssuerLen, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.encodedIssuerLen, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, encodedIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.encodedIssuer, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, securityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.securityDesc, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, encodedSecurityDescLen, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.encodedSecurityDescLen, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, encodedSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.encodedSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, bidPx, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.bidPx, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, offerPx, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.offerPx, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, bidSize, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.bidSize, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, offerSize, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.offerSize, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, validUntilTime, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.validUntilTime, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, bidSpotRate, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.bidSpotRate, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, offerSpotRate, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.offerSpotRate, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, bidForwardPoints, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.bidForwardPoints, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, offerForwardPoints, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.offerForwardPoints, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, transactTime, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.transactTime, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, tradingSessionID, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.tradingSessionID, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, futSettDate, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.futSettDate, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, ordType, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.ordType, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, futSettDate2, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.futSettDate2, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, orderQty2, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.orderQty2, Record, Value);
-setFieldInRecord(repeatingReg_repeatingReg_massQuote_296_295, currency, Record, Value)->
-   erlang:setelement(#repeatingReg_repeatingReg_massQuote_296_295.currency, Record, Value);
+setFieldInRecord(massQuote, rgr_massQuote_296, Record, Value)->
+   erlang:setelement(#massQuote.rgr_massQuote_296, Record, Value);
+setFieldInRecord(rgr_massQuote_296, quoteSetID, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.quoteSetID, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingSymbol, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingSymbol, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingSymbolSfx, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingSymbolSfx, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingSecurityID, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingSecurityID, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingIDSource, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingIDSource, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingSecurityType, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingSecurityType, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingMaturityMonthYear, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingMaturityMonthYear, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingMaturityDay, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingMaturityDay, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingPutOrCall, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingPutOrCall, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingStrikePrice, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingStrikePrice, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingOptAttribute, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingOptAttribute, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingContractMultiplier, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingContractMultiplier, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingCouponRate, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingCouponRate, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingSecurityExchange, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingSecurityExchange, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingIssuer, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingIssuer, Record, Value);
+setFieldInRecord(rgr_massQuote_296, encodedUnderlyingIssuerLen, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.encodedUnderlyingIssuerLen, Record, Value);
+setFieldInRecord(rgr_massQuote_296, encodedUnderlyingIssuer, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.encodedUnderlyingIssuer, Record, Value);
+setFieldInRecord(rgr_massQuote_296, underlyingSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.underlyingSecurityDesc, Record, Value);
+setFieldInRecord(rgr_massQuote_296, encodedUnderlyingSecurityDescLen, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.encodedUnderlyingSecurityDescLen, Record, Value);
+setFieldInRecord(rgr_massQuote_296, encodedUnderlyingSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.encodedUnderlyingSecurityDesc, Record, Value);
+setFieldInRecord(rgr_massQuote_296, quoteSetValidUntilTime, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.quoteSetValidUntilTime, Record, Value);
+setFieldInRecord(rgr_massQuote_296, totQuoteEntries, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.totQuoteEntries, Record, Value);
+setFieldInRecord(rgr_massQuote_296, rgr_rgr_massQuote_296_295, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.rgr_rgr_massQuote_296_295, Record, Value);
+setFieldInRecord(rgr_massQuote_296, rgr_rgr_massQuote_296_295, Record, Value)->
+   erlang:setelement(#rgr_massQuote_296.rgr_rgr_massQuote_296_295, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, quoteEntryID, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.quoteEntryID, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, symbol, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.symbol, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, symbolSfx, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.symbolSfx, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, securityID, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.securityID, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, iDSource, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.iDSource, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, securityType, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.securityType, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, maturityMonthYear, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.maturityMonthYear, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, maturityDay, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.maturityDay, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, putOrCall, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.putOrCall, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, strikePrice, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.strikePrice, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, optAttribute, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.optAttribute, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, contractMultiplier, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.contractMultiplier, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, couponRate, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.couponRate, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, securityExchange, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.securityExchange, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, issuer, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.issuer, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, encodedIssuerLen, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.encodedIssuerLen, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, encodedIssuer, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.encodedIssuer, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, securityDesc, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.securityDesc, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, encodedSecurityDescLen, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.encodedSecurityDescLen, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, encodedSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.encodedSecurityDesc, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, bidPx, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.bidPx, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, offerPx, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.offerPx, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, bidSize, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.bidSize, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, offerSize, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.offerSize, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, validUntilTime, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.validUntilTime, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, bidSpotRate, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.bidSpotRate, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, offerSpotRate, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.offerSpotRate, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, bidForwardPoints, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.bidForwardPoints, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, offerForwardPoints, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.offerForwardPoints, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, transactTime, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.transactTime, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, tradingSessionID, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.tradingSessionID, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, futSettDate, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.futSettDate, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, ordType, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.ordType, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, futSettDate2, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.futSettDate2, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, orderQty2, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.orderQty2, Record, Value);
+setFieldInRecord(rgr_rgr_massQuote_296_295, currency, Record, Value)->
+   erlang:setelement(#rgr_rgr_massQuote_296_295.currency, Record, Value);
 setFieldInRecord(massQuote, standardTrailer, Record, Value)->
     erlang:setelement(#massQuote.standardTrailer, Record, Value);
 setFieldInRecord(businessMessageReject, standardHeader, Record, Value)->
@@ -4854,46 +4854,46 @@ setFieldInRecord(bidRequest, sideValue1, Record, Value)->
     erlang:setelement(#bidRequest.sideValue1, Record, Value);
 setFieldInRecord(bidRequest, sideValue2, Record, Value)->
     erlang:setelement(#bidRequest.sideValue2, Record, Value);
-setFieldInRecord(bidRequest, repeatingReg_bidRequest_398, Record, Value)->
-   erlang:setelement(#bidRequest.repeatingReg_bidRequest_398, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_398, bidDescriptorType, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_398.bidDescriptorType, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_398, bidDescriptor, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_398.bidDescriptor, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_398, sideValueInd, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_398.sideValueInd, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_398, liquidityValue, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_398.liquidityValue, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_398, liquidityNumSecurities, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_398.liquidityNumSecurities, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_398, liquidityPctLow, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_398.liquidityPctLow, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_398, liquidityPctHigh, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_398.liquidityPctHigh, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_398, eFPTrackingError, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_398.eFPTrackingError, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_398, fairValue, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_398.fairValue, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_398, outsideIndexPct, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_398.outsideIndexPct, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_398, valueOfFutures, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_398.valueOfFutures, Record, Value);
-setFieldInRecord(bidRequest, repeatingReg_bidRequest_420, Record, Value)->
-   erlang:setelement(#bidRequest.repeatingReg_bidRequest_420, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_420, listID, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_420.listID, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_420, side, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_420.side, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_420, tradingSessionID, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_420.tradingSessionID, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_420, netGrossInd, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_420.netGrossInd, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_420, settlmntTyp, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_420.settlmntTyp, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_420, futSettDate, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_420.futSettDate, Record, Value);
-setFieldInRecord(repeatingReg_bidRequest_420, account, Record, Value)->
-   erlang:setelement(#repeatingReg_bidRequest_420.account, Record, Value);
+setFieldInRecord(bidRequest, rgr_bidRequest_398, Record, Value)->
+   erlang:setelement(#bidRequest.rgr_bidRequest_398, Record, Value);
+setFieldInRecord(rgr_bidRequest_398, bidDescriptorType, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_398.bidDescriptorType, Record, Value);
+setFieldInRecord(rgr_bidRequest_398, bidDescriptor, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_398.bidDescriptor, Record, Value);
+setFieldInRecord(rgr_bidRequest_398, sideValueInd, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_398.sideValueInd, Record, Value);
+setFieldInRecord(rgr_bidRequest_398, liquidityValue, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_398.liquidityValue, Record, Value);
+setFieldInRecord(rgr_bidRequest_398, liquidityNumSecurities, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_398.liquidityNumSecurities, Record, Value);
+setFieldInRecord(rgr_bidRequest_398, liquidityPctLow, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_398.liquidityPctLow, Record, Value);
+setFieldInRecord(rgr_bidRequest_398, liquidityPctHigh, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_398.liquidityPctHigh, Record, Value);
+setFieldInRecord(rgr_bidRequest_398, eFPTrackingError, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_398.eFPTrackingError, Record, Value);
+setFieldInRecord(rgr_bidRequest_398, fairValue, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_398.fairValue, Record, Value);
+setFieldInRecord(rgr_bidRequest_398, outsideIndexPct, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_398.outsideIndexPct, Record, Value);
+setFieldInRecord(rgr_bidRequest_398, valueOfFutures, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_398.valueOfFutures, Record, Value);
+setFieldInRecord(bidRequest, rgr_bidRequest_420, Record, Value)->
+   erlang:setelement(#bidRequest.rgr_bidRequest_420, Record, Value);
+setFieldInRecord(rgr_bidRequest_420, listID, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_420.listID, Record, Value);
+setFieldInRecord(rgr_bidRequest_420, side, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_420.side, Record, Value);
+setFieldInRecord(rgr_bidRequest_420, tradingSessionID, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_420.tradingSessionID, Record, Value);
+setFieldInRecord(rgr_bidRequest_420, netGrossInd, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_420.netGrossInd, Record, Value);
+setFieldInRecord(rgr_bidRequest_420, settlmntTyp, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_420.settlmntTyp, Record, Value);
+setFieldInRecord(rgr_bidRequest_420, futSettDate, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_420.futSettDate, Record, Value);
+setFieldInRecord(rgr_bidRequest_420, account, Record, Value)->
+   erlang:setelement(#rgr_bidRequest_420.account, Record, Value);
 setFieldInRecord(bidRequest, liquidityIndType, Record, Value)->
     erlang:setelement(#bidRequest.liquidityIndType, Record, Value);
 setFieldInRecord(bidRequest, wtAverageLiquidity, Record, Value)->
@@ -4936,38 +4936,38 @@ setFieldInRecord(bidResponse, bidID, Record, Value)->
     erlang:setelement(#bidResponse.bidID, Record, Value);
 setFieldInRecord(bidResponse, clientBidID, Record, Value)->
     erlang:setelement(#bidResponse.clientBidID, Record, Value);
-setFieldInRecord(bidResponse, repeatingReg_bidResponse_420, Record, Value)->
-   erlang:setelement(#bidResponse.repeatingReg_bidResponse_420, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, commission, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.commission, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, commType, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.commType, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, listID, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.listID, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, country, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.country, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, side, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.side, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, price, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.price, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, priceType, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.priceType, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, fairValue, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.fairValue, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, netGrossInd, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.netGrossInd, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, settlmntTyp, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.settlmntTyp, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, futSettDate, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.futSettDate, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, tradingSessionID, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.tradingSessionID, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, text, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.text, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, encodedTextLen, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.encodedTextLen, Record, Value);
-setFieldInRecord(repeatingReg_bidResponse_420, encodedText, Record, Value)->
-   erlang:setelement(#repeatingReg_bidResponse_420.encodedText, Record, Value);
+setFieldInRecord(bidResponse, rgr_bidResponse_420, Record, Value)->
+   erlang:setelement(#bidResponse.rgr_bidResponse_420, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, commission, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.commission, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, commType, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.commType, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, listID, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.listID, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, country, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.country, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, side, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.side, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, price, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.price, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, priceType, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.priceType, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, fairValue, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.fairValue, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, netGrossInd, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.netGrossInd, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, settlmntTyp, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.settlmntTyp, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, futSettDate, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.futSettDate, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, tradingSessionID, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.tradingSessionID, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, text, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.text, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, encodedTextLen, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.encodedTextLen, Record, Value);
+setFieldInRecord(rgr_bidResponse_420, encodedText, Record, Value)->
+   erlang:setelement(#rgr_bidResponse_420.encodedText, Record, Value);
 setFieldInRecord(bidResponse, standardTrailer, Record, Value)->
     erlang:setelement(#bidResponse.standardTrailer, Record, Value);
 setFieldInRecord(listStrikePrice, standardHeader, Record, Value)->
@@ -4976,62 +4976,62 @@ setFieldInRecord(listStrikePrice, listID, Record, Value)->
     erlang:setelement(#listStrikePrice.listID, Record, Value);
 setFieldInRecord(listStrikePrice, totNoStrikes, Record, Value)->
     erlang:setelement(#listStrikePrice.totNoStrikes, Record, Value);
-setFieldInRecord(listStrikePrice, repeatingReg_listStrikePrice_428, Record, Value)->
-   erlang:setelement(#listStrikePrice.repeatingReg_listStrikePrice_428, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, symbol, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.symbol, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, symbolSfx, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.symbolSfx, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, securityID, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.securityID, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, iDSource, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.iDSource, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, securityType, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.securityType, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, maturityMonthYear, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.maturityMonthYear, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, maturityDay, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.maturityDay, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, putOrCall, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.putOrCall, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, strikePrice, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.strikePrice, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, optAttribute, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.optAttribute, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, contractMultiplier, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.contractMultiplier, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, couponRate, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.couponRate, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, securityExchange, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.securityExchange, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, issuer, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.issuer, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, encodedIssuerLen, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.encodedIssuerLen, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, encodedIssuer, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.encodedIssuer, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, securityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.securityDesc, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, encodedSecurityDescLen, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.encodedSecurityDescLen, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, encodedSecurityDesc, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.encodedSecurityDesc, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, prevClosePx, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.prevClosePx, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, clOrdID, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.clOrdID, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, side, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.side, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, price, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.price, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, currency, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.currency, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, text, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.text, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, encodedTextLen, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.encodedTextLen, Record, Value);
-setFieldInRecord(repeatingReg_listStrikePrice_428, encodedText, Record, Value)->
-   erlang:setelement(#repeatingReg_listStrikePrice_428.encodedText, Record, Value);
+setFieldInRecord(listStrikePrice, rgr_listStrikePrice_428, Record, Value)->
+   erlang:setelement(#listStrikePrice.rgr_listStrikePrice_428, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, symbol, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.symbol, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, symbolSfx, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.symbolSfx, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, securityID, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.securityID, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, iDSource, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.iDSource, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, securityType, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.securityType, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, maturityMonthYear, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.maturityMonthYear, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, maturityDay, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.maturityDay, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, putOrCall, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.putOrCall, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, strikePrice, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.strikePrice, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, optAttribute, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.optAttribute, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, contractMultiplier, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.contractMultiplier, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, couponRate, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.couponRate, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, securityExchange, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.securityExchange, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, issuer, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.issuer, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, encodedIssuerLen, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.encodedIssuerLen, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, encodedIssuer, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.encodedIssuer, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, securityDesc, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.securityDesc, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, encodedSecurityDescLen, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.encodedSecurityDescLen, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, encodedSecurityDesc, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.encodedSecurityDesc, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, prevClosePx, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.prevClosePx, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, clOrdID, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.clOrdID, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, side, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.side, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, price, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.price, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, currency, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.currency, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, text, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.text, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, encodedTextLen, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.encodedTextLen, Record, Value);
+setFieldInRecord(rgr_listStrikePrice_428, encodedText, Record, Value)->
+   erlang:setelement(#rgr_listStrikePrice_428.encodedText, Record, Value);
 setFieldInRecord(listStrikePrice, standardTrailer, Record, Value)->
     erlang:setelement(#listStrikePrice.standardTrailer, Record, Value);
 setFieldInRecord(_RecordName, _FieldName, _Record, _Value) ->

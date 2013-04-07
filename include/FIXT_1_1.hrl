@@ -101,8 +101,8 @@
 -type defaultCstmApplVerID () :: string.
 -type sessionStatus () :: sessionActive|sessionPasswordChanged|sessionPasswordDueToExpire|newSessionPasswordDoesNotComplyWithPolicy|sessionLogoutComplete|invalidUsernameOrPassword|accountLocked|logonsAreNotAllowedAtThisTime|passwordExpired.
 -record( standardTrailer, {signatureLength :: signatureLength(), signature :: signature(), checkSum :: checkSum()}).
--record( repeatingReg_hopGrp_627, {hopCompID :: hopCompID(), hopSendingTime :: hopSendingTime(), hopRefID :: hopRefID()}).
--record( hopGrp, {repeatingReg_hopGrp_627 = [#repeatingReg_hopGrp_627{}]}).
+-record( rgr_hopGrp_627, {hopCompID :: hopCompID(), hopSendingTime :: hopSendingTime(), hopRefID :: hopRefID()}).
+-record( hopGrp, {rgr_hopGrp_627 = [#rgr_hopGrp_627{}]}).
 -record( msgTypeGrp, {any}).
 -record( standardHeader, {beginString :: beginString(), bodyLength :: bodyLength(), msgType :: msgType(), applVerID :: applVerID(), applExtID :: applExtID(), cstmApplVerID :: cstmApplVerID(), senderCompID :: senderCompID(), targetCompID :: targetCompID(), onBehalfOfCompID :: onBehalfOfCompID(), deliverToCompID :: deliverToCompID(), secureDataLen :: secureDataLen(), secureData :: secureData(), msgSeqNum :: msgSeqNum(), senderSubID :: senderSubID(), senderLocationID :: senderLocationID(), targetSubID :: targetSubID(), targetLocationID :: targetLocationID(), onBehalfOfSubID :: onBehalfOfSubID(), onBehalfOfLocationID :: onBehalfOfLocationID(), deliverToSubID :: deliverToSubID(), deliverToLocationID :: deliverToLocationID(), possDupFlag :: possDupFlag(), possResend :: possResend(), sendingTime :: sendingTime(), origSendingTime :: origSendingTime(), xmlDataLen :: xmlDataLen(), xmlData :: xmlData(), messageEncoding :: messageEncoding(), lastMsgSeqNumProcessed :: lastMsgSeqNumProcessed(), hopGrp :: #hopGrp{}}).
 -record( heartbeat, {standardHeader :: #standardHeader{}, testReqID :: testReqID(), standardTrailer :: #standardTrailer{}}).

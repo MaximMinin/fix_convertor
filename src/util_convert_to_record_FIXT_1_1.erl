@@ -183,10 +183,10 @@ convert(_Name, Bin) ->
     Bin.
 get_record_def(standardTrailer) -> 
     [standardTrailer, signatureLength, signature, checkSum];
-get_record_def(repeatingReg_hopGrp_627) -> 
-    [repeatingReg_hopGrp_627, hopCompID, hopSendingTime, hopRefID];
+get_record_def(rgr_hopGrp_627) -> 
+    [rgr_hopGrp_627, hopCompID, hopSendingTime, hopRefID];
 get_record_def(hopGrp) -> 
-    [hopGrp, [[repeatingReg_hopGrp_627]]];
+    [hopGrp, [[rgr_hopGrp_627]]];
 get_record_def(msgTypeGrp) -> 
     [msgTypeGrp, any];
 get_record_def(standardHeader) -> 
@@ -212,8 +212,8 @@ get_record_def(_Else) ->
 
 getRecord(standardTrailer)->
     #standardTrailer{};
-getRecord(repeatingReg_hopGrp_627)->
-    #repeatingReg_hopGrp_627{};
+getRecord(rgr_hopGrp_627)->
+    #rgr_hopGrp_627{};
 getRecord(hopGrp)->
     #hopGrp{};
 getRecord(msgTypeGrp)->
@@ -300,14 +300,14 @@ setFieldInRecord(standardTrailer, signature, Record, Value)->
    erlang:setelement(#standardTrailer.signature, Record, Value);
 setFieldInRecord(standardTrailer, checkSum, Record, Value)->
    erlang:setelement(#standardTrailer.checkSum, Record, Value);
-setFieldInRecord(hopGrp, repeatingReg_hopGrp_627, Record, Value)->
-   erlang:setelement(#hopGrp.repeatingReg_hopGrp_627, Record, Value);
-setFieldInRecord(repeatingReg_hopGrp_627, hopCompID, Record, Value)->
-   erlang:setelement(#repeatingReg_hopGrp_627.hopCompID, Record, Value);
-setFieldInRecord(repeatingReg_hopGrp_627, hopSendingTime, Record, Value)->
-   erlang:setelement(#repeatingReg_hopGrp_627.hopSendingTime, Record, Value);
-setFieldInRecord(repeatingReg_hopGrp_627, hopRefID, Record, Value)->
-   erlang:setelement(#repeatingReg_hopGrp_627.hopRefID, Record, Value);
+setFieldInRecord(hopGrp, rgr_hopGrp_627, Record, Value)->
+   erlang:setelement(#hopGrp.rgr_hopGrp_627, Record, Value);
+setFieldInRecord(rgr_hopGrp_627, hopCompID, Record, Value)->
+   erlang:setelement(#rgr_hopGrp_627.hopCompID, Record, Value);
+setFieldInRecord(rgr_hopGrp_627, hopSendingTime, Record, Value)->
+   erlang:setelement(#rgr_hopGrp_627.hopSendingTime, Record, Value);
+setFieldInRecord(rgr_hopGrp_627, hopRefID, Record, Value)->
+   erlang:setelement(#rgr_hopGrp_627.hopRefID, Record, Value);
 setFieldInRecord(heartbeat, standardHeader, Record, Value)->
     erlang:setelement(#heartbeat.standardHeader, Record, Value);
 setFieldInRecord(heartbeat, testReqID, Record, Value)->

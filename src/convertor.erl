@@ -114,7 +114,7 @@ convert2Binary_2(Utils, Def, Value)->
                         [TagId, "=", integer_to_list(length(Value)), 1, T]
                 end;
          [Tuple] -> convert2Binary(Utils, tuple_to_list(Value), Utils:get_record_def(Tuple));
-         Atom -> 
+         _Atom -> 
                 case get_type(Value) of
                     float -> [Utils:getTagId(Def), "=", io_lib:format("~.6f",[Value]), 1];
                     integer -> [Utils:getTagId(Def), "=", integer_to_list(Value), 1];
@@ -162,12 +162,12 @@ convertFix2Record(Utils, Recordname, Record, [F|Def], Fields) when is_atom(F) ->
             {Record, Fields}
     end,
     convertFix2Record(Utils, Recordname, NewRecord, Def,  NewFields);
-convertFix2Record(Utils, Recordname, Record, [], Fields) ->
+convertFix2Record(_Utils, _Recordname, Record, [], Fields) ->
     {Record, Fields}.
 
 convertRepeatingGroup(Utils, Recordname, Def, Fields, ToReturn)->
     case convertFix2Record(Utils, Recordname, Utils:getRecord(Def), Utils:get_record_def(Def), Fields) of
-        {Record, Fields}  -> 
+        {_Record, Fields}  -> 
             case ToReturn of
                 [] -> {R,_}=convertFix2Record(Utils, Recordname, Utils:getRecord(Def), Utils:get_record_def(Def), []),
                     [R];

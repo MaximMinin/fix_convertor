@@ -3424,7 +3424,7 @@ convert(massCancelRequestType, <<"9">>) ->
 convert(massCancelRequestType, <<"A">>) -> 
     cancelOrdersForASecurityGroup;
 convert(massCancelRequestType, <<"B">>) -> 
-    cancelOrdersForASecurity;
+    cancelOrdersForASecurity_B;
 convert(massCancelRequestType, <<"C">>) -> 
     cancelForIssuerOfUnderlyingSecurity;
 convert(massCancelResponse, <<"0">>) -> 
@@ -27600,7 +27600,7 @@ reconvert(massCancelRequestType, cancelOrdersForAMarketSegment) ->
     <<"9">>;
 reconvert(massCancelRequestType, cancelOrdersForASecurityGroup) -> 
     <<"A">>;
-reconvert(massCancelRequestType, cancelOrdersForASecurity) -> 
+reconvert(massCancelRequestType, cancelOrdersForASecurity_B) -> 
     <<"B">>;
 reconvert(massCancelRequestType, cancelForIssuerOfUnderlyingSecurity) -> 
     <<"C">>;

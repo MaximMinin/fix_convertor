@@ -43,7 +43,6 @@
 -type commission () :: amt().
 -type commType () :: perUnit|percent|absolute|percentageWaivedCashDiscount|percentageWaivedEnhancedUnits|pointsPerBondOrContract.
 -type cumQty () :: qty().
--type currency () :: currency().
 -type endSeqNo () :: seqNum().
 -type execID () :: string().
 -type execInst () :: stayOnOfferSide|notHeld|work|goAlong|overTheDay|held|participateDoNotInitiate|strictScale|tryToScale|stayOnBidSide|noCross|oKToCross|callFirst|percentOfVolume|doNotIncrease|doNotReduce|allOrNone|reinstateOnSystemFailure|institutionsOnly|reinstateOnTradingHalt|cancelOnTradingHalt|lastPeg|midPricePeg|nonNegotiable|openingPeg|marketPeg|cancelOnSystemFailure|primaryPeg|suspend|fixedPegToLocalBestBidOrOfferAtTimeOfOrder|customerDisplayInstruction|netting|pegToVWAP|tradeAlong|tryToStop|cancelIfNotBest|trailingStopPeg|strictLimit|ignorePriceValidityChecks|pegToLimitPrice|workToTargetStrategy|intermarketSweep|externalRoutingAllowed|externalRoutingNotAllowed|imbalanceOnly|singleExecutionRequestedForBlockTrade|bestExecution|suspendOnSystemFailure|suspendOnTradingHalt|reinstateOnConnectionLoss|cancelOnConnectionLoss|suspendOnConnectionLoss|releaseFromSuspension|executeAsDeltaNeutral|executeAsDurationNeutral|executeAsFXNeutral.
@@ -70,7 +69,6 @@
 -type origClOrdID () :: string().
 -type origTime () :: uTCTimestamp().
 -type possDupFlag () :: originalTransmission|possibleDuplicate.
--type price () :: price().
 -type refSeqNum () :: seqNum().
 -type securityID () :: string().
 -type senderCompID () :: string().
@@ -414,7 +412,6 @@
 -type bidTradeType () :: agency|vWAPGuarantee|guaranteedClose|riskTrade.
 -type basisPxType () :: closingPriceAtMorningSession|closingPrice|currentPrice|sQ|vWAPThroughADay|vWAPThroughAMorningSession|vWAPThroughAnAfternoonSession|vWAPThroughADayExcept|vWAPThroughAMorningSessionExcept|vWAPThroughAnAfternoonSessionExcept|strike|open|others.
 -type noBidComponents () :: numInGroup().
--type country () :: country().
 -type totNoStrikes () :: int().
 -type priceType () :: percentage|perUnit|fixedAmount|discount|premium|spread|tEDPrice|tEDYield|yield|fixedCabinetTradePrice|variableCabinetTradePrice|productTicksInHalfs|productTicksInFourths|productTicksInEights|productTicksInSixteenths|productTicksInThirtySeconds|productTicksInSixtyForths|productTicksInOneTwentyEights.
 -type dayOrderQty () :: qty().
@@ -1014,9 +1011,9 @@
 -type custDirectedOrder () :: boolean().
 -type receivedDeptID () :: string().
 -type custOrderHandlingInst () :: addOnOrder|allOrNone|cashNotHeld|directedOrder|exchangeForPhysicalTransaction|fillOrKill|imbalanceOnly|immediateOrCancel|limitOnOpen|limitOnClose|marketAtOpen|marketAtClose|marketOnOpen|marketOnClose|minimumQuantity|notHeld|overTheDay|pegged|reserveSizeOrder|stopStockTransaction|scale|timeOrder|trailingStop|work.
--type orderHandlingInstSource () :: nASDOATS().
+-type orderHandlingInstSource () :: nASDOATS.
 -type deskType () :: agency|arbitrage|derivatives|international|institutional|other|preferredTrading|proprietary|programTrading|sales|trading.
--type deskTypeSource () :: nASDOATS().
+-type deskTypeSource () :: nASDOATS.
 -type deskOrderHandlingInst () :: addOnOrder|allOrNone|cashNotHeld|directedOrder|exchangeForPhysicalTransaction|fillOrKill|imbalanceOnly|immediateOrCancel|limitOnOpen|limitOnClose|marketAtOpen|marketAtClose|marketOnOpen|marketOnClose|minimumQuantity|notHeld|overTheDay|pegged|reserveSizeOrder|stopStockTransaction|scale|timeOrder|trailingStop|work.
 -type execAckStatus () :: received|accepted|don.
 -type underlyingDeliveryAmount () :: amt().
@@ -1158,7 +1155,7 @@
 -type noStatsIndicators () :: numInGroup().
 -type statsType () :: exchangeLast|high|averagePrice|turnover.
 -type noOfSecSizes () :: numInGroup().
--type mDSecSizeType () :: customer().
+-type mDSecSizeType () :: customer.
 -type mDSecSize () :: qty().
 -type applID () :: string().
 -type applSeqNum () :: seqNum().

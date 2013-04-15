@@ -4614,8 +4614,6 @@ setFieldInRecord(rgr_newOrderList_73, exDestination, Record, Value)->
    erlang:setelement(#rgr_newOrderList_73.exDestination, Record, Value);
 setFieldInRecord(rgr_newOrderList_73, rgr_rgr_newOrderList_73_386, Record, Value)->
    erlang:setelement(#rgr_newOrderList_73.rgr_rgr_newOrderList_73_386, Record, Value);
-setFieldInRecord(rgr_newOrderList_73, rgr_rgr_newOrderList_73_386, Record, Value)->
-   erlang:setelement(#rgr_newOrderList_73.rgr_rgr_newOrderList_73_386, Record, Value);
 setFieldInRecord(rgr_rgr_newOrderList_73_386, tradingSessionID, Record, Value)->
    erlang:setelement(#rgr_rgr_newOrderList_73_386.tradingSessionID, Record, Value);
 setFieldInRecord(rgr_rgr_newOrderList_73_386, tradingSessionSubID, Record, Value)->

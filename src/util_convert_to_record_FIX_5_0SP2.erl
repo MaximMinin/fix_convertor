@@ -6438,7 +6438,7 @@ convert(tradePublishIndicator, <<"1">>) ->
 convert(tradePublishIndicator, <<"2">>) -> 
     deferredPublication;
 convert(applReqType, <<"0">>) -> 
-    retransmission;
+    retransmission_0;
 convert(applReqType, <<"1">>) -> 
     subscription;
 convert(applReqType, <<"2">>) -> 
@@ -6448,7 +6448,7 @@ convert(applReqType, <<"3">>) ->
 convert(applReqType, <<"4">>) -> 
     unsubscribe;
 convert(applReqType, <<"5">>) -> 
-    retransmission;
+    retransmission_5;
 convert(applReqType, <<"6">>) -> 
     cancelRetransmissionUnsubscribe;
 convert(applResponseType, <<"0">>) -> 
@@ -6680,13 +6680,13 @@ convert(strikePriceBoundaryMethod, <<"5">>) ->
 convert(strikePriceBoundaryPrecision, Bin) -> 
     bin_to_num(Bin);
 convert(underlyingPriceDeterminationMethod, <<"1">>) -> 
-    regular;
+    regular_1;
 convert(underlyingPriceDeterminationMethod, <<"2">>) -> 
     specialReference;
 convert(underlyingPriceDeterminationMethod, <<"3">>) -> 
     optimalValue;
 convert(underlyingPriceDeterminationMethod, <<"4">>) -> 
-    regular;
+    regular_4;
 convert(optPayoutType, <<"1">>) -> 
     vanilla;
 convert(optPayoutType, <<"2">>) -> 
@@ -30276,7 +30276,7 @@ reconvert(tradePublishIndicator, publishTrade) ->
     <<"1">>;
 reconvert(tradePublishIndicator, deferredPublication) -> 
     <<"2">>;
-reconvert(applReqType, retransmission) -> 
+reconvert(applReqType, retransmission_0) -> 
     <<"0">>;
 reconvert(applReqType, subscription) -> 
     <<"1">>;
@@ -30286,7 +30286,7 @@ reconvert(applReqType, requestApplications) ->
     <<"3">>;
 reconvert(applReqType, unsubscribe) -> 
     <<"4">>;
-reconvert(applReqType, retransmission) -> 
+reconvert(applReqType, retransmission_5) -> 
     <<"5">>;
 reconvert(applReqType, cancelRetransmissionUnsubscribe) -> 
     <<"6">>;
@@ -30498,13 +30498,13 @@ reconvert(strikePriceBoundaryMethod, greaterThanOrEqual) ->
     <<"4">>;
 reconvert(strikePriceBoundaryMethod, greaterThan) -> 
     <<"5">>;
-reconvert(underlyingPriceDeterminationMethod, regular) -> 
+reconvert(underlyingPriceDeterminationMethod, regular_1) -> 
     <<"1">>;
 reconvert(underlyingPriceDeterminationMethod, specialReference) -> 
     <<"2">>;
 reconvert(underlyingPriceDeterminationMethod, optimalValue) -> 
     <<"3">>;
-reconvert(underlyingPriceDeterminationMethod, regular) -> 
+reconvert(underlyingPriceDeterminationMethod, regular_4) -> 
     <<"4">>;
 reconvert(optPayoutType, vanilla) -> 
     <<"1">>;

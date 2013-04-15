@@ -3354,11 +3354,11 @@ convert(matchType, <<"3">>) ->
 convert(matchType, <<"4">>) -> 
     autoMatch;
 convert(matchType, <<"5">>) -> 
-    crossAuction;
+    crossAuction_5;
 convert(matchType, <<"6">>) -> 
-    counterOrderSelection;
+    counterOrderSelection_6;
 convert(matchType, <<"7">>) -> 
-    callAuction;
+    callAuction_7;
 convert(oddLot, <<"N">>) -> 
     treatAsRoundLot;
 convert(oddLot, <<"Y">>) -> 
@@ -22676,11 +22676,11 @@ reconvert(matchType, confirmedTradeReport) ->
     <<"3">>;
 reconvert(matchType, autoMatch) -> 
     <<"4">>;
-reconvert(matchType, crossAuction) -> 
+reconvert(matchType, crossAuction_5) -> 
     <<"5">>;
-reconvert(matchType, counterOrderSelection) -> 
+reconvert(matchType, counterOrderSelection_6) -> 
     <<"6">>;
-reconvert(matchType, callAuction) -> 
+reconvert(matchType, callAuction_7) -> 
     <<"7">>;
 reconvert(oddLot, treatAsRoundLot) -> 
     <<"N">>;

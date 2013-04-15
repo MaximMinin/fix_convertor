@@ -2006,8 +2006,6 @@ setFieldInRecord(rgr_allocation_78, settlInstMode, Record, Value)->
    erlang:setelement(#rgr_allocation_78.settlInstMode, Record, Value);
 setFieldInRecord(rgr_allocation_78, rgr_rgr_allocation_78_136, Record, Value)->
    erlang:setelement(#rgr_allocation_78.rgr_rgr_allocation_78_136, Record, Value);
-setFieldInRecord(rgr_allocation_78, rgr_rgr_allocation_78_136, Record, Value)->
-   erlang:setelement(#rgr_allocation_78.rgr_rgr_allocation_78_136, Record, Value);
 setFieldInRecord(rgr_rgr_allocation_78_136, miscFeeAmt, Record, Value)->
    erlang:setelement(#rgr_rgr_allocation_78_136.miscFeeAmt, Record, Value);
 setFieldInRecord(rgr_rgr_allocation_78_136, miscFeeCurr, Record, Value)->

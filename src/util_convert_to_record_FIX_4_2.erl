@@ -2782,8 +2782,6 @@ setFieldInRecord(rgr_orderList_73, account, Record, Value)->
    erlang:setelement(#rgr_orderList_73.account, Record, Value);
 setFieldInRecord(rgr_orderList_73, rgr_rgr_orderList_73_78, Record, Value)->
    erlang:setelement(#rgr_orderList_73.rgr_rgr_orderList_73_78, Record, Value);
-setFieldInRecord(rgr_orderList_73, rgr_rgr_orderList_73_78, Record, Value)->
-   erlang:setelement(#rgr_orderList_73.rgr_rgr_orderList_73_78, Record, Value);
 setFieldInRecord(rgr_rgr_orderList_73_78, allocAccount, Record, Value)->
    erlang:setelement(#rgr_rgr_orderList_73_78.allocAccount, Record, Value);
 setFieldInRecord(rgr_rgr_orderList_73_78, allocShares, Record, Value)->
@@ -2802,8 +2800,6 @@ setFieldInRecord(rgr_orderList_73, maxFloor, Record, Value)->
    erlang:setelement(#rgr_orderList_73.maxFloor, Record, Value);
 setFieldInRecord(rgr_orderList_73, exDestination, Record, Value)->
    erlang:setelement(#rgr_orderList_73.exDestination, Record, Value);
-setFieldInRecord(rgr_orderList_73, rgr_rgr_orderList_73_386, Record, Value)->
-   erlang:setelement(#rgr_orderList_73.rgr_rgr_orderList_73_386, Record, Value);
 setFieldInRecord(rgr_orderList_73, rgr_rgr_orderList_73_386, Record, Value)->
    erlang:setelement(#rgr_orderList_73.rgr_rgr_orderList_73_386, Record, Value);
 setFieldInRecord(rgr_rgr_orderList_73_386, tradingSessionID, Record, Value)->
@@ -3362,8 +3358,6 @@ setFieldInRecord(rgr_allocation_78, accruedInterestAmt, Record, Value)->
    erlang:setelement(#rgr_allocation_78.accruedInterestAmt, Record, Value);
 setFieldInRecord(rgr_allocation_78, settlInstMode, Record, Value)->
    erlang:setelement(#rgr_allocation_78.settlInstMode, Record, Value);
-setFieldInRecord(rgr_allocation_78, rgr_rgr_allocation_78_136, Record, Value)->
-   erlang:setelement(#rgr_allocation_78.rgr_rgr_allocation_78_136, Record, Value);
 setFieldInRecord(rgr_allocation_78, rgr_rgr_allocation_78_136, Record, Value)->
    erlang:setelement(#rgr_allocation_78.rgr_rgr_allocation_78_136, Record, Value);
 setFieldInRecord(rgr_rgr_allocation_78_136, miscFeeAmt, Record, Value)->
@@ -4250,8 +4244,6 @@ setFieldInRecord(rgr_quoteAcknowledgement_296, totQuoteEntries, Record, Value)->
    erlang:setelement(#rgr_quoteAcknowledgement_296.totQuoteEntries, Record, Value);
 setFieldInRecord(rgr_quoteAcknowledgement_296, rgr_rgr_quoteAcknowledgement_296_295, Record, Value)->
    erlang:setelement(#rgr_quoteAcknowledgement_296.rgr_rgr_quoteAcknowledgement_296_295, Record, Value);
-setFieldInRecord(rgr_quoteAcknowledgement_296, rgr_rgr_quoteAcknowledgement_296_295, Record, Value)->
-   erlang:setelement(#rgr_quoteAcknowledgement_296.rgr_rgr_quoteAcknowledgement_296_295, Record, Value);
 setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, quoteEntryID, Record, Value)->
    erlang:setelement(#rgr_rgr_quoteAcknowledgement_296_295.quoteEntryID, Record, Value);
 setFieldInRecord(rgr_rgr_quoteAcknowledgement_296_295, symbol, Record, Value)->
@@ -4736,8 +4728,6 @@ setFieldInRecord(rgr_massQuote_296, quoteSetValidUntilTime, Record, Value)->
    erlang:setelement(#rgr_massQuote_296.quoteSetValidUntilTime, Record, Value);
 setFieldInRecord(rgr_massQuote_296, totQuoteEntries, Record, Value)->
    erlang:setelement(#rgr_massQuote_296.totQuoteEntries, Record, Value);
-setFieldInRecord(rgr_massQuote_296, rgr_rgr_massQuote_296_295, Record, Value)->
-   erlang:setelement(#rgr_massQuote_296.rgr_rgr_massQuote_296_295, Record, Value);
 setFieldInRecord(rgr_massQuote_296, rgr_rgr_massQuote_296_295, Record, Value)->
    erlang:setelement(#rgr_massQuote_296.rgr_rgr_massQuote_296_295, Record, Value);
 setFieldInRecord(rgr_rgr_massQuote_296_295, quoteEntryID, Record, Value)->

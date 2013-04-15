@@ -4586,8 +4586,6 @@ setFieldInRecord(rgr_newOrderList_73, preallocMethod, Record, Value)->
    erlang:setelement(#rgr_newOrderList_73.preallocMethod, Record, Value);
 setFieldInRecord(rgr_newOrderList_73, rgr_rgr_newOrderList_73_78, Record, Value)->
    erlang:setelement(#rgr_newOrderList_73.rgr_rgr_newOrderList_73_78, Record, Value);
-setFieldInRecord(rgr_newOrderList_73, rgr_rgr_newOrderList_73_78, Record, Value)->
-   erlang:setelement(#rgr_newOrderList_73.rgr_rgr_newOrderList_73_78, Record, Value);
 setFieldInRecord(rgr_rgr_newOrderList_73_78, allocAccount, Record, Value)->
    erlang:setelement(#rgr_rgr_newOrderList_73_78.allocAccount, Record, Value);
 setFieldInRecord(rgr_rgr_newOrderList_73_78, individualAllocID, Record, Value)->
@@ -5078,8 +5076,6 @@ setFieldInRecord(rgr_allocation_78, accruedInterestAmt, Record, Value)->
    erlang:setelement(#rgr_allocation_78.accruedInterestAmt, Record, Value);
 setFieldInRecord(rgr_allocation_78, settlInstMode, Record, Value)->
    erlang:setelement(#rgr_allocation_78.settlInstMode, Record, Value);
-setFieldInRecord(rgr_allocation_78, rgr_rgr_allocation_78_136, Record, Value)->
-   erlang:setelement(#rgr_allocation_78.rgr_rgr_allocation_78_136, Record, Value);
 setFieldInRecord(rgr_allocation_78, rgr_rgr_allocation_78_136, Record, Value)->
    erlang:setelement(#rgr_allocation_78.rgr_rgr_allocation_78_136, Record, Value);
 setFieldInRecord(rgr_rgr_allocation_78_136, miscFeeAmt, Record, Value)->
@@ -5802,8 +5798,6 @@ setFieldInRecord(rgr_massQuoteAcknowledgement_296, totQuoteEntries, Record, Valu
    erlang:setelement(#rgr_massQuoteAcknowledgement_296.totQuoteEntries, Record, Value);
 setFieldInRecord(rgr_massQuoteAcknowledgement_296, rgr_rgr_massQuoteAcknowledgement_296_295, Record, Value)->
    erlang:setelement(#rgr_massQuoteAcknowledgement_296.rgr_rgr_massQuoteAcknowledgement_296_295, Record, Value);
-setFieldInRecord(rgr_massQuoteAcknowledgement_296, rgr_rgr_massQuoteAcknowledgement_296_295, Record, Value)->
-   erlang:setelement(#rgr_massQuoteAcknowledgement_296.rgr_rgr_massQuoteAcknowledgement_296_295, Record, Value);
 setFieldInRecord(rgr_rgr_massQuoteAcknowledgement_296_295, quoteEntryID, Record, Value)->
    erlang:setelement(#rgr_rgr_massQuoteAcknowledgement_296_295.quoteEntryID, Record, Value);
 setFieldInRecord(rgr_rgr_massQuoteAcknowledgement_296_295, instrument, Record, Value)->
@@ -6070,8 +6064,6 @@ setFieldInRecord(rgr_massQuote_296, quoteSetValidUntilTime, Record, Value)->
    erlang:setelement(#rgr_massQuote_296.quoteSetValidUntilTime, Record, Value);
 setFieldInRecord(rgr_massQuote_296, totQuoteEntries, Record, Value)->
    erlang:setelement(#rgr_massQuote_296.totQuoteEntries, Record, Value);
-setFieldInRecord(rgr_massQuote_296, rgr_rgr_massQuote_296_295, Record, Value)->
-   erlang:setelement(#rgr_massQuote_296.rgr_rgr_massQuote_296_295, Record, Value);
 setFieldInRecord(rgr_massQuote_296, rgr_rgr_massQuote_296_295, Record, Value)->
    erlang:setelement(#rgr_massQuote_296.rgr_rgr_massQuote_296_295, Record, Value);
 setFieldInRecord(rgr_rgr_massQuote_296_295, quoteEntryID, Record, Value)->
@@ -6504,8 +6496,6 @@ setFieldInRecord(rgr_newOrderCross_552, preallocMethod, Record, Value)->
    erlang:setelement(#rgr_newOrderCross_552.preallocMethod, Record, Value);
 setFieldInRecord(rgr_newOrderCross_552, rgr_rgr_newOrderCross_552_78, Record, Value)->
    erlang:setelement(#rgr_newOrderCross_552.rgr_rgr_newOrderCross_552_78, Record, Value);
-setFieldInRecord(rgr_newOrderCross_552, rgr_rgr_newOrderCross_552_78, Record, Value)->
-   erlang:setelement(#rgr_newOrderCross_552.rgr_rgr_newOrderCross_552_78, Record, Value);
 setFieldInRecord(rgr_rgr_newOrderCross_552_78, allocAccount, Record, Value)->
    erlang:setelement(#rgr_rgr_newOrderCross_552_78.allocAccount, Record, Value);
 setFieldInRecord(rgr_rgr_newOrderCross_552_78, individualAllocID, Record, Value)->
@@ -6674,8 +6664,6 @@ setFieldInRecord(rgr_crossOrderCancelReplaceRequest_552, bookingUnit, Record, Va
    erlang:setelement(#rgr_crossOrderCancelReplaceRequest_552.bookingUnit, Record, Value);
 setFieldInRecord(rgr_crossOrderCancelReplaceRequest_552, preallocMethod, Record, Value)->
    erlang:setelement(#rgr_crossOrderCancelReplaceRequest_552.preallocMethod, Record, Value);
-setFieldInRecord(rgr_crossOrderCancelReplaceRequest_552, rgr_rgr_crossOrderCancelReplaceRequest_552_78, Record, Value)->
-   erlang:setelement(#rgr_crossOrderCancelReplaceRequest_552.rgr_rgr_crossOrderCancelReplaceRequest_552_78, Record, Value);
 setFieldInRecord(rgr_crossOrderCancelReplaceRequest_552, rgr_rgr_crossOrderCancelReplaceRequest_552_78, Record, Value)->
    erlang:setelement(#rgr_crossOrderCancelReplaceRequest_552.rgr_rgr_crossOrderCancelReplaceRequest_552_78, Record, Value);
 setFieldInRecord(rgr_rgr_crossOrderCancelReplaceRequest_552_78, allocAccount, Record, Value)->
@@ -6942,8 +6930,6 @@ setFieldInRecord(rgr_securityList_146, currency, Record, Value)->
    erlang:setelement(#rgr_securityList_146.currency, Record, Value);
 setFieldInRecord(rgr_securityList_146, rgr_rgr_securityList_146_555, Record, Value)->
    erlang:setelement(#rgr_securityList_146.rgr_rgr_securityList_146_555, Record, Value);
-setFieldInRecord(rgr_securityList_146, rgr_rgr_securityList_146_555, Record, Value)->
-   erlang:setelement(#rgr_securityList_146.rgr_rgr_securityList_146_555, Record, Value);
 setFieldInRecord(rgr_rgr_securityList_146_555, instrumentLeg, Record, Value)->
    erlang:setelement(#rgr_rgr_securityList_146_555.instrumentLeg, Record, Value);
 setFieldInRecord(rgr_rgr_securityList_146_555, legCurrency, Record, Value)->
@@ -7006,8 +6992,6 @@ setFieldInRecord(rgr_derivativeSecurityList_146, instrument, Record, Value)->
    erlang:setelement(#rgr_derivativeSecurityList_146.instrument, Record, Value);
 setFieldInRecord(rgr_derivativeSecurityList_146, currency, Record, Value)->
    erlang:setelement(#rgr_derivativeSecurityList_146.currency, Record, Value);
-setFieldInRecord(rgr_derivativeSecurityList_146, rgr_rgr_derivativeSecurityList_146_555, Record, Value)->
-   erlang:setelement(#rgr_derivativeSecurityList_146.rgr_rgr_derivativeSecurityList_146_555, Record, Value);
 setFieldInRecord(rgr_derivativeSecurityList_146, rgr_rgr_derivativeSecurityList_146_555, Record, Value)->
    erlang:setelement(#rgr_derivativeSecurityList_146.rgr_rgr_derivativeSecurityList_146_555, Record, Value);
 setFieldInRecord(rgr_rgr_derivativeSecurityList_146_555, instrumentLeg, Record, Value)->
@@ -7456,8 +7440,6 @@ setFieldInRecord(rgr_tradeCaptureReport_552, oddLot, Record, Value)->
    erlang:setelement(#rgr_tradeCaptureReport_552.oddLot, Record, Value);
 setFieldInRecord(rgr_tradeCaptureReport_552, rgr_rgr_tradeCaptureReport_552_576, Record, Value)->
    erlang:setelement(#rgr_tradeCaptureReport_552.rgr_rgr_tradeCaptureReport_552_576, Record, Value);
-setFieldInRecord(rgr_tradeCaptureReport_552, rgr_rgr_tradeCaptureReport_552_576, Record, Value)->
-   erlang:setelement(#rgr_tradeCaptureReport_552.rgr_rgr_tradeCaptureReport_552_576, Record, Value);
 setFieldInRecord(rgr_rgr_tradeCaptureReport_552_576, clearingInstruction, Record, Value)->
    erlang:setelement(#rgr_rgr_tradeCaptureReport_552_576.clearingInstruction, Record, Value);
 setFieldInRecord(rgr_tradeCaptureReport_552, clearingFeeIndicator, Record, Value)->
@@ -7522,16 +7504,12 @@ setFieldInRecord(rgr_tradeCaptureReport_552, multiLegReportingType, Record, Valu
    erlang:setelement(#rgr_tradeCaptureReport_552.multiLegReportingType, Record, Value);
 setFieldInRecord(rgr_tradeCaptureReport_552, rgr_rgr_tradeCaptureReport_552_518, Record, Value)->
    erlang:setelement(#rgr_tradeCaptureReport_552.rgr_rgr_tradeCaptureReport_552_518, Record, Value);
-setFieldInRecord(rgr_tradeCaptureReport_552, rgr_rgr_tradeCaptureReport_552_518, Record, Value)->
-   erlang:setelement(#rgr_tradeCaptureReport_552.rgr_rgr_tradeCaptureReport_552_518, Record, Value);
 setFieldInRecord(rgr_rgr_tradeCaptureReport_552_518, contAmtType, Record, Value)->
    erlang:setelement(#rgr_rgr_tradeCaptureReport_552_518.contAmtType, Record, Value);
 setFieldInRecord(rgr_rgr_tradeCaptureReport_552_518, contAmtValue, Record, Value)->
    erlang:setelement(#rgr_rgr_tradeCaptureReport_552_518.contAmtValue, Record, Value);
 setFieldInRecord(rgr_rgr_tradeCaptureReport_552_518, contAmtCurr, Record, Value)->
    erlang:setelement(#rgr_rgr_tradeCaptureReport_552_518.contAmtCurr, Record, Value);
-setFieldInRecord(rgr_tradeCaptureReport_552, rgr_rgr_tradeCaptureReport_552_136, Record, Value)->
-   erlang:setelement(#rgr_tradeCaptureReport_552.rgr_rgr_tradeCaptureReport_552_136, Record, Value);
 setFieldInRecord(rgr_tradeCaptureReport_552, rgr_rgr_tradeCaptureReport_552_136, Record, Value)->
    erlang:setelement(#rgr_tradeCaptureReport_552.rgr_rgr_tradeCaptureReport_552_136, Record, Value);
 setFieldInRecord(rgr_rgr_tradeCaptureReport_552_136, miscFeeAmt, Record, Value)->

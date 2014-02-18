@@ -6,3 +6,5 @@ lib/fixUtils/.eunit/*
 .project
 .settings/*
 doc/*
+tmp
+deps

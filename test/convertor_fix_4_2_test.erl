@@ -1,7 +1,7 @@
 %% Author: Maxim Minin
 %% Created: 15.05.2012
 %% Description: TODO: Add description to fix_4_1_convertor_test
--module(fix_4_2_convertor_test).
+-module(convertor_fix_4_2_test).
 
 %%
 %% Include files
@@ -23,32 +23,32 @@ simple_test()->
             "279=1",1,"280=0001",1,"270=10",1,
             "279=1",1,"280=0002",1,"270=11",1,
             "10=114",1,"">>,
-    RecA = #marketDataIncrementalRefresh{ standardHeader = #standardHeader{beginString = <<"FIX.4.2">>,
+    RecA = #marketDataIncrementalRefresh{ standardHeader = #standardHeader{beginString = "FIX.4.2",
                                                                                 bodyLength = 97,
                                                                                 msgType = marketDataIncrementalRefresh,
-                                                                                senderCompID = <<"SNDR">>,
-                                                                                targetCompID = <<"TRGT">>,
+                                                                                senderCompID = "SNDR",
+                                                                                targetCompID = "TRGT",
                                                                                 msgSeqNum = 2,
-                                                                                sendingTime = <<"20110802-10:00:00">>},
+                                                                                sendingTime = "20110802-10:00:00"},
                                              rgr_marketDataIncrementalRefresh_268 = 
                                                  [#rgr_marketDataIncrementalRefresh_268{mDUpdateAction = change,
-                                                                                                     mDEntryRefID = <<"0001">>,
-                                                                                                    mDEntryPx = 10},
+                                                                                                     mDEntryRefID = "0001",
+                                                                                                    mDEntryPx = "10"},
                                                   #rgr_marketDataIncrementalRefresh_268{mDUpdateAction = change,
-                                                                                                    mDEntryRefID = <<"0002">>,
-                                                                                                    mDEntryPx = 11}],
-                                            standardTrailer = #standardTrailer{checkSum = <<"114">>}},
-    RecAA = convertor:convertFixToRecord(A, "FIX_4_2"),
+                                                                                                    mDEntryRefID = "0002",
+                                                                                                    mDEntryPx = "11"}],
+                                            standardTrailer = #standardTrailer{checkSum = "114"}},
+    RecAA = convertor:convertFixToRecord(A, 'FIX 4.2'),
     ?assertEqual(RecA, RecAA),
-    BinA = convertor:convertRecordToFix(RecA, "FIX_4_2"),
+    BinA = convertor:convertRecordToFix(RecA, 'FIX 4.2'),
     ?assertEqual(A, BinA),
     Nums = lists:seq(1, 5000),
     T1 = erlang:now(),
-    lists:map(fun(_X) -> convertor:convertFixToRecord(A, "FIX_4_2") end, Nums),
+    lists:map(fun(_X) -> convertor:convertFixToRecord(A, 'FIX 4.2') end, Nums),
     T2 = erlang:now(),
-    lists:map(fun(_X) -> convertor:format(RecA, "FIX_4_2") end, Nums),
+    lists:map(fun(_X) -> convertor:format(RecA, 'FIX 4.2') end, Nums),
     T3 = erlang:now(),
-    lists:map(fun(_X) -> convertor:convertRecordToFix(RecA, "FIX_4_2") end, Nums),
+    lists:map(fun(_X) -> convertor:convertRecordToFix(RecA, 'FIX 4.2') end, Nums),
     T4 = erlang:now(),
     Dif = timer:now_diff(T2, T1),
     Dif2 = timer:now_diff(T3, T2),

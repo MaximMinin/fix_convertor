@@ -6,7 +6,7 @@
 %% Include files
 %%
 -include("FIX_4_3.hrl").
-    
+
 %%
 %% Exported Functions
 %%
@@ -21,6 +21,12 @@ setMsgSeqNum(Record, Num) ->
     NewHeader = Header#standardHeader{msgSeqNum = Num},
     erlang:setelement(2, Record, NewHeader).
 
+convert(account, Bin) -> 
+   binary_to_list(Bin);
+convert(advId, Bin) -> 
+   binary_to_list(Bin);
+convert(advRefID, Bin) -> 
+   binary_to_list(Bin);
 convert(advSide, <<"B">>) -> 
     buy;
 convert(advSide, <<"S">>) -> 
@@ -36,13 +42,19 @@ convert(advTransType, <<"C">>) ->
 convert(advTransType, <<"R">>) -> 
     replace;
 convert(avgPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(beginSeqNo, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(beginString, Bin) -> 
+   binary_to_list(Bin);
 convert(bodyLength, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(checkSum, Bin) -> 
+   binary_to_list(Bin);
+convert(clOrdID, Bin) -> 
+   binary_to_list(Bin);
 convert(commission, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(commType, <<"6">>) -> 
     pointsPerBondOrContract;
 convert(commType, <<"1">>) -> 
@@ -56,9 +68,13 @@ convert(commType, <<"5">>) ->
 convert(commType, <<"4">>) -> 
     percentageWaivedCashDiscount;
 convert(cumQty, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(currency, Bin) -> 
+   binary_to_list(Bin);
 convert(endSeqNo, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(execID, Bin) -> 
+   binary_to_list(Bin);
 convert(execInst, <<"Y">>) -> 
     tryToStop;
 convert(execInst, <<"M">>) -> 
@@ -127,6 +143,8 @@ convert(execInst, <<"B">>) ->
     oKToCross;
 convert(execInst, <<"1">>) -> 
     notHeld;
+convert(execRefID, Bin) -> 
+   binary_to_list(Bin);
 convert(handlInst, <<"1">>) -> 
     automatedExecutionNoIntervention;
 convert(handlInst, <<"2">>) -> 
@@ -165,12 +183,16 @@ convert(securityIDSource, <<"4">>) ->
     iSINNumber;
 convert(securityIDSource, <<"G">>) -> 
     common;
+convert(iOIid, Bin) -> 
+   binary_to_list(Bin);
 convert(iOIQltyInd, <<"M">>) -> 
     medium;
 convert(iOIQltyInd, <<"H">>) -> 
     high;
 convert(iOIQltyInd, <<"L">>) -> 
     low;
+convert(iOIRefID, Bin) -> 
+   binary_to_list(Bin);
 convert(iOIQty, <<"L">>) -> 
     large;
 convert(iOIQty, <<"M">>) -> 
@@ -191,14 +213,16 @@ convert(lastCapacity, <<"1">>) ->
     agent;
 convert(lastCapacity, <<"2">>) -> 
     crossAsAgent;
+convert(lastMkt, Bin) -> 
+   binary_to_list(Bin);
 convert(lastPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(lastQty, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(linesOfText, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(msgSeqNum, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(msgType, <<"0">>) -> 
     heartbeat;
 convert(msgType, <<"1">>) -> 
@@ -228,7 +252,7 @@ convert(msgType, <<"AA">>) ->
 convert(msgType, <<"AB">>) -> 
     newOrderMultileg;
 convert(msgType, <<"AC">>) -> 
-    multilegOrderCancelReplace;
+    multilegOrderCancelReplaceRequest;
 convert(msgType, <<"AD">>) -> 
     tradeCaptureReportRequest;
 convert(msgType, <<"AE">>) -> 
@@ -290,7 +314,7 @@ convert(msgType, <<"M">>) ->
 convert(msgType, <<"N">>) -> 
     listStatus;
 convert(msgType, <<"n">>) -> 
-    xMLNonFIX;
+    xMLnonFIX;
 convert(msgType, <<"o">>) -> 
     registrationInstructions;
 convert(msgType, <<"P">>) -> 
@@ -336,9 +360,11 @@ convert(msgType, <<"z">>) ->
 convert(msgType, <<"Z">>) -> 
     quoteCancel;
 convert(newSeqNo, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(orderID, Bin) -> 
+   binary_to_list(Bin);
 convert(orderQty, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(ordStatus, <<"0">>) -> 
     new;
 convert(ordStatus, <<"1">>) -> 
@@ -415,14 +441,18 @@ convert(ordType, <<"B">>) ->
     limitOnClose;
 convert(ordType, <<"H">>) -> 
     forexPreviouslyQuoted;
+convert(origClOrdID, Bin) -> 
+   binary_to_list(Bin);
+convert(origTime, Bin) -> 
+   binary_to_list(Bin);
 convert(possDupFlag, <<"N">>) -> 
     originalTransmission;
 convert(possDupFlag, <<"Y">>) -> 
     possibleDuplicate;
 convert(price, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(refSeqNum, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(rule80A, <<"N">>) -> 
     agentForOtherMember;
 convert(rule80A, <<"B">>) -> 
@@ -469,8 +499,16 @@ convert(rule80A, <<"L">>) ->
     shortExemptTransactionMemberAffliated;
 convert(rule80A, <<"C">>) -> 
     proprietaryNonAlgo;
+convert(securityID, Bin) -> 
+   binary_to_list(Bin);
+convert(senderCompID, Bin) -> 
+   binary_to_list(Bin);
+convert(senderSubID, Bin) -> 
+   binary_to_list(Bin);
+convert(sendingTime, Bin) -> 
+   binary_to_list(Bin);
 convert(quantity, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(side, <<"6">>) -> 
     sellShortExempt;
 convert(side, <<"B">>) -> 
@@ -495,6 +533,14 @@ convert(side, <<"5">>) ->
     sellShort;
 convert(side, <<"7">>) -> 
     undisclosed;
+convert(symbol, Bin) -> 
+   binary_to_list(Bin);
+convert(targetCompID, Bin) -> 
+   binary_to_list(Bin);
+convert(targetSubID, Bin) -> 
+   binary_to_list(Bin);
+convert(text, Bin) -> 
+   binary_to_list(Bin);
 convert(timeInForce, <<"7">>) -> 
     atTheClose;
 convert(timeInForce, <<"0">>) -> 
@@ -511,12 +557,16 @@ convert(timeInForce, <<"5">>) ->
     goodTillCrossing;
 convert(timeInForce, <<"6">>) -> 
     goodTillDate;
+convert(transactTime, Bin) -> 
+   binary_to_list(Bin);
 convert(urgency, <<"1">>) -> 
     flash;
 convert(urgency, <<"2">>) -> 
     background;
 convert(urgency, <<"0">>) -> 
     normal;
+convert(validUntilTime, Bin) -> 
+   binary_to_list(Bin);
 convert(settlmntTyp, <<"5">>) -> 
     tPlus4;
 convert(settlmntTyp, <<"A">>) -> 
@@ -539,10 +589,20 @@ convert(settlmntTyp, <<"9">>) ->
     tPlus5;
 convert(settlmntTyp, <<"4">>) -> 
     tPlus3;
+convert(futSettDate, Bin) -> 
+   binary_to_list(Bin);
+convert(symbolSfx, Bin) -> 
+   binary_to_list(Bin);
+convert(listID, Bin) -> 
+   binary_to_list(Bin);
 convert(listSeqNo, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(totNoOrders, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(listExecInst, Bin) -> 
+   binary_to_list(Bin);
+convert(allocID, Bin) -> 
+   binary_to_list(Bin);
 convert(allocTransType, <<"5">>) -> 
     calculatedWithoutPreliminary;
 convert(allocTransType, <<"4">>) -> 
@@ -555,10 +615,14 @@ convert(allocTransType, <<"1">>) ->
     replace;
 convert(allocTransType, <<"0">>) -> 
     new;
+convert(refAllocID, Bin) -> 
+   binary_to_list(Bin);
 convert(noOrders, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(avgPrxPrecision, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(tradeDate, Bin) -> 
+   binary_to_list(Bin);
 convert(positionEffect, <<"F">>) -> 
     fIFO;
 convert(positionEffect, <<"R">>) -> 
@@ -568,9 +632,11 @@ convert(positionEffect, <<"C">>) ->
 convert(positionEffect, <<"O">>) -> 
     open;
 convert(noAllocs, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(allocAccount, Bin) -> 
+   binary_to_list(Bin);
 convert(allocQty, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(processCode, <<"6">>) -> 
     planSponsor;
 convert(processCode, <<"0">>) -> 
@@ -586,11 +652,11 @@ convert(processCode, <<"4">>) ->
 convert(processCode, <<"5">>) -> 
     softDollarStepOut;
 convert(noRpts, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(rptSeq, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(cxlQty, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(allocStatus, <<"1">>) -> 
     blockLevelReject;
 convert(allocStatus, <<"2">>) -> 
@@ -615,10 +681,14 @@ convert(allocRejCode, <<"1">>) ->
     incorrectQuantity;
 convert(allocRejCode, <<"2">>) -> 
     incorrectAveragegPrice;
+convert(signature, Bin) -> 
+   binary_to_list(Bin);
 convert(secureDataLen, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(secureData, Bin) -> 
+   binary_to_list(Bin);
 convert(signatureLength, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(emailType, <<"0">>) -> 
     new;
 convert(emailType, <<"1">>) -> 
@@ -626,7 +696,9 @@ convert(emailType, <<"1">>) ->
 convert(emailType, <<"2">>) -> 
     adminReply;
 convert(rawDataLength, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(rawData, Bin) -> 
+   binary_to_list(Bin);
 convert(possResend, <<"N">>) -> 
     originalTransmission;
 convert(possResend, <<"Y">>) -> 
@@ -646,7 +718,9 @@ convert(encryptMethod, <<"1">>) ->
 convert(encryptMethod, <<"4">>) -> 
     pGPDES;
 convert(stopPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(exDestination, Bin) -> 
+   binary_to_list(Bin);
 convert(cxlRejReason, <<"1">>) -> 
     unknownOrder;
 convert(cxlRejReason, <<"0">>) -> 
@@ -723,12 +797,18 @@ convert(iOIQualifier, <<"Y">>) ->
     atTheMidpoint;
 convert(iOIQualifier, <<"Z">>) -> 
     preOpen;
+convert(issuer, Bin) -> 
+   binary_to_list(Bin);
+convert(securityDesc, Bin) -> 
+   binary_to_list(Bin);
 convert(heartBtInt, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(minQty, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(maxFloor, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(testReqID, Bin) -> 
+   binary_to_list(Bin);
 convert(reportToExch, <<"Y">>) -> 
     receiverReports;
 convert(reportToExch, <<"N">>) -> 
@@ -737,20 +817,32 @@ convert(locateReqd, <<"Y">>) ->
     yes;
 convert(locateReqd, <<"N">>) -> 
     no;
+convert(onBehalfOfCompID, Bin) -> 
+   binary_to_list(Bin);
+convert(onBehalfOfSubID, Bin) -> 
+   binary_to_list(Bin);
+convert(quoteID, Bin) -> 
+   binary_to_list(Bin);
 convert(netMoney, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(settlCurrAmt, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(settlCurrency, Bin) -> 
+   binary_to_list(Bin);
 convert(forexReq, <<"Y">>) -> 
     executeForexAfterSecurityTrade;
 convert(forexReq, <<"N">>) -> 
     doNotExecuteForexAfterSecurityTrade;
+convert(origSendingTime, Bin) -> 
+   binary_to_list(Bin);
 convert(gapFillFlag, <<"Y">>) -> 
     gapFillMessage;
 convert(gapFillFlag, <<"N">>) -> 
     sequenceReset;
 convert(noExecs, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(expireTime, Bin) -> 
+   binary_to_list(Bin);
 convert(dKReason, <<"B">>) -> 
     wrongSide;
 convert(dKReason, <<"C">>) -> 
@@ -763,22 +855,30 @@ convert(dKReason, <<"Z">>) ->
     other;
 convert(dKReason, <<"A">>) -> 
     unknownSymbol;
+convert(deliverToCompID, Bin) -> 
+   binary_to_list(Bin);
+convert(deliverToSubID, Bin) -> 
+   binary_to_list(Bin);
 convert(iOINaturalFlag, <<"Y">>) -> 
     natural;
 convert(iOINaturalFlag, <<"N">>) -> 
     notNatural;
+convert(quoteReqID, Bin) -> 
+   binary_to_list(Bin);
 convert(bidPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(offerPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(bidSize, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(offerSize, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(noMiscFees, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(miscFeeAmt, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(miscFeeCurr, Bin) -> 
+   binary_to_list(Bin);
 convert(miscFeeType, <<"3">>) -> 
     localCommission;
 convert(miscFeeType, <<"4">>) -> 
@@ -798,13 +898,27 @@ convert(miscFeeType, <<"1">>) ->
 convert(miscFeeType, <<"2">>) -> 
     tax;
 convert(prevClosePx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(resetSeqNumFlag, <<"Y">>) -> 
     yes;
 convert(resetSeqNumFlag, <<"N">>) -> 
     no;
+convert(senderLocationID, Bin) -> 
+   binary_to_list(Bin);
+convert(targetLocationID, Bin) -> 
+   binary_to_list(Bin);
+convert(onBehalfOfLocationID, Bin) -> 
+   binary_to_list(Bin);
+convert(deliverToLocationID, Bin) -> 
+   binary_to_list(Bin);
 convert(noRelatedSym, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(subject, Bin) -> 
+   binary_to_list(Bin);
+convert(headline, Bin) -> 
+   binary_to_list(Bin);
+convert(uRLLink, Bin) -> 
+   binary_to_list(Bin);
 convert(execType, <<"6">>) -> 
     pendingCancel;
 convert(execType, <<"0">>) -> 
@@ -844,25 +958,25 @@ convert(execType, <<"3">>) ->
 convert(execType, <<"7">>) -> 
     stopped;
 convert(leavesQty, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(cashOrderQty, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(allocAvgPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(allocNetMoney, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(settlCurrFxRate, Bin) -> 
-    bin_to_num(Bin);
+   bin_to_num(Bin);
 convert(settlCurrFxRateCalc, <<"D">>) -> 
     divide;
 convert(settlCurrFxRateCalc, <<"M">>) -> 
     multiply;
 convert(numDaysInterest, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(accruedInterestRate, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(accruedInterestAmt, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(settlInstMode, <<"0">>) -> 
     default;
 convert(settlInstMode, <<"4">>) -> 
@@ -873,12 +987,18 @@ convert(settlInstMode, <<"1">>) ->
     standingInstructionsProvided;
 convert(settlInstMode, <<"2">>) -> 
     specificAllocationAccountOverriding;
+convert(allocText, Bin) -> 
+   binary_to_list(Bin);
+convert(settlInstID, Bin) -> 
+   binary_to_list(Bin);
 convert(settlInstTransType, <<"N">>) -> 
     new;
 convert(settlInstTransType, <<"R">>) -> 
     replace;
 convert(settlInstTransType, <<"C">>) -> 
     cancel;
+convert(emailThreadID, Bin) -> 
+   binary_to_list(Bin);
 convert(settlInstSource, <<"2">>) -> 
     institution;
 convert(settlInstSource, <<"3">>) -> 
@@ -1049,6 +1169,8 @@ convert(securityType, <<"TERM">>) ->
     termLoan;
 convert(securityType, <<"STRUCT">>) -> 
     structuredNotes;
+convert(effectiveTime, Bin) -> 
+   binary_to_list(Bin);
 convert(standInstDbType, <<"0">>) -> 
     other;
 convert(standInstDbType, <<"1">>) -> 
@@ -1057,36 +1179,82 @@ convert(standInstDbType, <<"3">>) ->
     aGlobalCustodian;
 convert(standInstDbType, <<"2">>) -> 
     thomsonALERT;
+convert(standInstDbName, Bin) -> 
+   binary_to_list(Bin);
+convert(standInstDbID, Bin) -> 
+   binary_to_list(Bin);
 convert(settlDeliveryType, <<"1">>) -> 
     free;
 convert(settlDeliveryType, <<"0">>) -> 
     versus;
+convert(settlDepositoryCode, Bin) -> 
+   binary_to_list(Bin);
+convert(settlBrkrCode, Bin) -> 
+   binary_to_list(Bin);
+convert(settlInstCode, Bin) -> 
+   binary_to_list(Bin);
+convert(securitySettlAgentName, Bin) -> 
+   binary_to_list(Bin);
+convert(securitySettlAgentCode, Bin) -> 
+   binary_to_list(Bin);
+convert(securitySettlAgentAcctNum, Bin) -> 
+   binary_to_list(Bin);
+convert(securitySettlAgentAcctName, Bin) -> 
+   binary_to_list(Bin);
+convert(securitySettlAgentContactName, Bin) -> 
+   binary_to_list(Bin);
+convert(securitySettlAgentContactPhone, Bin) -> 
+   binary_to_list(Bin);
+convert(cashSettlAgentName, Bin) -> 
+   binary_to_list(Bin);
+convert(cashSettlAgentCode, Bin) -> 
+   binary_to_list(Bin);
+convert(cashSettlAgentAcctNum, Bin) -> 
+   binary_to_list(Bin);
+convert(cashSettlAgentAcctName, Bin) -> 
+   binary_to_list(Bin);
+convert(cashSettlAgentContactName, Bin) -> 
+   binary_to_list(Bin);
+convert(cashSettlAgentContactPhone, Bin) -> 
+   binary_to_list(Bin);
 convert(bidSpotRate, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(bidForwardPoints, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(offerSpotRate, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(offerForwardPoints, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(orderQty2, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(futSettDate2, Bin) -> 
+   binary_to_list(Bin);
 convert(lastSpotRate, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(lastForwardPoints, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(allocLinkID, Bin) -> 
+   binary_to_list(Bin);
 convert(allocLinkType, <<"0">>) -> 
     fXNetting;
 convert(allocLinkType, <<"1">>) -> 
     fXSwap;
+convert(secondaryOrderID, Bin) -> 
+   binary_to_list(Bin);
 convert(noIOIQualifiers, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(maturityMonthYear, Bin) -> 
+   binary_to_list(Bin);
 convert(strikePrice, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(coveredOrUncovered, <<"1">>) -> 
     uncovered;
 convert(coveredOrUncovered, <<"0">>) -> 
     covered;
+convert(optAttribute, Bin) -> 
+   binary_to_list(Bin);
+convert(securityExchange, Bin) -> 
+   binary_to_list(Bin);
 convert(notifyBrokerOfCredit, <<"N">>) -> 
     detailsShouldNotBeCommunicated;
 convert(notifyBrokerOfCredit, <<"Y">>) -> 
@@ -1098,13 +1266,17 @@ convert(allocHandlInst, <<"2">>) ->
 convert(allocHandlInst, <<"1">>) -> 
     match;
 convert(maxShow, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(pegDifference, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(xmlDataLen, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(xmlData, Bin) -> 
+   binary_to_list(Bin);
+convert(settlInstRefID, Bin) -> 
+   binary_to_list(Bin);
 convert(noRoutingIDs, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(routingType, <<"1">>) -> 
     targetFirm;
 convert(routingType, <<"2">>) -> 
@@ -1113,8 +1285,10 @@ convert(routingType, <<"3">>) ->
     blockFirm;
 convert(routingType, <<"4">>) -> 
     blockList;
+convert(routingID, Bin) -> 
+   binary_to_list(Bin);
 convert(spread, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(benchmark, <<"5">>) -> 
     oLD10;
 convert(benchmark, <<"1">>) -> 
@@ -1133,6 +1307,8 @@ convert(benchmark, <<"9">>) ->
     sixMOLIBOR;
 convert(benchmark, <<"3">>) -> 
     oLD5;
+convert(benchmarkCurveCurrency, Bin) -> 
+   binary_to_list(Bin);
 convert(benchmarkCurveName, <<"SWAP">>) -> 
     sWAP;
 convert(benchmarkCurveName, <<"LIBID">>) -> 
@@ -1151,18 +1327,28 @@ convert(benchmarkCurveName, <<"MuniAAA">>) ->
     muniAAA;
 convert(benchmarkCurveName, <<"LIBOR">>) -> 
     lIBOR;
+convert(benchmarkCurvePoint, Bin) -> 
+   binary_to_list(Bin);
 convert(couponRate, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(couponPaymentDate, Bin) -> 
+   binary_to_list(Bin);
+convert(issueDate, Bin) -> 
+   binary_to_list(Bin);
 convert(repurchaseTerm, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(repurchaseRate, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(factor, Bin) -> 
-    bin_to_num(Bin);
+   bin_to_num(Bin);
+convert(tradeOriginationDate, Bin) -> 
+   binary_to_list(Bin);
+convert(exDate, Bin) -> 
+   binary_to_list(Bin);
 convert(contractMultiplier, Bin) -> 
-    bin_to_num(Bin);
+   bin_to_num(Bin);
 convert(noStipulations, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(stipulationType, <<"ABS">>) -> 
     absolutePrepaymentSpeed;
 convert(stipulationType, <<"WALA">>) -> 
@@ -1213,6 +1399,8 @@ convert(stipulationType, <<"TRDVAR">>) ->
     tradeVariance;
 convert(stipulationType, <<"GEOG">>) -> 
     geographics;
+convert(stipulationValue, Bin) -> 
+   binary_to_list(Bin);
 convert(yieldType, <<"TRUE">>) -> 
     trueYield;
 convert(yieldType, <<"PREVCLOSE">>) -> 
@@ -1288,29 +1476,59 @@ convert(yieldType, <<"LASTMONTH">>) ->
 convert(yieldType, <<"CLOSE">>) -> 
     closingYield;
 convert(yield, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(totalTakedown, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(concession, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(repoCollateralSecurityType, Bin) -> 
+   binary_to_list(Bin);
+convert(redemptionDate, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingCouponPaymentDate, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingIssueDate, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingRepoCollateralSecurityType, Bin) -> 
+   binary_to_list(Bin);
 convert(underlyingRepurchaseTerm, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(underlyingRepurchaseRate, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(underlyingFactor, Bin) -> 
-    bin_to_num(Bin);
+   bin_to_num(Bin);
+convert(underlyingRedemptionDate, Bin) -> 
+   binary_to_list(Bin);
+convert(legCouponPaymentDate, Bin) -> 
+   binary_to_list(Bin);
+convert(legIssueDate, Bin) -> 
+   binary_to_list(Bin);
+convert(legRepoCollateralSecurityType, Bin) -> 
+   binary_to_list(Bin);
 convert(legRepurchaseTerm, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(legRepurchaseRate, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(legFactor, Bin) -> 
-    bin_to_num(Bin);
+   bin_to_num(Bin);
+convert(legRedemptionDate, Bin) -> 
+   binary_to_list(Bin);
+convert(creditRating, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingCreditRating, Bin) -> 
+   binary_to_list(Bin);
+convert(legCreditRating, Bin) -> 
+   binary_to_list(Bin);
 convert(tradedFlatSwitch, <<"N">>) -> 
     notTradedFlat;
 convert(tradedFlatSwitch, <<"Y">>) -> 
     tradedFlat;
+convert(basisFeatureDate, Bin) -> 
+   binary_to_list(Bin);
 convert(basisFeaturePrice, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(mDReqID, Bin) -> 
+   binary_to_list(Bin);
 convert(subscriptionRequestType, <<"1">>) -> 
     snapshotAndUpdates;
 convert(subscriptionRequestType, <<"2">>) -> 
@@ -1318,7 +1536,7 @@ convert(subscriptionRequestType, <<"2">>) ->
 convert(subscriptionRequestType, <<"0">>) -> 
     snapshot;
 convert(marketDepth, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(mDUpdateType, <<"0">>) -> 
     fullRefresh;
 convert(mDUpdateType, <<"1">>) -> 
@@ -1328,9 +1546,9 @@ convert(aggregatedBook, <<"Y">>) ->
 convert(aggregatedBook, <<"N">>) -> 
     bookEntriesShouldNotBeAggregated;
 convert(noMDEntryTypes, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(noMDEntries, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(mDEntryType, <<"7">>) -> 
     tradingSessionHighPrice;
 convert(mDEntryType, <<"1">>) -> 
@@ -1354,9 +1572,13 @@ convert(mDEntryType, <<"3">>) ->
 convert(mDEntryType, <<"6">>) -> 
     settlementPrice;
 convert(mDEntryPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(mDEntrySize, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(mDEntryDate, Bin) -> 
+   binary_to_list(Bin);
+convert(mDEntryTime, Bin) -> 
+   binary_to_list(Bin);
 convert(tickDirection, <<"0">>) -> 
     plusTick;
 convert(tickDirection, <<"1">>) -> 
@@ -1365,6 +1587,8 @@ convert(tickDirection, <<"2">>) ->
     minusTick;
 convert(tickDirection, <<"3">>) -> 
     zeroMinusTick;
+convert(mDMkt, Bin) -> 
+   binary_to_list(Bin);
 convert(quoteCondition, <<"E">>) -> 
     locked;
 convert(quoteCondition, <<"I">>) -> 
@@ -1417,12 +1641,16 @@ convert(tradeCondition, <<"G">>) ->
     rule127Trade;
 convert(tradeCondition, <<"D">>) -> 
     nextDay;
+convert(mDEntryID, Bin) -> 
+   binary_to_list(Bin);
 convert(mDUpdateAction, <<"0">>) -> 
     new;
 convert(mDUpdateAction, <<"1">>) -> 
     change;
 convert(mDUpdateAction, <<"2">>) -> 
     delete;
+convert(mDEntryRefID, Bin) -> 
+   binary_to_list(Bin);
 convert(mDReqRejReason, <<"7">>) -> 
     unsupportedAggregatedBook;
 convert(mDReqRejReason, <<"1">>) -> 
@@ -1449,6 +1677,12 @@ convert(mDReqRejReason, <<"0">>) ->
     unknownSymbol;
 convert(mDReqRejReason, <<"3">>) -> 
     insufficientPermissions;
+convert(mDEntryOriginator, Bin) -> 
+   binary_to_list(Bin);
+convert(locationID, Bin) -> 
+   binary_to_list(Bin);
+convert(deskID, Bin) -> 
+   binary_to_list(Bin);
 convert(deleteReason, <<"0">>) -> 
     cancellation;
 convert(deleteReason, <<"1">>) -> 
@@ -1464,9 +1698,13 @@ convert(openCloseSettleFlag, <<"4">>) ->
 convert(openCloseSettleFlag, <<"0">>) -> 
     dailyOpen;
 convert(sellerDays, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(mDEntryBuyer, Bin) -> 
+   binary_to_list(Bin);
+convert(mDEntrySeller, Bin) -> 
+   binary_to_list(Bin);
 convert(mDEntryPositionNo, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(financialStatus, <<"1">>) -> 
     bankrupt;
 convert(financialStatus, <<"2">>) -> 
@@ -1482,13 +1720,13 @@ convert(corporateAction, <<"A">>) ->
 convert(corporateAction, <<"D">>) -> 
     new;
 convert(defBidSize, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(defOfferSize, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(noQuoteEntries, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(noQuoteSets, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(quoteStatus, <<"6">>) -> 
     removedFromMarket;
 convert(quoteStatus, <<"1">>) -> 
@@ -1519,6 +1757,8 @@ convert(quoteCancelType, <<"1">>) ->
     cancelForOneOrMoreSecurities;
 convert(quoteCancelType, <<"3">>) -> 
     cancelForUnderlyingSecurity;
+convert(quoteEntryID, Bin) -> 
+   binary_to_list(Bin);
 convert(quoteRejectReason, <<"9">>) -> 
     notAuthorizedToQuoteSecurity;
 convert(quoteRejectReason, <<"1">>) -> 
@@ -1543,16 +1783,40 @@ convert(quoteResponseLevel, <<"0">>) ->
     noAcknowledgement;
 convert(quoteResponseLevel, <<"2">>) -> 
     acknowledgeEachQuoteMessage;
+convert(quoteSetID, Bin) -> 
+   binary_to_list(Bin);
 convert(quoteRequestType, <<"2">>) -> 
     automatic;
 convert(quoteRequestType, <<"1">>) -> 
     manual;
 convert(totQuoteEntries, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(underlyingSecurityIDSource, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingIssuer, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingSecurityDesc, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingSecurityExchange, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingSecurityID, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingSecurityType, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingSymbol, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingSymbolSfx, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingMaturityMonthYear, Bin) -> 
+   binary_to_list(Bin);
 convert(underlyingPutOrCall, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(underlyingStrikePrice, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(underlyingOptAttribute, Bin) -> 
+   binary_to_list(Bin);
+convert(securityReqID, Bin) -> 
+   binary_to_list(Bin);
 convert(securityRequestType, <<"0">>) -> 
     requestSecurityIdentityAndSpecifications;
 convert(securityRequestType, <<"1">>) -> 
@@ -1561,6 +1825,8 @@ convert(securityRequestType, <<"2">>) ->
     requestListSecurityTypes;
 convert(securityRequestType, <<"3">>) -> 
     requestListSecurities;
+convert(securityResponseID, Bin) -> 
+   binary_to_list(Bin);
 convert(securityResponseType, <<"5">>) -> 
     rejectSecurityProposal;
 convert(securityResponseType, <<"1">>) -> 
@@ -1573,6 +1839,8 @@ convert(securityResponseType, <<"4">>) ->
     listOfSecuritiesReturnedPerRequest;
 convert(securityResponseType, <<"3">>) -> 
     listOfSecurityTypesReturnedPerRequest;
+convert(securityStatusReqID, Bin) -> 
+   binary_to_list(Bin);
 convert(unsolicitedIndicator, <<"Y">>) -> 
     messageIsBeingSentUnsolicited;
 convert(unsolicitedIndicator, <<"N">>) -> 
@@ -1642,19 +1910,25 @@ convert(dueToRelated, <<"Y">>) ->
 convert(dueToRelated, <<"N">>) -> 
     notRelatedToSecurityHalt;
 convert(buyVolume, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(sellVolume, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(highPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(lowPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(adjustment, <<"1">>) -> 
     cancel;
 convert(adjustment, <<"2">>) -> 
     error;
 convert(adjustment, <<"3">>) -> 
     correction;
+convert(tradSesReqID, Bin) -> 
+   binary_to_list(Bin);
+convert(tradingSessionID, Bin) -> 
+   binary_to_list(Bin);
+convert(contraTrader, Bin) -> 
+   binary_to_list(Bin);
 convert(tradSesMethod, <<"3">>) -> 
     twoParty;
 convert(tradSesMethod, <<"1">>) -> 
@@ -1681,8 +1955,18 @@ convert(tradSesStatus, <<"1">>) ->
     halted;
 convert(tradSesStatus, <<"0">>) -> 
     unknown;
+convert(tradSesStartTime, Bin) -> 
+   binary_to_list(Bin);
+convert(tradSesOpenTime, Bin) -> 
+   binary_to_list(Bin);
+convert(tradSesPreCloseTime, Bin) -> 
+   binary_to_list(Bin);
+convert(tradSesCloseTime, Bin) -> 
+   binary_to_list(Bin);
+convert(tradSesEndTime, Bin) -> 
+   binary_to_list(Bin);
 convert(numberOfOrders, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(messageEncoding, <<"UTF-8">>) -> 
     uTF8;
 convert(messageEncoding, <<"ISO-2022-JP">>) -> 
@@ -1692,31 +1976,55 @@ convert(messageEncoding, <<"EUC-JP">>) ->
 convert(messageEncoding, <<"Shift_JIS">>) -> 
     shiftJIS;
 convert(encodedIssuerLen, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(encodedIssuer, Bin) -> 
+   binary_to_list(Bin);
 convert(encodedSecurityDescLen, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(encodedSecurityDesc, Bin) -> 
+   binary_to_list(Bin);
 convert(encodedListExecInstLen, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(encodedListExecInst, Bin) -> 
+   binary_to_list(Bin);
 convert(encodedTextLen, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(encodedText, Bin) -> 
+   binary_to_list(Bin);
 convert(encodedSubjectLen, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(encodedSubject, Bin) -> 
+   binary_to_list(Bin);
 convert(encodedHeadlineLen, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(encodedHeadline, Bin) -> 
+   binary_to_list(Bin);
 convert(encodedAllocTextLen, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(encodedAllocText, Bin) -> 
+   binary_to_list(Bin);
 convert(encodedUnderlyingIssuerLen, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(encodedUnderlyingIssuer, Bin) -> 
+   binary_to_list(Bin);
 convert(encodedUnderlyingSecurityDescLen, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(encodedUnderlyingSecurityDesc, Bin) -> 
+   binary_to_list(Bin);
 convert(allocPrice, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(quoteSetValidUntilTime, Bin) -> 
+   binary_to_list(Bin);
 convert(quoteEntryRejectReason, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(lastMsgSeqNumProcessed, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(onBehalfOfSendingTime, Bin) -> 
+   binary_to_list(Bin);
 convert(refTagID, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(refMsgType, Bin) -> 
+   binary_to_list(Bin);
 convert(sessionRejectReason, <<"12">>) -> 
     xMLValidationError;
 convert(sessionRejectReason, <<"17">>) -> 
@@ -1757,6 +2065,10 @@ convert(bidRequestTransType, <<"N">>) ->
     new;
 convert(bidRequestTransType, <<"C">>) -> 
     cancel;
+convert(contraBroker, Bin) -> 
+   binary_to_list(Bin);
+convert(complianceID, Bin) -> 
+   binary_to_list(Bin);
 convert(solicitedFlag, <<"N">>) -> 
     wasNotSolicited;
 convert(solicitedFlag, <<"Y">>) -> 
@@ -1779,6 +2091,8 @@ convert(execRestatementReason, <<"1">>) ->
     gTRenewal;
 convert(execRestatementReason, <<"2">>) -> 
     verbalChange;
+convert(businessRejectRefID, Bin) -> 
+   binary_to_list(Bin);
 convert(businessRejectReason, <<"3">>) -> 
     unsupportedMessageType;
 convert(businessRejectReason, <<"7">>) -> 
@@ -1796,21 +2110,21 @@ convert(businessRejectReason, <<"1">>) ->
 convert(businessRejectReason, <<"2">>) -> 
     unknownSecurity;
 convert(grossTradeAmt, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(noContraBrokers, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(maxMessageSize, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(noMsgTypes, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(msgDirection, <<"S">>) -> 
     send;
 convert(msgDirection, <<"R">>) -> 
     receivereceiveFix;
 convert(noTradingSessions, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(totalVolumeTraded, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(discretionInst, <<"0">>) -> 
     relatedToDisplayedPrice;
 convert(discretionInst, <<"1">>) -> 
@@ -1824,9 +2138,15 @@ convert(discretionInst, <<"4">>) ->
 convert(discretionInst, <<"5">>) -> 
     relatedToLastTradePrice;
 convert(discretionOffset, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(bidID, Bin) -> 
+   binary_to_list(Bin);
+convert(clientBidID, Bin) -> 
+   binary_to_list(Bin);
+convert(listName, Bin) -> 
+   binary_to_list(Bin);
 convert(totalNumSecurities, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(bidType, <<"1">>) -> 
     nonDisclosed;
 convert(bidType, <<"2">>) -> 
@@ -1834,37 +2154,39 @@ convert(bidType, <<"2">>) ->
 convert(bidType, <<"3">>) -> 
     noBiddingProcess;
 convert(numTickets, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(sideValue1, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(sideValue2, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(noBidDescriptors, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(bidDescriptorType, <<"3">>) -> 
     index;
 convert(bidDescriptorType, <<"2">>) -> 
     countrycountryFix;
 convert(bidDescriptorType, <<"1">>) -> 
     sector;
+convert(bidDescriptor, Bin) -> 
+   binary_to_list(Bin);
 convert(sideValueInd, <<"1">>) -> 
     sideValue1;
 convert(sideValueInd, <<"2">>) -> 
     sideValue2;
 convert(liquidityPctLow, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(liquidityPctHigh, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(liquidityValue, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(eFPTrackingError, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(fairValue, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(outsideIndexPct, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(valueOfFutures, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(liquidityIndType, <<"3">>) -> 
     normalMarketSize;
 convert(liquidityIndType, <<"4">>) -> 
@@ -1874,15 +2196,15 @@ convert(liquidityIndType, <<"2">>) ->
 convert(liquidityIndType, <<"1">>) -> 
     fiveDayMovingAverage;
 convert(wtAverageLiquidity, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(exchangeForPhysical, <<"N">>) -> 
     false;
 convert(exchangeForPhysical, <<"Y">>) -> 
     true;
 convert(outMainCntryUIndex, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(crossPercent, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(progRptReqs, <<"3">>) -> 
     realTimeExecutionReports;
 convert(progRptReqs, <<"2">>) -> 
@@ -1890,13 +2212,13 @@ convert(progRptReqs, <<"2">>) ->
 convert(progRptReqs, <<"1">>) -> 
     buySideRequests;
 convert(progPeriodInterval, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(incTaxInd, <<"2">>) -> 
     gross;
 convert(incTaxInd, <<"1">>) -> 
     net;
 convert(numBidders, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(tradeType, <<"G">>) -> 
     vWAPGuarantee;
 convert(tradeType, <<"A">>) -> 
@@ -1932,9 +2254,11 @@ convert(basisPxType, <<"2">>) ->
 convert(basisPxType, <<"A">>) -> 
     vWAPThroughAMorningSessionExcept;
 convert(noBidComponents, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(country, Bin) -> 
+   binary_to_list(Bin);
 convert(totNoStrikes, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(priceType, <<"3">>) -> 
     fixedAmount;
 convert(priceType, <<"1">>) -> 
@@ -1952,11 +2276,11 @@ convert(priceType, <<"5">>) ->
 convert(priceType, <<"2">>) -> 
     perUnit;
 convert(dayOrderQty, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(dayCumQty, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(dayAvgPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(gTBookingInst, <<"0">>) -> 
     bookOutAllTradesOnDayOfExecution;
 convert(gTBookingInst, <<"2">>) -> 
@@ -1964,7 +2288,7 @@ convert(gTBookingInst, <<"2">>) ->
 convert(gTBookingInst, <<"1">>) -> 
     accumulateUntilFilledOrExpired;
 convert(noStrikes, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(listStatusType, <<"6">>) -> 
     alert;
 convert(listStatusType, <<"4">>) -> 
@@ -1995,6 +2319,8 @@ convert(listOrderStatus, <<"2">>) ->
     receivedForExecution;
 convert(listOrderStatus, <<"1">>) -> 
     inBiddingProcess;
+convert(expireDate, Bin) -> 
+   binary_to_list(Bin);
 convert(listExecInstType, <<"5">>) -> 
     buyDrivenCashWithdraw;
 convert(listExecInstType, <<"4">>) -> 
@@ -2010,21 +2336,29 @@ convert(cxlRejResponseTo, <<"2">>) ->
 convert(cxlRejResponseTo, <<"1">>) -> 
     orderCancelRequest;
 convert(underlyingCouponRate, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(underlyingContractMultiplier, Bin) -> 
-    bin_to_num(Bin);
+   bin_to_num(Bin);
 convert(contraTradeQty, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(contraTradeTime, Bin) -> 
+   binary_to_list(Bin);
 convert(liquidityNumSecurities, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(multiLegReportingType, <<"1">>) -> 
     singleSecurity;
 convert(multiLegReportingType, <<"2">>) -> 
     individualLegOfAMultiLegSecurity;
 convert(multiLegReportingType, <<"3">>) -> 
     multiLegSecurity;
+convert(strikeTime, Bin) -> 
+   binary_to_list(Bin);
+convert(listStatusText, Bin) -> 
+   binary_to_list(Bin);
 convert(encodedListStatusTextLen, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(encodedListStatusText, Bin) -> 
+   binary_to_list(Bin);
 convert(partyIDSource, <<"5">>) -> 
     chineseInvestorID;
 convert(partyIDSource, <<"8">>) -> 
@@ -2055,8 +2389,14 @@ convert(partyIDSource, <<"6">>) ->
     uKNationalInsuranceOrPensionNumber;
 convert(partyIDSource, <<"C">>) -> 
     generalIdentifier;
+convert(partyID, Bin) -> 
+   binary_to_list(Bin);
+convert(totalVolumeTradedDate, Bin) -> 
+   binary_to_list(Bin);
+convert(totalVolumeTradedTime, Bin) -> 
+   binary_to_list(Bin);
 convert(netChgPrevDay, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(partyRole, <<"15">>) -> 
     correspondantClearingFirm;
 convert(partyRole, <<"3">>) -> 
@@ -2098,11 +2438,19 @@ convert(partyRole, <<"13">>) ->
 convert(partyRole, <<"4">>) -> 
     clearingFirm;
 convert(noPartyIDs, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(noSecurityAltID, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(securityAltID, Bin) -> 
+   binary_to_list(Bin);
+convert(securityAltIDSource, Bin) -> 
+   binary_to_list(Bin);
 convert(noUnderlyingSecurityAltID, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(underlyingSecurityAltID, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingSecurityAltIDSource, Bin) -> 
+   binary_to_list(Bin);
 convert(produkt, <<"8">>) -> 
     lOAN;
 convert(produkt, <<"12">>) -> 
@@ -2127,8 +2475,12 @@ convert(produkt, <<"9">>) ->
     mONEYMARKET;
 convert(produkt, <<"5">>) -> 
     eQUITY;
+convert(cFICode, Bin) -> 
+   binary_to_list(Bin);
 convert(underlyingProduct, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(underlyingCFICode, Bin) -> 
+   binary_to_list(Bin);
 convert(testMessageIndicator, <<"Y">>) -> 
     true;
 convert(testMessageIndicator, <<"N">>) -> 
@@ -2149,6 +2501,10 @@ convert(quantityType, <<"1">>) ->
     sHARES;
 convert(quantityType, <<"8">>) -> 
     pAR;
+convert(bookingRefID, Bin) -> 
+   binary_to_list(Bin);
+convert(individualAllocID, Bin) -> 
+   binary_to_list(Bin);
 convert(roundingDirection, <<"0">>) -> 
     roundToNearest;
 convert(roundingDirection, <<"1">>) -> 
@@ -2156,11 +2512,27 @@ convert(roundingDirection, <<"1">>) ->
 convert(roundingDirection, <<"2">>) -> 
     roundUp;
 convert(roundingModulus, Bin) -> 
-    bin_to_num(Bin);
+   bin_to_num(Bin);
+convert(countryOfIssue, Bin) -> 
+   binary_to_list(Bin);
+convert(stateOrProvinceOfIssue, Bin) -> 
+   binary_to_list(Bin);
+convert(localeOfIssue, Bin) -> 
+   binary_to_list(Bin);
 convert(noRegistDtls, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(mailingDtls, Bin) -> 
+   binary_to_list(Bin);
+convert(investorCountryOfResidence, Bin) -> 
+   binary_to_list(Bin);
+convert(paymentRef, Bin) -> 
+   binary_to_list(Bin);
 convert(distribPaymentMethod, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(cashDistribCurr, Bin) -> 
+   binary_to_list(Bin);
+convert(commCurrency, Bin) -> 
+   binary_to_list(Bin);
 convert(cancellationRights, <<"M">>) -> 
     noWaiverAgreement;
 convert(cancellationRights, <<"N">>) -> 
@@ -2179,6 +2551,10 @@ convert(moneyLaunderingStatus, <<"Y">>) ->
     passed;
 convert(moneyLaunderingStatus, <<"N">>) -> 
     notChecked;
+convert(mailingInst, Bin) -> 
+   binary_to_list(Bin);
+convert(transBkdTime, Bin) -> 
+   binary_to_list(Bin);
 convert(execPriceType, <<"S">>) -> 
     singlePrice;
 convert(execPriceType, <<"Q">>) -> 
@@ -2196,13 +2572,23 @@ convert(execPriceType, <<"C">>) ->
 convert(execPriceType, <<"B">>) -> 
     bidPrice;
 convert(execPriceAdjustment, Bin) -> 
-    bin_to_num(Bin);
+   bin_to_num(Bin);
+convert(dateOfBirth, Bin) -> 
+   binary_to_list(Bin);
 convert(tradeReportTransType, <<"N">>) -> 
     new;
 convert(tradeReportTransType, <<"R">>) -> 
     replace;
 convert(tradeReportTransType, <<"C">>) -> 
     cancel;
+convert(cardHolderName, Bin) -> 
+   binary_to_list(Bin);
+convert(cardNumber, Bin) -> 
+   binary_to_list(Bin);
+convert(cardExpDate, Bin) -> 
+   binary_to_list(Bin);
+convert(cardIssNo, Bin) -> 
+   binary_to_list(Bin);
 convert(paymentMethod, <<"14">>) -> 
     bPAY;
 convert(paymentMethod, <<"13">>) -> 
@@ -2233,6 +2619,10 @@ convert(paymentMethod, <<"2">>) ->
     nSCC;
 convert(paymentMethod, <<"5">>) -> 
     cheque;
+convert(registAcctType, Bin) -> 
+   binary_to_list(Bin);
+convert(designation, Bin) -> 
+   binary_to_list(Bin);
 convert(taxAdvantageType, <<"19">>) -> 
     profitSharingPlan;
 convert(taxAdvantageType, <<"11">>) -> 
@@ -2293,10 +2683,26 @@ convert(taxAdvantageType, <<"18">>) ->
     kEOGH;
 convert(taxAdvantageType, <<"22">>) -> 
     uS403b;
+convert(registRejReasonText, Bin) -> 
+   binary_to_list(Bin);
 convert(fundRenewWaiv, <<"N">>) -> 
     no;
 convert(fundRenewWaiv, <<"Y">>) -> 
     yes;
+convert(cashDistribAgentName, Bin) -> 
+   binary_to_list(Bin);
+convert(cashDistribAgentCode, Bin) -> 
+   binary_to_list(Bin);
+convert(cashDistribAgentAcctNumber, Bin) -> 
+   binary_to_list(Bin);
+convert(cashDistribPayRef, Bin) -> 
+   binary_to_list(Bin);
+convert(cardStartDate, Bin) -> 
+   binary_to_list(Bin);
+convert(paymentDate, Bin) -> 
+   binary_to_list(Bin);
+convert(paymentRemitterID, Bin) -> 
+   binary_to_list(Bin);
 convert(registStatus, <<"A">>) -> 
     accepted;
 convert(registStatus, <<"N">>) -> 
@@ -2341,20 +2747,32 @@ convert(registRejReasonCode, <<"18">>) ->
     invalidAccountNum;
 convert(registRejReasonCode, <<"6">>) -> 
     invalidRegDetails;
+convert(registRefID, Bin) -> 
+   binary_to_list(Bin);
+convert(registDetls, Bin) -> 
+   binary_to_list(Bin);
 convert(noDistribInsts, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(registEmail, Bin) -> 
+   binary_to_list(Bin);
 convert(distribPercentage, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(registID, Bin) -> 
+   binary_to_list(Bin);
 convert(registTransType, <<"2">>) -> 
     cancel;
 convert(registTransType, <<"0">>) -> 
     new;
 convert(registTransType, <<"1">>) -> 
     replace;
+convert(execValuationPoint, Bin) -> 
+   binary_to_list(Bin);
 convert(orderPercent, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(ownershipType, Bin) -> 
+   binary_to_list(Bin);
 convert(noContAmts, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(contAmtType, <<"15">>) -> 
     netSettlementAmount;
 convert(contAmtType, <<"1">>) -> 
@@ -2386,7 +2804,9 @@ convert(contAmtType, <<"14">>) ->
 convert(contAmtType, <<"13">>) -> 
     fundBasedRenewalCommissionOnOrder;
 convert(contAmtValue, Bin) -> 
-    bin_to_num(Bin);
+   bin_to_num(Bin);
+convert(contAmtCurr, Bin) -> 
+   binary_to_list(Bin);
 convert(ownerType, <<"5">>) -> 
     companyTrustee;
 convert(ownerType, <<"13">>) -> 
@@ -2413,6 +2833,16 @@ convert(ownerType, <<"1">>) ->
     individualInvestor;
 convert(ownerType, <<"7">>) -> 
     custodianUnderGiftsToMinorsAct;
+convert(partySubID, Bin) -> 
+   binary_to_list(Bin);
+convert(nestedPartyID, Bin) -> 
+   binary_to_list(Bin);
+convert(nestedPartyIDSource, Bin) -> 
+   binary_to_list(Bin);
+convert(secondaryClOrdID, Bin) -> 
+   binary_to_list(Bin);
+convert(secondaryExecID, Bin) -> 
+   binary_to_list(Bin);
 convert(orderCapacity, <<"R">>) -> 
     risklessPrincipal;
 convert(orderCapacity, <<"I">>) -> 
@@ -2490,9 +2920,13 @@ convert(massCancelRejectReason, <<"0">>) ->
 convert(massCancelRejectReason, <<"4">>) -> 
     invalidOrUnknownCFICode;
 convert(totalAffectedOrders, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(noAffectedOrders, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(affectedOrderID, Bin) -> 
+   binary_to_list(Bin);
+convert(affectedSecondaryOrderID, Bin) -> 
+   binary_to_list(Bin);
 convert(quoteType, <<"0">>) -> 
     indicative;
 convert(quoteType, <<"1">>) -> 
@@ -2500,17 +2934,25 @@ convert(quoteType, <<"1">>) ->
 convert(quoteType, <<"2">>) -> 
     restrictedTradeable;
 convert(nestedPartyRole, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(noNestedPartyIDs, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(totalAccruedInterestAmt, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(maturityDate, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingMaturityDate, Bin) -> 
+   binary_to_list(Bin);
+convert(instrRegistry, Bin) -> 
+   binary_to_list(Bin);
 convert(cashMargin, <<"2">>) -> 
     marginOpen;
 convert(cashMargin, <<"3">>) -> 
     marginClose;
 convert(cashMargin, <<"1">>) -> 
     cash;
+convert(nestedPartySubID, Bin) -> 
+   binary_to_list(Bin);
 convert(scope, <<"1">>) -> 
     localMarket;
 convert(scope, <<"2">>) -> 
@@ -2521,6 +2963,8 @@ convert(mDImplicitDelete, <<"Y">>) ->
     yes;
 convert(mDImplicitDelete, <<"N">>) -> 
     no;
+convert(crossID, Bin) -> 
+   binary_to_list(Bin);
 convert(crossType, <<"1">>) -> 
     crossAON;
 convert(crossType, <<"2">>) -> 
@@ -2535,16 +2979,24 @@ convert(crossPrioritization, <<"0">>) ->
     none;
 convert(crossPrioritization, <<"1">>) -> 
     buySideIsPrioritized;
+convert(origCrossID, Bin) -> 
+   binary_to_list(Bin);
 convert(noSides, <<"1">>) -> 
     oneSide;
 convert(noSides, <<"2">>) -> 
     bothSides;
+convert(username, Bin) -> 
+   binary_to_list(Bin);
+convert(password, Bin) -> 
+   binary_to_list(Bin);
 convert(noLegs, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(legCurrency, Bin) -> 
+   binary_to_list(Bin);
 convert(totalNumSecurityTypes, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(noSecurityTypes, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(securityListRequestType, <<"1">>) -> 
     securityTypeAnd;
 convert(securityListRequestType, <<"2">>) -> 
@@ -2568,17 +3020,23 @@ convert(securityRequestResult, <<"3">>) ->
 convert(securityRequestResult, <<"2">>) -> 
     noInstrumentsFound;
 convert(roundLot, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(minTradeVol, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(multiLegRptTypeReq, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(legPositionEffect, Bin) -> 
+   binary_to_list(Bin);
 convert(legCoveredOrUncovered, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(legPrice, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(tradSesStatusRejReason, <<"1">>) -> 
     unknownOrInvalidTradingSessionID;
+convert(tradSesStatusRejReason, Bin) -> 
+   binary_to_list(Bin);
+convert(tradeRequestID, Bin) -> 
+   binary_to_list(Bin);
 convert(tradeRequestType, <<"4">>) -> 
     advisoriesThatMatchCriteria;
 convert(tradeRequestType, <<"3">>) -> 
@@ -2593,6 +3051,10 @@ convert(previouslyReported, <<"N">>) ->
     notReportedToCounterparty;
 convert(previouslyReported, <<"Y">>) -> 
     perviouslyReportedToCounterparty;
+convert(tradeReportID, Bin) -> 
+   binary_to_list(Bin);
+convert(tradeReportRefID, Bin) -> 
+   binary_to_list(Bin);
 convert(matchStatus, <<"0">>) -> 
     compared;
 convert(matchStatus, <<"1">>) -> 
@@ -2639,8 +3101,10 @@ convert(oddLot, <<"Y">>) ->
     true;
 convert(oddLot, <<"N">>) -> 
     false;
+convert(oddLot, Bin) -> 
+   binary_to_list(Bin);
 convert(noClearingInstructions, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
 convert(clearingInstruction, <<"8">>) -> 
     manualMode;
 convert(clearingInstruction, <<"5">>) -> 
@@ -2663,8 +3127,12 @@ convert(clearingInstruction, <<"7">>) ->
     excludeFromCentralCounterparty;
 convert(clearingInstruction, <<"1">>) -> 
     excludeFromAllNetting;
+convert(tradeInputSource, Bin) -> 
+   binary_to_list(Bin);
+convert(tradeInputDevice, Bin) -> 
+   binary_to_list(Bin);
 convert(noDates, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(accountType, <<"3">>) -> 
     houseTrader;
 convert(accountType, <<"7">>) -> 
@@ -2680,7 +3148,11 @@ convert(accountType, <<"1">>) ->
 convert(accountType, <<"8">>) -> 
     jointBackOfficeAccount;
 convert(custOrderCapacity, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(clOrdLinkID, Bin) -> 
+   binary_to_list(Bin);
+convert(massStatusReqID, Bin) -> 
+   binary_to_list(Bin);
 convert(massStatusReqType, <<"1">>) -> 
     statusForOrdersForASecurity;
 convert(massStatusReqType, <<"2">>) -> 
@@ -2697,6 +3169,12 @@ convert(massStatusReqType, <<"8">>) ->
     statusForOrdersForAPartyID;
 convert(massStatusReqType, <<"7">>) -> 
     statusForAllOrders;
+convert(origOrdModTime, Bin) -> 
+   binary_to_list(Bin);
+convert(legSettlmntTyp, Bin) -> 
+   binary_to_list(Bin);
+convert(legFutSettDate, Bin) -> 
+   binary_to_list(Bin);
 convert(dayBookingInst, <<"0">>) -> 
     auto;
 convert(dayBookingInst, <<"1">>) -> 
@@ -2711,22 +3189,74 @@ convert(preallocMethod, <<"0">>) ->
     proRata;
 convert(preallocMethod, <<"1">>) -> 
     doNotProRata;
+convert(underlyingCountryOfIssue, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingStateOrProvinceOfIssue, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingLocaleOfIssue, Bin) -> 
+   binary_to_list(Bin);
+convert(underlyingInstrRegistry, Bin) -> 
+   binary_to_list(Bin);
+convert(legCountryOfIssue, Bin) -> 
+   binary_to_list(Bin);
+convert(legStateOrProvinceOfIssue, Bin) -> 
+   binary_to_list(Bin);
+convert(legLocaleOfIssue, Bin) -> 
+   binary_to_list(Bin);
+convert(legInstrRegistry, Bin) -> 
+   binary_to_list(Bin);
+convert(legSymbol, Bin) -> 
+   binary_to_list(Bin);
+convert(legSymbolSfx, Bin) -> 
+   binary_to_list(Bin);
+convert(legSecurityID, Bin) -> 
+   binary_to_list(Bin);
+convert(legSecurityIDSource, Bin) -> 
+   binary_to_list(Bin);
 convert(noLegSecurityAltID, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(legSecurityAltID, Bin) -> 
+   binary_to_list(Bin);
+convert(legSecurityAltIDSource, Bin) -> 
+   binary_to_list(Bin);
 convert(legProduct, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(legCFICode, Bin) -> 
+   binary_to_list(Bin);
+convert(legSecurityType, Bin) -> 
+   binary_to_list(Bin);
+convert(legMaturityMonthYear, Bin) -> 
+   binary_to_list(Bin);
+convert(legMaturityDate, Bin) -> 
+   binary_to_list(Bin);
 convert(legStrikePrice, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(legOptAttribute, Bin) -> 
+   binary_to_list(Bin);
 convert(legContractMultiplier, Bin) -> 
-    bin_to_num(Bin);
+   bin_to_num(Bin);
 convert(legCouponRate, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(legSecurityExchange, Bin) -> 
+   binary_to_list(Bin);
+convert(legIssuer, Bin) -> 
+   binary_to_list(Bin);
 convert(encodedLegIssuerLen, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(encodedLegIssuer, Bin) -> 
+   binary_to_list(Bin);
+convert(legSecurityDesc, Bin) -> 
+   binary_to_list(Bin);
 convert(encodedLegSecurityDescLen, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   bin_to_num(Bin);
+convert(encodedLegSecurityDesc, Bin) -> 
+   binary_to_list(Bin);
 convert(legRatioQty, Bin) -> 
-    bin_to_num(Bin);
+   bin_to_num(Bin);
+convert(legSide, Bin) -> 
+   binary_to_list(Bin);
+convert(tradingSessionSubID, Bin) -> 
+   binary_to_list(Bin);
 convert(allocType, <<"6">>) -> 
     buysideReadyToBook;
 convert(allocType, <<"2">>) -> 
@@ -2740,17 +3270,21 @@ convert(allocType, <<"1">>) ->
 convert(allocType, <<"4">>) -> 
     sellsideCalculatedWithoutPreliminary;
 convert(noHops, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
+convert(hopCompID, Bin) -> 
+   binary_to_list(Bin);
+convert(hopSendingTime, Bin) -> 
+   binary_to_list(Bin);
 convert(hopRefID, Bin) -> 
-    erlang:list_to_integer(erlang:binary_to_list(Bin));
+   binary_to_list(Bin);
 convert(midPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(bidYield, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(midYield, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(offerYield, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(clearingFeeIndicator, <<"H">>) -> 
     firms106HAnd106J;
 convert(clearingFeeIndicator, <<"5">>) -> 
@@ -2784,41 +3318,49 @@ convert(workingIndicator, <<"N">>) ->
 convert(workingIndicator, <<"Y">>) -> 
     working;
 convert(legLastPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(priorityIndicator, <<"0">>) -> 
     priorityUnchanged;
 convert(priorityIndicator, <<"1">>) -> 
     lostPriorityAsResultOfOrderChange;
 convert(priceImprovement, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(price2, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(lastForwardPoints2, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(bidForwardPoints2, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(offerForwardPoints2, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(rFQReqID, Bin) -> 
+   binary_to_list(Bin);
 convert(mktBidPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(mktOfferPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(minBidSize, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(minOfferSize, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(quoteStatusReqID, Bin) -> 
+   binary_to_list(Bin);
 convert(legalConfirm, <<"Y">>) -> 
-    legalConfirm;
+    legalConfirmTrue;
 convert(legalConfirm, <<"N">>) -> 
     doesNotConsituteALegalConfirm;
 convert(underlyingLastPx, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
 convert(underlyingLastQty, Bin) -> 
-    bin_to_num(Bin);
+   binary_to_list(Bin);
+convert(legRefID, Bin) -> 
+   binary_to_list(Bin);
+convert(contraLegRefID, Bin) -> 
+   binary_to_list(Bin);
 convert(settlCurrBidFxRate, Bin) -> 
-    bin_to_num(Bin);
+   bin_to_num(Bin);
 convert(settlCurrOfferFxRate, Bin) -> 
-    bin_to_num(Bin);
+   bin_to_num(Bin);
 convert(quoteRequestRejectReason, <<"1">>) -> 
     unknownSymbol;
 convert(quoteRequestRejectReason, <<"2">>) -> 
@@ -2831,6 +3373,8 @@ convert(quoteRequestRejectReason, <<"5">>) ->
     invalidPrice;
 convert(quoteRequestRejectReason, <<"6">>) -> 
     notAuthorizedToRequestQuote;
+convert(sideComplianceID, Bin) -> 
+   binary_to_list(Bin);
 convert(_Name, Bin) ->
     Bin.
 get_record_def(commissionData) -> 
@@ -2953,8 +3497,8 @@ get_record_def(rgr_rgr_allocation_78_136) ->
     [rgr_rgr_allocation_78_136, miscFeeAmt, miscFeeCurr, miscFeeType];
 get_record_def(rgr_allocation_78) -> 
     [rgr_allocation_78, allocAccount, allocPrice, allocQty, individualAllocID, processCode, [nestedParties], notifyBrokerOfCredit, allocHandlInst, allocText, encodedAllocTextLen, encodedAllocText, [commissionData], allocAvgPx, allocNetMoney, settlCurrAmt, settlCurrency, settlCurrFxRate, settlCurrFxRateCalc, accruedInterestAmt, settlInstMode, [[rgr_rgr_allocation_78_136]]];
-get_record_def(allocation) -> 
-    [allocation, [standardHeader], allocID, allocTransType, allocType, refAllocID, allocLinkID, allocLinkType, bookingRefID, [[rgr_allocation_73]], [[rgr_allocation_124]], side, [instrument], quantity, lastMkt, tradeOriginationDate, tradingSessionID, tradingSessionSubID, priceType, avgPx, currency, avgPrxPrecision, [parties], tradeDate, transactTime, settlmntTyp, futSettDate, grossTradeAmt, concession, totalTakedown, netMoney, positionEffect, text, encodedTextLen, encodedText, numDaysInterest, accruedInterestRate, totalAccruedInterestAmt, legalConfirm, [[rgr_allocation_78]], [standardTrailer]];
+get_record_def(allocationInstruction) -> 
+    [allocationInstruction, [standardHeader], allocID, allocTransType, allocType, refAllocID, allocLinkID, allocLinkType, bookingRefID, [[rgr_allocation_73]], [[rgr_allocation_124]], side, [instrument], quantity, lastMkt, tradeOriginationDate, tradingSessionID, tradingSessionSubID, priceType, avgPx, currency, avgPrxPrecision, [parties], tradeDate, transactTime, settlmntTyp, futSettDate, grossTradeAmt, concession, totalTakedown, netMoney, positionEffect, text, encodedTextLen, encodedText, numDaysInterest, accruedInterestRate, totalAccruedInterestAmt, legalConfirm, [[rgr_allocation_78]], [standardTrailer]];
 get_record_def(listCancelRequest) -> 
     [listCancelRequest, [standardHeader], listID, transactTime, tradeOriginationDate, text, encodedTextLen, encodedText, [standardTrailer]];
 get_record_def(listExecute) -> 
@@ -2965,8 +3509,8 @@ get_record_def(rgr_listStatus_73) ->
     [rgr_listStatus_73, clOrdID, secondaryClOrdID, cumQty, ordStatus, workingIndicator, leavesQty, cxlQty, avgPx, ordRejReason, text, encodedTextLen, encodedText];
 get_record_def(listStatus) -> 
     [listStatus, [standardHeader], listID, listStatusType, noRpts, listOrderStatus, rptSeq, listStatusText, encodedListStatusTextLen, encodedListStatusText, transactTime, totNoOrders, [[rgr_listStatus_73]], [standardTrailer]];
-get_record_def(allocationAck) -> 
-    [allocationAck, [standardHeader], [parties], allocID, tradeDate, transactTime, allocStatus, allocRejCode, text, encodedTextLen, encodedText, legalConfirm, [standardTrailer]];
+get_record_def(allocationInstructionAck) -> 
+    [allocationInstructionAck, [standardHeader], [parties], allocID, tradeDate, transactTime, allocStatus, allocRejCode, text, encodedTextLen, encodedText, legalConfirm, [standardTrailer]];
 get_record_def(dontKnowTrade) -> 
     [dontKnowTrade, [standardHeader], orderID, execID, dKReason, [instrument], side, [orderQtyData], lastQty, lastPx, text, encodedTextLen, encodedText, [standardTrailer]];
 get_record_def(rgr_quoteRequest_146) -> 
@@ -3017,7 +3561,7 @@ get_record_def(securityDefinition) ->
     [securityDefinition, [standardHeader], securityReqID, securityResponseID, securityResponseType, [instrument], currency, tradingSessionID, tradingSessionSubID, text, encodedTextLen, encodedText, [[rgr_securityDefinition_555]], roundLot, minTradeVol, [standardTrailer]];
 get_record_def(securityStatusRequest) -> 
     [securityStatusRequest, [standardHeader], securityStatusReqID, [instrument], currency, subscriptionRequestType, tradingSessionID, tradingSessionSubID, [standardTrailer]];
-get_record_def(securityStatus) -> 
+get_record_def(securityStatus) ->  
     [securityStatus, [standardHeader], securityStatusReqID, [instrument], currency, tradingSessionID, tradingSessionSubID, unsolicitedIndicator, securityTradingStatus, financialStatus, corporateAction, haltReason, inViewOfCommon, dueToRelated, buyVolume, sellVolume, highPx, lowPx, lastPx, transactTime, adjustment, text, encodedTextLen, encodedText, [standardTrailer]];
 get_record_def(tradingSessionStatusRequest) -> 
     [tradingSessionStatusRequest, [standardHeader], tradSesReqID, tradingSessionID, tradingSessionSubID, tradSesMethod, tradSesMode, subscriptionRequestType, [standardTrailer]];
@@ -3146,7 +3690,7 @@ get_record_def(rFQRequest) ->
 get_record_def(quoteStatusReport) -> 
     [quoteStatusReport, [standardHeader], quoteStatusReqID, quoteReqID, quoteID, quoteType, [parties], account, accountType, tradingSessionID, tradingSessionSubID, [instrument], bidPx, offerPx, mktBidPx, mktOfferPx, minBidSize, bidSize, minOfferSize, offerSize, validUntilTime, bidSpotRate, offerSpotRate, bidForwardPoints, offerForwardPoints, midPx, bidYield, midYield, offerYield, transactTime, futSettDate, ordType, futSettDate2, orderQty2, bidForwardPoints2, offerForwardPoints2, currency, settlCurrBidFxRate, settlCurrOfferFxRate, settlCurrFxRateCalc, commission, commType, custOrderCapacity, exDestination, quoteStatus, [standardTrailer]];
 get_record_def(_Else) -> 
-    error.
+    no_record_def_error.
 
 getRecord(commissionData)->
     #commissionData{};
@@ -3268,8 +3812,8 @@ getRecord(rgr_allocation_78)->
     #rgr_allocation_78{};
 getRecord(rgr_rgr_allocation_78_136)->
     #rgr_rgr_allocation_78_136{};
-getRecord(allocation)->
-    #allocation{};
+getRecord(allocationInstruction)->
+    #allocationInstruction{};
 getRecord(listCancelRequest)->
     #listCancelRequest{};
 getRecord(listExecute)->
@@ -3280,8 +3824,8 @@ getRecord(rgr_listStatus_73)->
     #rgr_listStatus_73{};
 getRecord(listStatus)->
     #listStatus{};
-getRecord(allocationAck)->
-    #allocationAck{};
+getRecord(allocationInstructionAck)->
+    #allocationInstructionAck{};
 getRecord(dontKnowTrade)->
     #dontKnowTrade{};
 getRecord(rgr_quoteRequest_146)->
@@ -3460,6 +4004,7 @@ getRecord(rFQRequest)->
     #rFQRequest{};
 getRecord(quoteStatusReport)->
     #quoteStatusReport{}.
+
 setFieldInRecord(commissionData, commission, Record, Value)->
    erlang:setelement(#commissionData.commission, Record, Value);
 setFieldInRecord(commissionData, commType, Record, Value)->
@@ -4936,24 +5481,24 @@ setFieldInRecord(orderStatusRequest, side, Record, Value)->
     erlang:setelement(#orderStatusRequest.side, Record, Value);
 setFieldInRecord(orderStatusRequest, standardTrailer, Record, Value)->
     erlang:setelement(#orderStatusRequest.standardTrailer, Record, Value);
-setFieldInRecord(allocation, standardHeader, Record, Value)->
-    erlang:setelement(#allocation.standardHeader, Record, Value);
-setFieldInRecord(allocation, allocID, Record, Value)->
-    erlang:setelement(#allocation.allocID, Record, Value);
-setFieldInRecord(allocation, allocTransType, Record, Value)->
-    erlang:setelement(#allocation.allocTransType, Record, Value);
-setFieldInRecord(allocation, allocType, Record, Value)->
-    erlang:setelement(#allocation.allocType, Record, Value);
-setFieldInRecord(allocation, refAllocID, Record, Value)->
-    erlang:setelement(#allocation.refAllocID, Record, Value);
-setFieldInRecord(allocation, allocLinkID, Record, Value)->
-    erlang:setelement(#allocation.allocLinkID, Record, Value);
-setFieldInRecord(allocation, allocLinkType, Record, Value)->
-    erlang:setelement(#allocation.allocLinkType, Record, Value);
-setFieldInRecord(allocation, bookingRefID, Record, Value)->
-    erlang:setelement(#allocation.bookingRefID, Record, Value);
-setFieldInRecord(allocation, rgr_allocation_73, Record, Value)->
-   erlang:setelement(#allocation.rgr_allocation_73, Record, Value);
+setFieldInRecord(allocationInstruction, standardHeader, Record, Value)->
+    erlang:setelement(#allocationInstruction.standardHeader, Record, Value);
+setFieldInRecord(allocationInstruction, allocID, Record, Value)->
+    erlang:setelement(#allocationInstruction.allocID, Record, Value);
+setFieldInRecord(allocationInstruction, allocTransType, Record, Value)->
+    erlang:setelement(#allocationInstruction.allocTransType, Record, Value);
+setFieldInRecord(allocationInstruction, allocType, Record, Value)->
+    erlang:setelement(#allocationInstruction.allocType, Record, Value);
+setFieldInRecord(allocationInstruction, refAllocID, Record, Value)->
+    erlang:setelement(#allocationInstruction.refAllocID, Record, Value);
+setFieldInRecord(allocationInstruction, allocLinkID, Record, Value)->
+    erlang:setelement(#allocationInstruction.allocLinkID, Record, Value);
+setFieldInRecord(allocationInstruction, allocLinkType, Record, Value)->
+    erlang:setelement(#allocationInstruction.allocLinkType, Record, Value);
+setFieldInRecord(allocationInstruction, bookingRefID, Record, Value)->
+    erlang:setelement(#allocationInstruction.bookingRefID, Record, Value);
+setFieldInRecord(allocationInstruction, rgr_allocation_73, Record, Value)->
+   erlang:setelement(#allocationInstruction.rgr_allocation_73, Record, Value);
 setFieldInRecord(rgr_allocation_73, clOrdID, Record, Value)->
    erlang:setelement(#rgr_allocation_73.clOrdID, Record, Value);
 setFieldInRecord(rgr_allocation_73, orderID, Record, Value)->
@@ -4964,8 +5509,8 @@ setFieldInRecord(rgr_allocation_73, secondaryClOrdID, Record, Value)->
    erlang:setelement(#rgr_allocation_73.secondaryClOrdID, Record, Value);
 setFieldInRecord(rgr_allocation_73, listID, Record, Value)->
    erlang:setelement(#rgr_allocation_73.listID, Record, Value);
-setFieldInRecord(allocation, rgr_allocation_124, Record, Value)->
-   erlang:setelement(#allocation.rgr_allocation_124, Record, Value);
+setFieldInRecord(allocationInstruction, rgr_allocation_124, Record, Value)->
+   erlang:setelement(#allocationInstruction.rgr_allocation_124, Record, Value);
 setFieldInRecord(rgr_allocation_124, lastQty, Record, Value)->
    erlang:setelement(#rgr_allocation_124.lastQty, Record, Value);
 setFieldInRecord(rgr_allocation_124, execID, Record, Value)->
@@ -4976,64 +5521,64 @@ setFieldInRecord(rgr_allocation_124, lastPx, Record, Value)->
    erlang:setelement(#rgr_allocation_124.lastPx, Record, Value);
 setFieldInRecord(rgr_allocation_124, lastCapacity, Record, Value)->
    erlang:setelement(#rgr_allocation_124.lastCapacity, Record, Value);
-setFieldInRecord(allocation, side, Record, Value)->
-    erlang:setelement(#allocation.side, Record, Value);
-setFieldInRecord(allocation, instrument, Record, Value)->
-    erlang:setelement(#allocation.instrument, Record, Value);
-setFieldInRecord(allocation, quantity, Record, Value)->
-    erlang:setelement(#allocation.quantity, Record, Value);
-setFieldInRecord(allocation, lastMkt, Record, Value)->
-    erlang:setelement(#allocation.lastMkt, Record, Value);
-setFieldInRecord(allocation, tradeOriginationDate, Record, Value)->
-    erlang:setelement(#allocation.tradeOriginationDate, Record, Value);
-setFieldInRecord(allocation, tradingSessionID, Record, Value)->
-    erlang:setelement(#allocation.tradingSessionID, Record, Value);
-setFieldInRecord(allocation, tradingSessionSubID, Record, Value)->
-    erlang:setelement(#allocation.tradingSessionSubID, Record, Value);
-setFieldInRecord(allocation, priceType, Record, Value)->
-    erlang:setelement(#allocation.priceType, Record, Value);
-setFieldInRecord(allocation, avgPx, Record, Value)->
-    erlang:setelement(#allocation.avgPx, Record, Value);
-setFieldInRecord(allocation, currency, Record, Value)->
-    erlang:setelement(#allocation.currency, Record, Value);
-setFieldInRecord(allocation, avgPrxPrecision, Record, Value)->
-    erlang:setelement(#allocation.avgPrxPrecision, Record, Value);
-setFieldInRecord(allocation, parties, Record, Value)->
-    erlang:setelement(#allocation.parties, Record, Value);
-setFieldInRecord(allocation, tradeDate, Record, Value)->
-    erlang:setelement(#allocation.tradeDate, Record, Value);
-setFieldInRecord(allocation, transactTime, Record, Value)->
-    erlang:setelement(#allocation.transactTime, Record, Value);
-setFieldInRecord(allocation, settlmntTyp, Record, Value)->
-    erlang:setelement(#allocation.settlmntTyp, Record, Value);
-setFieldInRecord(allocation, futSettDate, Record, Value)->
-    erlang:setelement(#allocation.futSettDate, Record, Value);
-setFieldInRecord(allocation, grossTradeAmt, Record, Value)->
-    erlang:setelement(#allocation.grossTradeAmt, Record, Value);
-setFieldInRecord(allocation, concession, Record, Value)->
-    erlang:setelement(#allocation.concession, Record, Value);
-setFieldInRecord(allocation, totalTakedown, Record, Value)->
-    erlang:setelement(#allocation.totalTakedown, Record, Value);
-setFieldInRecord(allocation, netMoney, Record, Value)->
-    erlang:setelement(#allocation.netMoney, Record, Value);
-setFieldInRecord(allocation, positionEffect, Record, Value)->
-    erlang:setelement(#allocation.positionEffect, Record, Value);
-setFieldInRecord(allocation, text, Record, Value)->
-    erlang:setelement(#allocation.text, Record, Value);
-setFieldInRecord(allocation, encodedTextLen, Record, Value)->
-    erlang:setelement(#allocation.encodedTextLen, Record, Value);
-setFieldInRecord(allocation, encodedText, Record, Value)->
-    erlang:setelement(#allocation.encodedText, Record, Value);
-setFieldInRecord(allocation, numDaysInterest, Record, Value)->
-    erlang:setelement(#allocation.numDaysInterest, Record, Value);
-setFieldInRecord(allocation, accruedInterestRate, Record, Value)->
-    erlang:setelement(#allocation.accruedInterestRate, Record, Value);
-setFieldInRecord(allocation, totalAccruedInterestAmt, Record, Value)->
-    erlang:setelement(#allocation.totalAccruedInterestAmt, Record, Value);
-setFieldInRecord(allocation, legalConfirm, Record, Value)->
-    erlang:setelement(#allocation.legalConfirm, Record, Value);
-setFieldInRecord(allocation, rgr_allocation_78, Record, Value)->
-   erlang:setelement(#allocation.rgr_allocation_78, Record, Value);
+setFieldInRecord(allocationInstruction, side, Record, Value)->
+    erlang:setelement(#allocationInstruction.side, Record, Value);
+setFieldInRecord(allocationInstruction, instrument, Record, Value)->
+    erlang:setelement(#allocationInstruction.instrument, Record, Value);
+setFieldInRecord(allocationInstruction, quantity, Record, Value)->
+    erlang:setelement(#allocationInstruction.quantity, Record, Value);
+setFieldInRecord(allocationInstruction, lastMkt, Record, Value)->
+    erlang:setelement(#allocationInstruction.lastMkt, Record, Value);
+setFieldInRecord(allocationInstruction, tradeOriginationDate, Record, Value)->
+    erlang:setelement(#allocationInstruction.tradeOriginationDate, Record, Value);
+setFieldInRecord(allocationInstruction, tradingSessionID, Record, Value)->
+    erlang:setelement(#allocationInstruction.tradingSessionID, Record, Value);
+setFieldInRecord(allocationInstruction, tradingSessionSubID, Record, Value)->
+    erlang:setelement(#allocationInstruction.tradingSessionSubID, Record, Value);
+setFieldInRecord(allocationInstruction, priceType, Record, Value)->
+    erlang:setelement(#allocationInstruction.priceType, Record, Value);
+setFieldInRecord(allocationInstruction, avgPx, Record, Value)->
+    erlang:setelement(#allocationInstruction.avgPx, Record, Value);
+setFieldInRecord(allocationInstruction, currency, Record, Value)->
+    erlang:setelement(#allocationInstruction.currency, Record, Value);
+setFieldInRecord(allocationInstruction, avgPrxPrecision, Record, Value)->
+    erlang:setelement(#allocationInstruction.avgPrxPrecision, Record, Value);
+setFieldInRecord(allocationInstruction, parties, Record, Value)->
+    erlang:setelement(#allocationInstruction.parties, Record, Value);
+setFieldInRecord(allocationInstruction, tradeDate, Record, Value)->
+    erlang:setelement(#allocationInstruction.tradeDate, Record, Value);
+setFieldInRecord(allocationInstruction, transactTime, Record, Value)->
+    erlang:setelement(#allocationInstruction.transactTime, Record, Value);
+setFieldInRecord(allocationInstruction, settlmntTyp, Record, Value)->
+    erlang:setelement(#allocationInstruction.settlmntTyp, Record, Value);
+setFieldInRecord(allocationInstruction, futSettDate, Record, Value)->
+    erlang:setelement(#allocationInstruction.futSettDate, Record, Value);
+setFieldInRecord(allocationInstruction, grossTradeAmt, Record, Value)->
+    erlang:setelement(#allocationInstruction.grossTradeAmt, Record, Value);
+setFieldInRecord(allocationInstruction, concession, Record, Value)->
+    erlang:setelement(#allocationInstruction.concession, Record, Value);
+setFieldInRecord(allocationInstruction, totalTakedown, Record, Value)->
+    erlang:setelement(#allocationInstruction.totalTakedown, Record, Value);
+setFieldInRecord(allocationInstruction, netMoney, Record, Value)->
+    erlang:setelement(#allocationInstruction.netMoney, Record, Value);
+setFieldInRecord(allocationInstruction, positionEffect, Record, Value)->
+    erlang:setelement(#allocationInstruction.positionEffect, Record, Value);
+setFieldInRecord(allocationInstruction, text, Record, Value)->
+    erlang:setelement(#allocationInstruction.text, Record, Value);
+setFieldInRecord(allocationInstruction, encodedTextLen, Record, Value)->
+    erlang:setelement(#allocationInstruction.encodedTextLen, Record, Value);
+setFieldInRecord(allocationInstruction, encodedText, Record, Value)->
+    erlang:setelement(#allocationInstruction.encodedText, Record, Value);
+setFieldInRecord(allocationInstruction, numDaysInterest, Record, Value)->
+    erlang:setelement(#allocationInstruction.numDaysInterest, Record, Value);
+setFieldInRecord(allocationInstruction, accruedInterestRate, Record, Value)->
+    erlang:setelement(#allocationInstruction.accruedInterestRate, Record, Value);
+setFieldInRecord(allocationInstruction, totalAccruedInterestAmt, Record, Value)->
+    erlang:setelement(#allocationInstruction.totalAccruedInterestAmt, Record, Value);
+setFieldInRecord(allocationInstruction, legalConfirm, Record, Value)->
+    erlang:setelement(#allocationInstruction.legalConfirm, Record, Value);
+setFieldInRecord(allocationInstruction, rgr_allocation_78, Record, Value)->
+   erlang:setelement(#allocationInstruction.rgr_allocation_78, Record, Value);
 setFieldInRecord(rgr_allocation_78, allocAccount, Record, Value)->
    erlang:setelement(#rgr_allocation_78.allocAccount, Record, Value);
 setFieldInRecord(rgr_allocation_78, allocPrice, Record, Value)->
@@ -5082,8 +5627,8 @@ setFieldInRecord(rgr_rgr_allocation_78_136, miscFeeCurr, Record, Value)->
    erlang:setelement(#rgr_rgr_allocation_78_136.miscFeeCurr, Record, Value);
 setFieldInRecord(rgr_rgr_allocation_78_136, miscFeeType, Record, Value)->
    erlang:setelement(#rgr_rgr_allocation_78_136.miscFeeType, Record, Value);
-setFieldInRecord(allocation, standardTrailer, Record, Value)->
-    erlang:setelement(#allocation.standardTrailer, Record, Value);
+setFieldInRecord(allocationInstruction, standardTrailer, Record, Value)->
+    erlang:setelement(#allocationInstruction.standardTrailer, Record, Value);
 setFieldInRecord(listCancelRequest, standardHeader, Record, Value)->
     erlang:setelement(#listCancelRequest.standardHeader, Record, Value);
 setFieldInRecord(listCancelRequest, listID, Record, Value)->
@@ -5180,30 +5725,30 @@ setFieldInRecord(rgr_listStatus_73, encodedText, Record, Value)->
    erlang:setelement(#rgr_listStatus_73.encodedText, Record, Value);
 setFieldInRecord(listStatus, standardTrailer, Record, Value)->
     erlang:setelement(#listStatus.standardTrailer, Record, Value);
-setFieldInRecord(allocationAck, standardHeader, Record, Value)->
-    erlang:setelement(#allocationAck.standardHeader, Record, Value);
-setFieldInRecord(allocationAck, parties, Record, Value)->
-    erlang:setelement(#allocationAck.parties, Record, Value);
-setFieldInRecord(allocationAck, allocID, Record, Value)->
-    erlang:setelement(#allocationAck.allocID, Record, Value);
-setFieldInRecord(allocationAck, tradeDate, Record, Value)->
-    erlang:setelement(#allocationAck.tradeDate, Record, Value);
-setFieldInRecord(allocationAck, transactTime, Record, Value)->
-    erlang:setelement(#allocationAck.transactTime, Record, Value);
-setFieldInRecord(allocationAck, allocStatus, Record, Value)->
-    erlang:setelement(#allocationAck.allocStatus, Record, Value);
-setFieldInRecord(allocationAck, allocRejCode, Record, Value)->
-    erlang:setelement(#allocationAck.allocRejCode, Record, Value);
-setFieldInRecord(allocationAck, text, Record, Value)->
-    erlang:setelement(#allocationAck.text, Record, Value);
-setFieldInRecord(allocationAck, encodedTextLen, Record, Value)->
-    erlang:setelement(#allocationAck.encodedTextLen, Record, Value);
-setFieldInRecord(allocationAck, encodedText, Record, Value)->
-    erlang:setelement(#allocationAck.encodedText, Record, Value);
-setFieldInRecord(allocationAck, legalConfirm, Record, Value)->
-    erlang:setelement(#allocationAck.legalConfirm, Record, Value);
-setFieldInRecord(allocationAck, standardTrailer, Record, Value)->
-    erlang:setelement(#allocationAck.standardTrailer, Record, Value);
+setFieldInRecord(allocationInstructionAck, standardHeader, Record, Value)->
+    erlang:setelement(#allocationInstructionAck.standardHeader, Record, Value);
+setFieldInRecord(allocationInstructionAck, parties, Record, Value)->
+    erlang:setelement(#allocationInstructionAck.parties, Record, Value);
+setFieldInRecord(allocationInstructionAck, allocID, Record, Value)->
+    erlang:setelement(#allocationInstructionAck.allocID, Record, Value);
+setFieldInRecord(allocationInstructionAck, tradeDate, Record, Value)->
+    erlang:setelement(#allocationInstructionAck.tradeDate, Record, Value);
+setFieldInRecord(allocationInstructionAck, transactTime, Record, Value)->
+    erlang:setelement(#allocationInstructionAck.transactTime, Record, Value);
+setFieldInRecord(allocationInstructionAck, allocStatus, Record, Value)->
+    erlang:setelement(#allocationInstructionAck.allocStatus, Record, Value);
+setFieldInRecord(allocationInstructionAck, allocRejCode, Record, Value)->
+    erlang:setelement(#allocationInstructionAck.allocRejCode, Record, Value);
+setFieldInRecord(allocationInstructionAck, text, Record, Value)->
+    erlang:setelement(#allocationInstructionAck.text, Record, Value);
+setFieldInRecord(allocationInstructionAck, encodedTextLen, Record, Value)->
+    erlang:setelement(#allocationInstructionAck.encodedTextLen, Record, Value);
+setFieldInRecord(allocationInstructionAck, encodedText, Record, Value)->
+    erlang:setelement(#allocationInstructionAck.encodedText, Record, Value);
+setFieldInRecord(allocationInstructionAck, legalConfirm, Record, Value)->
+    erlang:setelement(#allocationInstructionAck.legalConfirm, Record, Value);
+setFieldInRecord(allocationInstructionAck, standardTrailer, Record, Value)->
+    erlang:setelement(#allocationInstructionAck.standardTrailer, Record, Value);
 setFieldInRecord(dontKnowTrade, standardHeader, Record, Value)->
     erlang:setelement(#dontKnowTrade.standardHeader, Record, Value);
 setFieldInRecord(dontKnowTrade, orderID, Record, Value)->
@@ -7759,7 +8304,7 @@ getMessageName(<<"G">>) ->
 getMessageName(<<"H">>) -> 
     orderStatusRequest;
 getMessageName(<<"J">>) -> 
-    allocation;
+    allocationInstruction;
 getMessageName(<<"K">>) -> 
     listCancelRequest;
 getMessageName(<<"L">>) -> 
@@ -7769,7 +8314,7 @@ getMessageName(<<"M">>) ->
 getMessageName(<<"N">>) -> 
     listStatus;
 getMessageName(<<"P">>) -> 
-    allocationAck;
+    allocationInstructionAck;
 getMessageName(<<"Q">>) -> 
     dontKnowTrade;
 getMessageName(<<"R">>) -> 
@@ -10419,9 +10964,9 @@ reconvert(advTransType, cancel) ->
 reconvert(advTransType, replace) -> 
     <<"R">>;
 reconvert(beginSeqNo, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(bodyLength, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(commType, pointsPerBondOrContract) -> 
     <<"6">>;
 reconvert(commType, perUnit) -> 
@@ -10435,7 +10980,7 @@ reconvert(commType, percentageWaivedEnhancedUnits) ->
 reconvert(commType, percentageWaivedCashDiscount) -> 
     <<"4">>;
 reconvert(endSeqNo, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(execInst, tryToStop) -> 
     <<"Y">>;
 reconvert(execInst, midPricePeg) -> 
@@ -10569,9 +11114,9 @@ reconvert(lastCapacity, agent) ->
 reconvert(lastCapacity, crossAsAgent) -> 
     <<"2">>;
 reconvert(linesOfText, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(msgSeqNum, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(msgType, heartbeat) -> 
     <<"0">>;
 reconvert(msgType, testRequest) -> 
@@ -10600,7 +11145,7 @@ reconvert(msgType, derivativeSecurityList) ->
     <<"AA">>;
 reconvert(msgType, newOrderMultileg) -> 
     <<"AB">>;
-reconvert(msgType, multilegOrderCancelReplace) -> 
+reconvert(msgType, multilegOrderCancelReplaceRequest) -> 
     <<"AC">>;
 reconvert(msgType, tradeCaptureReportRequest) -> 
     <<"AD">>;
@@ -10662,7 +11207,7 @@ reconvert(msgType, listStatusRequest) ->
     <<"M">>;
 reconvert(msgType, listStatus) -> 
     <<"N">>;
-reconvert(msgType, xMLNonFIX) -> 
+reconvert(msgType, xMLnonFIX) -> 
     <<"n">>;
 reconvert(msgType, registrationInstructions) -> 
     <<"o">>;
@@ -10709,7 +11254,7 @@ reconvert(msgType, derivativeSecurityListRequest) ->
 reconvert(msgType, quoteCancel) -> 
     <<"Z">>;
 reconvert(newSeqNo, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(ordStatus, new) -> 
     <<"0">>;
 reconvert(ordStatus, partiallyFilled) -> 
@@ -10791,7 +11336,7 @@ reconvert(possDupFlag, originalTransmission) ->
 reconvert(possDupFlag, possibleDuplicate) -> 
     <<"Y">>;
 reconvert(refSeqNum, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(rule80A, agentForOtherMember) -> 
     <<"N">>;
 reconvert(rule80A, shortExemptTransactionAType) -> 
@@ -10907,9 +11452,9 @@ reconvert(settlmntTyp, tPlus5) ->
 reconvert(settlmntTyp, tPlus3) -> 
     <<"4">>;
 reconvert(listSeqNo, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(totNoOrders, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(allocTransType, calculatedWithoutPreliminary) -> 
     <<"5">>;
 reconvert(allocTransType, calculated) -> 
@@ -10923,9 +11468,9 @@ reconvert(allocTransType, replace) ->
 reconvert(allocTransType, new) -> 
     <<"0">>;
 reconvert(noOrders, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(avgPrxPrecision, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(positionEffect, fIFO) -> 
     <<"F">>;
 reconvert(positionEffect, rolled) -> 
@@ -10935,7 +11480,7 @@ reconvert(positionEffect, close) ->
 reconvert(positionEffect, open) -> 
     <<"O">>;
 reconvert(noAllocs, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(processCode, planSponsor) -> 
     <<"6">>;
 reconvert(processCode, regular) -> 
@@ -10951,9 +11496,9 @@ reconvert(processCode, softDollarStepIn) ->
 reconvert(processCode, softDollarStepOut) -> 
     <<"5">>;
 reconvert(noRpts, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(rptSeq, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(allocStatus, blockLevelReject) -> 
     <<"1">>;
 reconvert(allocStatus, accountLevelReject) -> 
@@ -10979,9 +11524,9 @@ reconvert(allocRejCode, incorrectQuantity) ->
 reconvert(allocRejCode, incorrectAveragegPrice) -> 
     <<"2">>;
 reconvert(secureDataLen, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(signatureLength, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(emailType, new) -> 
     <<"0">>;
 reconvert(emailType, reply) -> 
@@ -10989,7 +11534,7 @@ reconvert(emailType, reply) ->
 reconvert(emailType, adminReply) -> 
     <<"2">>;
 reconvert(rawDataLength, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(possResend, originalTransmission) -> 
     <<"N">>;
 reconvert(possResend, possibleResend) -> 
@@ -11085,7 +11630,7 @@ reconvert(iOIQualifier, atTheMidpoint) ->
 reconvert(iOIQualifier, preOpen) -> 
     <<"Z">>;
 reconvert(heartBtInt, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(reportToExch, receiverReports) -> 
     <<"Y">>;
 reconvert(reportToExch, senderReports) -> 
@@ -11103,7 +11648,7 @@ reconvert(gapFillFlag, gapFillMessage) ->
 reconvert(gapFillFlag, sequenceReset) -> 
     <<"N">>;
 reconvert(noExecs, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(dKReason, wrongSide) -> 
     <<"B">>;
 reconvert(dKReason, quantityExceedsOrder) -> 
@@ -11121,7 +11666,7 @@ reconvert(iOINaturalFlag, natural) ->
 reconvert(iOINaturalFlag, notNatural) -> 
     <<"N">>;
 reconvert(noMiscFees, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(miscFeeType, localCommission) -> 
     <<"3">>;
 reconvert(miscFeeType, exchangeFees) -> 
@@ -11145,7 +11690,7 @@ reconvert(resetSeqNumFlag, yes) ->
 reconvert(resetSeqNumFlag, no) -> 
     <<"N">>;
 reconvert(noRelatedSym, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(execType, pendingCancel) -> 
     <<"6">>;
 reconvert(execType, new) -> 
@@ -11189,7 +11734,7 @@ reconvert(settlCurrFxRateCalc, divide) ->
 reconvert(settlCurrFxRateCalc, multiply) -> 
     <<"M">>;
 reconvert(numDaysInterest, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(settlInstMode, default) -> 
     <<"0">>;
 reconvert(settlInstMode, specificOrderForASingleAccount) -> 
@@ -11393,7 +11938,7 @@ reconvert(allocLinkType, fXNetting) ->
 reconvert(allocLinkType, fXSwap) -> 
     <<"1">>;
 reconvert(noIOIQualifiers, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(coveredOrUncovered, uncovered) -> 
     <<"1">>;
 reconvert(coveredOrUncovered, covered) -> 
@@ -11409,9 +11954,9 @@ reconvert(allocHandlInst, forward) ->
 reconvert(allocHandlInst, match) -> 
     <<"1">>;
 reconvert(xmlDataLen, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(noRoutingIDs, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(routingType, targetFirm) -> 
     <<"1">>;
 reconvert(routingType, targetList) -> 
@@ -11457,9 +12002,9 @@ reconvert(benchmarkCurveName, muniAAA) ->
 reconvert(benchmarkCurveName, lIBOR) -> 
     <<"LIBOR">>;
 reconvert(repurchaseTerm, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(noStipulations, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(stipulationType, absolutePrepaymentSpeed) -> 
     <<"ABS">>;
 reconvert(stipulationType, weightedAverageLoanAge) -> 
@@ -11585,9 +12130,9 @@ reconvert(yieldType, closingYieldMostRecentMonth) ->
 reconvert(yieldType, closingYield) -> 
     <<"CLOSE">>;
 reconvert(underlyingRepurchaseTerm, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(legRepurchaseTerm, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(tradedFlatSwitch, notTradedFlat) -> 
     <<"N">>;
 reconvert(tradedFlatSwitch, tradedFlat) -> 
@@ -11599,7 +12144,7 @@ reconvert(subscriptionRequestType, disablePreviousSnapshot) ->
 reconvert(subscriptionRequestType, snapshot) -> 
     <<"0">>;
 reconvert(marketDepth, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(mDUpdateType, fullRefresh) -> 
     <<"0">>;
 reconvert(mDUpdateType, incrementalRefresh) -> 
@@ -11609,9 +12154,9 @@ reconvert(aggregatedBook, bookEntriesToBeAggregated) ->
 reconvert(aggregatedBook, bookEntriesShouldNotBeAggregated) -> 
     <<"N">>;
 reconvert(noMDEntryTypes, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(noMDEntries, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(mDEntryType, tradingSessionHighPrice) -> 
     <<"7">>;
 reconvert(mDEntryType, offer) -> 
@@ -11741,9 +12286,9 @@ reconvert(openCloseSettleFlag, entryFromPreviousBusinessDay) ->
 reconvert(openCloseSettleFlag, dailyOpen) -> 
     <<"0">>;
 reconvert(sellerDays, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(mDEntryPositionNo, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(financialStatus, bankrupt) -> 
     <<"1">>;
 reconvert(financialStatus, pendingDelisting) -> 
@@ -11759,9 +12304,9 @@ reconvert(corporateAction, exDividend) ->
 reconvert(corporateAction, new) -> 
     <<"D">>;
 reconvert(noQuoteEntries, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(noQuoteSets, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(quoteStatus, removedFromMarket) -> 
     <<"6">>;
 reconvert(quoteStatus, cancelForSymbol) -> 
@@ -11821,9 +12366,9 @@ reconvert(quoteRequestType, automatic) ->
 reconvert(quoteRequestType, manual) -> 
     <<"1">>;
 reconvert(totQuoteEntries, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(underlyingPutOrCall, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(securityRequestType, requestSecurityIdentityAndSpecifications) -> 
     <<"0">>;
 reconvert(securityRequestType, requestSecurityIdentityForSpecifications) -> 
@@ -11945,7 +12490,7 @@ reconvert(tradSesStatus, halted) ->
 reconvert(tradSesStatus, unknown) -> 
     <<"0">>;
 reconvert(numberOfOrders, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(messageEncoding, uTF8) -> 
     <<"UTF-8">>;
 reconvert(messageEncoding, iSO2022JP) -> 
@@ -11955,29 +12500,29 @@ reconvert(messageEncoding, eUCJP) ->
 reconvert(messageEncoding, shiftJIS) -> 
     <<"Shift_JIS">>;
 reconvert(encodedIssuerLen, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(encodedSecurityDescLen, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(encodedListExecInstLen, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(encodedTextLen, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(encodedSubjectLen, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(encodedHeadlineLen, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(encodedAllocTextLen, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(encodedUnderlyingIssuerLen, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(encodedUnderlyingSecurityDescLen, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(quoteEntryRejectReason, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(lastMsgSeqNumProcessed, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(refTagID, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(sessionRejectReason, xMLValidationError) -> 
     <<"12">>;
 reconvert(sessionRejectReason, non) -> 
@@ -12057,17 +12602,17 @@ reconvert(businessRejectReason, unknownID) ->
 reconvert(businessRejectReason, unknownSecurity) -> 
     <<"2">>;
 reconvert(noContraBrokers, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(maxMessageSize, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(noMsgTypes, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(msgDirection, send) -> 
     <<"S">>;
 reconvert(msgDirection, receivereceiveFix) -> 
     <<"R">>;
 reconvert(noTradingSessions, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(discretionInst, relatedToDisplayedPrice) -> 
     <<"0">>;
 reconvert(discretionInst, relatedToMarketPrice) -> 
@@ -12081,7 +12626,7 @@ reconvert(discretionInst, relatedToMidpointPrice) ->
 reconvert(discretionInst, relatedToLastTradePrice) -> 
     <<"5">>;
 reconvert(totalNumSecurities, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(bidType, nonDisclosed) -> 
     <<"1">>;
 reconvert(bidType, disclosed) -> 
@@ -12089,9 +12634,9 @@ reconvert(bidType, disclosed) ->
 reconvert(bidType, noBiddingProcess) -> 
     <<"3">>;
 reconvert(numTickets, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(noBidDescriptors, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(bidDescriptorType, index) -> 
     <<"3">>;
 reconvert(bidDescriptorType, countrycountryFix) -> 
@@ -12121,13 +12666,13 @@ reconvert(progRptReqs, sellSideSends) ->
 reconvert(progRptReqs, buySideRequests) -> 
     <<"1">>;
 reconvert(progPeriodInterval, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(incTaxInd, gross) -> 
     <<"2">>;
 reconvert(incTaxInd, net) -> 
     <<"1">>;
 reconvert(numBidders, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(tradeType, vWAPGuarantee) -> 
     <<"G">>;
 reconvert(tradeType, agency) -> 
@@ -12163,9 +12708,9 @@ reconvert(basisPxType, closingPriceAtMorningSession) ->
 reconvert(basisPxType, vWAPThroughAMorningSessionExcept) -> 
     <<"A">>;
 reconvert(noBidComponents, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(totNoStrikes, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(priceType, fixedAmount) -> 
     <<"3">>;
 reconvert(priceType, percentage) -> 
@@ -12189,7 +12734,7 @@ reconvert(gTBookingInst, accumulateUntilVerballlyNotifiedOtherwise) ->
 reconvert(gTBookingInst, accumulateUntilFilledOrExpired) -> 
     <<"1">>;
 reconvert(noStrikes, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(listStatusType, alert) -> 
     <<"6">>;
 reconvert(listStatusType, execStarted) -> 
@@ -12235,7 +12780,7 @@ reconvert(cxlRejResponseTo, orderCancel) ->
 reconvert(cxlRejResponseTo, orderCancelRequest) -> 
     <<"1">>;
 reconvert(liquidityNumSecurities, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(multiLegReportingType, singleSecurity) -> 
     <<"1">>;
 reconvert(multiLegReportingType, individualLegOfAMultiLegSecurity) -> 
@@ -12243,7 +12788,7 @@ reconvert(multiLegReportingType, individualLegOfAMultiLegSecurity) ->
 reconvert(multiLegReportingType, multiLegSecurity) -> 
     <<"3">>;
 reconvert(encodedListStatusTextLen, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(partyIDSource, chineseInvestorID) -> 
     <<"5">>;
 reconvert(partyIDSource, uSEmployerOrTaxIDNumber) -> 
@@ -12315,11 +12860,11 @@ reconvert(partyRole, orderOriginationFirm) ->
 reconvert(partyRole, clearingFirm) -> 
     <<"4">>;
 reconvert(noPartyIDs, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(noSecurityAltID, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(noUnderlyingSecurityAltID, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(produkt, lOAN) -> 
     <<"8">>;
 reconvert(produkt, oTHER) -> 
@@ -12345,7 +12890,7 @@ reconvert(produkt, mONEYMARKET) ->
 reconvert(produkt, eQUITY) -> 
     <<"5">>;
 reconvert(underlyingProduct, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(testMessageIndicator, true) -> 
     <<"Y">>;
 reconvert(testMessageIndicator, fales) -> 
@@ -12373,9 +12918,9 @@ reconvert(roundingDirection, roundDown) ->
 reconvert(roundingDirection, roundUp) -> 
     <<"2">>;
 reconvert(noRegistDtls, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(distribPaymentMethod, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(cancellationRights, noWaiverAgreement) -> 
     <<"M">>;
 reconvert(cancellationRights, noExecutionOnly) -> 
@@ -12555,7 +13100,7 @@ reconvert(registRejReasonCode, invalidAccountNum) ->
 reconvert(registRejReasonCode, invalidRegDetails) -> 
     <<"6">>;
 reconvert(noDistribInsts, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(registTransType, cancel) -> 
     <<"2">>;
 reconvert(registTransType, new) -> 
@@ -12563,7 +13108,7 @@ reconvert(registTransType, new) ->
 reconvert(registTransType, replace) -> 
     <<"1">>;
 reconvert(noContAmts, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(contAmtType, netSettlementAmount) -> 
     <<"15">>;
 reconvert(contAmtType, commissionAmount) -> 
@@ -12697,9 +13242,9 @@ reconvert(massCancelRejectReason, massCancelNotSupported) ->
 reconvert(massCancelRejectReason, invalidOrUnknownCFICode) -> 
     <<"4">>;
 reconvert(totalAffectedOrders, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(noAffectedOrders, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(quoteType, indicative) -> 
     <<"0">>;
 reconvert(quoteType, tradeable) -> 
@@ -12707,9 +13252,9 @@ reconvert(quoteType, tradeable) ->
 reconvert(quoteType, restrictedTradeable) -> 
     <<"2">>;
 reconvert(nestedPartyRole, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(noNestedPartyIDs, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(cashMargin, marginOpen) -> 
     <<"2">>;
 reconvert(cashMargin, marginClose) -> 
@@ -12745,11 +13290,11 @@ reconvert(noSides, oneSide) ->
 reconvert(noSides, bothSides) -> 
     <<"2">>;
 reconvert(noLegs, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(totalNumSecurityTypes, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(noSecurityTypes, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(securityListRequestType, securityTypeAnd) -> 
     <<"1">>;
 reconvert(securityListRequestType, produkt) -> 
@@ -12773,9 +13318,9 @@ reconvert(securityRequestResult, notAuthorizedToRetrieveInstrumentData) ->
 reconvert(securityRequestResult, noInstrumentsFound) -> 
     <<"2">>;
 reconvert(multiLegRptTypeReq, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(legCoveredOrUncovered, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(tradSesStatusRejReason, unknownOrInvalidTradingSessionID) -> 
     <<"1">>;
 reconvert(tradeRequestType, advisoriesThatMatchCriteria) -> 
@@ -12839,7 +13384,7 @@ reconvert(oddLot, true) ->
 reconvert(oddLot, false) -> 
     <<"N">>;
 reconvert(noClearingInstructions, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(clearingInstruction, manualMode) -> 
     <<"8">>;
 reconvert(clearingInstruction, multilateralNetting) -> 
@@ -12863,7 +13408,7 @@ reconvert(clearingInstruction, excludeFromCentralCounterparty) ->
 reconvert(clearingInstruction, excludeFromAllNetting) -> 
     <<"1">>;
 reconvert(noDates, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(accountType, houseTrader) -> 
     <<"3">>;
 reconvert(accountType, houseTraderCrossMargined) -> 
@@ -12879,7 +13424,7 @@ reconvert(accountType, carriedCustomerSide) ->
 reconvert(accountType, jointBackOfficeAccount) -> 
     <<"8">>;
 reconvert(custOrderCapacity, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(massStatusReqType, statusForOrdersForASecurity) -> 
     <<"1">>;
 reconvert(massStatusReqType, statusForOrdersForAnUnderlyingSecurity) -> 
@@ -12911,13 +13456,13 @@ reconvert(preallocMethod, proRata) ->
 reconvert(preallocMethod, doNotProRata) -> 
     <<"1">>;
 reconvert(noLegSecurityAltID, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(legProduct, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(encodedLegIssuerLen, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(encodedLegSecurityDescLen, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(allocType, buysideReadyToBook) -> 
     <<"6">>;
 reconvert(allocType, preliminary) -> 
@@ -12931,9 +13476,9 @@ reconvert(allocType, calculated) ->
 reconvert(allocType, sellsideCalculatedWithoutPreliminary) -> 
     <<"4">>;
 reconvert(noHops, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(hopRefID, Int) -> 
-    erlang:list_to_binary(erlang:integer_to_list(Int));
+    erlang:integer_to_list(Int);
 reconvert(clearingFeeIndicator, firms106HAnd106J) -> 
     <<"H">>;
 reconvert(clearingFeeIndicator, fifthYearDelegate) -> 
@@ -12970,7 +13515,7 @@ reconvert(priorityIndicator, priorityUnchanged) ->
     <<"0">>;
 reconvert(priorityIndicator, lostPriorityAsResultOfOrderChange) -> 
     <<"1">>;
-reconvert(legalConfirm, legalConfirm) -> 
+reconvert(legalConfirm, legalConfirmTrue) -> 
     <<"Y">>;
 reconvert(legalConfirm, doesNotConsituteALegalConfirm) -> 
     <<"N">>;

@@ -1,6 +1,5 @@
--type length () :: int().
+-type length () :: integer().
 -type localmmktdate () :: string().
--type int () :: number().
 -type tagNum () :: string().
 -type seqNum () :: string().
 -type numInGroup () :: string().
@@ -89,22 +88,22 @@
 -type settlDate () :: localMktDate().
 -type symbolSfx () :: eUCPWithLumpSumInterest|whenIssued.
 -type listID () :: string().
--type listSeqNo () :: int().
--type totNoOrders () :: int().
+-type listSeqNo () :: integer().
+-type totNoOrders () :: integer().
 -type listExecInst () :: string().
 -type allocID () :: string().
 -type allocTransType () :: new|replace|cancel|preliminary|calculated|calculatedWithoutPreliminary|reversal.
 -type refAllocID () :: string().
 -type noOrders () :: numInGroup().
--type avgPxPrecision () :: int().
+-type avgPxPrecision () :: integer().
 -type tradeDate () :: localMktDate().
 -type positionEffect () :: close|fIFO|open|rolled|closeButNotifyOnOpen|default.
 -type noAllocs () :: numInGroup().
 -type allocAccount () :: string().
 -type allocQty () :: qty().
 -type processCode () :: regular|softDollar|stepIn|stepOut|softDollarStepIn|softDollarStepOut|planSponsor.
--type noRpts () :: int().
--type rptSeq () :: int().
+-type noRpts () :: integer().
+-type rptSeq () :: integer().
 -type cxlQty () :: qty().
 -type noDlvyInst () :: numInGroup().
 -type allocStatus () :: accepted|blockLevelReject|accountLevelReject|received|incomplete|rejectedByIntermediary|allocationPending|reversed.
@@ -125,7 +124,7 @@
 -type iOIQualifier () :: allOrNone|marketOnClose|atTheClose|vWAP|inTouchWith|limit|moreBehind|atTheOpen|takingAPosition|atTheMarket|readyToTrade|portfolioShown|throughTheDay|versus|indication|crossingOpportunity|atTheMidpoint|preOpen.
 -type issuer () :: string().
 -type securityDesc () :: string().
--type heartBtInt () :: int().
+-type heartBtInt () :: integer().
 -type minQty () :: qty().
 -type maxFloor () :: qty().
 -type testReqID () :: string().
@@ -172,7 +171,7 @@
 -type allocNetMoney () :: amt().
 -type settlCurrFxRate () :: float().
 -type settlCurrFxRateCalc () :: multiply|divide.
--type numDaysInterest () :: int().
+-type numDaysInterest () :: integer().
 -type accruedInterestRate () :: percentage().
 -type accruedInterestAmt () :: amt().
 -type settlInstMode () :: default|standingInstructionsProvided|specificAllocationAccountOverriding|specificAllocationAccountStanding|specificOrderForASingleAccount|requestReject.
@@ -203,7 +202,7 @@
 -type putOrCall () :: put|call.
 -type strikePrice () :: price().
 -type coveredOrUncovered () :: covered|uncovered.
--type optAttribute () :: char().
+-type optAttribute () :: string().
 -type securityExchange () :: exchange().
 -type notifyBrokerOfCredit () :: detailsShouldNotBeCommunicated|detailsShouldBeCommunicated.
 -type allocHandlInst () :: match|forward|forwardAndMatch.
@@ -222,7 +221,7 @@
 -type couponRate () :: percentage().
 -type couponPaymentDate () :: localMktDate().
 -type issueDate () :: localMktDate().
--type repurchaseTerm () :: int().
+-type repurchaseTerm () :: integer().
 -type repurchaseRate () :: percentage().
 -type factor () :: float().
 -type tradeOriginationDate () :: localMktDate().
@@ -240,14 +239,14 @@
 -type underlyingCouponPaymentDate () :: localMktDate().
 -type underlyingIssueDate () :: localMktDate().
 -type underlyingRepoCollateralSecurityType () :: string().
--type underlyingRepurchaseTerm () :: int().
+-type underlyingRepurchaseTerm () :: integer().
 -type underlyingRepurchaseRate () :: percentage().
 -type underlyingFactor () :: float().
 -type underlyingRedemptionDate () :: localMktDate().
 -type legCouponPaymentDate () :: localMktDate().
 -type legIssueDate () :: localMktDate().
 -type legRepoCollateralSecurityType () :: string().
--type legRepurchaseTerm () :: int().
+-type legRepurchaseTerm () :: integer().
 -type legRepurchaseRate () :: percentage().
 -type legFactor () :: float().
 -type legRedemptionDate () :: localMktDate().
@@ -259,7 +258,7 @@
 -type basisFeaturePrice () :: price().
 -type mDReqID () :: string().
 -type subscriptionRequestType () :: snapshot|snapshotAndUpdates|disablePreviousSnapshot.
--type marketDepth () :: int().
+-type marketDepth () :: integer().
 -type mDUpdateType () :: fullRefresh|incrementalRefresh.
 -type aggregatedBook () :: bookEntriesToBeAggregated|bookEntriesShouldNotBeAggregated.
 -type noMDEntryTypes () :: numInGroup().
@@ -282,10 +281,10 @@
 -type deskID () :: string().
 -type deleteReason () :: cancellation|error.
 -type openCloseSettlFlag () :: dailyOpen|sessionOpen|deliverySettlementEntry|expectedEntry|entryFromPreviousBusinessDay|theoreticalPriceValue.
--type sellerDays () :: int().
+-type sellerDays () :: integer().
 -type mDEntryBuyer () :: string().
 -type mDEntrySeller () :: string().
--type mDEntryPositionNo () :: int().
+-type mDEntryPositionNo () :: integer().
 -type financialStatus () :: bankrupt|pendingDelisting|restricted.
 -type corporateAction () :: exDividend|exDistribution|exRights|new|exInterest|cashDividend|stockDividend|nonIntegerStockSplit|reverseStockSplit|standardIntegerStockSplit|positionConsolidation|liquidationReorganization|mergerReorganization|rightsOffering|shareholderMeeting|spinoff|tenderOffer|warrant|specialAction|symbolConversion|cUSIP|leapRollover|successionEvent.
 -type defBidSize () :: qty().
@@ -299,7 +298,7 @@
 -type quoteResponseLevel () :: noAcknowledgement|acknowledgeOnlyNegativeOrErroneousQuotes|acknowledgeEachQuoteMessage|summaryAcknowledgement.
 -type quoteSetID () :: string().
 -type quoteRequestType () :: manual|automatic.
--type totNoQuoteEntries () :: int().
+-type totNoQuoteEntries () :: integer().
 -type underlyingSecurityIDSource () :: string().
 -type underlyingIssuer () :: string().
 -type underlyingSecurityDesc () :: string().
@@ -309,9 +308,9 @@
 -type underlyingSymbol () :: string().
 -type underlyingSymbolSfx () :: string().
 -type underlyingMaturityMonthYear () :: monthYear().
--type underlyingPutOrCall () :: int().
+-type underlyingPutOrCall () :: integer().
 -type underlyingStrikePrice () :: price().
--type underlyingOptAttribute () :: char().
+-type underlyingOptAttribute () :: string().
 -type underlyingCurrency () :: currency().
 -type securityReqID () :: string().
 -type securityRequestType () :: requestSecurityIdentityAndSpecifications|requestSecurityIdentityForSpecifications|requestListSecurityTypes|requestListSecurities|symbol|securityTypeAndOrCFICode|produkt|tradingSessionID|allSecurities|marketIDOrMarketID.
@@ -339,7 +338,7 @@
 -type tradSesPreCloseTime () :: uTCTimestamp().
 -type tradSesCloseTime () :: uTCTimestamp().
 -type tradSesEndTime () :: uTCTimestamp().
--type numberOfOrders () :: int().
+-type numberOfOrders () :: integer().
 -type messageEncoding () :: string().
 -type encodedIssuerLen () :: length().
 -type encodedIssuer () :: data().
@@ -361,9 +360,9 @@
 -type encodedUnderlyingSecurityDesc () :: data().
 -type allocPrice () :: price().
 -type quoteSetValidUntilTime () :: uTCTimestamp().
--type quoteEntryRejectReason () :: int().
+-type quoteEntryRejectReason () :: integer().
 -type lastMsgSeqNumProcessed () :: seqNum().
--type refTagID () :: int().
+-type refTagID () :: integer().
 -type refMsgType () :: string().
 -type sessionRejectReason () :: invalidTagNumber|requiredTagMissing|tagNotDefinedForThisMessageType|undefinedTag|tagSpecifiedWithoutAValue|valueIsIncorrect|incorrectDataFormatForValue|decryptionProblem|signatureProblem|compIDProblem|sendingTimeAccuracyProblem|invalidMsgType|xMLValidationError|tagAppearsMoreThanOnce|tagSpecifiedOutOfRequiredOrder|repeatingGroupFieldsOutOfOrder|incorrectNumInGroupCountForRepeatingGroup|non|invalid|other.
 -type bidRequestTransType () :: cancel|new.
@@ -385,9 +384,9 @@
 -type bidID () :: string().
 -type clientBidID () :: string().
 -type listName () :: string().
--type totNoRelatedSym () :: int().
+-type totNoRelatedSym () :: integer().
 -type bidType () :: nonDisclosed|disclosed|noBiddingProcess.
--type numTickets () :: int().
+-type numTickets () :: integer().
 -type sideValue1 () :: amt().
 -type sideValue2 () :: amt().
 -type noBidDescriptors () :: numInGroup().
@@ -407,13 +406,13 @@
 -type outMainCntryUIndex () :: amt().
 -type crossPercent () :: percentage().
 -type progRptReqs () :: buySideRequests|sellSideSends|realTimeExecutionReports.
--type progPeriodInterval () :: int().
+-type progPeriodInterval () :: integer().
 -type incTaxInd () :: net|gross.
--type numBidders () :: int().
+-type numBidders () :: integer().
 -type bidTradeType () :: agency|vWAPGuarantee|guaranteedClose|riskTrade.
 -type basisPxType () :: closingPriceAtMorningSession|closingPrice|currentPrice|sQ|vWAPThroughADay|vWAPThroughAMorningSession|vWAPThroughAnAfternoonSession|vWAPThroughADayExcept|vWAPThroughAMorningSessionExcept|vWAPThroughAnAfternoonSessionExcept|strike|open|others.
 -type noBidComponents () :: numInGroup().
--type totNoStrikes () :: int().
+-type totNoStrikes () :: integer().
 -type priceType () :: percentage|perUnit|fixedAmount|discount|premium|spread|tEDPrice|tEDYield|yield|fixedCabinetTradePrice|variableCabinetTradePrice|productTicksInHalfs|productTicksInFourths|productTicksInEights|productTicksInSixteenths|productTicksInThirtySeconds|productTicksInSixtyForths|productTicksInOneTwentyEights.
 -type dayOrderQty () :: qty().
 -type dayCumQty () :: qty().
@@ -430,7 +429,7 @@
 -type underlyingContractMultiplier () :: float().
 -type contraTradeQty () :: qty().
 -type contraTradeTime () :: uTCTimestamp().
--type liquidityNumSecurities () :: int().
+-type liquidityNumSecurities () :: integer().
 -type multiLegReportingType () :: singleSecurity|individualLegOfAMultiLegSecurity|multiLegSecurity.
 -type strikeTime () :: uTCTimestamp().
 -type listStatusText () :: string().
@@ -449,7 +448,7 @@
 -type underlyingSecurityAltIDSource () :: string().
 -type produkt () :: aGENCY|cOMMODITY|cORPORATE|cURRENCY|eQUITY|gOVERNMENT|iNDEX|lOAN|mONEYMARKET|mORTGAGE|mUNICIPAL|oTHER|fINANCING.
 -type cFICode () :: string().
--type underlyingProduct () :: int().
+-type underlyingProduct () :: integer().
 -type underlyingCFICode () :: string().
 -type testMessageIndicator () :: fales|true.
 -type bookingRefID () :: string().
@@ -511,7 +510,7 @@
 -type ownerType () :: individualInvestor|publicCompany|privateCompany|individualTrustee|companyTrustee|pensionPlan|custodianUnderGiftsToMinorsAct|trusts|fiduciaries|networkingSubAccount|nonProfitOrganization|corporateBody|nominee.
 -type partySubID () :: string().
 -type nestedPartyID () :: string().
--type nestedPartyIDSource () :: char().
+-type nestedPartyIDSource () :: string().
 -type secondaryClOrdID () :: string().
 -type secondaryExecID () :: string().
 -type orderCapacity () :: agency|proprietary|individual|principal|risklessPrincipal|agentForOtherMember.
@@ -519,12 +518,12 @@
 -type massCancelRequestType () :: cancelOrdersForASecurity|cancelOrdersForAnUnderlyingSecurity|cancelOrdersForAProduct|cancelOrdersForACFICode|cancelOrdersForASecurityType|cancelOrdersForATradingSession|cancelAllOrders|cancelOrdersForAMarket|cancelOrdersForAMarketSegment|cancelOrdersForASecurityGroup|cancelOrdersForASecurity_B|cancelForIssuerOfUnderlyingSecurity.
 -type massCancelResponse () :: cancelRequestRejected|cancelOrdersForASecurity|cancelOrdersForAnUnderlyingSecurity|cancelOrdersForAProduct|cancelOrdersForACFICode|cancelOrdersForASecurityType|cancelOrdersForATradingSession|cancelAllOrders|cancelOrdersForAMarket|cancelOrdersForAMarketSegment|cancelOrdersForASecurityGroup|cancelOrdersForASecuritiesIssuer|cancelOrdersForIssuerOfUnderlyingSecurity.
 -type massCancelRejectReason () :: massCancelNotSupported|invalidOrUnknownSecurity|invalidOrUnkownUnderlyingSecurity|invalidOrUnknownProduct|invalidOrUnknownCFICode|invalidOrUnknownSecurityType|invalidOrUnknownTradingSession|invalidOrUnknownMarket|invalidOrUnkownMarketSegment|invalidOrUnknownSecurityGroup|invalidOrUnknownSecurityIssuer|invalidOrUnknownIssuerOfUnderlyingSecurity|other.
--type totalAffectedOrders () :: int().
+-type totalAffectedOrders () :: integer().
 -type noAffectedOrders () :: numInGroup().
 -type affectedOrderID () :: string().
 -type affectedSecondaryOrderID () :: string().
 -type quoteType () :: indicative|tradeable|restrictedTradeable|counter.
--type nestedPartyRole () :: int().
+-type nestedPartyRole () :: integer().
 -type noNestedPartyIDs () :: numInGroup().
 -type totalAccruedInterestAmt () :: amt().
 -type maturityDate () :: localMktDate().
@@ -543,15 +542,15 @@
 -type password () :: string().
 -type noLegs () :: numInGroup().
 -type legCurrency () :: currency().
--type totNoSecurityTypes () :: int().
+-type totNoSecurityTypes () :: integer().
 -type noSecurityTypes () :: numInGroup().
 -type securityListRequestType () :: symbol|securityTypeAnd|produkt|tradingSessionID|allSecurities|marketIDOrMarketID.
 -type securityRequestResult () :: validRequest|invalidOrUnsupportedRequest|noInstrumentsFound|notAuthorizedToRetrieveInstrumentData|instrumentDataTemporarilyUnavailable|requestForInstrumentDataNotSupported.
 -type roundLot () :: qty().
 -type minTradeVol () :: qty().
 -type multiLegRptTypeReq () :: reportByMulitlegSecurityOnly|reportByMultilegSecurityAndInstrumentLegs|reportByInstrumentLegsOnly.
--type legPositionEffect () :: char().
--type legCoveredOrUncovered () :: int().
+-type legPositionEffect () :: string().
+-type legCoveredOrUncovered () :: integer().
 -type legPrice () :: price().
 -type tradSesStatusRejReason () :: unknownOrInvalidTradingSessionID|other.
 -type tradeRequestID () :: string().
@@ -573,7 +572,7 @@
 -type massStatusReqID () :: string().
 -type massStatusReqType () :: statusForOrdersForASecurity|statusForOrdersForAnUnderlyingSecurity|statusForOrdersForAProduct|statusForOrdersForACFICode|statusForOrdersForASecurityType|statusForOrdersForATradingSession|statusForAllOrders|statusForOrdersForAPartyID|statusForSecurityIssuer|statusForIssuerOfUnderlyingSecurity.
 -type origOrdModTime () :: uTCTimestamp().
--type legSettlType () :: char().
+-type legSettlType () :: string().
 -type legSettlDate () :: localMktDate().
 -type dayBookingInst () :: auto|speakWithOrderInitiatorBeforeBooking|accumulate.
 -type bookingUnit () :: eachPartialExecutionIsABookableUnit|aggregatePartialExecutionsOnThisOrder|aggregateExecutionsForThisSymbol.
@@ -593,13 +592,13 @@
 -type noLegSecurityAltID () :: numInGroup().
 -type legSecurityAltID () :: string().
 -type legSecurityAltIDSource () :: string().
--type legProduct () :: int().
+-type legProduct () :: integer().
 -type legCFICode () :: string().
 -type legSecurityType () :: string().
 -type legMaturityMonthYear () :: monthYear().
 -type legMaturityDate () :: localMktDate().
 -type legStrikePrice () :: price().
--type legOptAttribute () :: char().
+-type legOptAttribute () :: string().
 -type legContractMultiplier () :: float().
 -type legCouponRate () :: percentage().
 -type legSecurityExchange () :: exchange().
@@ -610,7 +609,7 @@
 -type encodedLegSecurityDescLen () :: length().
 -type encodedLegSecurityDesc () :: data().
 -type legRatioQty () :: float().
--type legSide () :: char().
+-type legSide () :: string().
 -type tradingSessionSubID () :: preTrading|openingOrOpeningAuction|continuous|closingOrClosingAuction|postTrading|intradayAuction|quiescent.
 -type allocType () :: calculated|preliminary|sellsideCalculatedUsingPreliminary|sellsideCalculatedWithoutPreliminary|readyToBook|buysideReadyToBook|warehouseInstruction|requestToIntermediary|accept|reject|acceptPending|incompleteGroup|completeGroup|reversalPending.
 -type noHops () :: numInGroup().
@@ -636,7 +635,7 @@
 -type minBidSize () :: qty().
 -type minOfferSize () :: qty().
 -type quoteStatusReqID () :: string().
--type legalConfirm () :: doesNotConsituteALegalConfirm|legalConfirm.
+-type legalConfirm () :: doesNotConsituteALegalConfirm|legalConfirmTrue.
 -type underlyingLastPx () :: price().
 -type underlyingLastQty () :: qty().
 -type legRefID () :: string().
@@ -646,9 +645,9 @@
 -type quoteRequestRejectReason () :: unknownSymbol|exchange|quoteRequestExceedsLimit|tooLateToEnter|invalidPrice|notAuthorizedToRequestQuote|noMatchForInquiry|noMarketForInstrument|noInventory|pass|insufficientCredit|other.
 -type sideComplianceID () :: string().
 -type acctIDSource () :: bIC|sIDCode|tFM|oMGEO|dTCCCode|other.
--type allocAcctIDSource () :: int().
+-type allocAcctIDSource () :: integer().
 -type benchmarkPrice () :: price().
--type benchmarkPriceType () :: int().
+-type benchmarkPriceType () :: integer().
 -type confirmID () :: string().
 -type confirmStatus () :: received|mismatchedAccount|missingSettlementInstructions|confirmed|requestRejected.
 -type confirmTransType () :: new|replace|cancel.
@@ -665,13 +664,13 @@
 -type legBenchmarkCurveName () :: string().
 -type legBenchmarkCurvePoint () :: string().
 -type legBenchmarkPrice () :: price().
--type legBenchmarkPriceType () :: int().
+-type legBenchmarkPriceType () :: integer().
 -type legBidPx () :: price().
 -type legIOIQty () :: string().
 -type noLegStipulations () :: numInGroup().
 -type legOfferPx () :: price().
 -type legOrderQty () :: qty().
--type legPriceType () :: int().
+-type legPriceType () :: integer().
 -type legQty () :: qty().
 -type legStipulationType () :: string().
 -type legStipulationValue () :: string().
@@ -680,10 +679,10 @@
 -type quotePriceType () :: percent|perShare|fixedAmount|discount|premium|spread|tEDPrice|tEDYield|yieldSpread|yield.
 -type quoteRespID () :: string().
 -type quoteRespType () :: hit|counter|expired|cover|doneAway|pass|endTrade|timedOut.
--type quoteQualifier () :: char().
+-type quoteQualifier () :: string().
 -type yieldRedemptionDate () :: localMktDate().
 -type yieldRedemptionPrice () :: price().
--type yieldRedemptionPriceType () :: int().
+-type yieldRedemptionPriceType () :: integer().
 -type benchmarkSecurityID () :: string().
 -type reversalIndicator () :: boolean().
 -type yieldCalcDate () :: localMktDate().
@@ -712,13 +711,13 @@
 -type posReqType () :: positions|trades|exercises|assignments|settlementActivity|backoutMessage|deltaPositions.
 -type responseTransportType () :: inband|outOfBand.
 -type responseDestination () :: string().
--type totalNumPosReports () :: int().
+-type totalNumPosReports () :: integer().
 -type posReqResult () :: validRequest|invalidOrUnsupportedRequest|noPositionsFoundThatMatchCriteria|notAuthorizedToRequestPositions|requestForPositionNotSupported|other.
 -type posReqStatus () :: completed|completedWithWarnings|rejected.
 -type settlPrice () :: price().
 -type settlPriceType () :: final|theoretical.
 -type underlyingSettlPrice () :: price().
--type underlyingSettlPriceType () :: int().
+-type underlyingSettlPriceType () :: integer().
 -type priorSettlPrice () :: price().
 -type noQuoteQualifiers () :: numInGroup().
 -type allocSettlCurrency () :: currency().
@@ -733,7 +732,7 @@
 -type assignmentUnit () :: qty().
 -type openInterest () :: amt().
 -type exerciseMethod () :: automatic|manual.
--type totNumTradeReports () :: int().
+-type totNumTradeReports () :: integer().
 -type tradeRequestResult () :: successful|invalidOrUnknownInstrument|invalidTypeOfTradeRequested|invalidParties|invalidTransportTypeRequested|invalidDestinationRequested|tradeRequestTypeNotSupported|notAuthorized|other.
 -type tradeRequestStatus () :: accepted|completed|rejected.
 -type tradeReportRejectReason () :: successful|invalidPartyOnformation|unknownInstrument|unauthorizedToReportTrades|invalidTradeType|other.
@@ -743,8 +742,8 @@
 -type allocReportID () :: string().
 -type noNested2PartyIDs () :: numInGroup().
 -type nested2PartyID () :: string().
--type nested2PartyIDSource () :: char().
--type nested2PartyRole () :: int().
+-type nested2PartyIDSource () :: string().
+-type nested2PartyRole () :: integer().
 -type nested2PartySubID () :: string().
 -type benchmarkSecurityIDSource () :: string().
 -type securitySubType () :: string().
@@ -761,17 +760,17 @@
 -type confirmType () :: status|confirmation|confirmationRequestRejected.
 -type confirmRejReason () :: mismatchedAccount|missingSettlementInstructions|other.
 -type bookingType () :: regularBooking|cFD|totalReturnSwap.
--type individualAllocRejCode () :: int().
+-type individualAllocRejCode () :: integer().
 -type settlInstMsgID () :: string().
 -type noSettlInst () :: numInGroup().
 -type lastUpdateTime () :: uTCTimestamp().
 -type allocSettlInstType () :: useDefaultInstructions|deriveFromParametersProvided|fullDetailsProvided|sSIDBIDsProvided|phoneForInstructions.
 -type noSettlPartyIDs () :: numInGroup().
 -type settlPartyID () :: string().
--type settlPartyIDSource () :: char().
--type settlPartyRole () :: int().
+-type settlPartyIDSource () :: string().
+-type settlPartyRole () :: integer().
 -type settlPartySubID () :: string().
--type settlPartySubIDType () :: int().
+-type settlPartySubIDType () :: integer().
 -type dlvyInstType () :: cash|securities.
 -type terminationType () :: overnight|term|flexible|open.
 -type nextExpectedMsgSeqNum () :: seqNum().
@@ -790,14 +789,14 @@
 -type noPartySubIDs () :: numInGroup().
 -type partySubIDType () :: firm|person|system|application|fullLegalNameOfFirm|postalAddress|phoneNumber|emailAddress|contactName|securitiesAccountNumber|registrationNumber|registeredAddressForConfirmation|regulatoryStatus|registrationName|cashAccountNumber|bIC|cSDParticipantMemberCode|registeredAddress|fundAccountName|telexNumber|faxNumber|securitiesAccountName|cashAccountName|department|locationDesk|positionAccountType|securityLocateID|marketMaker|eligibleCounterparty|professionalClient|location|executionVenue|currencyDeliveryIdentifier.
 -type noNestedPartySubIDs () :: numInGroup().
--type nestedPartySubIDType () :: int().
+-type nestedPartySubIDType () :: integer().
 -type noNested2PartySubIDs () :: numInGroup().
--type nested2PartySubIDType () :: int().
+-type nested2PartySubIDType () :: integer().
 -type allocIntermedReqType () :: pendingAccept|pendingRelease|pendingReversal|accept|blockLevelReject|accountLevelReject.
 -type underlyingPx () :: price().
 -type priceDelta () :: float().
--type applQueueMax () :: int().
--type applQueueDepth () :: int().
+-type applQueueMax () :: integer().
+-type applQueueDepth () :: integer().
 -type applQueueResolution () :: noActionTaken|queueFlushed|overlayLast|endSession.
 -type applQueueAction () :: noActionTaken|queueFlushed|overlayLast|endSession.
 -type noAltMDSource () :: numInGroup().
@@ -815,7 +814,7 @@
 -type trdType () :: regularTrade|blockTrade|eFP|transfer|lateTrade|tTrade|weightedAveragePriceTrade|bunchedTrade|lateBunchedTrade|priorReferencePriceTrade|afterHoursTrade|exchangeForRisk|exchangeForSwap|exchangeOfFuturesFor|exchangeOfOptionsForOptions|tradingAtSettlement|allOrNone|futuresLargeOrderExecution|exchangeOfFuturesForFutures|optionInterimTrade|optionCabinetTrade|privatelyNegotiatedTrades|substitutionOfFuturesForForwards|nonStandardSettlement|derivativeRelatedTransaction|portfolioTrade|volumeWeightedAverageTrade|exchangeGrantedTrade|repurchaseAgreement|oTC|exchangeBasisFacility|errorTrade|specialCumDividend|specialExDividend|specialCumCoupon|specialExCoupon|cashSettlement|specialPrice|guaranteedDelivery|specialCumRights|specialExRights|specialCumCapitalRepayments|specialExCapitalRepayments|specialCumBonus|specialExBonus|largeTrade|workedPrincipalTrade|blockTrades|nameChange|portfolioTransfer|prorogationBuy|prorogationSell|optionExercise|deltaNeutralTransaction|financingTransaction.
 -type trdSubType () :: cMTA|internalTransferOrAdjustment|externalTransferOrTransferOfAccount|rejectForSubmittingSide|advisoryForContraSide|offsetDueToAnAllocation|onsetDueToAnAllocation|differentialSpread|impliedSpreadLegExecutedAgainstAnOutright|transactionFromExercise|transactionFromAssignment|aCATS|offHoursTrade|onHoursTrade|oTCQuote|convertedSWAP|aI|b|k|lC|m|n|nM|nR|p|pA|pC|pN|r|rO|rT|sW|t|wN|wT|crossedTrade|interimProtectedTrade|largeInScale.
 -type transferReason () :: string().
--type totNumAssignmentReports () :: int().
+-type totNumAssignmentReports () :: integer().
 -type asgnRptID () :: string().
 -type thresholdAmount () :: priceOffset().
 -type pegMoveType () :: floating|fixed.
@@ -838,7 +837,7 @@
 -type publishTrdIndicator () :: doNotReportTrade|reportTrade.
 -type shortSaleReason () :: dealerSoldShort|dealerSoldShortExempt|sellingCustomerSoldShort|sellingCustomerSoldShortExempt|qualifiedServiceRepresentative|qSROrAGUContraSideSoldShortExempt.
 -type qtyType () :: units|contracts|unitsOfMeasurePerTimeUnit.
--type secondaryTrdType () :: int().
+-type secondaryTrdType () :: integer().
 -type tradeReportType () :: submit|alleged|accept|decline|addendum|no|tradeReportCancel|lockedIn|defaulted|invalidCMTA|pended|allegedNew|allegedAddendum|allegedNo|allegedTradeReportCancel|allegedTradeBreak.
 -type allocNoOrdersType () :: notSpecified|explicitListProvided.
 -type sharedCommission () :: amt().
@@ -875,7 +874,7 @@
 -type underlyingStipValue () :: string().
 -type maturityNetMoney () :: amt().
 -type miscFeeBasis () :: absolute|perUnit|percentage.
--type totNoAllocs () :: int().
+-type totNoAllocs () :: integer().
 -type lastFragment () :: notLastMessage|lastMessage.
 -type collReqID () :: string().
 -type collAsgnReason () :: initial|scheduled|timeWarning|marginDeficiency|marginExcess|forwardCollateralDemand|eventOfDefault|adverseTaxEvent.
@@ -894,7 +893,7 @@
 -type collRptID () :: string().
 -type collInquiryID () :: string().
 -type collStatus () :: unassigned|partiallyAssigned|assignmentProposed|assigned|challenged.
--type totNumReports () :: int().
+-type totNumReports () :: integer().
 -type lastRptRequested () :: notLastMessage|lastMessage.
 -type agreementDesc () :: string().
 -type agreementID () :: string().
@@ -933,11 +932,11 @@
 -type strikeCurrency () :: currency().
 -type noNested3PartyIDs () :: numInGroup().
 -type nested3PartyID () :: string().
--type nested3PartyIDSource () :: char().
--type nested3PartyRole () :: int().
+-type nested3PartyIDSource () :: string().
+-type nested3PartyRole () :: integer().
 -type noNested3PartySubIDs () :: numInGroup().
 -type nested3PartySubID () :: string().
--type nested3PartySubIDType () :: int().
+-type nested3PartySubIDType () :: integer().
 -type legContractSettlMonth () :: monthYear().
 -type legInterestAccrualDate () :: localMktDate().
 -type noStrategyParameters () :: numInGroup().
@@ -946,15 +945,15 @@
 -type strategyParameterValue () :: string().
 -type hostCrossID () :: string().
 -type sideTimeInForce () :: uTCTimestamp().
--type mDReportID () :: int().
--type securityReportID () :: int().
--type securityStatus () :: active|inactive.
+-type mDReportID () :: integer().
+-type securityReportID () :: integer().
+-type securityState () :: active|inactive.
 -type settleOnOpenFlag () :: string().
 -type strikeMultiplier () :: float().
 -type strikeValue () :: float().
 -type minPriceIncrement () :: float().
--type positionLimit () :: int().
--type nTPositionLimit () :: int().
+-type positionLimit () :: integer().
+-type nTPositionLimit () :: integer().
 -type underlyingAllocationPercent () :: percentage().
 -type underlyingCashAmount () :: amt().
 -type underlyingCashType () :: fIXED|dIFF.
@@ -989,11 +988,11 @@
 -type sideTradeReportID () :: string().
 -type sideFillStationCd () :: string().
 -type sideReasonCd () :: string().
--type sideTrdSubTyp () :: int().
--type sideLastQty () :: int().
+-type sideTrdSubTyp () :: integer().
+-type sideLastQty () :: integer().
 -type messageEventSource () :: string().
 -type sideTrdRegTimestamp () :: uTCTimestamp().
--type sideTrdRegTimestampType () :: int().
+-type sideTrdRegTimestampType () :: integer().
 -type sideTrdRegTimestampSrc () :: string().
 -type asOfIndicator () :: false|true.
 -type noSideTrdRegTS () :: numInGroup().
@@ -1003,7 +1002,7 @@
 -type tradeVolume () :: qty().
 -type mDBookType () :: topOfBook|priceDepth|orderDepth.
 -type mDFeedType () :: string().
--type mDPriceLevel () :: int().
+-type mDPriceLevel () :: integer().
 -type mDOriginType () :: book|offBook|cross.
 -type firstPx () :: price().
 -type mDEntrySpotRate () :: float().
@@ -1012,9 +1011,9 @@
 -type custDirectedOrder () :: boolean().
 -type receivedDeptID () :: string().
 -type custOrderHandlingInst () :: addOnOrder|allOrNone|cashNotHeld|directedOrder|exchangeForPhysicalTransaction|fillOrKill|imbalanceOnly|immediateOrCancel|limitOnOpen|limitOnClose|marketAtOpen|marketAtClose|marketOnOpen|marketOnClose|minimumQuantity|notHeld|overTheDay|pegged|reserveSizeOrder|stopStockTransaction|scale|timeOrder|trailingStop|work.
--type orderHandlingInstSource () :: nASDOATS.
+-type orderHandlingInstSource () :: nASDOATS|undefined.
 -type deskType () :: agency|arbitrage|derivatives|international|institutional|other|preferredTrading|proprietary|programTrading|sales|trading.
--type deskTypeSource () :: nASDOATS.
+-type deskTypeSource () :: nASDOATS|undefined.
 -type deskOrderHandlingInst () :: addOnOrder|allOrNone|cashNotHeld|directedOrder|exchangeForPhysicalTransaction|fillOrKill|imbalanceOnly|immediateOrCancel|limitOnOpen|limitOnClose|marketAtOpen|marketAtClose|marketOnOpen|marketOnClose|minimumQuantity|notHeld|overTheDay|pegged|reserveSizeOrder|stopStockTransaction|scale|timeOrder|trailingStop|work.
 -type execAckStatus () :: received|accepted|don.
 -type underlyingDeliveryAmount () :: amt().
@@ -1029,22 +1028,22 @@
 -type underlyingFXRateCalc () :: divide|multiply.
 -type allocPositionEffect () :: open|close|rolled|fIFO.
 -type dealingCapacity () :: agent|principal|risklessPrincipal.
--type instrmtAssignmentMethod () :: char().
--type instrumentPartyIDSource () :: char().
--type instrumentPartyRole () :: int().
+-type instrmtAssignmentMethod () :: string().
+-type instrumentPartyIDSource () :: string().
+-type instrumentPartyRole () :: integer().
 -type noInstrumentPartySubIDs () :: numInGroup().
 -type instrumentPartySubID () :: string().
--type instrumentPartySubIDType () :: int().
+-type instrumentPartySubIDType () :: integer().
 -type positionCurrency () :: string().
 -type calculatedCcyLastQty () :: qty().
 -type aggressorIndicator () :: orderInitiatorIsAggressor|orderInitiatorIsPassive.
 -type noUndlyInstrumentParties () :: numInGroup().
 -type underlyingInstrumentPartyID () :: string().
--type underlyingInstrumentPartyIDSource () :: char().
--type underlyingInstrumentPartyRole () :: int().
+-type underlyingInstrumentPartyIDSource () :: string().
+-type underlyingInstrumentPartyRole () :: integer().
 -type noUndlyInstrumentPartySubIDs () :: numInGroup().
 -type underlyingInstrumentPartySubID () :: string().
--type underlyingInstrumentPartySubIDType () :: int().
+-type underlyingInstrumentPartySubIDType () :: integer().
 -type bidSwapPoints () :: priceOffset().
 -type offerSwapPoints () :: priceOffset().
 -type legBidForwardPoints () :: priceOffset().
@@ -1067,7 +1066,7 @@
 -type displayMinIncr () :: qty().
 -type refreshQty () :: qty().
 -type matchIncrement () :: qty().
--type maxPriceLevels () :: int().
+-type maxPriceLevels () :: integer().
 -type preTradeAnonymity () :: boolean().
 -type priceProtectionScope () :: none|local|national|global.
 -type lotType () :: oddLot|roundLot|blockLot|roundLotBasedUpon.
@@ -1095,13 +1094,13 @@
 -type orderCategory () :: order|quote|privatelyNegotiatedTrade|multilegOrder|linkedOrder|quoteRequest|impliedOrder|crossOrder|streamingPrice.
 -type noRootPartyIDs () :: numInGroup().
 -type rootPartyID () :: string().
--type rootPartyIDSource () :: char().
--type rootPartyRole () :: int().
+-type rootPartyIDSource () :: string().
+-type rootPartyRole () :: integer().
 -type noRootPartySubIDs () :: numInGroup().
 -type rootPartySubID () :: string().
--type rootPartySubIDType () :: int().
+-type rootPartySubIDType () :: integer().
 -type tradeHandlingInstr () :: tradeConfirmation|twoPartyReport|onePartyReportForMatching|onePartyReportForPassThrough|automatedFloorOrderRouting|twoPartyReportForClaim.
--type origTradeHandlingInstr () :: char().
+-type origTradeHandlingInstr () :: string().
 -type origTradeDate () :: localMktDate().
 -type origTradeID () :: string().
 -type origSecondaryTradeID () :: string().
@@ -1131,8 +1130,8 @@
 -type highLimitPrice () :: price().
 -type tradingReferencePrice () :: price().
 -type securityGroup () :: string().
--type legNumber () :: int().
--type settlementCycleNo () :: int().
+-type legNumber () :: integer().
+-type settlementCycleNo () :: integer().
 -type sideCurrency () :: currency().
 -type sideSettlCurrency () :: currency().
 -type ccyAmt () :: amt().
@@ -1146,24 +1145,24 @@
 -type noSettlOblig () :: numInGroup().
 -type quoteMsgID () :: string().
 -type quoteEntryStatus () :: accepted|rejected|removedFromMarket|expired|lockedMarketWarning|crossMarketWarning|canceledDueToLockMarket|canceledDueToCrossMarket|active.
--type totNoCxldQuotes () :: int().
--type totNoAccQuotes () :: int().
--type totNoRejQuotes () :: int().
+-type totNoCxldQuotes () :: integer().
+-type totNoAccQuotes () :: integer().
+-type totNoRejQuotes () :: integer().
 -type privateQuote () :: boolean().
 -type respondentType () :: allMarketParticipants|specifiedMarketParticipants|allMarketMakers|primaryMarketMaker.
--type mDSubBookType () :: int().
+-type mDSubBookType () :: integer().
 -type securityTradingEvent () :: orderImbalance|tradingResumes|priceVolatilityInterruption|changeOfTradingSession|changeOfTradingSubsession|changeOfSecurityTradingStatus|changeOfBookType|changeOfMarketDepth.
 -type noStatsIndicators () :: numInGroup().
 -type statsType () :: exchangeLast|high|averagePrice|turnover.
 -type noOfSecSizes () :: numInGroup().
--type mDSecSizeType () :: customer.
+-type mDSecSizeType () :: customer|undefined.
 -type mDSecSize () :: qty().
 -type applID () :: string().
 -type applSeqNum () :: seqNum().
 -type applBegSeqNum () :: seqNum().
 -type applEndSeqNum () :: seqNum().
 -type securityXMLLen () :: length().
--type securityXML () :: xMLData().
+-type securityXMLData () :: xMLData().
 -type securityXMLSchema () :: string().
 -type refreshIndicator () :: boolean().
 -type volatility () :: float().
@@ -1173,8 +1172,8 @@
 -type priceUnitOfMeasureQty () :: qty().
 -type settlMethod () :: cashSettlementRequired|physicalSettlementRequired.
 -type exerciseStyle () :: european|american|bermuda.
--type underlyingExerciseStyle () :: int().
--type legExerciseStyle () :: int().
+-type underlyingExerciseStyle () :: integer().
+-type legExerciseStyle () :: integer().
 -type optPayoutAmount () :: amt().
 -type priceQuoteMethod () :: standard|index|interestRateIndex|percentOfPar.
 -type valuationMethod () :: premiumStyle|futuresStyleMarkToMarket|futuresStyleWithAnAttachedCashAdjustment|cDSStyleCollateralization|cDSInDeliveryUseRecoveryRateToCalculate.
@@ -1190,7 +1189,7 @@
 -type endTickPriceRange () :: price().
 -type tickIncrement () :: price().
 -type tickRuleType () :: regular|variable|fixed|tradedAsASpreadLeg|settledAsASpreadLeg.
--type nestedInstrAttribType () :: int().
+-type nestedInstrAttribType () :: integer().
 -type nestedInstrAttribValue () :: string().
 -type derivativeSymbol () :: string().
 -type derivativeSymbolSfx () :: string().
@@ -1207,7 +1206,7 @@
 -type endMaturityMonthYear () :: monthYear().
 -type productComplex () :: string().
 -type derivativeProductComplex () :: string().
--type maturityMonthYearIncrement () :: int().
+-type maturityMonthYearIncrement () :: integer().
 -type minLotSize () :: qty().
 -type noExecInstRules () :: numInGroup().
 -type noLotTypeRules () :: numInGroup().
@@ -1221,7 +1220,7 @@
 -type derivFlexProductEligibilityIndicator () :: boolean().
 -type flexibleIndicator () :: boolean().
 -type tradingCurrency () :: currency().
--type derivativeProduct () :: int().
+-type derivativeProduct () :: integer().
 -type derivativeSecurityGroup () :: string().
 -type derivativeCFICode () :: string().
 -type derivativeSecurityType () :: string().
@@ -1230,7 +1229,7 @@
 -type derivativeMaturityDate () :: localMktDate().
 -type derivativeMaturityTime () :: tZTimeOnly().
 -type derivativeSettleOnOpenFlag () :: string().
--type derivativeInstrmtAssignmentMethod () :: char().
+-type derivativeInstrmtAssignmentMethod () :: string().
 -type derivativeSecurityStatus () :: string().
 -type derivativeInstrRegistry () :: string().
 -type derivativeCountryOfIssue () :: country().
@@ -1240,7 +1239,7 @@
 -type derivativeStrikeCurrency () :: currency().
 -type derivativeStrikeMultiplier () :: float().
 -type derivativeStrikeValue () :: float().
--type derivativeOptAttribute () :: char().
+-type derivativeOptAttribute () :: string().
 -type derivativeContractMultiplier () :: float().
 -type derivativeMinPriceIncrement () :: float().
 -type derivativeMinPriceIncrementAmount () :: amt().
@@ -1248,8 +1247,8 @@
 -type derivativeUnitOfMeasureQty () :: qty().
 -type derivativeTimeUnit () :: string().
 -type derivativeSecurityExchange () :: exchange().
--type derivativePositionLimit () :: int().
--type derivativeNTPositionLimit () :: int().
+-type derivativePositionLimit () :: integer().
+-type derivativeNTPositionLimit () :: integer().
 -type derivativeIssuer () :: string().
 -type derivativeIssueDate () :: localMktDate().
 -type derivativeEncodedIssuerLen () :: length().
@@ -1258,11 +1257,11 @@
 -type derivativeEncodedSecurityDescLen () :: length().
 -type derivativeEncodedSecurityDesc () :: data().
 -type derivativeSecurityXMLLen () :: length().
--type derivativeSecurityXML () :: data().
+-type derivativeSecurityXMLData () :: data().
 -type derivativeSecurityXMLSchema () :: string().
 -type derivativeContractSettlMonth () :: monthYear().
 -type noDerivativeEvents () :: numInGroup().
--type derivativeEventType () :: int().
+-type derivativeEventType () :: integer().
 -type derivativeEventDate () :: localMktDate().
 -type derivativeEventTime () :: uTCTimestamp().
 -type derivativeEventPx () :: price().
@@ -1270,36 +1269,36 @@
 -type noDerivativeInstrumentParties () :: numInGroup().
 -type derivativeInstrumentPartyID () :: string().
 -type derivativeInstrumentPartyIDSource () :: string().
--type derivativeInstrumentPartyRole () :: int().
+-type derivativeInstrumentPartyRole () :: integer().
 -type noDerivativeInstrumentPartySubIDs () :: numInGroup().
 -type derivativeInstrumentPartySubID () :: string().
--type derivativeInstrumentPartySubIDType () :: int().
--type derivativeExerciseStyle () :: char().
+-type derivativeInstrumentPartySubIDType () :: integer().
+-type derivativeExerciseStyle () :: string().
 -type marketSegmentID () :: string().
 -type marketID () :: exchange().
 -type maturityMonthYearIncrementUnits () :: months|days|weeks|years.
 -type maturityMonthYearFormat () :: yearMonthOnly|yearMonthDay|yearMonthWeek.
--type strikeExerciseStyle () :: int().
--type secondaryPriceLimitType () :: int().
+-type strikeExerciseStyle () :: integer().
+-type secondaryPriceLimitType () :: integer().
 -type priceLimitType () :: pricepriceFix|ticks|percentage.
--type execInstValue () :: char().
+-type execInstValue () :: string().
 -type noTradingSessionRules () :: numInGroup().
 -type noMarketSegments () :: numInGroup().
 -type noDerivativeInstrAttrib () :: numInGroup().
 -type noNestedInstrAttrib () :: numInGroup().
--type derivativeInstrAttribType () :: int().
+-type derivativeInstrAttribType () :: integer().
 -type derivativeInstrAttribValue () :: string().
 -type derivativePriceUnitOfMeasure () :: string().
 -type derivativePriceUnitOfMeasureQty () :: qty().
--type derivativeSettlMethod () :: char().
+-type derivativeSettlMethod () :: string().
 -type derivativePriceQuoteMethod () :: string().
 -type derivativeValuationMethod () :: string().
--type derivativeListMethod () :: int().
+-type derivativeListMethod () :: integer().
 -type derivativeCapPrice () :: price().
 -type derivativeFloorPrice () :: price().
--type derivativePutOrCall () :: int().
--type listUpdateAction () :: char().
--type legPutOrCall () :: int().
+-type derivativePutOrCall () :: integer().
+-type listUpdateAction () :: string().
+-type legPutOrCall () :: integer().
 -type legUnitOfMeasureQty () :: qty().
 -type legPriceUnitOfMeasure () :: string().
 -type legPriceUnitOfMeasureQty () :: qty().
@@ -1314,7 +1313,7 @@
 -type encodedMktSegmDesc () :: data().
 -type parentMktSegmID () :: string().
 -type tradingSessionDesc () :: string().
--type tradSesUpdateAction () :: char().
+-type tradSesUpdateAction () :: string().
 -type rejectText () :: string().
 -type feeMultiplier () :: float().
 -type underlyingLegSymbol () :: string().
@@ -1327,29 +1326,29 @@
 -type underlyingLegSecurityType () :: string().
 -type underlyingLegSecuritySubType () :: string().
 -type underlyingLegMaturityMonthYear () :: monthYear().
--type underlyingLegPutOrCall () :: int().
+-type underlyingLegPutOrCall () :: integer().
 -type underlyingLegStrikePrice () :: price().
 -type underlyingLegSecurityExchange () :: string().
 -type noOfLegUnderlyings () :: numInGroup().
 -type underlyingLegCFICode () :: string().
 -type underlyingLegMaturityDate () :: localMktDate().
 -type underlyingLegMaturityTime () :: tZTimeOnly().
--type underlyingLegOptAttribute () :: char().
+-type underlyingLegOptAttribute () :: string().
 -type underlyingLegSecurityDesc () :: string().
--type encryptedPasswordMethod () :: int().
+-type encryptedPasswordMethod () :: integer().
 -type encryptedPasswordLen () :: length().
 -type encryptedPassword () :: data().
 -type encryptedNewPasswordLen () :: length().
 -type encryptedNewPassword () :: data().
--type applExtID () :: int().
--type refApplExtID () :: int().
--type defaultApplExtID () :: int().
+-type applExtID () :: integer().
+-type refApplExtID () :: integer().
+-type defaultApplExtID () :: integer().
 -type defaultCstmApplVerID () :: string().
 -type sessionStatus () :: sessionActive|sessionPasswordChanged|sessionPasswordDueToExpire|newSessionPasswordDoesNotComplyWithPolicy|sessionLogoutComplete|invalidUsernameOrPassword|accountLocked|logonsAreNotAllowedAtThisTime|passwordExpired.
 -type defaultVerIndicator () :: boolean().
 -type noUsernames () :: numInGroup().
 -type legAllocSettlCurrency () :: currency().
--type totNoFills () :: int().
+-type totNoFills () :: integer().
 -type noFills () :: numInGroup().
 -type fillExecID () :: string().
 -type fillPx () :: price().
@@ -1375,13 +1374,13 @@
 -type contingencyType () :: oneCancelsTheOther|oneTriggersTheOther|oneUpdatesTheOtherAbsolute|oneUpdatesTheOtherProportional.
 -type listRejectReason () :: brokerCredit|exchangeClosed|tooLateToEnter|unknownOrder|duplicateOrder|unsupportedOrderCharacteristic|other.
 -type noTrdRepIndicators () :: numInGroup().
--type trdRepPartyRole () :: int().
+-type trdRepPartyRole () :: integer().
 -type trdRepIndicator () :: boolean().
 -type tradePublishIndicator () :: doNotPublishTrade|publishTrade|deferredPublication.
 -type applReqID () :: string().
 -type applReqType () :: retransmission_0|subscription|requestLastSeqNum|requestApplications|unsubscribe|retransmission_5|cancelRetransmissionUnsubscribe.
 -type applResponseType () :: requestSuccessfullyProcessed|applicationDoesNotExist|messagesNotAvailable.
--type applTotalMessageCount () :: int().
+-type applTotalMessageCount () :: integer().
 -type applLastSeqNum () :: seqNum().
 -type noApplIDs () :: numInGroup().
 -type applResendFlag () :: boolean().
@@ -1392,16 +1391,16 @@
 -type refApplLastSeqNum () :: seqNum().
 -type applNewSeqNum () :: seqNum().
 -type applReportType () :: applSeqNumReset|lastMessageSent|applicationAlive|resendComplete.
--type nested4PartySubIDType () :: int().
+-type nested4PartySubIDType () :: integer().
 -type nested4PartySubID () :: string().
 -type noNested4PartySubIDs () :: numInGroup().
 -type noNested4PartyIDs () :: numInGroup().
 -type nested4PartyID () :: string().
--type nested4PartyIDSource () :: char().
--type nested4PartyRole () :: int().
+-type nested4PartyIDSource () :: string().
+-type nested4PartyRole () :: integer().
 -type legLastQty () :: qty().
 -type sideExecID () :: string().
--type orderDelay () :: int().
+-type orderDelay () :: integer().
 -type orderDelayUnit () :: seconds|tenthsOfASecond|hundredthsOfASecond|milliseconds|microseconds|nanoseconds|minutes|hours|days|weeks|months|years.
 -type venueType () :: electronic|pit|exPit.
 -type refOrdIDReason () :: gTCFromPreviousDay|partialFillRemaining|orderChanged.
@@ -1409,17 +1408,17 @@
 -type refApplReqID () :: string().
 -type modelType () :: utilityProvidedStandardModel|proprietaryModel.
 -type contractMultiplierUnit () :: shares|hours|days.
--type legContractMultiplierUnit () :: int().
--type underlyingContractMultiplierUnit () :: int().
--type derivativeContractMultiplierUnit () :: int().
+-type legContractMultiplierUnit () :: integer().
+-type underlyingContractMultiplierUnit () :: integer().
+-type derivativeContractMultiplierUnit () :: integer().
 -type flowScheduleType () :: nERCEasternOffPeak|nERCWesternOffPeak|nERCCalendarAllDaysInMonth|nERCEasternPeak|nERCWesternPeak.
--type legFlowScheduleType () :: int().
--type underlyingFlowScheduleType () :: int().
--type derivativeFlowScheduleType () :: int().
--type fillLiquidityInd () :: int().
--type sideLiquidityInd () :: int().
+-type legFlowScheduleType () :: integer().
+-type underlyingFlowScheduleType () :: integer().
+-type derivativeFlowScheduleType () :: integer().
+-type fillLiquidityInd () :: integer().
+-type sideLiquidityInd () :: integer().
 -type noRateSources () :: numInGroup().
--type rateSource () :: bloomberg|reuters|telerate|other.
+-type rateSourceProvider () :: bloomberg|reuters|telerate|other.
 -type rateSourceType () :: primary|secondary.
 -type referencePage () :: string().
 -type restructuringType () :: fullRestructuring|modifiedRestructuring|modifiedModRestructuring|noRestructuringSpecified.
@@ -1436,8 +1435,8 @@
 -type underlyingDetachmentPoint () :: percentage().
 -type noTargetPartyIDs () :: numInGroup().
 -type targetPartyID () :: string().
--type targetPartyIDSource () :: char().
--type targetPartyRole () :: int().
+-type targetPartyIDSource () :: string().
+-type targetPartyRole () :: integer().
 -type securityListID () :: string().
 -type securityListRefID () :: string().
 -type securityListDesc () :: string().
@@ -1592,7 +1591,7 @@
 -record( secSizesGrp, {rgr_secSizesGrp_1177 = [#rgr_secSizesGrp_1177{}]}).
 -record( rgr_statsIndGrp_1175, {statsType :: statsType()}).
 -record( statsIndGrp, {rgr_statsIndGrp_1175 = [#rgr_statsIndGrp_1175{}]}).
--record( securityXML, {securityXMLLen :: securityXMLLen(), securityXML :: securityXML(), securityXMLSchema :: securityXMLSchema()}).
+-record( securityXML, {securityXMLLen :: securityXMLLen(), securityXMLData :: securityXMLData(), securityXMLSchema :: securityXMLSchema()}).
 -record( rgr_tickRules_1205, {startTickPriceRange :: startTickPriceRange(), endTickPriceRange :: endTickPriceRange(), tickIncrement :: tickIncrement(), tickRuleType :: tickRuleType()}).
 -record( tickRules, {rgr_tickRules_1205 = [#rgr_tickRules_1205{}]}).
 -record( rgr_maturityRules_1236, {maturityRuleID :: maturityRuleID(), maturityMonthYearFormat :: maturityMonthYearFormat(), maturityMonthYearIncrementUnits :: maturityMonthYearIncrementUnits(), startMaturityMonthYear :: startMaturityMonthYear(), endMaturityMonthYear :: endMaturityMonthYear(), maturityMonthYearIncrement :: maturityMonthYearIncrement()}).
@@ -1621,7 +1620,7 @@
 -record( derivativeSecurityAltIDGrp, {rgr_derivativeSecurityAltIDGrp_1218 = [#rgr_derivativeSecurityAltIDGrp_1218{}]}).
 -record( rgr_derivativeEventsGrp_1286, {derivativeEventType :: derivativeEventType(), derivativeEventDate :: derivativeEventDate(), derivativeEventTime :: derivativeEventTime(), derivativeEventPx :: derivativeEventPx(), derivativeEventText :: derivativeEventText()}).
 -record( derivativeEventsGrp, {rgr_derivativeEventsGrp_1286 = [#rgr_derivativeEventsGrp_1286{}]}).
--record( derivativeSecurityXML, {derivativeSecurityXMLLen :: derivativeSecurityXMLLen(), derivativeSecurityXML :: derivativeSecurityXML(), derivativeSecurityXMLSchema :: derivativeSecurityXMLSchema()}).
+-record( derivativeSecurityXML, {derivativeSecurityXMLLen :: derivativeSecurityXMLLen(), derivativeSecurityXMLData :: derivativeSecurityXMLData(), derivativeSecurityXMLSchema :: derivativeSecurityXMLSchema()}).
 -record( rgr_underlyingLegSecurityAltIDGrp_1334, {underlyingLegSecurityAltID :: underlyingLegSecurityAltID(), underlyingLegSecurityAltIDSource :: underlyingLegSecurityAltIDSource()}).
 -record( underlyingLegSecurityAltIDGrp, {rgr_underlyingLegSecurityAltIDGrp_1334 = [#rgr_underlyingLegSecurityAltIDGrp_1334{}]}).
 -record( rgr_usernameGrp_809, {username :: username()}).
@@ -1635,7 +1634,7 @@
 -record( applIDReportGrp, {rgr_applIDReportGrp_1351 = [#rgr_applIDReportGrp_1351{}]}).
 -record( rgr_nstdPtys4SubGrp_1413, {nested4PartySubID :: nested4PartySubID(), nested4PartySubIDType :: nested4PartySubIDType()}).
 -record( nstdPtys4SubGrp, {rgr_nstdPtys4SubGrp_1413 = [#rgr_nstdPtys4SubGrp_1413{}]}).
--record( rgr_rateSource_1445, {rateSource :: rateSource(), rateSourceType :: rateSourceType(), referencePage :: referencePage()}).
+-record( rgr_rateSource_1445, {rateSourceProvider :: rateSourceProvider(), rateSourceType :: rateSourceType(), referencePage :: referencePage()}).
 -record( rateSource, {rgr_rateSource_1445 = [#rgr_rateSource_1445{}]}).
 -record( rgr_targetParties_1461, {targetPartyID :: targetPartyID(), targetPartyIDSource :: targetPartyIDSource(), targetPartyRole :: targetPartyRole()}).
 -record( targetParties, {rgr_targetParties_1461 = [#rgr_targetParties_1461{}]}).
@@ -1744,7 +1743,7 @@
 -record( rgr_trdCapRptSideGrp_552, {side :: side(), sideExecID :: sideExecID(), orderDelay :: orderDelay(), orderDelayUnit :: orderDelayUnit(), sideLastQty :: sideLastQty(), sideTradeReportID :: sideTradeReportID(), sideFillStationCd :: sideFillStationCd(), sideReasonCd :: sideReasonCd(), rptSeq :: rptSeq(), sideTrdSubTyp :: sideTrdSubTyp(), netGrossInd :: netGrossInd(), sideCurrency :: sideCurrency(), sideSettlCurrency :: sideSettlCurrency(), parties :: #parties{}, account :: account(), acctIDSource :: acctIDSource(), accountType :: accountType(), processCode :: processCode(), oddLot :: oddLot(), clrInstGrp :: #clrInstGrp{}, tradeInputSource :: tradeInputSource(), tradeInputDevice :: tradeInputDevice(), complianceID :: complianceID(), solicitedFlag :: solicitedFlag(), custOrderCapacity :: custOrderCapacity(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), timeBracket :: timeBracket(), commissionData :: #commissionData{}, numDaysInterest :: numDaysInterest(), exDate :: exDate(), accruedInterestRate :: accruedInterestRate(), accruedInterestAmt :: accruedInterestAmt(), interestAtMaturity :: interestAtMaturity(), endAccruedInterestAmt :: endAccruedInterestAmt(), startCash :: startCash(), endCash :: endCash(), concession :: concession(), totalTakedown :: totalTakedown(), netMoney :: netMoney(), settlCurrAmt :: settlCurrAmt(), settlCurrFxRate :: settlCurrFxRate(), settlCurrFxRateCalc :: settlCurrFxRateCalc(), positionEffect :: positionEffect(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), sideMultiLegReportingType :: sideMultiLegReportingType(), contAmtGrp :: #contAmtGrp{}, stipulations :: #stipulations{}, miscFeesGrp :: #miscFeesGrp{}, exchangeRule :: exchangeRule(), tradeAllocIndicator :: tradeAllocIndicator(), preallocMethod :: preallocMethod(), allocID :: allocID(), trdAllocGrp :: #trdAllocGrp{}, sideTrdRegTS :: #sideTrdRegTS{}, settlDetails :: #settlDetails{}, sideGrossTradeAmt :: sideGrossTradeAmt(), aggressorIndicator :: aggressorIndicator(), exchangeSpecialInstructions :: exchangeSpecialInstructions(), orderCategory :: orderCategory(), sideLiquidityInd :: sideLiquidityInd(), tradeReportOrderDetail :: #tradeReportOrderDetail{}}).
 -record( trdInstrmtLegGrp, {rgr_trdInstrmtLegGrp_555 = [#rgr_trdInstrmtLegGrp_555{}]}).
 -record( rgr_instrmtLegExecGrp_555, {instrumentLeg :: #instrumentLeg{}, legQty :: legQty(), legOrderQty :: legOrderQty(), legSwapType :: legSwapType(), legStipulations :: #legStipulations{}, legAllocID :: legAllocID(), legPreAllocGrp :: #legPreAllocGrp{}, legPositionEffect :: legPositionEffect(), legCoveredOrUncovered :: legCoveredOrUncovered(), nestedParties3 :: #nestedParties3{}, legRefID :: legRefID(), legSettlType :: legSettlType(), legSettlDate :: legSettlDate(), legLastPx :: legLastPx(), legSettlCurrency :: legSettlCurrency(), legLastForwardPoints :: legLastForwardPoints(), legCalculatedCcyLastQty :: legCalculatedCcyLastQty(), legGrossTradeAmt :: legGrossTradeAmt(), legVolatility :: legVolatility(), legDividendYield :: legDividendYield(), legCurrencyRatio :: legCurrencyRatio(), legExecInst :: legExecInst(), legLastQty :: legLastQty()}).
--record( instrument, {symbol :: symbol(), symbolSfx :: symbolSfx(), securityID :: securityID(), securityIDSource :: securityIDSource(), secAltIDGrp :: #secAltIDGrp{}, produkt :: produkt(), productComplex :: productComplex(), securityGroup :: securityGroup(), cFICode :: cFICode(), securityType :: securityType(), securitySubType :: securitySubType(), maturityMonthYear :: maturityMonthYear(), maturityDate :: maturityDate(), maturityTime :: maturityTime(), settleOnOpenFlag :: settleOnOpenFlag(), instrmtAssignmentMethod :: instrmtAssignmentMethod(), securityStatus :: securityStatus(), couponPaymentDate :: couponPaymentDate(), restructuringType :: restructuringType(), seniority :: seniority(), notionalPercentageOutstanding :: notionalPercentageOutstanding(), originalNotionalPercentageOutstanding :: originalNotionalPercentageOutstanding(), attachmentPoint :: attachmentPoint(), detachmentPoint :: detachmentPoint(), issueDate :: issueDate(), repoCollateralSecurityType :: repoCollateralSecurityType(), repurchaseTerm :: repurchaseTerm(), repurchaseRate :: repurchaseRate(), factor :: factor(), creditRating :: creditRating(), instrRegistry :: instrRegistry(), countryOfIssue :: countryOfIssue(), stateOrProvinceOfIssue :: stateOrProvinceOfIssue(), localeOfIssue :: localeOfIssue(), redemptionDate :: redemptionDate(), strikePrice :: strikePrice(), strikeCurrency :: strikeCurrency(), strikeMultiplier :: strikeMultiplier(), strikeValue :: strikeValue(), strikePriceDeterminationMethod :: strikePriceDeterminationMethod(), strikePriceBoundaryMethod :: strikePriceBoundaryMethod(), strikePriceBoundaryPrecision :: strikePriceBoundaryPrecision(), underlyingPriceDeterminationMethod :: underlyingPriceDeterminationMethod(), optAttribute :: optAttribute(), contractMultiplier :: contractMultiplier(), contractMultiplierUnit :: contractMultiplierUnit(), flowScheduleType :: flowScheduleType(), minPriceIncrement :: minPriceIncrement(), minPriceIncrementAmount :: minPriceIncrementAmount(), unitOfMeasure :: unitOfMeasure(), unitOfMeasureQty :: unitOfMeasureQty(), priceUnitOfMeasure :: priceUnitOfMeasure(), priceUnitOfMeasureQty :: priceUnitOfMeasureQty(), settlMethod :: settlMethod(), exerciseStyle :: exerciseStyle(), optPayoutType :: optPayoutType(), optPayoutAmount :: optPayoutAmount(), priceQuoteMethod :: priceQuoteMethod(), valuationMethod :: valuationMethod(), listMethod :: listMethod(), capPrice :: capPrice(), floorPrice :: floorPrice(), putOrCall :: putOrCall(), flexibleIndicator :: flexibleIndicator(), flexProductEligibilityIndicator :: flexProductEligibilityIndicator(), timeUnit :: timeUnit(), couponRate :: couponRate(), securityExchange :: securityExchange(), positionLimit :: positionLimit(), nTPositionLimit :: nTPositionLimit(), issuer :: issuer(), encodedIssuerLen :: encodedIssuerLen(), encodedIssuer :: encodedIssuer(), securityDesc :: securityDesc(), encodedSecurityDescLen :: encodedSecurityDescLen(), encodedSecurityDesc :: encodedSecurityDesc(), securityXML :: #securityXML{}, pool :: pool(), contractSettlMonth :: contractSettlMonth(), cPProgram :: cPProgram(), cPRegType :: cPRegType(), evntGrp :: #evntGrp{}, datedDate :: datedDate(), interestAccrualDate :: interestAccrualDate(), instrumentParties :: #instrumentParties{}, complexEvents :: #complexEvents{}}).
+-record( instrument, {symbol :: symbol(), symbolSfx :: symbolSfx(), securityID :: securityID(), securityIDSource :: securityIDSource(), secAltIDGrp :: #secAltIDGrp{}, produkt :: produkt(), productComplex :: productComplex(), securityGroup :: securityGroup(), cFICode :: cFICode(), securityType :: securityType(), securitySubType :: securitySubType(), maturityMonthYear :: maturityMonthYear(), maturityDate :: maturityDate(), maturityTime :: maturityTime(), settleOnOpenFlag :: settleOnOpenFlag(), instrmtAssignmentMethod :: instrmtAssignmentMethod(), securityState :: securityState(), couponPaymentDate :: couponPaymentDate(), restructuringType :: restructuringType(), seniority :: seniority(), notionalPercentageOutstanding :: notionalPercentageOutstanding(), originalNotionalPercentageOutstanding :: originalNotionalPercentageOutstanding(), attachmentPoint :: attachmentPoint(), detachmentPoint :: detachmentPoint, issueDate :: issueDate(), repoCollateralSecurityType :: repoCollateralSecurityType(), repurchaseTerm :: repurchaseTerm(), repurchaseRate :: repurchaseRate(), factor :: factor(), creditRating :: creditRating(), instrRegistry :: instrRegistry(), countryOfIssue :: countryOfIssue(), stateOrProvinceOfIssue :: stateOrProvinceOfIssue(), localeOfIssue :: localeOfIssue(), redemptionDate :: redemptionDate(), strikePrice :: strikePrice(), strikeCurrency :: strikeCurrency(), strikeMultiplier :: strikeMultiplier(), strikeValue :: strikeValue(), strikePriceDeterminationMethod :: strikePriceDeterminationMethod(), strikePriceBoundaryMethod :: strikePriceBoundaryMethod(), strikePriceBoundaryPrecision :: strikePriceBoundaryPrecision(), underlyingPriceDeterminationMethod :: underlyingPriceDeterminationMethod(), optAttribute :: optAttribute(), contractMultiplier :: contractMultiplier(), contractMultiplierUnit :: contractMultiplierUnit(), flowScheduleType :: flowScheduleType(), minPriceIncrement :: minPriceIncrement(), minPriceIncrementAmount :: minPriceIncrementAmount(), unitOfMeasure :: unitOfMeasure(), unitOfMeasureQty :: unitOfMeasureQty(), priceUnitOfMeasure :: priceUnitOfMeasure(), priceUnitOfMeasureQty :: priceUnitOfMeasureQty(), settlMethod :: settlMethod(), exerciseStyle :: exerciseStyle(), optPayoutType :: optPayoutType(), optPayoutAmount :: optPayoutAmount(), priceQuoteMethod :: priceQuoteMethod(), valuationMethod :: valuationMethod(), listMethod :: listMethod(), capPrice :: capPrice(), floorPrice :: floorPrice(), putOrCall :: putOrCall(), flexibleIndicator :: flexibleIndicator(), flexProductEligibilityIndicator :: flexProductEligibilityIndicator(), timeUnit :: timeUnit(), couponRate :: couponRate(), securityExchange :: securityExchange(), positionLimit :: positionLimit(), nTPositionLimit :: nTPositionLimit(), issuer :: issuer(), encodedIssuerLen :: encodedIssuerLen(), encodedIssuer :: encodedIssuer(), securityDesc :: securityDesc(), encodedSecurityDescLen :: encodedSecurityDescLen(), encodedSecurityDesc :: encodedSecurityDesc(), securityXML :: #securityXML{}, pool :: pool(), contractSettlMonth :: contractSettlMonth(), cPProgram :: cPProgram(), cPRegType :: cPRegType(), evntGrp :: #evntGrp{}, datedDate :: datedDate(), interestAccrualDate :: interestAccrualDate(), instrumentParties :: #instrumentParties{}, complexEvents :: #complexEvents{}}).
 -record( settlInstructionsData, {settlDeliveryType :: settlDeliveryType(), standInstDbType :: standInstDbType(), standInstDbName :: standInstDbName(), standInstDbID :: standInstDbID(), dlvyInstGrp :: #dlvyInstGrp{}}).
 -record( rgr_marketSegmentGrp_1310, {marketID :: marketID(), marketSegmentID :: marketSegmentID(), securityTradingRules :: #securityTradingRules{}, strikeRules :: #strikeRules{}}).
 -record( rgr_quotEntryGrp_295, {quoteEntryID :: quoteEntryID(), instrument :: #instrument{}, instrmtLegGrp :: #instrmtLegGrp{}, bidPx :: bidPx(), offerPx :: offerPx(), bidSize :: bidSize(), offerSize :: offerSize(), validUntilTime :: validUntilTime(), bidSpotRate :: bidSpotRate(), offerSpotRate :: offerSpotRate(), bidForwardPoints :: bidForwardPoints(), offerForwardPoints :: offerForwardPoints(), midPx :: midPx(), bidYield :: bidYield(), midYield :: midYield(), offerYield :: offerYield(), transactTime :: transactTime(), tradingSessionID :: tradingSessionID(), tradingSessionSubID :: tradingSessionSubID(), settlDate :: settlDate(), ordType :: ordType(), settlDate2 :: settlDate2(), orderQty2 :: orderQty2(), bidForwardPoints2 :: bidForwardPoints2(), offerForwardPoints2 :: offerForwardPoints2(), currency :: currency(), bookingType :: bookingType(), orderCapacity :: orderCapacity(), orderRestrictions :: orderRestrictions()}).
@@ -1916,5 +1915,5 @@
 -record( applicationMessageRequestAck, {standardHeader :: #standardHeader{}, applResponseID :: applResponseID(), applReqID :: applReqID(), applReqType :: applReqType(), applResponseType :: applResponseType(), applTotalMessageCount :: applTotalMessageCount(), applIDRequestAckGrp :: #applIDRequestAckGrp{}, parties :: #parties{}, text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
 -record( applicationMessageReport, {standardHeader :: #standardHeader{}, applReportID :: applReportID(), applReqID :: applReqID(), applReportType :: applReportType(), applIDReportGrp :: #applIDReportGrp{}, text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).
 -record( streamAssignmentRequest, {standardHeader :: #standardHeader{}, streamAsgnReqID :: streamAsgnReqID(), streamAsgnReqType :: streamAsgnReqType(), strmAsgnReqGrp :: #strmAsgnReqGrp{}, standardTrailer :: #standardTrailer{}}).
--record( streamAssignmentReport, {standardHeader :: #standardHeader{}, streamAsgnRptID :: streamAsgnRptID(), streamAsgnReqType :: streamAsgnReqType(), streamAsgnReqID :: streamAsgnReqID(), strmAsgnRptGrp :: #strmAsgnRptGrp{}, standardTrailer :: #standardTrailer{}}).
+-record( streamAssignmentReport,  {standardHeader :: #standardHeader{}, streamAsgnRptID :: streamAsgnRptID(), streamAsgnReqType :: streamAsgnReqType(), streamAsgnReqID :: streamAsgnReqID(), strmAsgnRptGrp :: #strmAsgnRptGrp{}, standardTrailer :: #standardTrailer{}}).
 -record( streamAssignmentReportACK, {standardHeader :: #standardHeader{}, streamAsgnAckType :: streamAsgnAckType(), streamAsgnRptID :: streamAsgnRptID(), streamAsgnRejReason :: streamAsgnRejReason(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText(), standardTrailer :: #standardTrailer{}}).

@@ -1,0 +1,11 @@
+{level,details}.
+{incl_mods,
+    [convertor.erl,
+     util_convert_to_record_FIX_4_0.erl,
+     util_convert_to_record_FIX_4_1.erl,
+     util_convert_to_record_FIX_4_2.erl,
+     util_convert_to_record_FIX_4_3.erl,
+     util_convert_to_record_FIX_4_4.erl,
+     util_convert_to_record_FIX_5_0.erl,
+     util_convert_to_record_FIX_5_0SP1.erl,
+     util_convert_to_record_FIX_5_0SP1.erl]}.

@@ -1,7 +1,7 @@
 %% Author: Maxim Minin
 %% Created: 03.04.2012
 %% Description: TODO: Add description to convertor
--module(convertor).
+-module(fix_convertor).
 
 %%
 %% Include files
@@ -10,13 +10,16 @@
 %%
 %% Exported Functions
 %%
--export([convertFixToRecord/2, convertRecordToFix/2, format/2, setMsgSeqNum/3]).
+-export([fix2record/2,
+         record2fix/2,
+         format/2,
+         set_msg_seqnum/3]).
 
 %%
 %% API Functions
 %%
--spec convertFixToRecord(binary(), fix_version ()) -> tuple() | not_valid.
-convertFixToRecord(Message, FixVersion) ->
+-spec fix2record(binary(), fix_version ()) -> tuple() | not_valid.
+fix2record(Message, FixVersion) ->
     Utils = getUtilsFun(FixVersion),
     Fields = lists:map(fun(X)-> case binary:split(X, <<"=">>) of
                                      [Tag, Value] -> 
@@ -34,8 +37,8 @@ convertFixToRecord(Message, FixVersion) ->
         false -> not_valid
     end.
 
--spec convertRecordToFix(tuple(any()), fix_version ()) -> binary() | not_valid.
-convertRecordToFix(Record, FixVersion) ->
+-spec record2fix(tuple(any()), fix_version ()) -> binary() | not_valid.
+record2fix(Record, FixVersion) ->
     Utils = getUtilsFun(FixVersion),
     RecordName = element(1, Record),
     case Utils:get_record_def(RecordName) of
@@ -60,10 +63,10 @@ format(Record, FixVersion) ->
             lists:sublist(S, L)
     end.
 
--spec setMsgSeqNum(tuple(), 
+-spec set_msg_seqnum(tuple(), 
                    pos_integer(), 
                    fix_version ()) -> tuple() | not_valid.
-setMsgSeqNum(Record, Num, FixVersion)->
+set_msg_seqnum(Record, Num, FixVersion)->
     Utils = getUtilsFun(FixVersion),
     try
         Utils:setMsgSeqNum(Record, Num)

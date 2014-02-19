@@ -1,4 +1,4 @@
-{application, fixUtils,
+{application, fix_convertor,
  [
   {description, ""},
   {vsn, "1.1.0"},

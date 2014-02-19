@@ -24,12 +24,12 @@
 prop_convertor() ->
     ?FORALL({Record, Num}, {test_record(), nat()},
     begin
-    Rec = convertor:convertFixToRecord(
-             convertor:convertRecordToFix(Record,
+    Rec = fix_convertor:fix2record(
+             fix_convertor:record2fix(Record,
                                           ?FIXVERSION),
              ?FIXVERSION),
-    Record2 = convertor:setMsgSeqNum(Record, Num, ?FIXVERSION),
-    Rec2 = convertor:setMsgSeqNum(Rec, Num, ?FIXVERSION),
+    Record2 = fix_convertor:set_msg_seqnum(Record, Num, ?FIXVERSION),
+    Rec2 = fix_convertor:set_msg_seqnum(Rec, Num, ?FIXVERSION),
     ?WHENFAIL(io:format("NEW     :~p|~nORIGINAL:~p|~n",
                         [Rec2, Record2]),
              is_eq(Rec2, Record2)) end).

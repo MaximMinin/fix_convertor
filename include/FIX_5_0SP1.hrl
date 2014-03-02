@@ -1,14 +1,14 @@
--type length () :: integer().
 -type localmmktdate () :: string().
--type tagNum () :: string().
--type seqNum () :: string().
--type numInGroup () :: string().
--type dayOfMonth () :: string().
--type qty () :: string().
--type price () :: string().
--type priceOffset () :: string().
--type amt () :: string().
--type percentage () :: string().
+-type length () :: integer().
+-type tagNum () :: integer().
+-type seqNum () :: integer().
+-type numInGroup () :: integer().
+-type dayOfMonth () :: integer().
+-type qty () :: float().
+-type price () :: float().
+-type priceOffset () :: float().
+-type amt () :: float().
+-type percentage () :: float().
 -type multipleCharValue () :: string().
 -type multipleStringValue () :: string().
 -type country () :: string().
@@ -1161,7 +1161,7 @@
 -type applBegSeqNum () :: seqNum().
 -type applEndSeqNum () :: seqNum().
 -type securityXMLLen () :: length().
--type securityXMLTag () :: xMLData().
+-type securityXMLData () :: xMLData().
 -type securityXMLSchema () :: string().
 -type refreshIndicator () :: boolean().
 -type volatility () :: float().
@@ -1256,7 +1256,7 @@
 -type derivativeEncodedSecurityDescLen () :: length().
 -type derivativeEncodedSecurityDesc () :: data().
 -type derivativeSecurityXMLLen () :: length().
--type derivativeSecurityXMLTag () :: data().
+-type derivativeSecurityXMLData () :: data().
 -type derivativeSecurityXMLSchema () :: string().
 -type derivativeContractSettlMonth () :: monthYear().
 -type noDerivativeEvents () :: numInGroup().
@@ -1377,7 +1377,7 @@
 -type trdRepIndicator () :: boolean().
 -type tradePublishIndicator () :: doNotPublishTrade|publishTrade|deferredPublication.
 -type applReqID () :: string().
--type applReqType () :: retransmission|subscription|requestLastSeqNum|requestApplications|unsubscribe.
+-type applReqType () :: retransmission_0|subscription|requestLastSeqNum|requestApplications|unsubscribe.
 -type applResponseType () :: requestSuccessfullyProcessed|applicationDoesNotExist|messagesNotAvailable.
 -type applTotalMessageCount () :: integer().
 -type applLastSeqNum () :: seqNum().
@@ -1511,7 +1511,7 @@
 -record( secSizesGrp, {rgr_secSizesGrp_1177 = [#rgr_secSizesGrp_1177{}]}).
 -record( rgr_statsIndGrp_1175, {statsType :: statsType()}).
 -record( statsIndGrp, {rgr_statsIndGrp_1175 = [#rgr_statsIndGrp_1175{}]}).
--record( securityXML, {securityXMLLen :: securityXMLLen(), securityXMLTag :: securityXMLTag(), securityXMLSchema :: securityXMLSchema()}).
+-record( securityXML, {securityXMLLen :: securityXMLLen(), securityXMLData :: securityXMLData(), securityXMLSchema :: securityXMLSchema()}).
 -record( rgr_tickRules_1205, {startTickPriceRange :: startTickPriceRange(), endTickPriceRange :: endTickPriceRange(), tickIncrement :: tickIncrement(), tickRuleType :: tickRuleType()}).
 -record( tickRules, {rgr_tickRules_1205 = [#rgr_tickRules_1205{}]}).
 -record( rgr_maturityRules_1236, {maturityRuleID :: maturityRuleID(), maturityMonthYearFormat :: maturityMonthYearFormat(), maturityMonthYearIncrementUnits :: maturityMonthYearIncrementUnits(), startMaturityMonthYear :: startMaturityMonthYear(), endMaturityMonthYear :: endMaturityMonthYear(), maturityMonthYearIncrement :: maturityMonthYearIncrement()}).
@@ -1540,7 +1540,7 @@
 -record( derivativeSecurityAltIDGrp, {rgr_derivativeSecurityAltIDGrp_1218 = [#rgr_derivativeSecurityAltIDGrp_1218{}]}).
 -record( rgr_derivativeEventsGrp_1286, {derivativeEventType :: derivativeEventType(), derivativeEventDate :: derivativeEventDate(), derivativeEventTime :: derivativeEventTime(), derivativeEventPx :: derivativeEventPx(), derivativeEventText :: derivativeEventText()}).
 -record( derivativeEventsGrp, {rgr_derivativeEventsGrp_1286 = [#rgr_derivativeEventsGrp_1286{}]}).
--record( derivativeSecurityXML, {derivativeSecurityXMLLen :: derivativeSecurityXMLLen(), derivativeSecurityXMLTag :: derivativeSecurityXMLTag(), derivativeSecurityXMLSchema :: derivativeSecurityXMLSchema()}).
+-record( derivativeSecurityXML, {derivativeSecurityXMLLen :: derivativeSecurityXMLLen(), derivativeSecurityXMLData :: derivativeSecurityXMLData(), derivativeSecurityXMLSchema :: derivativeSecurityXMLSchema()}).
 -record( rgr_underlyingLegSecurityAltIDGrp_1334, {underlyingLegSecurityAltID :: underlyingLegSecurityAltID(), underlyingLegSecurityAltIDSource :: underlyingLegSecurityAltIDSource()}).
 -record( underlyingLegSecurityAltIDGrp, {rgr_underlyingLegSecurityAltIDGrp_1334 = [#rgr_underlyingLegSecurityAltIDGrp_1334{}]}).
 -record( rgr_usernameGrp_809, {username :: username()}).
@@ -1600,6 +1600,7 @@
 -record( rgr_rgstDtlsGrp_473, {registDtls :: registDtls(), registEmail :: registEmail(), mailingDtls :: mailingDtls(), mailingInst :: mailingInst(), nestedParties :: #nestedParties{}, ownerType :: ownerType(), dateOfBirth :: dateOfBirth(), investorCountryOfResidence :: investorCountryOfResidence()}).
 -record( instrmtLegSecListGrp, {rgr_instrmtLegSecListGrp_555 = [#rgr_instrmtLegSecListGrp_555{}]}).
 -record( instrmtLegGrp, {rgr_instrmtLegGrp_555 = [#rgr_instrmtLegGrp_555{}]}).
+-record( instrument, {symbol :: symbol(), symbolSfx :: symbolSfx(), securityID :: securityID(), securityIDSource :: securityIDSource(), secAltIDGrp :: #secAltIDGrp{}, produkt :: produkt(), productComplex :: productComplex(), securityGroup :: securityGroup(), cFICode :: cFICode(), securityType :: securityType(), securitySubType :: securitySubType(), maturityMonthYear :: maturityMonthYear(), maturityDate :: maturityDate(), maturityTime :: maturityTime(), settleOnOpenFlag :: settleOnOpenFlag(), instrmtAssignmentMethod :: instrmtAssignmentMethod(), securityState :: securityState(), couponPaymentDate :: couponPaymentDate(), issueDate :: issueDate(), repoCollateralSecurityType :: repoCollateralSecurityType(), repurchaseTerm :: repurchaseTerm(), repurchaseRate :: repurchaseRate(), factor :: factor(), creditRating :: creditRating(), instrRegistry :: instrRegistry(), countryOfIssue :: countryOfIssue(), stateOrProvinceOfIssue :: stateOrProvinceOfIssue(), localeOfIssue :: localeOfIssue(), redemptionDate :: redemptionDate(), strikePrice :: strikePrice(), strikeCurrency :: strikeCurrency(), strikeMultiplier :: strikeMultiplier(), strikeValue :: strikeValue(), optAttribute :: optAttribute(), contractMultiplier :: contractMultiplier(), minPriceIncrement :: minPriceIncrement(), minPriceIncrementAmount :: minPriceIncrementAmount(), unitOfMeasure :: unitOfMeasure(), unitOfMeasureQty :: unitOfMeasureQty(), priceUnitOfMeasure :: priceUnitOfMeasure(), priceUnitOfMeasureQty :: priceUnitOfMeasureQty(), settlMethod :: settlMethod(), exerciseStyle :: exerciseStyle(), optPayAmount :: optPayAmount(), priceQuoteMethod :: priceQuoteMethod(), futuresValuationMethod :: futuresValuationMethod(), listMethod :: listMethod(), capPrice :: capPrice(), floorPrice :: floorPrice(), putOrCall :: putOrCall(), flexibleIndicator :: flexibleIndicator(), flexProductEligibilityIndicator :: flexProductEligibilityIndicator(), timeUnit :: timeUnit(), couponRate :: couponRate(), securityExchange :: securityExchange(), positionLimit :: positionLimit(), nTPositionLimit :: nTPositionLimit(), issuer :: issuer(), encodedIssuerLen :: encodedIssuerLen(), encodedIssuer :: encodedIssuer(), securityDesc :: securityDesc(), encodedSecurityDescLen :: encodedSecurityDescLen(), encodedSecurityDesc :: encodedSecurityDesc(), securityXML :: #securityXML{}, pool :: pool(), contractSettlMonth :: contractSettlMonth(), cPProgram :: cPProgram(), cPRegType :: cPRegType(), evntGrp :: #evntGrp{}, datedDate :: datedDate(), interestAccrualDate :: interestAccrualDate(), instrumentParties :: #instrumentParties{}}).
 -record( derivativeInstrument, {derivativeSymbol :: derivativeSymbol(), derivativeSymbolSfx :: derivativeSymbolSfx(), derivativeSecurityID :: derivativeSecurityID(), derivativeSecurityIDSource :: derivativeSecurityIDSource(), derivativeSecurityAltIDGrp :: #derivativeSecurityAltIDGrp{}, derivativeProduct :: derivativeProduct(), derivativeProductComplex :: derivativeProductComplex(), derivFlexProductEligibilityIndicator :: derivFlexProductEligibilityIndicator(), derivativeSecurityGroup :: derivativeSecurityGroup(), derivativeCFICode :: derivativeCFICode(), derivativeSecurityType :: derivativeSecurityType(), derivativeSecuritySubType :: derivativeSecuritySubType(), derivativeMaturityMonthYear :: derivativeMaturityMonthYear(), derivativeMaturityDate :: derivativeMaturityDate(), derivativeMaturityTime :: derivativeMaturityTime(), derivativeSettleOnOpenFlag :: derivativeSettleOnOpenFlag(), derivativeInstrmtAssignmentMethod :: derivativeInstrmtAssignmentMethod(), derivativeSecurityStatus :: derivativeSecurityStatus(), derivativeIssueDate :: derivativeIssueDate(), derivativeInstrRegistry :: derivativeInstrRegistry(), derivativeCountryOfIssue :: derivativeCountryOfIssue(), derivativeStateOrProvinceOfIssue :: derivativeStateOrProvinceOfIssue(), derivativeLocaleOfIssue :: derivativeLocaleOfIssue(), derivativeStrikePrice :: derivativeStrikePrice(), derivativeStrikeCurrency :: derivativeStrikeCurrency(), derivativeStrikeMultiplier :: derivativeStrikeMultiplier(), derivativeStrikeValue :: derivativeStrikeValue(), derivativeOptAttribute :: derivativeOptAttribute(), derivativeContractMultiplier :: derivativeContractMultiplier(), derivativeMinPriceIncrement :: derivativeMinPriceIncrement(), derivativeMinPriceIncrementAmount :: derivativeMinPriceIncrementAmount(), derivativeUnitOfMeasure :: derivativeUnitOfMeasure(), derivativeUnitOfMeasureQty :: derivativeUnitOfMeasureQty(), derivativePriceUnitOfMeasure :: derivativePriceUnitOfMeasure(), derivativePriceUnitOfMeasureQty :: derivativePriceUnitOfMeasureQty(), derivativeSettlMethod :: derivativeSettlMethod(), derivativePriceQuoteMethod :: derivativePriceQuoteMethod(), derivativeFuturesValuationMethod :: derivativeFuturesValuationMethod(), derivativeListMethod :: derivativeListMethod(), derivativeCapPrice :: derivativeCapPrice(), derivativeFloorPrice :: derivativeFloorPrice(), derivativePutOrCall :: derivativePutOrCall(), derivativeExerciseStyle :: derivativeExerciseStyle(), derivativeOptPayAmount :: derivativeOptPayAmount(), derivativeTimeUnit :: derivativeTimeUnit(), derivativeSecurityExchange :: derivativeSecurityExchange(), derivativePositionLimit :: derivativePositionLimit(), derivativeNTPositionLimit :: derivativeNTPositionLimit(), derivativeIssuer :: derivativeIssuer(), derivativeEncodedIssuerLen :: derivativeEncodedIssuerLen(), derivativeEncodedIssuer :: derivativeEncodedIssuer(), derivativeSecurityDesc :: derivativeSecurityDesc(), derivativeEncodedSecurityDescLen :: derivativeEncodedSecurityDescLen(), derivativeEncodedSecurityDesc :: derivativeEncodedSecurityDesc(), derivativeSecurityXML :: #derivativeSecurityXML{}, derivativeContractSettlMonth :: derivativeContractSettlMonth(), derivativeEventsGrp :: #derivativeEventsGrp{}, derivativeInstrumentParties :: #derivativeInstrumentParties{}}).
 -record( tradingSessionRulesGrp, {rgr_tradingSessionRulesGrp_1309 = [#rgr_tradingSessionRulesGrp_1309{}]}).
 -record( rgr_allocAckGrp_78, {allocAccount :: allocAccount(), allocAcctIDSource :: allocAcctIDSource(), allocPrice :: allocPrice(), allocPositionEffect :: allocPositionEffect(), individualAllocID :: individualAllocID(), individualAllocRejCode :: individualAllocRejCode(), nestedParties :: #nestedParties{}, allocText :: allocText(), encodedAllocTextLen :: encodedAllocTextLen(), encodedAllocText :: encodedAllocText(), secondaryIndividualAllocID :: secondaryIndividualAllocID(), allocCustomerCapacity :: allocCustomerCapacity(), individualAllocType :: individualAllocType(), allocQty :: allocQty()}).
@@ -1613,7 +1614,6 @@
 -record( rgr_fillsGrp_1362, {fillExecID :: fillExecID(), fillPx :: fillPx(), fillQty :: fillQty(), nestedParties4 :: #nestedParties4{}}).
 -record( rgr_legPreAllocGrp_670, {legAllocAccount :: legAllocAccount(), legIndividualAllocID :: legIndividualAllocID(), nestedParties2 :: #nestedParties2{}, legAllocQty :: legAllocQty(), legAllocAcctIDSource :: legAllocAcctIDSource(), legAllocSettlCurrency :: legAllocSettlCurrency()}).
 -record( tradeCapLegUnderlyingsGrp, {rgr_tradeCapLegUnderlyingsGrp_1342 = [#rgr_tradeCapLegUnderlyingsGrp_1342{}]}).
--record( instrument, {symbol :: symbol(), symbolSfx :: symbolSfx(), securityID :: securityID(), securityIDSource :: securityIDSource(), secAltIDGrp :: #secAltIDGrp{}, produkt :: produkt(), productComplex :: productComplex(), securityGroup :: securityGroup(), cFICode :: cFICode(), securityType :: securityType(), securitySubType :: securitySubType(), maturityMonthYear :: maturityMonthYear(), maturityDate :: maturityDate(), maturityTime :: maturityTime(), settleOnOpenFlag :: settleOnOpenFlag(), instrmtAssignmentMethod :: instrmtAssignmentMethod(), securityState :: securityState(), couponPaymentDate :: couponPaymentDate(), issueDate :: issueDate(), repoCollateralSecurityType :: repoCollateralSecurityType(), repurchaseTerm :: repurchaseTerm(), repurchaseRate :: repurchaseRate(), factor :: factor(), creditRating :: creditRating(), instrRegistry :: instrRegistry(), countryOfIssue :: countryOfIssue(), stateOrProvinceOfIssue :: stateOrProvinceOfIssue(), localeOfIssue :: localeOfIssue(), redemptionDate :: redemptionDate(), strikePrice :: strikePrice(), strikeCurrency :: strikeCurrency(), strikeMultiplier :: strikeMultiplier(), strikeValue :: strikeValue(), optAttribute :: optAttribute(), contractMultiplier :: contractMultiplier(), minPriceIncrement :: minPriceIncrement(), minPriceIncrementAmount :: minPriceIncrementAmount(), unitOfMeasure :: unitOfMeasure(), unitOfMeasureQty :: unitOfMeasureQty(), priceUnitOfMeasure :: priceUnitOfMeasure(), priceUnitOfMeasureQty :: priceUnitOfMeasureQty(), settlMethod :: settlMethod(), exerciseStyle :: exerciseStyle(), optPayAmount :: optPayAmount(), priceQuoteMethod :: priceQuoteMethod(), futuresValuationMethod :: futuresValuationMethod(), listMethod :: listMethod(), capPrice :: capPrice(), floorPrice :: floorPrice(), putOrCall :: putOrCall(), flexibleIndicator :: flexibleIndicator(), flexProductEligibilityIndicator :: flexProductEligibilityIndicator(), timeUnit :: timeUnit(), couponRate :: couponRate(), securityExchange :: securityExchange(), positionLimit :: positionLimit(), nTPositionLimit :: nTPositionLimit(), issuer :: issuer(), encodedIssuerLen :: encodedIssuerLen(), encodedIssuer :: encodedIssuer(), securityDesc :: securityDesc(), encodedSecurityDescLen :: encodedSecurityDescLen(), encodedSecurityDesc :: encodedSecurityDesc(), securityXML :: #securityXML{}, pool :: pool(), contractSettlMonth :: contractSettlMonth(), cPProgram :: cPProgram(), cPRegType :: cPRegType(), evntGrp :: #evntGrp{}, datedDate :: datedDate(), interestAccrualDate :: interestAccrualDate(), instrumentParties :: #instrumentParties{}}).
 -record( rgr_dlvyInstGrp_85, {settlInstSource :: settlInstSource(), dlvyInstType :: dlvyInstType(), settlParties :: #settlParties{}}).
 -record( rgr_preAllocMlegGrp_78, {allocAccount :: allocAccount(), allocAcctIDSource :: allocAcctIDSource(), allocSettlCurrency :: allocSettlCurrency(), individualAllocID :: individualAllocID(), nestedParties3 :: #nestedParties3{}, allocQty :: allocQty()}).
 -record( rgr_sideCrossOrdCxlGrp_552, {side :: side(), origClOrdID :: origClOrdID(), clOrdID :: clOrdID(), secondaryClOrdID :: secondaryClOrdID(), clOrdLinkID :: clOrdLinkID(), origOrdModTime :: origOrdModTime(), parties :: #parties{}, tradeOriginationDate :: tradeOriginationDate(), tradeDate :: tradeDate(), orderQtyData :: #orderQtyData{}, complianceID :: complianceID(), text :: text(), encodedTextLen :: encodedTextLen(), encodedText :: encodedText()}).

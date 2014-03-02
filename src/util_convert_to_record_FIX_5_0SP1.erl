@@ -6,7 +6,7 @@
 %% Include files
 %%
 -include("FIX_5_0SP1.hrl").
-
+    
 %%
 %% Exported Functions
 %%
@@ -42,9 +42,9 @@ convert(advTransType, <<"C">>) ->
 convert(advTransType, <<"R">>) -> 
     replace;
 convert(avgPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(beginSeqNo, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(beginString, Bin) -> 
    binary_to_list(Bin);
 convert(bodyLength, Bin) -> 
@@ -54,7 +54,7 @@ convert(checkSum, Bin) ->
 convert(clOrdID, Bin) -> 
    binary_to_list(Bin);
 convert(commission, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(commType, <<"1">>) -> 
     perUnit;
 convert(commType, <<"2">>) -> 
@@ -68,11 +68,11 @@ convert(commType, <<"5">>) ->
 convert(commType, <<"6">>) -> 
     pointsPerBondOrContract;
 convert(cumQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(currency, Bin) -> 
    binary_to_list(Bin);
 convert(endSeqNo, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(execID, Bin) -> 
    binary_to_list(Bin);
 convert(execInst, <<"0">>) -> 
@@ -274,13 +274,13 @@ convert(lastCapacity, <<"4">>) ->
 convert(lastMkt, Bin) -> 
    binary_to_list(Bin);
 convert(lastPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(lastQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noLinesOfText, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(msgSeqNum, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(msgType, <<"0">>) -> 
     heartbeat;
 convert(msgType, <<"1">>) -> 
@@ -508,11 +508,11 @@ convert(msgType, <<"y">>) ->
 convert(msgType, <<"z">>) -> 
     derivativeSecurityListRequest;
 convert(newSeqNo, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(orderID, Bin) -> 
    binary_to_list(Bin);
 convert(orderQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(ordStatus, <<"0">>) -> 
     new;
 convert(ordStatus, <<"1">>) -> 
@@ -600,9 +600,9 @@ convert(possDupFlag, <<"N">>) ->
 convert(possDupFlag, <<"Y">>) -> 
     possibleDuplicate;
 convert(price, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(refSeqNum, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(securityID, Bin) -> 
    binary_to_list(Bin);
 convert(senderCompID, Bin) -> 
@@ -612,7 +612,7 @@ convert(senderSubID, Bin) ->
 convert(sendingTime, Bin) -> 
    binary_to_list(Bin);
 convert(quantity, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(side, <<"1">>) -> 
     buy;
 convert(side, <<"2">>) -> 
@@ -740,7 +740,7 @@ convert(allocTransType, <<"6">>) ->
 convert(refAllocID, Bin) -> 
    binary_to_list(Bin);
 convert(noOrders, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(avgPxPrecision, Bin) -> 
    bin_to_num(Bin);
 convert(tradeDate, Bin) -> 
@@ -758,11 +758,11 @@ convert(positionEffect, <<"N">>) ->
 convert(positionEffect, <<"D">>) -> 
     default;
 convert(noAllocs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(allocAccount, Bin) -> 
    binary_to_list(Bin);
 convert(allocQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(processCode, <<"0">>) -> 
     regular;
 convert(processCode, <<"1">>) -> 
@@ -782,9 +782,9 @@ convert(noRpts, Bin) ->
 convert(rptSeq, Bin) -> 
    bin_to_num(Bin);
 convert(cxlQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noDlvyInst, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(allocStatus, <<"0">>) -> 
     accepted;
 convert(allocStatus, <<"1">>) -> 
@@ -866,7 +866,7 @@ convert(encryptMethod, <<"5">>) ->
 convert(encryptMethod, <<"6">>) -> 
     pEM;
 convert(stopPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(exDestination, Bin) -> 
    binary_to_list(Bin);
 convert(cxlRejReason, <<"0">>) -> 
@@ -972,9 +972,9 @@ convert(securityDesc, Bin) ->
 convert(heartBtInt, Bin) -> 
    bin_to_num(Bin);
 convert(minQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(maxFloor, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(testReqID, Bin) -> 
    binary_to_list(Bin);
 convert(reportToExch, <<"N">>) -> 
@@ -992,9 +992,9 @@ convert(onBehalfOfSubID, Bin) ->
 convert(quoteID, Bin) -> 
    binary_to_list(Bin);
 convert(netMoney, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(settlCurrAmt, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(settlCurrency, Bin) -> 
    binary_to_list(Bin);
 convert(forexReq, <<"N">>) -> 
@@ -1008,7 +1008,7 @@ convert(gapFillFlag, <<"N">>) ->
 convert(gapFillFlag, <<"Y">>) -> 
     gapFillMessage;
 convert(noExecs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(expireTime, Bin) -> 
    binary_to_list(Bin);
 convert(dKReason, <<"A">>) -> 
@@ -1036,17 +1036,17 @@ convert(iOINaturalFlag, <<"Y">>) ->
 convert(quoteReqID, Bin) -> 
    binary_to_list(Bin);
 convert(bidPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(offerPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(bidSize, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(offerSize, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noMiscFees, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(miscFeeAmt, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(miscFeeCurr, Bin) -> 
    binary_to_list(Bin);
 convert(miscFeeType, <<"1">>) -> 
@@ -1078,7 +1078,7 @@ convert(miscFeeType, <<"13">>) ->
 convert(miscFeeType, <<"14">>) -> 
     securityLending;
 convert(prevClosePx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(resetSeqNumFlag, <<"N">>) -> 
     no;
 convert(resetSeqNumFlag, <<"Y">>) -> 
@@ -1092,7 +1092,7 @@ convert(onBehalfOfLocationID, Bin) ->
 convert(deliverToLocationID, Bin) -> 
    binary_to_list(Bin);
 convert(noRelatedSym, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(subject, Bin) -> 
    binary_to_list(Bin);
 convert(headline, Bin) -> 
@@ -1140,13 +1140,13 @@ convert(execType, <<"K">>) ->
 convert(execType, <<"L">>) -> 
     triggeredOrActivatedBySystem;
 convert(leavesQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(cashOrderQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(allocAvgPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(allocNetMoney, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(settlCurrFxRate, Bin) -> 
    bin_to_num(Bin);
 convert(settlCurrFxRateCalc, <<"M">>) -> 
@@ -1156,9 +1156,9 @@ convert(settlCurrFxRateCalc, <<"D">>) ->
 convert(numDaysInterest, Bin) -> 
    bin_to_num(Bin);
 convert(accruedInterestRate, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(accruedInterestAmt, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(settlInstMode, <<"0">>) -> 
     default;
 convert(settlInstMode, <<"1">>) -> 
@@ -1444,21 +1444,21 @@ convert(settlDeliveryType, <<"2">>) ->
 convert(settlDeliveryType, <<"3">>) -> 
     holdInCustody;
 convert(bidSpotRate, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(bidForwardPoints, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(offerSpotRate, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(offerForwardPoints, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(orderQty2, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(settlDate2, Bin) -> 
    binary_to_list(Bin);
 convert(lastSpotRate, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(lastForwardPoints, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(allocLinkID, Bin) -> 
    binary_to_list(Bin);
 convert(allocLinkType, <<"0">>) -> 
@@ -1468,7 +1468,7 @@ convert(allocLinkType, <<"1">>) ->
 convert(secondaryOrderID, Bin) -> 
    binary_to_list(Bin);
 convert(noIOIQualifiers, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(maturityMonthYear, Bin) -> 
    binary_to_list(Bin);
 convert(putOrCall, <<"0">>) -> 
@@ -1476,7 +1476,7 @@ convert(putOrCall, <<"0">>) ->
 convert(putOrCall, <<"1">>) -> 
     call;
 convert(strikePrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(coveredOrUncovered, <<"0">>) -> 
     covered;
 convert(coveredOrUncovered, <<"1">>) -> 
@@ -1496,7 +1496,7 @@ convert(allocHandlInst, <<"2">>) ->
 convert(allocHandlInst, <<"3">>) -> 
     forwardAndMatch;
 convert(maxShow, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(pegOffsetValue, Bin) -> 
    bin_to_num(Bin);
 convert(xmlDataLen, Bin) -> 
@@ -1506,7 +1506,7 @@ convert(xmlData, Bin) ->
 convert(settlInstRefID, Bin) -> 
    binary_to_list(Bin);
 convert(noRoutingIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(routingType, <<"1">>) -> 
     targetFirm;
 convert(routingType, <<"2">>) -> 
@@ -1518,7 +1518,7 @@ convert(routingType, <<"4">>) ->
 convert(routingID, Bin) -> 
    binary_to_list(Bin);
 convert(spread, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(benchmarkCurveCurrency, Bin) -> 
    binary_to_list(Bin);
 convert(benchmarkCurveName, <<"EONIA">>) -> 
@@ -1548,7 +1548,7 @@ convert(benchmarkCurveName, <<"Treasury">>) ->
 convert(benchmarkCurvePoint, Bin) -> 
    binary_to_list(Bin);
 convert(couponRate, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(couponPaymentDate, Bin) -> 
    binary_to_list(Bin);
 convert(issueDate, Bin) -> 
@@ -1556,7 +1556,7 @@ convert(issueDate, Bin) ->
 convert(repurchaseTerm, Bin) -> 
    bin_to_num(Bin);
 convert(repurchaseRate, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(factor, Bin) -> 
    bin_to_num(Bin);
 convert(tradeOriginationDate, Bin) -> 
@@ -1566,7 +1566,7 @@ convert(exDate, Bin) ->
 convert(contractMultiplier, Bin) -> 
    bin_to_num(Bin);
 convert(noStipulations, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(stipulationType, <<"AMT">>) -> 
     alternativeMinimumTax;
 convert(stipulationType, <<"AUTOREINV">>) -> 
@@ -1798,11 +1798,11 @@ convert(yieldType, <<"VALUE1_32">>) ->
 convert(yieldType, <<"WORST">>) -> 
     yieldToWorst;
 convert(yield, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(totalTakedown, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(concession, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(repoCollateralSecurityType, Bin) -> 
    binary_to_list(Bin);
 convert(redemptionDate, Bin) -> 
@@ -1816,7 +1816,7 @@ convert(underlyingRepoCollateralSecurityType, Bin) ->
 convert(underlyingRepurchaseTerm, Bin) -> 
    bin_to_num(Bin);
 convert(underlyingRepurchaseRate, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingFactor, Bin) -> 
    bin_to_num(Bin);
 convert(underlyingRedemptionDate, Bin) -> 
@@ -1830,7 +1830,7 @@ convert(legRepoCollateralSecurityType, Bin) ->
 convert(legRepurchaseTerm, Bin) -> 
    bin_to_num(Bin);
 convert(legRepurchaseRate, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legFactor, Bin) -> 
    bin_to_num(Bin);
 convert(legRedemptionDate, Bin) -> 
@@ -1848,7 +1848,7 @@ convert(tradedFlatSwitch, <<"Y">>) ->
 convert(basisFeatureDate, Bin) -> 
    binary_to_list(Bin);
 convert(basisFeaturePrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(mDReqID, Bin) -> 
    binary_to_list(Bin);
 convert(subscriptionRequestType, <<"0">>) -> 
@@ -1868,9 +1868,9 @@ convert(aggregatedBook, <<"Y">>) ->
 convert(aggregatedBook, <<"N">>) -> 
     bookEntriesShouldNotBeAggregated;
 convert(noMDEntryTypes, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noMDEntries, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(mDEntryType, <<"0">>) -> 
     bid;
 convert(mDEntryType, <<"1">>) -> 
@@ -1934,9 +1934,9 @@ convert(mDEntryType, <<"U">>) ->
 convert(mDEntryType, <<"V">>) -> 
     cumulativeValueAdjustmentForShortPositions;
 convert(mDEntryPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(mDEntrySize, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(mDEntryDate, Bin) -> 
    binary_to_list(Bin);
 convert(mDEntryTime, Bin) -> 
@@ -2348,13 +2348,13 @@ convert(corporateAction, <<"V">>) ->
 convert(corporateAction, <<"W">>) -> 
     successionEvent;
 convert(defBidSize, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(defOfferSize, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noQuoteEntries, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noQuoteSets, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(quoteStatus, <<"0">>) -> 
     accepted;
 convert(quoteStatus, <<"1">>) -> 
@@ -2470,7 +2470,7 @@ convert(underlyingMaturityMonthYear, Bin) ->
 convert(underlyingPutOrCall, Bin) -> 
    bin_to_num(Bin);
 convert(underlyingStrikePrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingOptAttribute, Bin) -> 
    binary_to_list(Bin);
 convert(underlyingCurrency, Bin) -> 
@@ -2586,13 +2586,13 @@ convert(dueToRelated, <<"N">>) ->
 convert(dueToRelated, <<"Y">>) -> 
     relatedToSecurityHalt;
 convert(buyVolume, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(sellVolume, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(highPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(lowPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(adjustment, <<"1">>) -> 
     cancel;
 convert(adjustment, <<"2">>) -> 
@@ -2692,13 +2692,13 @@ convert(encodedUnderlyingSecurityDescLen, Bin) ->
 convert(encodedUnderlyingSecurityDesc, Bin) -> 
    binary_to_list(Bin);
 convert(allocPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(quoteSetValidUntilTime, Bin) -> 
    binary_to_list(Bin);
 convert(quoteEntryRejectReason, Bin) -> 
    bin_to_num(Bin);
 convert(lastMsgSeqNumProcessed, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(refTagID, Bin) -> 
    bin_to_num(Bin);
 convert(refMsgType, Bin) -> 
@@ -2802,21 +2802,21 @@ convert(businessRejectReason, <<"7">>) ->
 convert(businessRejectReason, <<"18">>) -> 
     invalidPriceIncrement;
 convert(grossTradeAmt, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noContraBrokers, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(maxMessageSize, Bin) -> 
    bin_to_num(Bin);
 convert(noMsgTypes, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(msgDirection, <<"R">>) -> 
     receivereceiveFix;
 convert(msgDirection, <<"S">>) -> 
     send;
 convert(noTradingSessions, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(totalVolumeTraded, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(discretionInst, <<"0">>) -> 
     relatedToDisplayedPrice;
 convert(discretionInst, <<"1">>) -> 
@@ -2852,11 +2852,11 @@ convert(bidType, <<"3">>) ->
 convert(numTickets, Bin) -> 
    bin_to_num(Bin);
 convert(sideValue1, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(sideValue2, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noBidDescriptors, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(bidDescriptorType, <<"1">>) -> 
     sector;
 convert(bidDescriptorType, <<"2">>) -> 
@@ -2870,19 +2870,19 @@ convert(sideValueInd, <<"1">>) ->
 convert(sideValueInd, <<"2">>) -> 
     sideValue2;
 convert(liquidityPctLow, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(liquidityPctHigh, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(liquidityValue, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(eFPTrackingError, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(fairValue, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(outsideIndexPct, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(valueOfFutures, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(liquidityIndType, <<"1">>) -> 
     fiveDayMovingAverage;
 convert(liquidityIndType, <<"2">>) -> 
@@ -2892,15 +2892,15 @@ convert(liquidityIndType, <<"3">>) ->
 convert(liquidityIndType, <<"4">>) -> 
     other;
 convert(wtAverageLiquidity, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(exchangeForPhysical, <<"N">>) -> 
     false;
 convert(exchangeForPhysical, <<"Y">>) -> 
     true;
 convert(outMainCntryUIndex, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(crossPercent, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(progRptReqs, <<"1">>) -> 
     buySideRequests;
 convert(progRptReqs, <<"2">>) -> 
@@ -2950,7 +2950,7 @@ convert(basisPxType, <<"D">>) ->
 convert(basisPxType, <<"Z">>) -> 
     others;
 convert(noBidComponents, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(country, Bin) -> 
    binary_to_list(Bin);
 convert(totNoStrikes, Bin) -> 
@@ -2992,11 +2992,11 @@ convert(priceType, <<"18">>) ->
 convert(priceType, <<"19">>) -> 
     productTicksInOneTwentyEights;
 convert(dayOrderQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(dayCumQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(dayAvgPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(gTBookingInst, <<"0">>) -> 
     bookOutAllTradesOnDayOfExecution;
 convert(gTBookingInst, <<"1">>) -> 
@@ -3004,7 +3004,7 @@ convert(gTBookingInst, <<"1">>) ->
 convert(gTBookingInst, <<"2">>) -> 
     accumulateUntilVerballlyNotifiedOtherwise;
 convert(noStrikes, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(listStatusType, <<"1">>) -> 
     ack;
 convert(listStatusType, <<"2">>) -> 
@@ -3052,11 +3052,11 @@ convert(cxlRejResponseTo, <<"1">>) ->
 convert(cxlRejResponseTo, <<"2">>) -> 
     orderCancel;
 convert(underlyingCouponRate, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingContractMultiplier, Bin) -> 
    bin_to_num(Bin);
 convert(contraTradeQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(contraTradeTime, Bin) -> 
    binary_to_list(Bin);
 convert(liquidityNumSecurities, Bin) -> 
@@ -3114,7 +3114,7 @@ convert(partyIDSource, <<"H">>) ->
 convert(partyID, Bin) -> 
    binary_to_list(Bin);
 convert(netChgPrevDay, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(partyRole, <<"1">>) -> 
     executingFirm;
 convert(partyRole, <<"2">>) -> 
@@ -3276,15 +3276,15 @@ convert(partyRole, <<"80">>) ->
 convert(partyRole, <<"81">>) -> 
     brokerClearingID;
 convert(noPartyIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noSecurityAltID, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(securityAltID, Bin) -> 
    binary_to_list(Bin);
 convert(securityAltIDSource, Bin) -> 
    binary_to_list(Bin);
 convert(noUnderlyingSecurityAltID, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingSecurityAltID, Bin) -> 
    binary_to_list(Bin);
 convert(underlyingSecurityAltIDSource, Bin) -> 
@@ -3344,7 +3344,7 @@ convert(stateOrProvinceOfIssue, Bin) ->
 convert(localeOfIssue, Bin) -> 
    binary_to_list(Bin);
 convert(noRegistDtls, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(mailingDtls, Bin) -> 
    binary_to_list(Bin);
 convert(investorCountryOfResidence, Bin) -> 
@@ -3610,11 +3610,11 @@ convert(registRefID, Bin) ->
 convert(registDtls, Bin) -> 
    binary_to_list(Bin);
 convert(noDistribInsts, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(registEmail, Bin) -> 
    binary_to_list(Bin);
 convert(distribPercentage, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(registID, Bin) -> 
    binary_to_list(Bin);
 convert(registTransType, <<"0">>) -> 
@@ -3626,7 +3626,7 @@ convert(registTransType, <<"1">>) ->
 convert(execValuationPoint, Bin) -> 
    binary_to_list(Bin);
 convert(orderPercent, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(ownershipType, <<"J">>) -> 
     jointInvestors;
 convert(ownershipType, <<"T">>) -> 
@@ -3634,7 +3634,7 @@ convert(ownershipType, <<"T">>) ->
 convert(ownershipType, <<"2">>) -> 
     jointTrustees;
 convert(noContAmts, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(contAmtType, <<"1">>) -> 
     commissionAmount;
 convert(contAmtType, <<"2">>) -> 
@@ -3812,7 +3812,7 @@ convert(massCancelRejectReason, <<"99">>) ->
 convert(totalAffectedOrders, Bin) -> 
    bin_to_num(Bin);
 convert(noAffectedOrders, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(affectedOrderID, Bin) -> 
    binary_to_list(Bin);
 convert(affectedSecondaryOrderID, Bin) -> 
@@ -3828,9 +3828,9 @@ convert(quoteType, <<"3">>) ->
 convert(nestedPartyRole, Bin) -> 
    bin_to_num(Bin);
 convert(noNestedPartyIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(totalAccruedInterestAmt, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(maturityDate, Bin) -> 
    binary_to_list(Bin);
 convert(underlyingMaturityDate, Bin) -> 
@@ -3882,13 +3882,13 @@ convert(username, Bin) ->
 convert(password, Bin) -> 
    binary_to_list(Bin);
 convert(noLegs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legCurrency, Bin) -> 
    binary_to_list(Bin);
 convert(totNoSecurityTypes, Bin) -> 
    bin_to_num(Bin);
 convert(noSecurityTypes, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(securityListRequestType, <<"0">>) -> 
     symbol;
 convert(securityListRequestType, <<"1">>) -> 
@@ -3914,9 +3914,9 @@ convert(securityRequestResult, <<"4">>) ->
 convert(securityRequestResult, <<"5">>) -> 
     requestForInstrumentDataNotSupported;
 convert(roundLot, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(minTradeVol, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(multiLegRptTypeReq, <<"0">>) -> 
     reportByMulitlegSecurityOnly;
 convert(multiLegRptTypeReq, <<"1">>) -> 
@@ -3928,7 +3928,7 @@ convert(legPositionEffect, Bin) ->
 convert(legCoveredOrUncovered, Bin) -> 
    bin_to_num(Bin);
 convert(legPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(tradSesStatusRejReason, <<"1">>) -> 
     unknownOrInvalidTradingSessionID;
 convert(tradSesStatusRejReason, <<"99">>) -> 
@@ -4016,7 +4016,7 @@ convert(oddLot, <<"N">>) ->
 convert(oddLot, <<"Y">>) -> 
     treatAsOddLot;
 convert(noClearingInstructions, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(clearingInstruction, <<"0">>) -> 
     processNormally;
 convert(clearingInstruction, <<"1">>) -> 
@@ -4050,7 +4050,7 @@ convert(tradeInputSource, Bin) ->
 convert(tradeInputDevice, Bin) -> 
    binary_to_list(Bin);
 convert(noDates, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(accountType, <<"1">>) -> 
     carriedCustomerSide;
 convert(accountType, <<"2">>) -> 
@@ -4140,7 +4140,7 @@ convert(legSecurityID, Bin) ->
 convert(legSecurityIDSource, Bin) -> 
    binary_to_list(Bin);
 convert(noLegSecurityAltID, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legSecurityAltID, Bin) -> 
    binary_to_list(Bin);
 convert(legSecurityAltIDSource, Bin) -> 
@@ -4156,13 +4156,13 @@ convert(legMaturityMonthYear, Bin) ->
 convert(legMaturityDate, Bin) -> 
    binary_to_list(Bin);
 convert(legStrikePrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legOptAttribute, Bin) -> 
    binary_to_list(Bin);
 convert(legContractMultiplier, Bin) -> 
    bin_to_num(Bin);
 convert(legCouponRate, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legSecurityExchange, Bin) -> 
    binary_to_list(Bin);
 convert(legIssuer, Bin) -> 
@@ -4224,21 +4224,21 @@ convert(allocType, <<"13">>) ->
 convert(allocType, <<"14">>) -> 
     reversalPending;
 convert(noHops, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(hopCompID, Bin) -> 
    binary_to_list(Bin);
 convert(hopSendingTime, Bin) -> 
    binary_to_list(Bin);
 convert(hopRefID, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(midPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(bidYield, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(midYield, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(offerYield, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(clearingFeeIndicator, <<"1">>) -> 
     firstYearDelegate;
 convert(clearingFeeIndicator, <<"2">>) -> 
@@ -4272,31 +4272,31 @@ convert(workingIndicator, <<"N">>) ->
 convert(workingIndicator, <<"Y">>) -> 
     working;
 convert(legLastPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(priorityIndicator, <<"0">>) -> 
     priorityUnchanged;
 convert(priorityIndicator, <<"1">>) -> 
     lostPriorityAsResultOfOrderChange;
 convert(priceImprovement, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(price2, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(lastForwardPoints2, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(bidForwardPoints2, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(offerForwardPoints2, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(rFQReqID, Bin) -> 
    binary_to_list(Bin);
 convert(mktBidPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(mktOfferPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(minBidSize, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(minOfferSize, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(quoteStatusReqID, Bin) -> 
    binary_to_list(Bin);
 convert(legalConfirm, <<"N">>) -> 
@@ -4304,9 +4304,9 @@ convert(legalConfirm, <<"N">>) ->
 convert(legalConfirm, <<"Y">>) -> 
     legalConfirmTrue;
 convert(underlyingLastPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingLastQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legRefID, Bin) -> 
    binary_to_list(Bin);
 convert(contraLegRefID, Bin) -> 
@@ -4356,7 +4356,7 @@ convert(acctIDSource, <<"99">>) ->
 convert(allocAcctIDSource, Bin) -> 
    bin_to_num(Bin);
 convert(benchmarkPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(benchmarkPriceType, Bin) -> 
    bin_to_num(Bin);
 convert(confirmID, Bin) -> 
@@ -4384,15 +4384,15 @@ convert(deliveryForm, <<"1">>) ->
 convert(deliveryForm, <<"2">>) -> 
     bearer;
 convert(lastParPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noLegAllocs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legAllocAccount, Bin) -> 
    binary_to_list(Bin);
 convert(legIndividualAllocID, Bin) -> 
    binary_to_list(Bin);
 convert(legAllocQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legAllocAcctIDSource, Bin) -> 
    binary_to_list(Bin);
 convert(legSettlCurrency, Bin) -> 
@@ -4404,23 +4404,23 @@ convert(legBenchmarkCurveName, Bin) ->
 convert(legBenchmarkCurvePoint, Bin) -> 
    binary_to_list(Bin);
 convert(legBenchmarkPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legBenchmarkPriceType, Bin) -> 
    bin_to_num(Bin);
 convert(legBidPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legIOIQty, Bin) -> 
    binary_to_list(Bin);
 convert(noLegStipulations, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legOfferPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legOrderQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legPriceType, Bin) -> 
    bin_to_num(Bin);
 convert(legQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legStipulationType, Bin) -> 
    binary_to_list(Bin);
 convert(legStipulationValue, Bin) -> 
@@ -4478,7 +4478,7 @@ convert(quoteQualifier, Bin) ->
 convert(yieldRedemptionDate, Bin) -> 
    binary_to_list(Bin);
 convert(yieldRedemptionPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(yieldRedemptionPriceType, Bin) -> 
    bin_to_num(Bin);
 convert(benchmarkSecurityID, Bin) -> 
@@ -4487,12 +4487,10 @@ convert(reversalIndicator, <<"Y">>) ->
     true;
 convert(reversalIndicator, <<"N">>) -> 
     false;
-convert(reversalIndicator, Bin) -> 
-   binary_to_list(Bin);
 convert(yieldCalcDate, Bin) -> 
    binary_to_list(Bin);
 convert(noPositions, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(posType, <<"ALC">>) -> 
     allocationTradeQty;
 convert(posType, <<"AS">>) -> 
@@ -4542,9 +4540,9 @@ convert(posType, <<"EP">>) ->
 convert(posType, <<"PNTN">>) -> 
     privatelyNegotiatedTradeQty;
 convert(longQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(shortQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(posQtyStatus, <<"0">>) -> 
     submitted;
 convert(posQtyStatus, <<"1">>) -> 
@@ -4570,7 +4568,7 @@ convert(posAmtType, <<"VADJ">>) ->
 convert(posAmtType, <<"SETL">>) -> 
     settlementValue;
 convert(posAmt, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(posTransType, <<"1">>) -> 
     exercise;
 convert(posTransType, <<"2">>) -> 
@@ -4586,7 +4584,7 @@ convert(posTransType, <<"6">>) ->
 convert(posReqID, Bin) -> 
    binary_to_list(Bin);
 convert(noUnderlyings, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(posMaintAction, <<"1">>) -> 
     new;
 convert(posMaintAction, <<"2">>) -> 
@@ -4623,14 +4621,10 @@ convert(contraryInstructionIndicator, <<"Y">>) ->
     true;
 convert(contraryInstructionIndicator, <<"N">>) -> 
     false;
-convert(contraryInstructionIndicator, Bin) -> 
-   binary_to_list(Bin);
 convert(priorSpreadIndicator, <<"Y">>) -> 
     true;
 convert(priorSpreadIndicator, <<"N">>) -> 
     false;
-convert(priorSpreadIndicator, Bin) -> 
-   binary_to_list(Bin);
 convert(posMaintRptID, Bin) -> 
    binary_to_list(Bin);
 convert(posMaintStatus, <<"0">>) -> 
@@ -4688,33 +4682,33 @@ convert(posReqStatus, <<"1">>) ->
 convert(posReqStatus, <<"2">>) -> 
     rejected;
 convert(settlPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(settlPriceType, <<"1">>) -> 
     final;
 convert(settlPriceType, <<"2">>) -> 
     theoretical;
 convert(underlyingSettlPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingSettlPriceType, Bin) -> 
    bin_to_num(Bin);
 convert(priorSettlPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noQuoteQualifiers, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(allocSettlCurrency, Bin) -> 
    binary_to_list(Bin);
 convert(allocSettlCurrAmt, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(interestAtMaturity, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legDatedDate, Bin) -> 
    binary_to_list(Bin);
 convert(legPool, Bin) -> 
    binary_to_list(Bin);
 convert(allocInterestAtMaturity, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(allocAccruedInterestAmt, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(deliveryDate, Bin) -> 
    binary_to_list(Bin);
 convert(assignmentMethod, <<"P">>) -> 
@@ -4722,9 +4716,9 @@ convert(assignmentMethod, <<"P">>) ->
 convert(assignmentMethod, <<"R">>) -> 
     random;
 convert(assignmentUnit, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(openInterest, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(exerciseMethod, <<"A">>) -> 
     automatic;
 convert(exerciseMethod, <<"M">>) -> 
@@ -4774,17 +4768,15 @@ convert(sideMultiLegReportingType, <<"2">>) ->
 convert(sideMultiLegReportingType, <<"3">>) -> 
     multilegSecurity;
 convert(noPosAmt, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(autoAcceptIndicator, <<"Y">>) -> 
     true;
 convert(autoAcceptIndicator, <<"N">>) -> 
     false;
-convert(autoAcceptIndicator, Bin) -> 
-   binary_to_list(Bin);
 convert(allocReportID, Bin) -> 
    binary_to_list(Bin);
 convert(noNested2PartyIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(nested2PartyID, Bin) -> 
    binary_to_list(Bin);
 convert(nested2PartyIDSource, Bin) -> 
@@ -4802,13 +4794,13 @@ convert(underlyingSecuritySubType, Bin) ->
 convert(legSecuritySubType, Bin) -> 
    binary_to_list(Bin);
 convert(allowableOneSidednessPct, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(allowableOneSidednessValue, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(allowableOneSidednessCurr, Bin) -> 
    binary_to_list(Bin);
 convert(noTrdRegTimestamps, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(trdRegTimestamp, Bin) -> 
    binary_to_list(Bin);
 convert(trdRegTimestampType, <<"1">>) -> 
@@ -4850,7 +4842,7 @@ convert(individualAllocRejCode, Bin) ->
 convert(settlInstMsgID, Bin) -> 
    binary_to_list(Bin);
 convert(noSettlInst, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(lastUpdateTime, Bin) -> 
    binary_to_list(Bin);
 convert(allocSettlInstType, <<"0">>) -> 
@@ -4864,7 +4856,7 @@ convert(allocSettlInstType, <<"3">>) ->
 convert(allocSettlInstType, <<"4">>) -> 
     phoneForInstructions;
 convert(noSettlPartyIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(settlPartyID, Bin) -> 
    binary_to_list(Bin);
 convert(settlPartyIDSource, Bin) -> 
@@ -4888,7 +4880,7 @@ convert(terminationType, <<"3">>) ->
 convert(terminationType, <<"4">>) -> 
     open;
 convert(nextExpectedMsgSeqNum, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(ordStatusReqID, Bin) -> 
    binary_to_list(Bin);
 convert(settlInstReqID, Bin) -> 
@@ -4935,8 +4927,6 @@ convert(copyMsgIndicator, <<"Y">>) ->
     true;
 convert(copyMsgIndicator, <<"N">>) -> 
     false;
-convert(copyMsgIndicator, Bin) -> 
-   binary_to_list(Bin);
 convert(allocAccountType, <<"1">>) -> 
     carriedCustomerSide;
 convert(allocAccountType, <<"2">>) -> 
@@ -4952,13 +4942,13 @@ convert(allocAccountType, <<"7">>) ->
 convert(allocAccountType, <<"8">>) -> 
     jointBackOfficeAccount;
 convert(orderAvgPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(orderBookingQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noSettlPartySubIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noPartySubIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(partySubIDType, <<"1">>) -> 
     firm;
 convert(partySubIDType, <<"2">>) -> 
@@ -5026,11 +5016,11 @@ convert(partySubIDType, <<"32">>) ->
 convert(partySubIDType, <<"33">>) -> 
     currencyDeliveryIdentifier;
 convert(noNestedPartySubIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(nestedPartySubIDType, Bin) -> 
    bin_to_num(Bin);
 convert(noNested2PartySubIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(nested2PartySubIDType, Bin) -> 
    bin_to_num(Bin);
 convert(allocIntermedReqType, <<"1">>) -> 
@@ -5046,7 +5036,7 @@ convert(allocIntermedReqType, <<"5">>) ->
 convert(allocIntermedReqType, <<"6">>) -> 
     accountLevelReject;
 convert(underlyingPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(priceDelta, Bin) -> 
    bin_to_num(Bin);
 convert(applQueueMax, Bin) -> 
@@ -5070,7 +5060,7 @@ convert(applQueueAction, <<"2">>) ->
 convert(applQueueAction, <<"3">>) -> 
     endSession;
 convert(noAltMDSource, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(altMDSourceID, Bin) -> 
    binary_to_list(Bin);
 convert(secondaryTradeReportID, Bin) -> 
@@ -5304,7 +5294,7 @@ convert(totNumAssignmentReports, Bin) ->
 convert(asgnRptID, Bin) -> 
    binary_to_list(Bin);
 convert(thresholdAmount, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(pegMoveType, <<"0">>) -> 
     floating;
 convert(pegMoveType, <<"1">>) -> 
@@ -5328,7 +5318,7 @@ convert(pegRoundDirection, <<"1">>) ->
 convert(pegRoundDirection, <<"2">>) -> 
     morePassive;
 convert(peggedPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(pegScope, <<"1">>) -> 
     local;
 convert(pegScope, <<"2">>) -> 
@@ -5360,7 +5350,7 @@ convert(discretionRoundDirection, <<"1">>) ->
 convert(discretionRoundDirection, <<"2">>) -> 
     morePassive;
 convert(discretionPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(discretionScope, <<"1">>) -> 
     local;
 convert(discretionScope, <<"2">>) -> 
@@ -5378,7 +5368,7 @@ convert(targetStrategy, <<"3">>) ->
 convert(targetStrategyParameters, Bin) -> 
    binary_to_list(Bin);
 convert(participationRate, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(targetStrategyPerformance, Bin) -> 
    bin_to_num(Bin);
 convert(lastLiquidityInd, <<"1">>) -> 
@@ -5450,19 +5440,19 @@ convert(allocNoOrdersType, <<"0">>) ->
 convert(allocNoOrdersType, <<"1">>) -> 
     explicitListProvided;
 convert(sharedCommission, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(confirmReqID, Bin) -> 
    binary_to_list(Bin);
 convert(avgParPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(reportedPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noCapacities, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(orderCapacityQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noEvents, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(eventType, <<"1">>) -> 
     put;
 convert(eventType, <<"2">>) -> 
@@ -5506,13 +5496,13 @@ convert(eventType, <<"99">>) ->
 convert(eventDate, Bin) -> 
    binary_to_list(Bin);
 convert(eventPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(eventText, Bin) -> 
    binary_to_list(Bin);
 convert(pctAtRisk, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noInstrAttrib, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(instrAttribType, <<"1">>) -> 
     flat;
 convert(instrAttribType, <<"2">>) -> 
@@ -5592,29 +5582,29 @@ convert(underlyingCPProgram, Bin) ->
 convert(underlyingCPRegType, Bin) -> 
    binary_to_list(Bin);
 convert(underlyingQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(trdMatchID, Bin) -> 
    binary_to_list(Bin);
 convert(secondaryTradeReportRefID, Bin) -> 
    binary_to_list(Bin);
 convert(underlyingDirtyPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingEndPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingStartValue, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingCurrentValue, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingEndValue, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noUnderlyingStips, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingStipType, Bin) -> 
    binary_to_list(Bin);
 convert(underlyingStipValue, Bin) -> 
    binary_to_list(Bin);
 convert(maturityNetMoney, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(miscFeeBasis, <<"0">>) -> 
     absolute;
 convert(miscFeeBasis, <<"1">>) -> 
@@ -5662,15 +5652,15 @@ convert(collInquiryQualifier, <<"6">>) ->
 convert(collInquiryQualifier, <<"7">>) -> 
     outstandingTrades;
 convert(noTrades, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(marginRatio, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(marginExcess, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(totalNetValue, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(cashOutstanding, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(collAsgnID, Bin) -> 
    binary_to_list(Bin);
 convert(collAsgnTransType, <<"0">>) -> 
@@ -5750,11 +5740,11 @@ convert(deliveryType, <<"2">>) ->
 convert(deliveryType, <<"3">>) -> 
     holdInCustody;
 convert(endAccruedInterestAmt, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(startCash, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(endCash, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(userRequestID, Bin) -> 
    binary_to_list(Bin);
 convert(userRequestType, <<"1">>) -> 
@@ -5814,13 +5804,13 @@ convert(networkRequestType, <<"4">>) ->
 convert(networkRequestType, <<"8">>) -> 
     levelOfDetail;
 convert(noCompIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(networkStatusResponseType, <<"1">>) -> 
     full;
 convert(networkStatusResponseType, <<"2">>) -> 
     incrementalUpdate;
 convert(noCollInquiryQualifier, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(trdRptStatus, <<"0">>) -> 
     accepted;
 convert(trdRptStatus, <<"1">>) -> 
@@ -5880,7 +5870,7 @@ convert(collInquiryResult, <<"99">>) ->
 convert(strikeCurrency, Bin) -> 
    binary_to_list(Bin);
 convert(noNested3PartyIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(nested3PartyID, Bin) -> 
    binary_to_list(Bin);
 convert(nested3PartyIDSource, Bin) -> 
@@ -5888,7 +5878,7 @@ convert(nested3PartyIDSource, Bin) ->
 convert(nested3PartyRole, Bin) -> 
    bin_to_num(Bin);
 convert(noNested3PartySubIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(nested3PartySubID, Bin) -> 
    binary_to_list(Bin);
 convert(nested3PartySubIDType, Bin) -> 
@@ -5898,7 +5888,7 @@ convert(legContractSettlMonth, Bin) ->
 convert(legInterestAccrualDate, Bin) -> 
    binary_to_list(Bin);
 convert(noStrategyParameters, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(strategyParameterName, Bin) -> 
    binary_to_list(Bin);
 convert(strategyParameterType, <<"1">>) -> 
@@ -5976,9 +5966,9 @@ convert(positionLimit, Bin) ->
 convert(nTPositionLimit, Bin) -> 
    bin_to_num(Bin);
 convert(underlyingAllocationPercent, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingCashAmount, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingCashType, <<"FIXED">>) -> 
     fIXED;
 convert(underlyingCashType, <<"DIFF">>) -> 
@@ -5997,8 +5987,6 @@ convert(lateIndicator, <<"Y">>) ->
     true;
 convert(lateIndicator, <<"N">>) -> 
     false;
-convert(lateIndicator, Bin) -> 
-   binary_to_list(Bin);
 convert(inputSource, Bin) -> 
    binary_to_list(Bin);
 convert(securityUpdateAction, <<"A">>) -> 
@@ -6008,7 +5996,7 @@ convert(securityUpdateAction, <<"D">>) ->
 convert(securityUpdateAction, <<"M">>) -> 
     modify;
 convert(noExpiration, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(expirationQtyType, <<"1">>) -> 
     autoExercise;
 convert(expirationQtyType, <<"2">>) -> 
@@ -6020,13 +6008,13 @@ convert(expirationQtyType, <<"4">>) ->
 convert(expirationQtyType, <<"5">>) -> 
     difference;
 convert(expQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noUnderlyingAmounts, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingPayAmount, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingCollectAmount, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingSettlementDate, Bin) -> 
    binary_to_list(Bin);
 convert(underlyingSettlementStatus, Bin) -> 
@@ -6036,7 +6024,7 @@ convert(secondaryIndividualAllocID, Bin) ->
 convert(legReportID, Bin) -> 
    binary_to_list(Bin);
 convert(rndPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(individualAllocType, <<"1">>) -> 
     subAllocate;
 convert(individualAllocType, <<"2">>) -> 
@@ -6122,15 +6110,15 @@ convert(asOfIndicator, <<"0">>) ->
 convert(asOfIndicator, <<"1">>) -> 
     true;
 convert(noSideTrdRegTS, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legOptionRatio, Bin) -> 
    bin_to_num(Bin);
 convert(noInstrumentParties, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(instrumentPartyID, Bin) -> 
    binary_to_list(Bin);
 convert(tradeVolume, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(mDBookType, <<"1">>) -> 
     topOfBook;
 convert(mDBookType, <<"2">>) -> 
@@ -6148,23 +6136,19 @@ convert(mDOriginType, <<"1">>) ->
 convert(mDOriginType, <<"2">>) -> 
     cross;
 convert(firstPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(mDEntrySpotRate, Bin) -> 
    bin_to_num(Bin);
 convert(mDEntryForwardPoints, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(manualOrderIndicator, <<"Y">>) -> 
     true;
 convert(manualOrderIndicator, <<"N">>) -> 
     false;
-convert(manualOrderIndicator, Bin) -> 
-   binary_to_list(Bin);
 convert(custDirectedOrder, <<"Y">>) -> 
     true;
 convert(custDirectedOrder, <<"N">>) -> 
     false;
-convert(custDirectedOrder, Bin) -> 
-   binary_to_list(Bin);
 convert(receivedDeptID, Bin) -> 
    binary_to_list(Bin);
 convert(custOrderHandlingInst, <<"ADD">>) -> 
@@ -6217,8 +6201,6 @@ convert(custOrderHandlingInst, <<"WRK">>) ->
     work;
 convert(orderHandlingInstSource, <<"1">>) -> 
     nASDOATS;
-convert(orderHandlingInstSource, Bin) -> 
-   binary_to_list(Bin);
 convert(deskType, <<"A">>) -> 
     agency;
 convert(deskType, <<"AR">>) -> 
@@ -6243,8 +6225,6 @@ convert(deskType, <<"T">>) ->
     trading;
 convert(deskTypeSource, <<"1">>) -> 
     nASDOATS;
-convert(deskTypeSource, Bin) -> 
-   binary_to_list(Bin);
 convert(deskOrderHandlingInst, <<"ADD">>) -> 
     addOnOrder;
 convert(deskOrderHandlingInst, <<"AON">>) -> 
@@ -6300,9 +6280,9 @@ convert(execAckStatus, <<"1">>) ->
 convert(execAckStatus, <<"2">>) -> 
     don;
 convert(underlyingDeliveryAmount, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingCapValue, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingSettlMethod, Bin) -> 
    binary_to_list(Bin);
 convert(secondaryTradeID, Bin) -> 
@@ -6316,7 +6296,7 @@ convert(collApplType, <<"0">>) ->
 convert(collApplType, <<"1">>) -> 
     general;
 convert(underlyingAdjustedQuantity, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingFXRate, Bin) -> 
    bin_to_num(Bin);
 convert(underlyingFXRateCalc, <<"D">>) -> 
@@ -6332,7 +6312,7 @@ convert(allocPositionEffect, <<"R">>) ->
 convert(allocPositionEffect, <<"F">>) -> 
     fIFO;
 convert(dealingCapacity, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(instrmtAssignmentMethod, Bin) -> 
    binary_to_list(Bin);
 convert(instrumentPartyIDSource, Bin) -> 
@@ -6340,7 +6320,7 @@ convert(instrumentPartyIDSource, Bin) ->
 convert(instrumentPartyRole, Bin) -> 
    bin_to_num(Bin);
 convert(noInstrumentPartySubIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(instrumentPartySubID, Bin) -> 
    binary_to_list(Bin);
 convert(instrumentPartySubIDType, Bin) -> 
@@ -6348,13 +6328,13 @@ convert(instrumentPartySubIDType, Bin) ->
 convert(positionCurrency, Bin) -> 
    binary_to_list(Bin);
 convert(calculatedCcyLastQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(aggressorIndicator, <<"Y">>) -> 
     orderInitiatorIsAggressor;
 convert(aggressorIndicator, <<"N">>) -> 
     orderInitiatorIsPassive;
 convert(noUndlyInstrumentParties, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(undlyInstrumentPartyID, Bin) -> 
    binary_to_list(Bin);
 convert(undlyInstrumentPartyIDSource, Bin) -> 
@@ -6362,21 +6342,21 @@ convert(undlyInstrumentPartyIDSource, Bin) ->
 convert(undlyInstrumentPartyRole, Bin) -> 
    bin_to_num(Bin);
 convert(noUndlyInstrumentPartySubIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(undlyInstrumentPartySubID, Bin) -> 
    binary_to_list(Bin);
 convert(undlyInstrumentPartySubIDType, Bin) -> 
    bin_to_num(Bin);
 convert(bidSwapPoints, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(offerSwapPoints, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legBidForwardPoints, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legOfferForwardPoints, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(swapPoints, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(mDQuoteType, <<"0">>) -> 
     indicative;
 convert(mDQuoteType, <<"1">>) -> 
@@ -6388,15 +6368,15 @@ convert(mDQuoteType, <<"3">>) ->
 convert(mDQuoteType, <<"4">>) -> 
     indicativeAndTradeable;
 convert(lastSwapPoints, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(sideGrossTradeAmt, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legLastForwardPoints, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legCalculatedCcyLastQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legGrossTradeAmt, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(maturityTime, Bin) -> 
    binary_to_list(Bin);
 convert(refOrderID, Bin) -> 
@@ -6410,7 +6390,7 @@ convert(refOrderIDSource, <<"2">>) ->
 convert(refOrderIDSource, <<"3">>) -> 
     quoteEntryID;
 convert(secondaryDisplayQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(displayWhen, <<"1">>) -> 
     immediate;
 convert(displayWhen, <<"2">>) -> 
@@ -6422,23 +6402,21 @@ convert(displayMethod, <<"2">>) ->
 convert(displayMethod, <<"3">>) -> 
     random;
 convert(displayLowQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(displayHighQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(displayMinIncr, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(refreshQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(matchIncrement, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(maxPriceLevels, Bin) -> 
    bin_to_num(Bin);
 convert(preTradeAnonymity, <<"Y">>) -> 
     true;
 convert(preTradeAnonymity, <<"N">>) -> 
     false;
-convert(preTradeAnonymity, Bin) -> 
-   binary_to_list(Bin);
 convert(priceProtectionScope, <<"0">>) -> 
     none;
 convert(priceProtectionScope, <<"1">>) -> 
@@ -6470,7 +6448,7 @@ convert(pegPriceType, <<"8">>) ->
 convert(pegPriceType, <<"9">>) -> 
     pegToLimitPrice;
 convert(peggedRefPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(pegSecurityIDSource, Bin) -> 
    binary_to_list(Bin);
 convert(pegSecurityID, Bin) -> 
@@ -6494,7 +6472,7 @@ convert(triggerAction, <<"2">>) ->
 convert(triggerAction, <<"3">>) -> 
     cancel;
 convert(triggerPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(triggerSymbol, Bin) -> 
    binary_to_list(Bin);
 convert(triggerSecurityID, Bin) -> 
@@ -6528,13 +6506,13 @@ convert(triggerPriceDirection, <<"U">>) ->
 convert(triggerPriceDirection, <<"D">>) -> 
     down;
 convert(triggerNewPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(triggerOrderType, <<"1">>) -> 
     market;
 convert(triggerOrderType, <<"2">>) -> 
     limit;
 convert(triggerNewQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(triggerTradingSessionID, Bin) -> 
    binary_to_list(Bin);
 convert(triggerTradingSessionSubID, Bin) -> 
@@ -6558,7 +6536,7 @@ convert(orderCategory, <<"8">>) ->
 convert(orderCategory, <<"9">>) -> 
     streamingPrice;
 convert(noRootPartyIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(rootPartyID, Bin) -> 
    binary_to_list(Bin);
 convert(rootPartyIDSource, Bin) -> 
@@ -6566,7 +6544,7 @@ convert(rootPartyIDSource, Bin) ->
 convert(rootPartyRole, Bin) -> 
    bin_to_num(Bin);
 convert(noRootPartySubIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(rootPartySubID, Bin) -> 
    binary_to_list(Bin);
 convert(rootPartySubIDType, Bin) -> 
@@ -6631,8 +6609,6 @@ convert(reportedPxDiff, <<"Y">>) ->
     true;
 convert(reportedPxDiff, <<"N">>) -> 
     false;
-convert(reportedPxDiff, Bin) -> 
-   binary_to_list(Bin);
 convert(rptSys, Bin) -> 
    binary_to_list(Bin);
 convert(allocClearingFeeIndicator, Bin) -> 
@@ -6640,7 +6616,7 @@ convert(allocClearingFeeIndicator, Bin) ->
 convert(defaultApplVerID, Bin) -> 
    binary_to_list(Bin);
 convert(displayQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(exchangeSpecialInstructions, Bin) -> 
    binary_to_list(Bin);
 convert(underlyingMaturityTime, Bin) -> 
@@ -6648,9 +6624,9 @@ convert(underlyingMaturityTime, Bin) ->
 convert(legMaturityTime, Bin) -> 
    binary_to_list(Bin);
 convert(maxTradeVol, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noMDFeedTypes, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(matchAlgorithm, Bin) -> 
    binary_to_list(Bin);
 convert(maxPriceVariation, Bin) -> 
@@ -6666,15 +6642,15 @@ convert(impliedMarketIndicator, <<"3">>) ->
 convert(eventTime, Bin) -> 
    binary_to_list(Bin);
 convert(minPriceIncrementAmount, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(unitOfMeasureQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(lowLimitPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(highLimitPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(tradingReferencePrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(securityGroup, Bin) -> 
    binary_to_list(Bin);
 convert(legNumber, Bin) -> 
@@ -6686,9 +6662,9 @@ convert(sideCurrency, Bin) ->
 convert(sideSettlCurrency, Bin) -> 
    binary_to_list(Bin);
 convert(ccyAmt, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noSettlDetails, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(settlObligMode, <<"1">>) -> 
     preliminary;
 convert(settlObligMode, <<"2">>) -> 
@@ -6714,7 +6690,7 @@ convert(settlObligSource, <<"2">>) ->
 convert(settlObligSource, <<"3">>) -> 
     investor;
 convert(noSettlOblig, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(quoteMsgID, Bin) -> 
    binary_to_list(Bin);
 convert(quoteEntryStatus, <<"0">>) -> 
@@ -6745,8 +6721,6 @@ convert(privateQuote, <<"Y">>) ->
     true;
 convert(privateQuote, <<"N">>) -> 
     false;
-convert(privateQuote, Bin) -> 
-   binary_to_list(Bin);
 convert(respondentType, <<"1">>) -> 
     allMarketParticipants;
 convert(respondentType, <<"2">>) -> 
@@ -6774,7 +6748,7 @@ convert(securityTradingEvent, <<"7">>) ->
 convert(securityTradingEvent, <<"8">>) -> 
     changeOfMarketDepth;
 convert(noStatsIndicators, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(statsType, <<"1">>) -> 
     exchangeLast;
 convert(statsType, <<"2">>) -> 
@@ -6784,24 +6758,22 @@ convert(statsType, <<"3">>) ->
 convert(statsType, <<"4">>) -> 
     turnover;
 convert(noOfSecSizes, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(mDSecSizeType, <<"1">>) -> 
     customer;
-convert(mDSecSizeType, Bin) -> 
-   binary_to_list(Bin);
 convert(mDSecSize, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(applID, Bin) -> 
    binary_to_list(Bin);
 convert(applSeqNum, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(applBegSeqNum, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(applEndSeqNum, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(securityXMLLen, Bin) -> 
    bin_to_num(Bin);
-convert(securityXMLTag, Bin) -> 
+convert(securityXMLData, Bin) -> 
    binary_to_list(Bin);
 convert(securityXMLSchema, Bin) -> 
    binary_to_list(Bin);
@@ -6809,8 +6781,6 @@ convert(refreshIndicator, <<"Y">>) ->
     true;
 convert(refreshIndicator, <<"N">>) -> 
     false;
-convert(refreshIndicator, Bin) -> 
-   binary_to_list(Bin);
 convert(volatility, Bin) -> 
    bin_to_num(Bin);
 convert(timeToExpiration, Bin) -> 
@@ -6820,7 +6790,7 @@ convert(riskFreeRate, Bin) ->
 convert(priceUnitOfMeasure, Bin) -> 
    binary_to_list(Bin);
 convert(priceUnitOfMeasureQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(settlMethod, <<"C">>) -> 
     cashSettlementRequired;
 convert(settlMethod, <<"P">>) -> 
@@ -6836,7 +6806,7 @@ convert(underlyingExerciseStyle, Bin) ->
 convert(legExerciseStyle, Bin) -> 
    bin_to_num(Bin);
 convert(optPayAmount, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(priceQuoteMethod, <<"STD">>) -> 
     standard;
 convert(priceQuoteMethod, <<"INX">>) -> 
@@ -6854,25 +6824,25 @@ convert(listMethod, <<"0">>) ->
 convert(listMethod, <<"1">>) -> 
     userRequested;
 convert(capPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(floorPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noStrikeRules, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(startStrikePxRange, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(endStrikePxRange, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(strikeIncrement, Bin) -> 
    bin_to_num(Bin);
 convert(noTickRules, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(startTickPriceRange, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(endTickPriceRange, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(tickIncrement, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(tickRuleType, <<"0">>) -> 
     regular;
 convert(tickRuleType, <<"1">>) -> 
@@ -6896,21 +6866,21 @@ convert(derivativeSecurityID, Bin) ->
 convert(derivativeSecurityIDSource, Bin) -> 
    binary_to_list(Bin);
 convert(noDerivativeSecurityAltID, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(derivativeSecurityAltID, Bin) -> 
    binary_to_list(Bin);
 convert(derivativeSecurityAltIDSource, Bin) -> 
    binary_to_list(Bin);
 convert(secondaryLowLimitPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(secondaryHighLimitPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(maturityRuleID, Bin) -> 
    binary_to_list(Bin);
 convert(strikeRuleID, Bin) -> 
    binary_to_list(Bin);
 convert(derivativeOptPayAmount, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(endMaturityMonthYear, Bin) -> 
    binary_to_list(Bin);
 convert(productComplex, Bin) -> 
@@ -6920,41 +6890,35 @@ convert(derivativeProductComplex, Bin) ->
 convert(maturityMonthYearIncrement, Bin) -> 
    bin_to_num(Bin);
 convert(minLotSize, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noExecInstRules, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noLotTypeRules, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noMatchRules, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noMaturityRules, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noOrdTypeRules, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noTimeInForceRules, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(secondaryTradingReferencePrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(startMaturityMonthYear, Bin) -> 
    binary_to_list(Bin);
 convert(flexProductEligibilityIndicator, <<"Y">>) -> 
     true;
 convert(flexProductEligibilityIndicator, <<"N">>) -> 
     false;
-convert(flexProductEligibilityIndicator, Bin) -> 
-   binary_to_list(Bin);
 convert(derivFlexProductEligibilityIndicator, <<"Y">>) -> 
     true;
 convert(derivFlexProductEligibilityIndicator, <<"N">>) -> 
     false;
-convert(derivFlexProductEligibilityIndicator, Bin) -> 
-   binary_to_list(Bin);
 convert(flexibleIndicator, <<"Y">>) -> 
     true;
 convert(flexibleIndicator, <<"N">>) -> 
     false;
-convert(flexibleIndicator, Bin) -> 
-   binary_to_list(Bin);
 convert(tradingCurrency, Bin) -> 
    binary_to_list(Bin);
 convert(derivativeProduct, Bin) -> 
@@ -6988,7 +6952,7 @@ convert(derivativeStateOrProvinceOfIssue, Bin) ->
 convert(derivativeLocaleOfIssue, Bin) -> 
    binary_to_list(Bin);
 convert(derivativeStrikePrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(derivativeStrikeCurrency, Bin) -> 
    binary_to_list(Bin);
 convert(derivativeStrikeMultiplier, Bin) -> 
@@ -7002,11 +6966,11 @@ convert(derivativeContractMultiplier, Bin) ->
 convert(derivativeMinPriceIncrement, Bin) -> 
    bin_to_num(Bin);
 convert(derivativeMinPriceIncrementAmount, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(derivativeUnitOfMeasure, Bin) -> 
    binary_to_list(Bin);
 convert(derivativeUnitOfMeasureQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(derivativeTimeUnit, Bin) -> 
    binary_to_list(Bin);
 convert(derivativeSecurityExchange, Bin) -> 
@@ -7031,14 +6995,14 @@ convert(derivativeEncodedSecurityDesc, Bin) ->
    binary_to_list(Bin);
 convert(derivativeSecurityXMLLen, Bin) -> 
    bin_to_num(Bin);
-convert(derivativeSecurityXMLTag, Bin) -> 
+convert(derivativeSecurityXMLData, Bin) -> 
    binary_to_list(Bin);
 convert(derivativeSecurityXMLSchema, Bin) -> 
    binary_to_list(Bin);
 convert(derivativeContractSettlMonth, Bin) -> 
    binary_to_list(Bin);
 convert(noDerivativeEvents, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(derivativeEventType, Bin) -> 
    bin_to_num(Bin);
 convert(derivativeEventDate, Bin) -> 
@@ -7046,11 +7010,11 @@ convert(derivativeEventDate, Bin) ->
 convert(derivativeEventTime, Bin) -> 
    binary_to_list(Bin);
 convert(derivativeEventPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(derivativeEventText, Bin) -> 
    binary_to_list(Bin);
 convert(noDerivativeInstrumentParties, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(derivativeInstrumentPartyID, Bin) -> 
    binary_to_list(Bin);
 convert(derivativeInstrumentPartyIDSource, Bin) -> 
@@ -7058,7 +7022,7 @@ convert(derivativeInstrumentPartyIDSource, Bin) ->
 convert(derivativeInstrumentPartyRole, Bin) -> 
    bin_to_num(Bin);
 convert(noDerivativeInstrumentPartySubIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(derivativeInstrumentPartySubID, Bin) -> 
    binary_to_list(Bin);
 convert(derivativeInstrumentPartySubIDType, Bin) -> 
@@ -7096,13 +7060,13 @@ convert(priceLimitType, <<"2">>) ->
 convert(execInstValue, Bin) -> 
    binary_to_list(Bin);
 convert(noTradingSessionRules, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noMarketSegments, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noDerivativeInstrAttrib, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noNestedInstrAttrib, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(derivativeInstrAttribType, Bin) -> 
    bin_to_num(Bin);
 convert(derivativeInstrAttribValue, Bin) -> 
@@ -7110,7 +7074,7 @@ convert(derivativeInstrAttribValue, Bin) ->
 convert(derivativePriceUnitOfMeasure, Bin) -> 
    binary_to_list(Bin);
 convert(derivativePriceUnitOfMeasureQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(derivativeSettlMethod, Bin) -> 
    binary_to_list(Bin);
 convert(derivativePriceQuoteMethod, Bin) -> 
@@ -7120,9 +7084,9 @@ convert(derivativeFuturesValuationMethod, Bin) ->
 convert(derivativeListMethod, Bin) -> 
    bin_to_num(Bin);
 convert(derivativeCapPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(derivativeFloorPrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(derivativePutOrCall, Bin) -> 
    bin_to_num(Bin);
 convert(listUpdateAction, Bin) -> 
@@ -7130,17 +7094,17 @@ convert(listUpdateAction, Bin) ->
 convert(legPutOrCall, Bin) -> 
    bin_to_num(Bin);
 convert(legUnitOfMeasureQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legPriceUnitOfMeasure, Bin) -> 
    binary_to_list(Bin);
 convert(legPriceUnitOfMeasureQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingUnitOfMeasureQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingPriceUnitOfMeasure, Bin) -> 
    binary_to_list(Bin);
 convert(underlyingPriceUnitOfMeasureQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(marketReqID, Bin) -> 
    binary_to_list(Bin);
 convert(marketReportID, Bin) -> 
@@ -7176,7 +7140,7 @@ convert(underlyingLegSecurityID, Bin) ->
 convert(underlyingLegSecurityIDSource, Bin) -> 
    binary_to_list(Bin);
 convert(noUnderlyingLegSecurityAltID, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingLegSecurityAltID, Bin) -> 
    binary_to_list(Bin);
 convert(underlyingLegSecurityAltIDSource, Bin) -> 
@@ -7190,11 +7154,11 @@ convert(underlyingLegMaturityMonthYear, Bin) ->
 convert(underlyingLegPutOrCall, Bin) -> 
    bin_to_num(Bin);
 convert(underlyingLegStrikePrice, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingLegSecurityExchange, Bin) -> 
    binary_to_list(Bin);
 convert(noOfLegUnderlyings, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(underlyingLegCFICode, Bin) -> 
    binary_to_list(Bin);
 convert(underlyingLegMaturityDate, Bin) -> 
@@ -7245,22 +7209,20 @@ convert(defaultVerIndicator, <<"Y">>) ->
     true;
 convert(defaultVerIndicator, <<"N">>) -> 
     false;
-convert(defaultVerIndicator, Bin) -> 
-   binary_to_list(Bin);
 convert(noUsernames, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legAllocSettlCurrency, Bin) -> 
    binary_to_list(Bin);
 convert(totNoFills, Bin) -> 
    bin_to_num(Bin);
 convert(noFills, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(fillExecID, Bin) -> 
    binary_to_list(Bin);
 convert(fillPx, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(fillQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legAllocID, Bin) -> 
    binary_to_list(Bin);
 convert(tradSesEvent, <<"0">>) -> 
@@ -7274,7 +7236,7 @@ convert(tradSesEvent, <<"3">>) ->
 convert(massActionReportID, Bin) -> 
    binary_to_list(Bin);
 convert(noNotAffectedOrders, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(notAffectedOrderID, Bin) -> 
    binary_to_list(Bin);
 convert(notAffOrigClOrdID, Bin) -> 
@@ -7352,9 +7314,9 @@ convert(multilegPriceMethod, <<"5">>) ->
 convert(legVolatility, Bin) -> 
    bin_to_num(Bin);
 convert(dividendYield, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(legDividendYield, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(currencyRatio, Bin) -> 
    bin_to_num(Bin);
 convert(legCurrencyRatio, Bin) -> 
@@ -7384,15 +7346,13 @@ convert(listRejectReason, <<"11">>) ->
 convert(listRejectReason, <<"99">>) -> 
     other;
 convert(noTrdRepIndicators, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(trdRepPartyRole, Bin) -> 
    bin_to_num(Bin);
 convert(trdRepIndicator, <<"Y">>) -> 
     true;
 convert(trdRepIndicator, <<"N">>) -> 
     false;
-convert(trdRepIndicator, Bin) -> 
-   binary_to_list(Bin);
 convert(tradePublishIndicator, <<"0">>) -> 
     doNotPublishTrade;
 convert(tradePublishIndicator, <<"1">>) -> 
@@ -7402,7 +7362,7 @@ convert(tradePublishIndicator, <<"2">>) ->
 convert(applReqID, Bin) -> 
    binary_to_list(Bin);
 convert(applReqType, <<"0">>) -> 
-    retransmission;
+    retransmission_0;
 convert(applReqType, <<"1">>) -> 
     subscription;
 convert(applReqType, <<"2">>) -> 
@@ -7420,15 +7380,13 @@ convert(applResponseType, <<"2">>) ->
 convert(applTotalMessageCount, Bin) -> 
    bin_to_num(Bin);
 convert(applLastSeqNum, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noApplIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(applResendFlag, <<"Y">>) -> 
     true;
 convert(applResendFlag, <<"N">>) -> 
     false;
-convert(applResendFlag, Bin) -> 
-   binary_to_list(Bin);
 convert(applResponseID, Bin) -> 
    binary_to_list(Bin);
 convert(applResponseError, <<"0">>) -> 
@@ -7442,9 +7400,9 @@ convert(refApplID, Bin) ->
 convert(applReportID, Bin) -> 
    binary_to_list(Bin);
 convert(refApplLastSeqNum, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(applNewSeqNum, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(applReportType, <<"0">>) -> 
     applSeqNumReset;
 convert(applReportType, <<"1">>) -> 
@@ -7456,9 +7414,9 @@ convert(nested4PartySubIDType, Bin) ->
 convert(nested4PartySubID, Bin) -> 
    binary_to_list(Bin);
 convert(noNested4PartySubIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(noNested4PartyIDs, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(nested4PartyID, Bin) -> 
    binary_to_list(Bin);
 convert(nested4PartyIDSource, Bin) -> 
@@ -7466,7 +7424,7 @@ convert(nested4PartyIDSource, Bin) ->
 convert(nested4PartyRole, Bin) -> 
    bin_to_num(Bin);
 convert(legLastQty, Bin) -> 
-   binary_to_list(Bin);
+   bin_to_num(Bin);
 convert(_Name, Bin) ->
     Bin.
 get_record_def(commissionData) -> 
@@ -7696,7 +7654,7 @@ get_record_def(rgr_statsIndGrp_1175) ->
 get_record_def(statsIndGrp) -> 
     [statsIndGrp, [[rgr_statsIndGrp_1175]]];
 get_record_def(securityXML) -> 
-    [securityXML, securityXMLLen, securityXMLTag, securityXMLSchema];
+    [securityXML, securityXMLLen, securityXMLData, securityXMLSchema];
 get_record_def(rgr_tickRules_1205) -> 
     [rgr_tickRules_1205, startTickPriceRange, endTickPriceRange, tickIncrement, tickRuleType];
 get_record_def(tickRules) -> 
@@ -7754,7 +7712,7 @@ get_record_def(rgr_derivativeEventsGrp_1286) ->
 get_record_def(derivativeEventsGrp) -> 
     [derivativeEventsGrp, [[rgr_derivativeEventsGrp_1286]]];
 get_record_def(derivativeSecurityXML) -> 
-    [derivativeSecurityXML, derivativeSecurityXMLLen, derivativeSecurityXMLTag, derivativeSecurityXMLSchema];
+    [derivativeSecurityXML, derivativeSecurityXMLLen, derivativeSecurityXMLData, derivativeSecurityXMLSchema];
 get_record_def(rgr_underlyingLegSecurityAltIDGrp_1334) -> 
     [rgr_underlyingLegSecurityAltIDGrp_1334, underlyingLegSecurityAltID, underlyingLegSecurityAltIDSource];
 get_record_def(underlyingLegSecurityAltIDGrp) -> 
@@ -7863,8 +7821,6 @@ get_record_def(undlyInstrumentParties) ->
     [undlyInstrumentParties, [[rgr_undlyInstrumentParties_1058]]];
 get_record_def(nestedParties) -> 
     [nestedParties, [[rgr_nestedParties_539]]];
-get_record_def(instrument) -> 
-    [instrument, symbol, symbolSfx, securityID, securityIDSource, [secAltIDGrp], produkt, productComplex, securityGroup, cFICode, securityType, securitySubType, maturityMonthYear, maturityDate, maturityTime, settleOnOpenFlag, instrmtAssignmentMethod, securityState, couponPaymentDate, issueDate, repoCollateralSecurityType, repurchaseTerm, repurchaseRate, factor, creditRating, instrRegistry, countryOfIssue, stateOrProvinceOfIssue, localeOfIssue, redemptionDate, strikePrice, strikeCurrency, strikeMultiplier, strikeValue, optAttribute, contractMultiplier, minPriceIncrement, minPriceIncrementAmount, unitOfMeasure, unitOfMeasureQty, priceUnitOfMeasure, priceUnitOfMeasureQty, settlMethod, exerciseStyle, optPayAmount, priceQuoteMethod, futuresValuationMethod, listMethod, capPrice, floorPrice, putOrCall, flexibleIndicator, flexProductEligibilityIndicator, timeUnit, couponRate, securityExchange, positionLimit, nTPositionLimit, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, [securityXML], pool, contractSettlMonth, cPProgram, cPRegType, [evntGrp], datedDate, interestAccrualDate, [instrumentParties]];
 get_record_def(rgr_settlDetails_1158) -> 
     [rgr_settlDetails_1158, settlObligSource, [settlParties]];
 get_record_def(rgr_legQuotStatGrp_555) -> 
@@ -7895,6 +7851,8 @@ get_record_def(rgr_sideCrossOrdCxlGrp_552) ->
     [rgr_sideCrossOrdCxlGrp_552, side, origClOrdID, clOrdID, secondaryClOrdID, clOrdLinkID, origOrdModTime, [parties], tradeOriginationDate, tradeDate, [orderQtyData], complianceID, text, encodedTextLen, encodedText];
 get_record_def(trdSessLstGrp) -> 
     [trdSessLstGrp, [[rgr_trdSessLstGrp_386]]];
+get_record_def(instrument) -> 
+    [instrument, symbol, symbolSfx, securityID, securityIDSource, [secAltIDGrp], produkt, productComplex, securityGroup, cFICode, securityType, securitySubType, maturityMonthYear, maturityDate, maturityTime, settleOnOpenFlag, instrmtAssignmentMethod, securityState, couponPaymentDate, issueDate, repoCollateralSecurityType, repurchaseTerm, repurchaseRate, factor, creditRating, instrRegistry, countryOfIssue, stateOrProvinceOfIssue, localeOfIssue, redemptionDate, strikePrice, strikeCurrency, strikeMultiplier, strikeValue, optAttribute, contractMultiplier, minPriceIncrement, minPriceIncrementAmount, unitOfMeasure, unitOfMeasureQty, priceUnitOfMeasure, priceUnitOfMeasureQty, settlMethod, exerciseStyle, optPayAmount, priceQuoteMethod, futuresValuationMethod, listMethod, capPrice, floorPrice, putOrCall, flexibleIndicator, flexProductEligibilityIndicator, timeUnit, couponRate, securityExchange, positionLimit, nTPositionLimit, issuer, encodedIssuerLen, encodedIssuer, securityDesc, encodedSecurityDescLen, encodedSecurityDesc, [securityXML], pool, contractSettlMonth, cPProgram, cPRegType, [evntGrp], datedDate, interestAccrualDate, [instrumentParties]];
 get_record_def(rgr_fillsGrp_1362) -> 
     [rgr_fillsGrp_1362, fillExecID, fillPx, fillQty, [nestedParties4]];
 get_record_def(rgr_dlvyInstGrp_85) -> 
@@ -8300,163 +8258,7 @@ get_record_def(applicationMessageRequestAck) ->
 get_record_def(applicationMessageReport) -> 
     [applicationMessageReport, [standardHeader], applReportID, applReportType, [applIDReportGrp], text, encodedTextLen, encodedText, [standardTrailer]];
 get_record_def(_Else) -> 
-    no_record_def_error.
-
-getRecord(standardHeader)->
-    #standardHeader{};
-getRecord(parties)->
-    #parties{};
-getRecord(instrument)->
-    #instrument{};
-getRecord(undInstrmtGrp)->
-    #undInstrmtGrp{};
-getRecord(underlyingInstrument)->
-    #underlyingInstrument{};
-getRecord(instrumentExtension)->
-    #instrumentExtension{};
-getRecord(bidCompRspGrp)->
-    #bidCompRspGrp{};
-getRecord(instrmtLegGrp)->
-    #instrmtLegGrp{};
-getRecord(trdInstrmtLegGrp)->
-    #trdInstrmtLegGrp{};
-getRecord(listOrdGrp)->
-    #listOrdGrp{};
-getRecord(preAllocGrp)->
-    #preAllocGrp{};
-getRecord(legQuotStatGrp)->
-    #legQuotStatGrp{};
-getRecord(sideCrossOrdCxlGrp)->
-    #sideCrossOrdCxlGrp{};
-getRecord(instrumentLeg)->
-    #instrumentLeg{};
-getRecord(quotSetGrp)->
-    #quotSetGrp{};
-getRecord(rFQReqGrp)->
-    #rFQReqGrp{};
-getRecord(posUndInstrmtGrp)->
-    #posUndInstrmtGrp{};
-getRecord(mDIncGrp)->
-    #mDIncGrp{};
-getRecord(quotReqGrp)->
-    #quotReqGrp{};
-getRecord(positionQty)->
-    #positionQty{};
-getRecord(instrmtLegExecGrp)->
-    #instrmtLegExecGrp{};
-getRecord(instrmtStrkPxGrp)->
-    #instrmtStrkPxGrp{};
-getRecord(nestedParties)->
-    #nestedParties{};
-getRecord(ordAllocGrp)->
-    #ordAllocGrp{};
-getRecord(settlInstructionsData)->
-    #settlInstructionsData{};
-getRecord(nestedParties2)->
-    #nestedParties2{};
-getRecord(undInstrmtCollGrp)->
-    #undInstrmtCollGrp{};
-getRecord(legQuotGrp)->
-    #legQuotGrp{};
-getRecord(rgstDtlsGrp)->
-    #rgstDtlsGrp{};
-getRecord(dlvyInstGrp)->
-    #dlvyInstGrp{};
-getRecord(relSymDerivSecGrp)->
-    #relSymDerivSecGrp{};
-getRecord(preAllocMlegGrp)->
-    #preAllocMlegGrp{};
-getRecord(quotSetAckGrp)->
-    #quotSetAckGrp{};
-getRecord(allocGrp)->
-    #allocGrp{};
-getRecord(settlParties)->
-    #settlParties{};
-getRecord(instrmtGrp)->
-    #instrmtGrp{};
-getRecord(settlInstGrp)->
-    #settlInstGrp{};
-getRecord(quotEntryAckGrp)->
-    #quotEntryAckGrp{};
-getRecord(nestedParties3)->
-    #nestedParties3{};
-getRecord(quotReqRjctGrp)->
-    #quotReqRjctGrp{};
-getRecord(secListGrp)->
-    #secListGrp{};
-getRecord(instrmtLegIOIGrp)->
-    #instrmtLegIOIGrp{};
-getRecord(legOrdGrp)->
-    #legOrdGrp{};
-getRecord(quotCxlEntriesGrp)->
-    #quotCxlEntriesGrp{};
-getRecord(instrmtMDReqGrp)->
-    #instrmtMDReqGrp{};
-getRecord(trdCapRptSideGrp)->
-    #trdCapRptSideGrp{};
-getRecord(legPreAllocGrp)->
-    #legPreAllocGrp{};
-getRecord(quotReqLegsGrp)->
-    #quotReqLegsGrp{};
-getRecord(quotEntryGrp)->
-    #quotEntryGrp{};
-getRecord(sideCrossOrdModGrp)->
-    #sideCrossOrdModGrp{};
-getRecord(instrmtLegSecListGrp)->
-    #instrmtLegSecListGrp{};
-getRecord(trdAllocGrp)->
-    #trdAllocGrp{};
-getRecord(instrumentParties)->
-    #instrumentParties{};
-getRecord(undlyInstrumentParties)->
-    #undlyInstrumentParties{};
-getRecord(rootParties)->
-    #rootParties{};
-getRecord(allocAckGrp)->
-    #allocAckGrp{};
-getRecord(mDFullGrp)->
-    #mDFullGrp{};
-getRecord(secLstUpdRelSymGrp)->
-    #secLstUpdRelSymGrp{};
-getRecord(secLstUpdRelSymsLegGrp)->
-    #secLstUpdRelSymsLegGrp{};
-getRecord(trdCapRptAckSideGrp)->
-    #trdCapRptAckSideGrp{};
-getRecord(marketSegmentGrp)->
-    #marketSegmentGrp{};
-getRecord(securityTradingRules)->
-    #securityTradingRules{};
-getRecord(trdSessLstGrp)->
-    #trdSessLstGrp{};
-getRecord(derivativeSecurityDefinition)->
-    #derivativeSecurityDefinition{};
-getRecord(baseTradingRules)->
-    #baseTradingRules{};
-getRecord(tradingSessionRules)->
-    #tradingSessionRules{};
-getRecord(derivativeInstrument)->
-    #derivativeInstrument{};
-getRecord(tradingSessionRulesGrp)->
-    #tradingSessionRulesGrp{};
-getRecord(tradeCapLegUnderlyingsGrp)->
-    #tradeCapLegUnderlyingsGrp{};
-getRecord(derivativeInstrumentParties)->
-    #derivativeInstrumentParties{};
-getRecord(strikeRules)->
-    #strikeRules{};
-getRecord(underlyingLegInstrument)->
-    #underlyingLegInstrument{};
-getRecord(settlDetails)->
-    #settlDetails{};
-getRecord(fillsGrp)->
-    #fillsGrp{};
-getRecord(relSymDerivSecUpdGrp)->
-    #relSymDerivSecUpdGrp{};
-getRecord(nestedParties4)->
-    #nestedParties4{};
-getRecord(settlObligationInstructions)->
-    #settlObligationInstructions{};
-
+    error.
 
 getRecord(commissionData)->
     #commissionData{};
@@ -8464,6 +8266,12 @@ getRecord(discretionInstructions)->
     #discretionInstructions{};
 getRecord(financingDetails)->
     #financingDetails{};
+getRecord(instrument)->
+    #instrument{};
+getRecord(instrumentExtension)->
+    #instrumentExtension{};
+getRecord(instrumentLeg)->
+    #instrumentLeg{};
 getRecord(legBenchmarkCurveData)->
     #legBenchmarkCurveData{};
 getRecord(rgr_legStipulations_683)->
@@ -8472,10 +8280,14 @@ getRecord(legStipulations)->
     #legStipulations{};
 getRecord(rgr_nestedParties_539)->
     #rgr_nestedParties_539{};
+getRecord(nestedParties)->
+    #nestedParties{};
 getRecord(orderQtyData)->
     #orderQtyData{};
 getRecord(rgr_parties_453)->
     #rgr_parties_453{};
+getRecord(parties)->
+    #parties{};
 getRecord(pegInstructions)->
     #pegInstructions{};
 getRecord(rgr_positionAmountData_753)->
@@ -8484,8 +8296,14 @@ getRecord(positionAmountData)->
     #positionAmountData{};
 getRecord(rgr_positionQty_702)->
     #rgr_positionQty_702{};
+getRecord(positionQty)->
+    #positionQty{};
+getRecord(settlInstructionsData)->
+    #settlInstructionsData{};
 getRecord(rgr_settlParties_781)->
     #rgr_settlParties_781{};
+getRecord(settlParties)->
+    #settlParties{};
 getRecord(spreadOrBenchmarkCurveData)->
     #spreadOrBenchmarkCurveData{};
 getRecord(rgr_stipulations_232)->
@@ -8496,32 +8314,46 @@ getRecord(rgr_trdRegTimestamps_768)->
     #rgr_trdRegTimestamps_768{};
 getRecord(trdRegTimestamps)->
     #trdRegTimestamps{};
+getRecord(underlyingInstrument)->
+    #underlyingInstrument{};
 getRecord(yieldData)->
     #yieldData{};
 getRecord(rgr_underlyingStipulations_887)->
     #rgr_underlyingStipulations_887{};
 getRecord(underlyingStipulations)->
     #underlyingStipulations{};
+getRecord(standardHeader)->
+    #standardHeader{};
 getRecord(standardTrailer)->
     #standardTrailer{};
 getRecord(rgr_nestedParties2_756)->
     #rgr_nestedParties2_756{};
+getRecord(nestedParties2)->
+    #nestedParties2{};
 getRecord(rgr_nestedParties3_948)->
     #rgr_nestedParties3_948{};
+getRecord(nestedParties3)->
+    #nestedParties3{};
 getRecord(rgr_affectedOrdGrp_534)->
     #rgr_affectedOrdGrp_534{};
 getRecord(affectedOrdGrp)->
     #affectedOrdGrp{};
 getRecord(rgr_allocAckGrp_78)->
     #rgr_allocAckGrp_78{};
+getRecord(allocAckGrp)->
+    #allocAckGrp{};
 getRecord(rgr_allocGrp_78)->
     #rgr_allocGrp_78{};
+getRecord(allocGrp)->
+    #allocGrp{};
 getRecord(rgr_bidCompReqGrp_420)->
     #rgr_bidCompReqGrp_420{};
 getRecord(bidCompReqGrp)->
     #bidCompReqGrp{};
 getRecord(rgr_bidCompRspGrp_420)->
     #rgr_bidCompRspGrp_420{};
+getRecord(bidCompRspGrp)->
+    #bidCompRspGrp{};
 getRecord(rgr_bidDescReqGrp_398)->
     #rgr_bidDescReqGrp_398{};
 getRecord(bidDescReqGrp)->
@@ -8564,40 +8396,68 @@ getRecord(execCollGrp)->
     #execCollGrp{};
 getRecord(rgr_instrmtGrp_146)->
     #rgr_instrmtGrp_146{};
+getRecord(instrmtGrp)->
+    #instrmtGrp{};
 getRecord(rgr_instrmtLegExecGrp_555)->
     #rgr_instrmtLegExecGrp_555{};
+getRecord(instrmtLegExecGrp)->
+    #instrmtLegExecGrp{};
 getRecord(rgr_instrmtLegGrp_555)->
     #rgr_instrmtLegGrp_555{};
+getRecord(instrmtLegGrp)->
+    #instrmtLegGrp{};
 getRecord(rgr_instrmtLegIOIGrp_555)->
     #rgr_instrmtLegIOIGrp_555{};
+getRecord(instrmtLegIOIGrp)->
+    #instrmtLegIOIGrp{};
 getRecord(rgr_instrmtLegSecListGrp_555)->
     #rgr_instrmtLegSecListGrp_555{};
+getRecord(instrmtLegSecListGrp)->
+    #instrmtLegSecListGrp{};
 getRecord(rgr_instrmtMDReqGrp_146)->
     #rgr_instrmtMDReqGrp_146{};
+getRecord(instrmtMDReqGrp)->
+    #instrmtMDReqGrp{};
 getRecord(rgr_instrmtStrkPxGrp_428)->
     #rgr_instrmtStrkPxGrp_428{};
+getRecord(instrmtStrkPxGrp)->
+    #instrmtStrkPxGrp{};
 getRecord(rgr_iOIQualGrp_199)->
     #rgr_iOIQualGrp_199{};
 getRecord(iOIQualGrp)->
     #iOIQualGrp{};
 getRecord(rgr_legOrdGrp_555)->
     #rgr_legOrdGrp_555{};
+getRecord(legOrdGrp)->
+    #legOrdGrp{};
 getRecord(rgr_legPreAllocGrp_670)->
     #rgr_legPreAllocGrp_670{};
+getRecord(legPreAllocGrp)->
+    #legPreAllocGrp{};
 getRecord(rgr_legQuotGrp_555)->
     #rgr_legQuotGrp_555{};
+getRecord(legQuotGrp)->
+    #legQuotGrp{};
 getRecord(rgr_legQuotStatGrp_555)->
     #rgr_legQuotStatGrp_555{};
+getRecord(legQuotStatGrp)->
+    #legQuotStatGrp{};
 getRecord(rgr_linesOfTextGrp_33)->
     #rgr_linesOfTextGrp_33{};
 getRecord(linesOfTextGrp)->
     #linesOfTextGrp{};
 getRecord(rgr_listOrdGrp_73)->
     #rgr_listOrdGrp_73{};
+getRecord(listOrdGrp)->
+    #listOrdGrp{};
 getRecord(rgr_mDFullGrp_268)->
     #rgr_mDFullGrp_268{};
+getRecord(mDFullGrp)->
+    #mDFullGrp{};
 getRecord(rgr_mDIncGrp_268)->
     #rgr_mDIncGrp_268{};
+getRecord(mDIncGrp)->
+    #mDIncGrp{};
 getRecord(rgr_mDReqGrp_267)->
     #rgr_mDReqGrp_267{};
 getRecord(mDReqGrp)->
@@ -8612,80 +8472,128 @@ getRecord(miscFeesGrp)->
     #miscFeesGrp{};
 getRecord(rgr_ordAllocGrp_73)->
     #rgr_ordAllocGrp_73{};
+getRecord(ordAllocGrp)->
+    #ordAllocGrp{};
 getRecord(rgr_ordListStatGrp_73)->
     #rgr_ordListStatGrp_73{};
 getRecord(ordListStatGrp)->
     #ordListStatGrp{};
 getRecord(rgr_posUndInstrmtGrp_711)->
     #rgr_posUndInstrmtGrp_711{};
+getRecord(posUndInstrmtGrp)->
+    #posUndInstrmtGrp{};
 getRecord(rgr_preAllocGrp_78)->
     #rgr_preAllocGrp_78{};
+getRecord(preAllocGrp)->
+    #preAllocGrp{};
 getRecord(rgr_preAllocMlegGrp_78)->
     #rgr_preAllocMlegGrp_78{};
+getRecord(preAllocMlegGrp)->
+    #preAllocMlegGrp{};
 getRecord(rgr_quotCxlEntriesGrp_295)->
     #rgr_quotCxlEntriesGrp_295{};
+getRecord(quotCxlEntriesGrp)->
+    #quotCxlEntriesGrp{};
 getRecord(rgr_quotEntryAckGrp_295)->
     #rgr_quotEntryAckGrp_295{};
+getRecord(quotEntryAckGrp)->
+    #quotEntryAckGrp{};
 getRecord(rgr_quotEntryGrp_295)->
     #rgr_quotEntryGrp_295{};
+getRecord(quotEntryGrp)->
+    #quotEntryGrp{};
 getRecord(rgr_quotQualGrp_735)->
     #rgr_quotQualGrp_735{};
 getRecord(quotQualGrp)->
     #quotQualGrp{};
 getRecord(rgr_quotReqGrp_146)->
     #rgr_quotReqGrp_146{};
+getRecord(quotReqGrp)->
+    #quotReqGrp{};
 getRecord(rgr_quotReqLegsGrp_555)->
     #rgr_quotReqLegsGrp_555{};
+getRecord(quotReqLegsGrp)->
+    #quotReqLegsGrp{};
 getRecord(rgr_quotReqRjctGrp_146)->
     #rgr_quotReqRjctGrp_146{};
+getRecord(quotReqRjctGrp)->
+    #quotReqRjctGrp{};
 getRecord(rgr_quotSetAckGrp_296)->
     #rgr_quotSetAckGrp_296{};
+getRecord(quotSetAckGrp)->
+    #quotSetAckGrp{};
 getRecord(rgr_quotSetGrp_296)->
     #rgr_quotSetGrp_296{};
+getRecord(quotSetGrp)->
+    #quotSetGrp{};
 getRecord(rgr_relSymDerivSecGrp_146)->
     #rgr_relSymDerivSecGrp_146{};
+getRecord(relSymDerivSecGrp)->
+    #relSymDerivSecGrp{};
 getRecord(rgr_rFQReqGrp_146)->
     #rgr_rFQReqGrp_146{};
+getRecord(rFQReqGrp)->
+    #rFQReqGrp{};
 getRecord(rgr_rgstDistInstGrp_510)->
     #rgr_rgstDistInstGrp_510{};
 getRecord(rgstDistInstGrp)->
     #rgstDistInstGrp{};
 getRecord(rgr_rgstDtlsGrp_473)->
     #rgr_rgstDtlsGrp_473{};
+getRecord(rgstDtlsGrp)->
+    #rgstDtlsGrp{};
 getRecord(rgr_routingGrp_215)->
     #rgr_routingGrp_215{};
 getRecord(routingGrp)->
     #routingGrp{};
 getRecord(rgr_secListGrp_146)->
     #rgr_secListGrp_146{};
+getRecord(secListGrp)->
+    #secListGrp{};
 getRecord(rgr_secTypesGrp_558)->
     #rgr_secTypesGrp_558{};
 getRecord(secTypesGrp)->
     #secTypesGrp{};
 getRecord(rgr_settlInstGrp_778)->
     #rgr_settlInstGrp_778{};
+getRecord(settlInstGrp)->
+    #settlInstGrp{};
 getRecord(rgr_sideCrossOrdCxlGrp_552)->
     #rgr_sideCrossOrdCxlGrp_552{};
+getRecord(sideCrossOrdCxlGrp)->
+    #sideCrossOrdCxlGrp{};
 getRecord(rgr_sideCrossOrdModGrp_552)->
     #rgr_sideCrossOrdModGrp_552{};
+getRecord(sideCrossOrdModGrp)->
+    #sideCrossOrdModGrp{};
 getRecord(rgr_trdAllocGrp_78)->
     #rgr_trdAllocGrp_78{};
+getRecord(trdAllocGrp)->
+    #trdAllocGrp{};
 getRecord(rgr_trdCapRptSideGrp_552)->
     #rgr_trdCapRptSideGrp_552{};
+getRecord(trdCapRptSideGrp)->
+    #trdCapRptSideGrp{};
 getRecord(rgr_trdCollGrp_897)->
     #rgr_trdCollGrp_897{};
 getRecord(trdCollGrp)->
     #trdCollGrp{};
 getRecord(rgr_trdInstrmtLegGrp_555)->
     #rgr_trdInstrmtLegGrp_555{};
+getRecord(trdInstrmtLegGrp)->
+    #trdInstrmtLegGrp{};
 getRecord(rgr_trdgSesGrp_386)->
     #rgr_trdgSesGrp_386{};
 getRecord(trdgSesGrp)->
     #trdgSesGrp{};
 getRecord(rgr_undInstrmtCollGrp_711)->
     #rgr_undInstrmtCollGrp_711{};
+getRecord(undInstrmtCollGrp)->
+    #undInstrmtCollGrp{};
 getRecord(rgr_undInstrmtGrp_711)->
     #rgr_undInstrmtGrp_711{};
+getRecord(undInstrmtGrp)->
+    #undInstrmtGrp{};
 getRecord(rgr_trdCapDtGrp_580)->
     #rgr_trdCapDtGrp_580{};
 getRecord(trdCapDtGrp)->
@@ -8712,6 +8620,8 @@ getRecord(attrbGrp)->
     #attrbGrp{};
 getRecord(rgr_dlvyInstGrp_85)->
     #rgr_dlvyInstGrp_85{};
+getRecord(dlvyInstGrp)->
+    #dlvyInstGrp{};
 getRecord(rgr_settlPtysSubGrp_801)->
     #rgr_settlPtysSubGrp_801{};
 getRecord(settlPtysSubGrp)->
@@ -8742,8 +8652,12 @@ getRecord(strategyParametersGrp)->
     #strategyParametersGrp{};
 getRecord(rgr_secLstUpdRelSymGrp_146)->
     #rgr_secLstUpdRelSymGrp_146{};
+getRecord(secLstUpdRelSymGrp)->
+    #secLstUpdRelSymGrp{};
 getRecord(rgr_secLstUpdRelSymsLegGrp_555)->
     #rgr_secLstUpdRelSymsLegGrp_555{};
+getRecord(secLstUpdRelSymsLegGrp)->
+    #secLstUpdRelSymsLegGrp{};
 getRecord(rgr_underlyingAmount_984)->
     #rgr_underlyingAmount_984{};
 getRecord(underlyingAmount)->
@@ -8754,6 +8668,8 @@ getRecord(expirationQty)->
     #expirationQty{};
 getRecord(rgr_instrumentParties_1018)->
     #rgr_instrumentParties_1018{};
+getRecord(instrumentParties)->
+    #instrumentParties{};
 getRecord(rgr_instrumentPtysSubGrp_1052)->
     #rgr_instrumentPtysSubGrp_1052{};
 getRecord(instrumentPtysSubGrp)->
@@ -8764,8 +8680,12 @@ getRecord(sideTrdRegTS)->
     #sideTrdRegTS{};
 getRecord(rgr_trdCapRptAckSideGrp_552)->
     #rgr_trdCapRptAckSideGrp_552{};
+getRecord(trdCapRptAckSideGrp)->
+    #trdCapRptAckSideGrp{};
 getRecord(rgr_undlyInstrumentParties_1058)->
     #rgr_undlyInstrumentParties_1058{};
+getRecord(undlyInstrumentParties)->
+    #undlyInstrumentParties{};
 getRecord(rgr_undlyInstrumentPtysSubGrp_1062)->
     #rgr_undlyInstrumentPtysSubGrp_1062{};
 getRecord(undlyInstrumentPtysSubGrp)->
@@ -8776,20 +8696,30 @@ getRecord(triggeringInstruction)->
     #triggeringInstruction{};
 getRecord(rgr_rootParties_1116)->
     #rgr_rootParties_1116{};
+getRecord(rootParties)->
+    #rootParties{};
 getRecord(rgr_rootSubParties_1120)->
     #rgr_rootSubParties_1120{};
 getRecord(rootSubParties)->
     #rootSubParties{};
 getRecord(rgr_trdSessLstGrp_386)->
     #rgr_trdSessLstGrp_386{};
+getRecord(trdSessLstGrp)->
+    #trdSessLstGrp{};
 getRecord(rgr_msgTypeGrp_384)->
     #rgr_msgTypeGrp_384{};
 getRecord(msgTypeGrp)->
     #msgTypeGrp{};
+getRecord(securityTradingRules)->
+    #securityTradingRules{};
 getRecord(rgr_settlDetails_1158)->
     #rgr_settlDetails_1158{};
+getRecord(settlDetails)->
+    #settlDetails{};
 getRecord(rgr_settlObligationInstructions_1165)->
     #rgr_settlObligationInstructions_1165{};
+getRecord(settlObligationInstructions)->
+    #settlObligationInstructions{};
 getRecord(rgr_secSizesGrp_1177)->
     #rgr_secSizesGrp_1177{};
 getRecord(secSizesGrp)->
@@ -8806,6 +8736,8 @@ getRecord(tickRules)->
     #tickRules{};
 getRecord(rgr_strikeRules_1201)->
     #rgr_strikeRules_1201{};
+getRecord(strikeRules)->
+    #strikeRules{};
 getRecord(rgr_maturityRules_1236)->
     #rgr_maturityRules_1236{};
 getRecord(maturityRules)->
@@ -8838,16 +8770,26 @@ getRecord(rgr_ordTypeRules_1237)->
     #rgr_ordTypeRules_1237{};
 getRecord(ordTypeRules)->
     #ordTypeRules{};
+getRecord(tradingSessionRules)->
+    #tradingSessionRules{};
 getRecord(rgr_tradingSessionRulesGrp_1309)->
     #rgr_tradingSessionRulesGrp_1309{};
+getRecord(tradingSessionRulesGrp)->
+    #tradingSessionRulesGrp{};
+getRecord(baseTradingRules)->
+    #baseTradingRules{};
 getRecord(rgr_marketSegmentGrp_1310)->
     #rgr_marketSegmentGrp_1310{};
+getRecord(marketSegmentGrp)->
+    #marketSegmentGrp{};
 getRecord(rgr_derivativeInstrumentPartySubIDsGrp_1296)->
     #rgr_derivativeInstrumentPartySubIDsGrp_1296{};
 getRecord(derivativeInstrumentPartySubIDsGrp)->
     #derivativeInstrumentPartySubIDsGrp{};
 getRecord(rgr_derivativeInstrumentParties_1292)->
     #rgr_derivativeInstrumentParties_1292{};
+getRecord(derivativeInstrumentParties)->
+    #derivativeInstrumentParties{};
 getRecord(rgr_derivativeInstrumentAttribute_1311)->
     #rgr_derivativeInstrumentAttribute_1311{};
 getRecord(derivativeInstrumentAttribute)->
@@ -8856,6 +8798,8 @@ getRecord(rgr_nestedInstrumentAttribute_1312)->
     #rgr_nestedInstrumentAttribute_1312{};
 getRecord(nestedInstrumentAttribute)->
     #nestedInstrumentAttribute{};
+getRecord(derivativeInstrument)->
+    #derivativeInstrument{};
 getRecord(rgr_derivativeSecurityAltIDGrp_1218)->
     #rgr_derivativeSecurityAltIDGrp_1218{};
 getRecord(derivativeSecurityAltIDGrp)->
@@ -8864,16 +8808,24 @@ getRecord(rgr_derivativeEventsGrp_1286)->
     #rgr_derivativeEventsGrp_1286{};
 getRecord(derivativeEventsGrp)->
     #derivativeEventsGrp{};
+getRecord(derivativeSecurityDefinition)->
+    #derivativeSecurityDefinition{};
 getRecord(rgr_relSymDerivSecUpdGrp_146)->
     #rgr_relSymDerivSecUpdGrp_146{};
+getRecord(relSymDerivSecUpdGrp)->
+    #relSymDerivSecUpdGrp{};
 getRecord(derivativeSecurityXML)->
     #derivativeSecurityXML{};
 getRecord(rgr_underlyingLegSecurityAltIDGrp_1334)->
     #rgr_underlyingLegSecurityAltIDGrp_1334{};
 getRecord(underlyingLegSecurityAltIDGrp)->
     #underlyingLegSecurityAltIDGrp{};
+getRecord(underlyingLegInstrument)->
+    #underlyingLegInstrument{};
 getRecord(rgr_tradeCapLegUnderlyingsGrp_1342)->
     #rgr_tradeCapLegUnderlyingsGrp_1342{};
+getRecord(tradeCapLegUnderlyingsGrp)->
+    #tradeCapLegUnderlyingsGrp{};
 getRecord(rgr_usernameGrp_809)->
     #rgr_usernameGrp_809{};
 getRecord(usernameGrp)->
@@ -8884,6 +8836,8 @@ getRecord(notAffectedOrdersGrp)->
     #notAffectedOrdersGrp{};
 getRecord(rgr_fillsGrp_1362)->
     #rgr_fillsGrp_1362{};
+getRecord(fillsGrp)->
+    #fillsGrp{};
 getRecord(rgr_trdRepIndicatorsGrp_1387)->
     #rgr_trdRepIndicatorsGrp_1387{};
 getRecord(trdRepIndicatorsGrp)->
@@ -8908,6 +8862,8 @@ getRecord(nstdPtys4SubGrp)->
     #nstdPtys4SubGrp{};
 getRecord(rgr_nestedParties4_1414)->
     #rgr_nestedParties4_1414{};
+getRecord(nestedParties4)->
+    #nestedParties4{};
 getRecord(heartbeat)->
     #heartbeat{};
 getRecord(testRequest)->
@@ -9134,7 +9090,6 @@ getRecord(applicationMessageRequestAck)->
     #applicationMessageRequestAck{};
 getRecord(applicationMessageReport)->
     #applicationMessageReport{}.
-
 setFieldInRecord(commissionData, commission, Record, Value)->
    erlang:setelement(#commissionData.commission, Record, Value);
 setFieldInRecord(commissionData, commType, Record, Value)->
@@ -12185,8 +12140,8 @@ setFieldInRecord(rgr_statsIndGrp_1175, statsType, Record, Value)->
    erlang:setelement(#rgr_statsIndGrp_1175.statsType, Record, Value);
 setFieldInRecord(securityXML, securityXMLLen, Record, Value)->
    erlang:setelement(#securityXML.securityXMLLen, Record, Value);
-setFieldInRecord(securityXML, securityXMLTag, Record, Value)->
-   erlang:setelement(#securityXML.securityXMLTag, Record, Value);
+setFieldInRecord(securityXML, securityXMLData, Record, Value)->
+   erlang:setelement(#securityXML.securityXMLData, Record, Value);
 setFieldInRecord(securityXML, securityXMLSchema, Record, Value)->
    erlang:setelement(#securityXML.securityXMLSchema, Record, Value);
 setFieldInRecord(tickRules, rgr_tickRules_1205, Record, Value)->
@@ -12521,8 +12476,8 @@ setFieldInRecord(rgr_relSymDerivSecUpdGrp_146, encodedText, Record, Value)->
    erlang:setelement(#rgr_relSymDerivSecUpdGrp_146.encodedText, Record, Value);
 setFieldInRecord(derivativeSecurityXML, derivativeSecurityXMLLen, Record, Value)->
    erlang:setelement(#derivativeSecurityXML.derivativeSecurityXMLLen, Record, Value);
-setFieldInRecord(derivativeSecurityXML, derivativeSecurityXMLTag, Record, Value)->
-   erlang:setelement(#derivativeSecurityXML.derivativeSecurityXMLTag, Record, Value);
+setFieldInRecord(derivativeSecurityXML, derivativeSecurityXMLData, Record, Value)->
+   erlang:setelement(#derivativeSecurityXML.derivativeSecurityXMLData, Record, Value);
 setFieldInRecord(derivativeSecurityXML, derivativeSecurityXMLSchema, Record, Value)->
    erlang:setelement(#derivativeSecurityXML.derivativeSecurityXMLSchema, Record, Value);
 setFieldInRecord(underlyingLegSecurityAltIDGrp, rgr_underlyingLegSecurityAltIDGrp_1334, Record, Value)->
@@ -21210,7 +21165,7 @@ getFieldName(<<"1183">>) ->
 getFieldName(<<"1184">>) ->
     securityXMLLen;
 getFieldName(<<"1185">>) ->
-    securityXMLTag;
+    securityXMLData;
 getFieldName(<<"1186">>) ->
     securityXMLSchema;
 getFieldName(<<"1187">>) ->
@@ -21400,7 +21355,7 @@ getFieldName(<<"1281">>) ->
 getFieldName(<<"1282">>) ->
     derivativeSecurityXMLLen;
 getFieldName(<<"1283">>) ->
-    derivativeSecurityXMLTag;
+    derivativeSecurityXMLData;
 getFieldName(<<"1284">>) ->
     derivativeSecurityXMLSchema;
 getFieldName(<<"1285">>) ->
@@ -23957,7 +23912,7 @@ getTagId(applEndSeqNum) ->
     <<"1183">>;
 getTagId(securityXMLLen) ->
     <<"1184">>;
-getTagId(securityXMLTag) ->
+getTagId(securityXMLData) ->
     <<"1185">>;
 getTagId(securityXMLSchema) ->
     <<"1186">>;
@@ -24147,7 +24102,7 @@ getTagId(derivativeEncodedSecurityDesc) ->
     <<"1281">>;
 getTagId(derivativeSecurityXMLLen) ->
     <<"1282">>;
-getTagId(derivativeSecurityXMLTag) ->
+getTagId(derivativeSecurityXMLData) ->
     <<"1283">>;
 getTagId(derivativeSecurityXMLSchema) ->
     <<"1284">>;
@@ -30199,7 +30154,7 @@ reconvert(tradePublishIndicator, publishTrade) ->
     <<"1">>;
 reconvert(tradePublishIndicator, deferredPublication) -> 
     <<"2">>;
-reconvert(applReqType, retransmission) -> 
+reconvert(applReqType, retransmission_0) -> 
     <<"0">>;
 reconvert(applReqType, subscription) -> 
     <<"1">>;

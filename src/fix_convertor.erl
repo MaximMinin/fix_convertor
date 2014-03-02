@@ -42,7 +42,7 @@ record2fix(Record, FixVersion) ->
     Utils = getUtilsFun(FixVersion),
     RecordName = element(1, Record),
     case Utils:get_record_def(RecordName) of
-        no_record_def_error ->
+        error ->
             not_valid;
         RecDef ->
             Bin = convert2Binary(Utils, tuple_to_list(Record), RecDef),
@@ -55,7 +55,7 @@ format(Record, FixVersion) ->
     Utils = getUtilsFun(FixVersion),
     RecordName = element(1, Record),
     case Utils:get_record_def(RecordName) of
-        no_record_def_error ->
+        error ->
             not_valid;
         Rec ->
             S = convertToString(Utils, tuple_to_list(Record), Rec),
@@ -164,7 +164,7 @@ convert2Binary_2(Utils, Def, Value)->
                     float -> [Utils:getTagId(Def), "=", 
                               io_lib:format("~.6f",[Value]), 1];
                     integer -> [Utils:getTagId(Def), "=", 
-                                Utils:reconvert(Def, Value), 1];
+                                integer_to_list(Value), 1];
                     atom -> [Utils:getTagId(Def), "=",
                              Utils:reconvert(Def, Value), 1]
                 end

@@ -33,10 +33,10 @@ simple_test()->
                                              rgr_marketDataIncrementalRefresh_268 = 
                                                  [#rgr_marketDataIncrementalRefresh_268{mDUpdateAction = change,
                                                                                                      mDEntryRefID = "0001",
-                                                                                                    mDEntryPx = "10"},
+                                                                                                    mDEntryPx = 10},
                                                   #rgr_marketDataIncrementalRefresh_268{mDUpdateAction = change,
                                                                                                     mDEntryRefID = "0002",
-                                                                                                    mDEntryPx = "11"}],
+                                                                                                    mDEntryPx = 11}],
                                             standardTrailer = #standardTrailer{checkSum = "114"}},
     RecAA = fix_convertor:fix2record(A, 'FIX 4.2'),
     ?assertEqual(RecA, RecAA),

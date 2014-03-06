@@ -13,14 +13,15 @@
 -export([fix2record/2,
          record2fix/2,
          format/2,
-         set_msg_seqnum/3]).
+         set_msg_seqnum/3,
+         get_util_module/1]).
 
 %%
 %% API Functions
 %%
 -spec fix2record(binary(), fix_version ()) -> tuple() | not_valid.
 fix2record(Message, FixVersion) ->
-    Utils = getUtilsFun(FixVersion),
+    Utils = get_util_module(FixVersion),
     Fields = lists:map(fun(X)-> case binary:split(X, <<"=">>) of
                                      [Tag, Value] -> 
                                         {Utils:getFieldName(Tag), Value};
@@ -39,7 +40,7 @@ fix2record(Message, FixVersion) ->
 
 -spec record2fix(tuple(any()), fix_version ()) -> binary() | not_valid.
 record2fix(Record, FixVersion) ->
-    Utils = getUtilsFun(FixVersion),
+    Utils = get_util_module(FixVersion),
     RecordName = element(1, Record),
     case Utils:get_record_def(RecordName) of
         error ->
@@ -52,7 +53,7 @@ record2fix(Record, FixVersion) ->
 -spec format(tuple(any()), 
                    fix_version ()) -> string() | not_valid.
 format(Record, FixVersion) ->
-    Utils = getUtilsFun(FixVersion),
+    Utils = get_util_module(FixVersion),
     RecordName = element(1, Record),
     case Utils:get_record_def(RecordName) of
         error ->
@@ -67,33 +68,34 @@ format(Record, FixVersion) ->
                    pos_integer(), 
                    fix_version ()) -> tuple() | not_valid.
 set_msg_seqnum(Record, Num, FixVersion)->
-    Utils = getUtilsFun(FixVersion),
+    Utils = get_util_module(FixVersion),
     try
         Utils:setMsgSeqNum(Record, Num)
     catch _:_ ->
               not_valid
     end.
 
+-spec get_util_module(fix_version ()) -> atom().
+get_util_module('FIX 4.0') ->
+    util_convert_to_record_FIX_4_0;
+get_util_module('FIX 4.1') ->
+    util_convert_to_record_FIX_4_1;
+get_util_module('FIX 4.2') ->
+    util_convert_to_record_FIX_4_2;
+get_util_module('FIX 4.3') ->
+    util_convert_to_record_FIX_4_3;
+get_util_module('FIX 4.4') ->
+    util_convert_to_record_FIX_4_4;
+get_util_module('FIX 5.0') ->
+    util_convert_to_record_FIX_5_0;
+get_util_module('FIX 5.0 SP 1') ->
+    util_convert_to_record_FIX_5_0SP1;
+get_util_module('FIX 5.0 SP 2') ->
+    util_convert_to_record_FIX_5_0SP2.
+    
 %%
 %% Local Functions
 %%
-getUtilsFun('FIX 4.0') ->
-    util_convert_to_record_FIX_4_0;
-getUtilsFun('FIX 4.1') ->
-    util_convert_to_record_FIX_4_1;
-getUtilsFun('FIX 4.2') ->
-    util_convert_to_record_FIX_4_2;
-getUtilsFun('FIX 4.3') ->
-    util_convert_to_record_FIX_4_3;
-getUtilsFun('FIX 4.4') ->
-    util_convert_to_record_FIX_4_4;
-getUtilsFun('FIX 5.0') ->
-    util_convert_to_record_FIX_5_0;
-getUtilsFun('FIX 5.0 SP 1') ->
-    util_convert_to_record_FIX_5_0SP1;
-getUtilsFun('FIX 5.0 SP 2') ->
-    util_convert_to_record_FIX_5_0SP2.
-    
 convertToString(Utils, Record, Def) ->
 lists:flatten([convert2String(Utils, N, V) || 
                {V, N}  <- lists:zip(Record, Def), 

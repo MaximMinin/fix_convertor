@@ -29,7 +29,7 @@ simple_test()->
                                                                                 senderCompID = "SNDR",
                                                                                 targetCompID = "TRGT",
                                                                                 msgSeqNum = 2,
-                                                                                sendingTime = "20110802-10:00:00"},
+                                                                                sendingTime = {{2011,8,2},{10,0,0}}},
                                              rgr_marketDataIncrementalRefresh_268 = 
                                                  [#rgr_marketDataIncrementalRefresh_268{mDUpdateAction = change,
                                                                                                      mDEntryRefID = "0001",

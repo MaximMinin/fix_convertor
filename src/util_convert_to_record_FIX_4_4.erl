@@ -10,7 +10,11 @@
 %%
 %% Exported Functions
 %%
--export([convert/2, reconvert/2, getMessageName/1, getRecord/1, getFieldName/1, getTagId/1, setFieldInRecord/4, setMsgSeqNum/2, get_record_def/1]).
+-export([convert/2, reconvert/2, getMessageName/1, 
+         getRecord/1, getFieldName/1, getTagId/1,
+         setFieldInRecord/4, setMsgSeqNum/2,
+         get_record_def/1, bin_to_datetime/1,
+         datetime_to_fixstring/1]).
     
 %%
 %% API Functions
@@ -498,7 +502,7 @@ convert(ordType, <<"P">>) ->
 convert(origClOrdID, Bin) -> 
    binary_to_list(Bin);
 convert(origTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(possDupFlag, <<"Y">>) -> 
     possibleDuplicate;
 convert(possDupFlag, <<"N">>) -> 
@@ -514,7 +518,7 @@ convert(senderCompID, Bin) ->
 convert(senderSubID, Bin) -> 
    binary_to_list(Bin);
 convert(sendingTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(quantity, Bin) -> 
    bin_to_num(Bin);
 convert(side, <<"1">>) -> 
@@ -574,7 +578,7 @@ convert(timeInForce, <<"6">>) ->
 convert(timeInForce, <<"7">>) -> 
     atTheClose;
 convert(transactTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(urgency, <<"0">>) -> 
     normal;
 convert(urgency, <<"1">>) -> 
@@ -582,7 +586,7 @@ convert(urgency, <<"1">>) ->
 convert(urgency, <<"2">>) -> 
     background;
 convert(validUntilTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(settlType, <<"0">>) -> 
     regular;
 convert(settlType, <<"1">>) -> 
@@ -868,7 +872,7 @@ convert(forexReq, <<"Y">>) ->
 convert(forexReq, <<"N">>) -> 
     doNotExecuteForexAfterSecurityTrade;
 convert(origSendingTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(gapFillFlag, <<"Y">>) -> 
     gapFillMessage;
 convert(gapFillFlag, <<"N">>) -> 
@@ -876,7 +880,7 @@ convert(gapFillFlag, <<"N">>) ->
 convert(noExecs, Bin) -> 
    bin_to_num(Bin);
 convert(expireTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(dKReason, <<"A">>) -> 
     unknownSymbol;
 convert(dKReason, <<"B">>) -> 
@@ -1232,7 +1236,7 @@ convert(securityType, <<"FUT">>) ->
 convert(securityType, <<"OPT">>) -> 
     option;
 convert(effectiveTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(standInstDbType, <<"0">>) -> 
     other;
 convert(standInstDbType, <<"1">>) -> 
@@ -2024,15 +2028,15 @@ convert(tradSesStatus, <<"5">>) ->
 convert(tradSesStatus, <<"6">>) -> 
     requestRejected;
 convert(tradSesStartTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(tradSesOpenTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(tradSesPreCloseTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(tradSesCloseTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(tradSesEndTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(numberOfOrders, Bin) -> 
    bin_to_num(Bin);
 convert(messageEncoding, <<"ISO-2022-JP">>) -> 
@@ -2082,7 +2086,7 @@ convert(encodedUnderlyingSecurityDesc, Bin) ->
 convert(allocPrice, Bin) -> 
    bin_to_num(Bin);
 convert(quoteSetValidUntilTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(quoteEntryRejectReason, Bin) -> 
    bin_to_num(Bin);
 convert(lastMsgSeqNumProcessed, Bin) -> 
@@ -2424,7 +2428,7 @@ convert(underlyingContractMultiplier, Bin) ->
 convert(contraTradeQty, Bin) -> 
    bin_to_num(Bin);
 convert(contraTradeTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(liquidityNumSecurities, Bin) -> 
    bin_to_num(Bin);
 convert(multiLegReportingType, <<"1">>) -> 
@@ -2434,7 +2438,7 @@ convert(multiLegReportingType, <<"2">>) ->
 convert(multiLegReportingType, <<"3">>) -> 
     multiLegSecurity;
 convert(strikeTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(listStatusText, Bin) -> 
    binary_to_list(Bin);
 convert(encodedListStatusTextLen, Bin) -> 
@@ -2680,7 +2684,7 @@ convert(moneyLaunderingStatus, <<"3">>) ->
 convert(mailingInst, Bin) -> 
    binary_to_list(Bin);
 convert(transBkdTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(execPriceType, <<"B">>) -> 
     bidPrice;
 convert(execPriceType, <<"C">>) -> 
@@ -2892,7 +2896,7 @@ convert(registTransType, <<"1">>) ->
 convert(registTransType, <<"2">>) -> 
     cancel;
 convert(execValuationPoint, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(orderPercent, Bin) -> 
    bin_to_num(Bin);
 convert(ownershipType, <<"J">>) -> 
@@ -3318,7 +3322,7 @@ convert(massStatusReqType, <<"7">>) ->
 convert(massStatusReqType, <<"8">>) -> 
     statusForOrdersForAPartyID;
 convert(origOrdModTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(legSettlType, Bin) -> 
    binary_to_list(Bin);
 convert(legSettlDate, Bin) -> 
@@ -3422,7 +3426,7 @@ convert(noHops, Bin) ->
 convert(hopCompID, Bin) -> 
    binary_to_list(Bin);
 convert(hopSendingTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(hopRefID, Bin) -> 
    bin_to_num(Bin);
 convert(midPx, Bin) -> 
@@ -3966,7 +3970,7 @@ convert(allowableOneSidednessCurr, Bin) ->
 convert(noTrdRegTimestamps, Bin) -> 
    bin_to_num(Bin);
 convert(trdRegTimestamp, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(trdRegTimestampType, <<"1">>) -> 
     executionTime;
 convert(trdRegTimestampType, <<"2">>) -> 
@@ -4006,7 +4010,7 @@ convert(settlInstMsgID, Bin) ->
 convert(noSettlInst, Bin) -> 
    bin_to_num(Bin);
 convert(lastUpdateTime, Bin) -> 
-   binary_to_list(Bin);
+    bin_to_datetime(Bin);
 convert(allocSettlInstType, <<"0">>) -> 
     useDefaultInstructions;
 convert(allocSettlInstType, <<"1">>) -> 
@@ -17070,12 +17074,16 @@ reconvert(ordType, nextFundValuationPoint) ->
     <<"M">>;
 reconvert(ordType, pegged) -> 
     <<"P">>;
+reconvert(origTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(possDupFlag, possibleDuplicate) -> 
     <<"Y">>;
 reconvert(possDupFlag, originalTransmission) -> 
     <<"N">>;
 reconvert(refSeqNum, Int) -> 
     erlang:integer_to_list(Int);
+reconvert(sendingTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(side, buy) -> 
     <<"1">>;
 reconvert(side, sell) -> 
@@ -17124,12 +17132,16 @@ reconvert(timeInForce, goodTillDate) ->
     <<"6">>;
 reconvert(timeInForce, atTheClose) -> 
     <<"7">>;
+reconvert(transactTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(urgency, normal) -> 
     <<"0">>;
 reconvert(urgency, flash) -> 
     <<"1">>;
 reconvert(urgency, background) -> 
     <<"2">>;
+reconvert(validUntilTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(settlType, regular) -> 
     <<"0">>;
 reconvert(settlType, cash) -> 
@@ -17362,12 +17374,16 @@ reconvert(forexReq, executeForexAfterSecurityTrade) ->
     <<"Y">>;
 reconvert(forexReq, doNotExecuteForexAfterSecurityTrade) -> 
     <<"N">>;
+reconvert(origSendingTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(gapFillFlag, gapFillMessage) -> 
     <<"Y">>;
 reconvert(gapFillFlag, sequenceReset) -> 
     <<"N">>;
 reconvert(noExecs, Int) -> 
     erlang:integer_to_list(Int);
+reconvert(expireTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(dKReason, unknownSymbol) -> 
     <<"A">>;
 reconvert(dKReason, wrongSide) -> 
@@ -17668,6 +17684,8 @@ reconvert(securityType, future) ->
     <<"FUT">>;
 reconvert(securityType, option) -> 
     <<"OPT">>;
+reconvert(effectiveTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(standInstDbType, other) -> 
     <<"0">>;
 reconvert(standInstDbType, dTCSID) -> 
@@ -18268,6 +18286,16 @@ reconvert(tradSesStatus, preClose) ->
     <<"5">>;
 reconvert(tradSesStatus, requestRejected) -> 
     <<"6">>;
+reconvert(tradSesStartTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
+reconvert(tradSesOpenTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
+reconvert(tradSesPreCloseTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
+reconvert(tradSesCloseTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
+reconvert(tradSesEndTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(numberOfOrders, Int) -> 
     erlang:integer_to_list(Int);
 reconvert(messageEncoding, iSO2022JP) -> 
@@ -18296,6 +18324,8 @@ reconvert(encodedUnderlyingIssuerLen, Int) ->
     erlang:integer_to_list(Int);
 reconvert(encodedUnderlyingSecurityDescLen, Int) -> 
     erlang:integer_to_list(Int);
+reconvert(quoteSetValidUntilTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(quoteEntryRejectReason, Int) -> 
     erlang:integer_to_list(Int);
 reconvert(lastMsgSeqNumProcessed, Int) -> 
@@ -18574,6 +18604,8 @@ reconvert(cxlRejResponseTo, orderCancelRequest) ->
     <<"1">>;
 reconvert(cxlRejResponseTo, orderCancel) -> 
     <<"2">>;
+reconvert(contraTradeTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(liquidityNumSecurities, Int) -> 
     erlang:integer_to_list(Int);
 reconvert(multiLegReportingType, singleSecurity) -> 
@@ -18582,6 +18614,8 @@ reconvert(multiLegReportingType, individualLegOfAMultiLegSecurity) ->
     <<"2">>;
 reconvert(multiLegReportingType, multiLegSecurity) -> 
     <<"3">>;
+reconvert(strikeTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(encodedListStatusTextLen, Int) -> 
     erlang:integer_to_list(Int);
 reconvert(partyIDSource, bIC) -> 
@@ -18782,6 +18816,8 @@ reconvert(moneyLaunderingStatus, exemptMoneyType) ->
     <<"2">>;
 reconvert(moneyLaunderingStatus, exemptAuthorised) -> 
     <<"3">>;
+reconvert(transBkdTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(execPriceType, bidPrice) -> 
     <<"B">>;
 reconvert(execPriceType, creationPrice) -> 
@@ -18948,6 +18984,8 @@ reconvert(registTransType, replace) ->
     <<"1">>;
 reconvert(registTransType, cancel) -> 
     <<"2">>;
+reconvert(execValuationPoint, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(ownershipType, jointInvestors) -> 
     <<"J">>;
 reconvert(ownershipType, tenantsInCommon) -> 
@@ -19310,6 +19348,8 @@ reconvert(massStatusReqType, statusForAllOrders) ->
     <<"7">>;
 reconvert(massStatusReqType, statusForOrdersForAPartyID) -> 
     <<"8">>;
+reconvert(origOrdModTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(dayBookingInst, auto) -> 
     <<"0">>;
 reconvert(dayBookingInst, speakWithOrderInitiatorBeforeBooking) -> 
@@ -19346,6 +19386,8 @@ reconvert(allocType, requestToIntermediary) ->
     <<"8">>;
 reconvert(noHops, Int) -> 
     erlang:integer_to_list(Int);
+reconvert(hopSendingTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(hopRefID, Int) -> 
     erlang:integer_to_list(Int);
 reconvert(clearingFeeIndicator, cBOEMember) -> 
@@ -19722,6 +19764,8 @@ reconvert(nested2PartyRole, Int) ->
     erlang:integer_to_list(Int);
 reconvert(noTrdRegTimestamps, Int) -> 
     erlang:integer_to_list(Int);
+reconvert(trdRegTimestamp, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(trdRegTimestampType, executionTime) -> 
     <<"1">>;
 reconvert(trdRegTimestampType, timeIn) -> 
@@ -19754,6 +19798,8 @@ reconvert(individualAllocRejCode, Int) ->
     erlang:integer_to_list(Int);
 reconvert(noSettlInst, Int) -> 
     erlang:integer_to_list(Int);
+reconvert(lastUpdateTime, DateTime) -> 
+    datetime_to_fixstring(DateTime);
 reconvert(allocSettlInstType, useDefaultInstructions) -> 
     <<"0">>;
 reconvert(allocSettlInstType, deriveFromParametersProvided) -> 
@@ -20358,3 +20404,35 @@ bin_to_num(Bin) ->
         {error,no_float} -> erlang:list_to_integer(N);
         {F,_Rest} -> F
     end.
+
+bin_to_datetime(Bin) ->
+    T = erlang:binary_to_list(Bin),
+    {D, H,M,S,Ms} = case string:tokens(T, "-:.") of
+        [D1,H1,M1,S1] -> {D1,H1,M1,S1,0};
+        [D2,H2,M2,S2,Ms2] -> {D2,H2,M2,S2,Ms2}
+    end,
+    Y = list_to_integer(string:substr(D, 1, 4)),
+    Month = list_to_integer(string:substr(D, 5, 2)),
+    Day = list_to_integer(string:substr(D,7)) ,
+    {{Y, Month, Day}, {list_to_integer(H), 
+                       list_to_integer(M),
+                       list_to_integer(S)}}.
+
+datetime_to_fixstring({{Year, Month, Day}, {Hour, Minute, Second}}) -> 
+    lists:concat([integer_to_list(Year),
+                                 getTwoDigits(Month),
+                                 getTwoDigits(Day),
+                                 "-",
+                                 getTwoDigits(Hour),
+                                 ":",
+                                 getTwoDigits(Minute),
+                                 ":",
+                                 getTwoDigits(Second)]).
+
+%% ====================================================================
+%% Local Functions
+%% ====================================================================
+getTwoDigits(Int) when Int < 10 ->
+    lists:concat(["0",Int]);
+getTwoDigits(Int) ->
+    erlang:integer_to_list(Int).

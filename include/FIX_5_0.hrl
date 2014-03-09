@@ -15,7 +15,7 @@
 -type currency () :: string().
 -type exchange () :: string().
 -type monthYear () :: string().
--type uTCTimestamp () :: string().
+-type uTCTimestamp () :: calendar:datetime().
 -type uTCTimeOnly () :: string().
 -type uTCDateOnly () :: string().
 -type localMktDate () :: string().

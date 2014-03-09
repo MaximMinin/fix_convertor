@@ -10,7 +10,11 @@
 %%
 %% Exported Functions
 %%
--export([convert/2, reconvert/2, getMessageName/1, getRecord/1, getFieldName/1, getTagId/1, setFieldInRecord/4, setMsgSeqNum/2, get_record_def/1]).
+-export([convert/2, reconvert/2, getMessageName/1, 
+         getRecord/1, getFieldName/1, getTagId/1,
+         setFieldInRecord/4, setMsgSeqNum/2,
+         get_record_def/1, bin_to_datetime/1,
+         datetime_to_fixstring/1]).
     
 %%
 %% API Functions
@@ -2870,3 +2874,35 @@ bin_to_num(Bin) ->
         {error,no_float} -> erlang:list_to_integer(N);
         {F,_Rest} -> F
     end.
+
+bin_to_datetime(Bin) ->
+    T = erlang:binary_to_list(Bin),
+    {D, H,M,S,Ms} = case string:tokens(T, "-:.") of
+        [D1,H1,M1,S1] -> {D1,H1,M1,S1,0};
+        [D2,H2,M2,S2,Ms2] -> {D2,H2,M2,S2,Ms2}
+    end,
+    Y = list_to_integer(string:substr(D, 1, 4)),
+    Month = list_to_integer(string:substr(D, 5, 2)),
+    Day = list_to_integer(string:substr(D,7)) ,
+    {{Y, Month, Day}, {list_to_integer(H), 
+                       list_to_integer(M),
+                       list_to_integer(S)}}.
+
+datetime_to_fixstring({{Year, Month, Day}, {Hour, Minute, Second}}) -> 
+    lists:concat([integer_to_list(Year),
+                                 getTwoDigits(Month),
+                                 getTwoDigits(Day),
+                                 "-",
+                                 getTwoDigits(Hour),
+                                 ":",
+                                 getTwoDigits(Minute),
+                                 ":",
+                                 getTwoDigits(Second)]).
+
+%% ====================================================================
+%% Local Functions
+%% ====================================================================
+getTwoDigits(Int) when Int < 10 ->
+    lists:concat(["0",Int]);
+getTwoDigits(Int) ->
+    erlang:integer_to_list(Int).

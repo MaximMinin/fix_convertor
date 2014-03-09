@@ -116,6 +116,8 @@ convert2String(Utils, Name, Value) ->
                                 Utils:get_record_def(Tuple));
          Atom -> 
                 case get_type(Value) of
+                    tuple -> lists:concat([Atom, "=",
+                                           io_lib:format("~p", [Value])]);
                     float -> lists:concat([Atom, "=",
                                            io_lib:format("~.6f",[Value]), ","]);
                     integer -> lists:concat([Atom, "=",
@@ -125,6 +127,7 @@ convert2String(Utils, Name, Value) ->
                 end
      end.                         
  
+get_type(V) when is_tuple(V) -> tuple;
 get_type(V) when is_atom(V) -> atom;
 get_type(V) when is_float(V) -> float;
 get_type(V) when is_list(V) -> list; 
@@ -168,6 +171,8 @@ convert2Binary_2(Utils, Def, Value)->
                     integer -> [Utils:getTagId(Def), "=", 
                                 integer_to_list(Value), 1];
                     atom -> [Utils:getTagId(Def), "=",
+                             Utils:reconvert(Def, Value), 1];
+                    tuple -> [Utils:getTagId(Def), "=",
                              Utils:reconvert(Def, Value), 1]
                 end
      end.                         

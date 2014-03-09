@@ -79,3 +79,6 @@ fix_float() ->
              [Fr] = io_lib:format("~.6f",[F*10.0]),
              list_to_float(Fr)
          end).
+
+uTCTimestamp() -> 
+    erlang:universaltime().

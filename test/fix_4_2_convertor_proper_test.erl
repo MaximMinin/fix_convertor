@@ -77,3 +77,5 @@ fix_float() ->
              list_to_float(Fr)
          end).
 
+uTCTimestamp() -> 
+    erlang:universaltime().

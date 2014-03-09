@@ -7,7 +7,7 @@
 -type multipleStringValue () :: string().
 -type currency () :: string().
 -type exchange () :: string().
--type uTCTimestamp () :: string().
+-type uTCTimestamp () :: calendar:datetime().
 -type uTCTimeOnly () :: string().
 -type localMktDate () :: string().
 -type uTCDate () :: string().

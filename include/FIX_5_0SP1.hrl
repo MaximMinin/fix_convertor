@@ -1,4 +1,3 @@
--type localmmktdate () :: string().
 -type length () :: integer().
 -type tagNum () :: integer().
 -type seqNum () :: integer().
@@ -14,11 +13,11 @@
 -type country () :: string().
 -type currency () :: string().
 -type exchange () :: string().
--type monthYear () :: string().
+-type monthYear () :: {integer(), integer(), integer() | undefined | w1 | w2 | w3| w4}.
 -type uTCTimestamp () :: calendar:datetime().
--type uTCTimeOnly () :: string().
--type uTCDateOnly () :: string().
--type localMktDate () :: string().
+-type uTCTimeOnly () :: calendar:time().
+-type uTCDateOnly () :: calendar:date().
+-type localMktDate () :: calendar:date().
 -type tZTimeOnly () :: string().
 -type tZTimestamp () :: string().
 -type data () :: string().

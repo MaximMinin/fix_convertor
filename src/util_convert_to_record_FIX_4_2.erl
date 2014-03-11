@@ -13,8 +13,7 @@
 -export([convert/2, reconvert/2, getMessageName/1, 
          getRecord/1, getFieldName/1, getTagId/1,
          setFieldInRecord/4, setMsgSeqNum/2,
-         get_record_def/1, bin_to_datetime/1,
-         datetime_to_fixstring/1]).
+         get_record_def/1]).
     
 %%
 %% API Functions
@@ -46,19 +45,19 @@ convert(advTransType, <<"N">>) ->
 convert(advTransType, <<"R">>) -> 
     replace;
 convert(avgPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(beginSeqNo, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(beginString, Bin) -> 
    binary_to_list(Bin);
 convert(bodyLength, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(checkSum, Bin) -> 
    binary_to_list(Bin);
 convert(clOrdID, Bin) -> 
    binary_to_list(Bin);
 convert(commission, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(commType, <<"1">>) -> 
     perUnit;
 convert(commType, <<"2">>) -> 
@@ -66,11 +65,11 @@ convert(commType, <<"2">>) ->
 convert(commType, <<"3">>) -> 
     absolute;
 convert(cumQty, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(currency, Bin) -> 
    binary_to_list(Bin);
 convert(endSeqNo, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(execID, Bin) -> 
    binary_to_list(Bin);
 convert(execInst, <<"0">>) -> 
@@ -200,13 +199,13 @@ convert(lastCapacity, <<"4">>) ->
 convert(lastMkt, Bin) -> 
    binary_to_list(Bin);
 convert(lastPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(lastShares, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(linesOfText, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(msgSeqNum, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(msgType, <<"0">>) -> 
     heartbeat;
 convert(msgType, <<"1">>) -> 
@@ -300,11 +299,11 @@ convert(msgType, <<"l">>) ->
 convert(msgType, <<"m">>) -> 
     listStrikePrice;
 convert(newSeqNo, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(orderID, Bin) -> 
    binary_to_list(Bin);
 convert(orderQty, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(ordStatus, <<"0">>) -> 
     new;
 convert(ordStatus, <<"1">>) -> 
@@ -376,15 +375,15 @@ convert(ordType, <<"P">>) ->
 convert(origClOrdID, Bin) -> 
    binary_to_list(Bin);
 convert(origTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(possDupFlag, <<"N">>) -> 
     originalTransmission;
 convert(possDupFlag, <<"Y">>) -> 
     possibleDuplicate;
 convert(price, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(refSeqNum, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(relatdSym, Bin) -> 
    binary_to_list(Bin);
 convert(rule80A, <<"A">>) -> 
@@ -440,11 +439,11 @@ convert(senderCompID, Bin) ->
 convert(senderSubID, Bin) -> 
    binary_to_list(Bin);
 convert(sendingDate, Bin) -> 
-   binary_to_list(Bin);
+    fix_convertor_utils:bin2localmktdate(Bin);
 convert(sendingTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(shares, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(side, <<"1">>) -> 
     buy;
 convert(side, <<"2">>) -> 
@@ -486,7 +485,7 @@ convert(timeInForce, <<"5">>) ->
 convert(timeInForce, <<"6">>) -> 
     goodTillDate;
 convert(transactTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(urgency, <<"0">>) -> 
     normal;
 convert(urgency, <<"1">>) -> 
@@ -494,7 +493,7 @@ convert(urgency, <<"1">>) ->
 convert(urgency, <<"2">>) -> 
     background;
 convert(validUntilTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(settlmntTyp, <<"0">>) -> 
     regular;
 convert(settlmntTyp, <<"1">>) -> 
@@ -516,15 +515,15 @@ convert(settlmntTyp, <<"8">>) ->
 convert(settlmntTyp, <<"9">>) -> 
     tPlus5;
 convert(futSettDate, Bin) -> 
-   binary_to_list(Bin);
+    fix_convertor_utils:bin2localmktdate(Bin);
 convert(symbolSfx, Bin) -> 
    binary_to_list(Bin);
 convert(listID, Bin) -> 
    binary_to_list(Bin);
 convert(listSeqNo, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(totNoOrders, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(listExecInst, Bin) -> 
    binary_to_list(Bin);
 convert(allocID, Bin) -> 
@@ -544,11 +543,11 @@ convert(allocTransType, <<"5">>) ->
 convert(refAllocID, Bin) -> 
    binary_to_list(Bin);
 convert(noOrders, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(avgPrxPrecision, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(tradeDate, Bin) -> 
-   binary_to_list(Bin);
+    fix_convertor_utils:bin2localmktdate(Bin);
 convert(execBroker, Bin) -> 
    binary_to_list(Bin);
 convert(openClose, <<"C">>) -> 
@@ -556,11 +555,11 @@ convert(openClose, <<"C">>) ->
 convert(openClose, <<"O">>) -> 
     open;
 convert(noAllocs, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(allocAccount, Bin) -> 
    binary_to_list(Bin);
 convert(allocShares, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(processCode, <<"0">>) -> 
     regular;
 convert(processCode, <<"1">>) -> 
@@ -576,13 +575,13 @@ convert(processCode, <<"5">>) ->
 convert(processCode, <<"6">>) -> 
     planSponsor;
 convert(noRpts, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(rptSeq, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(cxlQty, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(noDlvyInst, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(dlvyInst, Bin) -> 
    binary_to_list(Bin);
 convert(allocStatus, <<"0">>) -> 
@@ -612,13 +611,13 @@ convert(allocRejCode, <<"7">>) ->
 convert(signature, Bin) -> 
    binary_to_list(Bin);
 convert(secureDataLen, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(secureData, Bin) -> 
    binary_to_list(Bin);
 convert(brokerOfCredit, Bin) -> 
    binary_to_list(Bin);
 convert(signatureLength, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(emailType, <<"0">>) -> 
     new;
 convert(emailType, <<"1">>) -> 
@@ -626,7 +625,7 @@ convert(emailType, <<"1">>) ->
 convert(emailType, <<"2">>) -> 
     adminReply;
 convert(rawDataLength, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(rawData, Bin) -> 
    binary_to_list(Bin);
 convert(possResend, <<"N">>) -> 
@@ -648,7 +647,7 @@ convert(encryptMethod, <<"5">>) ->
 convert(encryptMethod, <<"6">>) -> 
     pEM;
 convert(stopPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(exDestination, Bin) -> 
    binary_to_list(Bin);
 convert(cxlRejReason, <<"0">>) -> 
@@ -716,13 +715,13 @@ convert(issuer, Bin) ->
 convert(securityDesc, Bin) -> 
    binary_to_list(Bin);
 convert(heartBtInt, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(clientID, Bin) -> 
    binary_to_list(Bin);
 convert(minQty, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(maxFloor, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(testReqID, Bin) -> 
    binary_to_list(Bin);
 convert(reportToExch, <<"N">>) -> 
@@ -740,9 +739,9 @@ convert(onBehalfOfSubID, Bin) ->
 convert(quoteID, Bin) -> 
    binary_to_list(Bin);
 convert(netMoney, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(settlCurrAmt, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(settlCurrency, Bin) -> 
    binary_to_list(Bin);
 convert(forexReq, <<"N">>) -> 
@@ -750,17 +749,17 @@ convert(forexReq, <<"N">>) ->
 convert(forexReq, <<"Y">>) -> 
     executeForexAfterSecurityTrade;
 convert(origSendingTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(gapFillFlag, <<"N">>) -> 
     sequenceReset;
 convert(gapFillFlag, <<"Y">>) -> 
     gapFillMessage;
 convert(noExecs, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(cxlType, Bin) -> 
    binary_to_list(Bin);
 convert(expireTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(dKReason, <<"A">>) -> 
     unknownSymbol;
 convert(dKReason, <<"B">>) -> 
@@ -784,17 +783,17 @@ convert(iOINaturalFlag, <<"Y">>) ->
 convert(quoteReqID, Bin) -> 
    binary_to_list(Bin);
 convert(bidPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(offerPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(bidSize, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(offerSize, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(noMiscFees, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(miscFeeAmt, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(miscFeeCurr, Bin) -> 
    binary_to_list(Bin);
 convert(miscFeeType, <<"1">>) -> 
@@ -816,7 +815,7 @@ convert(miscFeeType, <<"8">>) ->
 convert(miscFeeType, <<"9">>) -> 
     consumptionTax;
 convert(prevClosePx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(resetSeqNumFlag, <<"N">>) -> 
     no;
 convert(resetSeqNumFlag, <<"Y">>) -> 
@@ -830,7 +829,7 @@ convert(onBehalfOfLocationID, Bin) ->
 convert(deliverToLocationID, Bin) -> 
    binary_to_list(Bin);
 convert(noRelatedSym, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(subject, Bin) -> 
    binary_to_list(Bin);
 convert(headline, Bin) -> 
@@ -868,23 +867,23 @@ convert(execType, <<"D">>) ->
 convert(execType, <<"E">>) -> 
     pendingReplace;
 convert(leavesQty, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(cashOrderQty, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(allocAvgPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(allocNetMoney, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(settlCurrFxRate, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(settlCurrFxRateCalc, Bin) -> 
    binary_to_list(Bin);
 convert(numDaysInterest, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(accruedInterestRate, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(accruedInterestAmt, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(settlInstMode, <<"0">>) -> 
     default;
 convert(settlInstMode, <<"1">>) -> 
@@ -990,7 +989,7 @@ convert(securityType, <<"WAR">>) ->
 convert(securityType, <<"ZOO">>) -> 
     catsTigersAndLions;
 convert(effectiveTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(standInstDbType, <<"0">>) -> 
     other;
 convert(standInstDbType, <<"1">>) -> 
@@ -1004,7 +1003,7 @@ convert(standInstDbName, Bin) ->
 convert(standInstDbID, Bin) -> 
    binary_to_list(Bin);
 convert(settlDeliveryType, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(settlDepositoryCode, Bin) -> 
    binary_to_list(Bin);
 convert(settlBrkrCode, Bin) -> 
@@ -1036,21 +1035,21 @@ convert(cashSettlAgentContactName, Bin) ->
 convert(cashSettlAgentContactPhone, Bin) -> 
    binary_to_list(Bin);
 convert(bidSpotRate, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(bidForwardPoints, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(offerSpotRate, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(offerForwardPoints, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(orderQty2, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(futSettDate2, Bin) -> 
-   binary_to_list(Bin);
+    fix_convertor_utils:bin2localmktdate(Bin);
 convert(lastSpotRate, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(lastForwardPoints, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(allocLinkID, Bin) -> 
    binary_to_list(Bin);
 convert(allocLinkType, <<"0">>) -> 
@@ -1060,15 +1059,15 @@ convert(allocLinkType, <<"1">>) ->
 convert(secondaryOrderID, Bin) -> 
    binary_to_list(Bin);
 convert(noIOIQualifiers, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(maturityMonthYear, Bin) -> 
-   binary_to_list(Bin);
+    fix_convertor_utils:bin2monthyear(Bin);
 convert(putOrCall, <<"0">>) -> 
     put;
 convert(putOrCall, <<"1">>) -> 
     call;
 convert(strikePrice, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(coveredOrUncovered, <<"0">>) -> 
     covered;
 convert(coveredOrUncovered, <<"1">>) -> 
@@ -1078,7 +1077,7 @@ convert(customerOrFirm, <<"0">>) ->
 convert(customerOrFirm, <<"1">>) -> 
     firm;
 convert(maturityDay, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(optAttribute, Bin) -> 
    binary_to_list(Bin);
 convert(securityExchange, Bin) -> 
@@ -1094,17 +1093,17 @@ convert(allocHandlInst, <<"2">>) ->
 convert(allocHandlInst, <<"3">>) -> 
     forwardAndMatch;
 convert(maxShow, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(pegDifference, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(xmlDataLen, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(xmlData, Bin) -> 
    binary_to_list(Bin);
 convert(settlInstRefID, Bin) -> 
    binary_to_list(Bin);
 convert(noRoutingIDs, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(routingType, <<"1">>) -> 
     targetFirm;
 convert(routingType, <<"2">>) -> 
@@ -1116,7 +1115,7 @@ convert(routingType, <<"4">>) ->
 convert(routingID, Bin) -> 
    binary_to_list(Bin);
 convert(spreadToBenchmark, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(benchmark, <<"1">>) -> 
     cURVE;
 convert(benchmark, <<"2">>) -> 
@@ -1136,9 +1135,9 @@ convert(benchmark, <<"8">>) ->
 convert(benchmark, <<"9">>) -> 
     sixMOLIBOR;
 convert(couponRate, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(contractMultiplier, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(mDReqID, Bin) -> 
    binary_to_list(Bin);
 convert(subscriptionRequestType, <<"0">>) -> 
@@ -1148,7 +1147,7 @@ convert(subscriptionRequestType, <<"1">>) ->
 convert(subscriptionRequestType, <<"2">>) -> 
     disablePreviousSnapshot;
 convert(marketDepth, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(mDUpdateType, <<"0">>) -> 
     fullRefresh;
 convert(mDUpdateType, <<"1">>) -> 
@@ -1158,9 +1157,9 @@ convert(aggregatedBook, <<"N">>) ->
 convert(aggregatedBook, <<"Y">>) -> 
     bookEntriesToBeAggregated;
 convert(noMDEntryTypes, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(noMDEntries, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(mDEntryType, <<"0">>) -> 
     bid;
 convert(mDEntryType, <<"1">>) -> 
@@ -1182,13 +1181,13 @@ convert(mDEntryType, <<"8">>) ->
 convert(mDEntryType, <<"9">>) -> 
     tradingSessionVWAPPrice;
 convert(mDEntryPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(mDEntrySize, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(mDEntryDate, Bin) -> 
-   binary_to_list(Bin);
+    fix_convertor_utils:bin2utcdate(Bin);
 convert(mDEntryTime, Bin) -> 
-   binary_to_list(Bin);
+    fix_convertor_utils:bin2utctime(Bin);
 convert(tickDirection, <<"0">>) -> 
     plusTick;
 convert(tickDirection, <<"1">>) -> 
@@ -1290,13 +1289,13 @@ convert(openCloseSettleFlag, <<"1">>) ->
 convert(openCloseSettleFlag, <<"2">>) -> 
     deliverySettlementEntry;
 convert(sellerDays, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(mDEntryBuyer, Bin) -> 
    binary_to_list(Bin);
 convert(mDEntrySeller, Bin) -> 
    binary_to_list(Bin);
 convert(mDEntryPositionNo, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(financialStatus, <<"1">>) -> 
     bankrupt;
 convert(corporateAction, <<"A">>) -> 
@@ -1310,13 +1309,13 @@ convert(corporateAction, <<"D">>) ->
 convert(corporateAction, <<"E">>) -> 
     exInterest;
 convert(defBidSize, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(defOfferSize, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(noQuoteEntries, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(noQuoteSets, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(quoteAckStatus, <<"0">>) -> 
     accepted;
 convert(quoteAckStatus, <<"1">>) -> 
@@ -1370,7 +1369,7 @@ convert(quoteRequestType, <<"1">>) ->
 convert(quoteRequestType, <<"2">>) -> 
     automatic;
 convert(totQuoteEntries, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(underlyingIDSource, Bin) -> 
    binary_to_list(Bin);
 convert(underlyingIssuer, Bin) -> 
@@ -1388,19 +1387,19 @@ convert(underlyingSymbol, Bin) ->
 convert(underlyingSymbolSfx, Bin) -> 
    binary_to_list(Bin);
 convert(underlyingMaturityMonthYear, Bin) -> 
-   binary_to_list(Bin);
+    fix_convertor_utils:bin2monthyear(Bin);
 convert(underlyingMaturityDay, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(underlyingPutOrCall, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(underlyingStrikePrice, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(underlyingOptAttribute, Bin) -> 
    binary_to_list(Bin);
 convert(underlyingCurrency, Bin) -> 
    binary_to_list(Bin);
 convert(ratioQty, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(securityReqID, Bin) -> 
    binary_to_list(Bin);
 convert(securityRequestType, <<"0">>) -> 
@@ -1490,13 +1489,13 @@ convert(dueToRelated, <<"N">>) ->
 convert(dueToRelated, <<"Y">>) -> 
     relatedToSecurityHalt;
 convert(buyVolume, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(sellVolume, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(highPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(lowPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(adjustment, <<"1">>) -> 
     cancel;
 convert(adjustment, <<"2">>) -> 
@@ -1532,17 +1531,17 @@ convert(tradSesStatus, <<"4">>) ->
 convert(tradSesStatus, <<"5">>) -> 
     preClose;
 convert(tradSesStartTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(tradSesOpenTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(tradSesPreCloseTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(tradSesCloseTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(tradSesEndTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(numberOfOrders, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(messageEncoding, <<"EUC-JP">>) -> 
     eUCJP;
 convert(messageEncoding, <<"ISO-2022-JP">>) -> 
@@ -1552,45 +1551,45 @@ convert(messageEncoding, <<"Shift_JIS">>) ->
 convert(messageEncoding, <<"UTF-8">>) -> 
     uTF8;
 convert(encodedIssuerLen, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(encodedIssuer, Bin) -> 
    binary_to_list(Bin);
 convert(encodedSecurityDescLen, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(encodedSecurityDesc, Bin) -> 
    binary_to_list(Bin);
 convert(encodedListExecInstLen, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(encodedListExecInst, Bin) -> 
    binary_to_list(Bin);
 convert(encodedTextLen, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(encodedText, Bin) -> 
    binary_to_list(Bin);
 convert(encodedSubjectLen, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(encodedSubject, Bin) -> 
    binary_to_list(Bin);
 convert(encodedHeadlineLen, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(encodedHeadline, Bin) -> 
    binary_to_list(Bin);
 convert(encodedAllocTextLen, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(encodedAllocText, Bin) -> 
    binary_to_list(Bin);
 convert(encodedUnderlyingIssuerLen, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(encodedUnderlyingIssuer, Bin) -> 
    binary_to_list(Bin);
 convert(encodedUnderlyingSecurityDescLen, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(encodedUnderlyingSecurityDesc, Bin) -> 
    binary_to_list(Bin);
 convert(allocPrice, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(quoteSetValidUntilTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(quoteEntryRejectReason, <<"1">>) -> 
     unknownSymbol;
 convert(quoteEntryRejectReason, <<"2">>) -> 
@@ -1610,11 +1609,11 @@ convert(quoteEntryRejectReason, <<"8">>) ->
 convert(quoteEntryRejectReason, <<"9">>) -> 
     notAuthorizedToQuoteSecurity;
 convert(lastMsgSeqNumProcessed, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(onBehalfOfSendingTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(refTagID, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(refMsgType, Bin) -> 
    binary_to_list(Bin);
 convert(sessionRejectReason, <<"0">>) -> 
@@ -1680,21 +1679,21 @@ convert(businessRejectReason, <<"4">>) ->
 convert(businessRejectReason, <<"5">>) -> 
     conditionallyRequiredFieldMissing;
 convert(grossTradeAmt, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(noContraBrokers, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(maxMessageSize, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(noMsgTypes, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(msgDirection, <<"R">>) -> 
     receivereceiveFix;
 convert(msgDirection, <<"S">>) -> 
     send;
 convert(noTradingSessions, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(totalVolumeTraded, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(discretionInst, <<"0">>) -> 
     relatedToDisplayedPrice;
 convert(discretionInst, <<"1">>) -> 
@@ -1708,7 +1707,7 @@ convert(discretionInst, <<"4">>) ->
 convert(discretionInst, <<"5">>) -> 
     relatedToLastTradePrice;
 convert(discretionOffset, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(bidID, Bin) -> 
    binary_to_list(Bin);
 convert(clientBidID, Bin) -> 
@@ -1716,37 +1715,37 @@ convert(clientBidID, Bin) ->
 convert(listName, Bin) -> 
    binary_to_list(Bin);
 convert(totalNumSecurities, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(bidType, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(numTickets, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(sideValue1, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(sideValue2, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(noBidDescriptors, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(bidDescriptorType, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(bidDescriptor, Bin) -> 
    binary_to_list(Bin);
 convert(sideValueInd, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(liquidityPctLow, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(liquidityPctHigh, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(liquidityValue, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(eFPTrackingError, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(fairValue, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(outsideIndexPct, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(valueOfFutures, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(liquidityIndType, <<"1">>) -> 
     fiveDayMovingAverage;
 convert(liquidityIndType, <<"2">>) -> 
@@ -1756,15 +1755,15 @@ convert(liquidityIndType, <<"3">>) ->
 convert(liquidityIndType, <<"4">>) -> 
     other;
 convert(wtAverageLiquidity, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(exchangeForPhysical, <<"N">>) -> 
     false;
 convert(exchangeForPhysical, <<"Y">>) -> 
     true;
 convert(outMainCntryUIndex, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(crossPercent, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(progRptReqs, <<"1">>) -> 
     buySideRequests;
 convert(progRptReqs, <<"2">>) -> 
@@ -1772,13 +1771,13 @@ convert(progRptReqs, <<"2">>) ->
 convert(progRptReqs, <<"3">>) -> 
     realTimeExecutionReports;
 convert(progPeriodInterval, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(incTaxInd, <<"1">>) -> 
     net;
 convert(incTaxInd, <<"2">>) -> 
     gross;
 convert(numBidders, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(tradeType, <<"A">>) -> 
     agency;
 convert(tradeType, <<"G">>) -> 
@@ -1814,11 +1813,11 @@ convert(basisPxType, <<"D">>) ->
 convert(basisPxType, <<"Z">>) -> 
     others;
 convert(noBidComponents, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(country, Bin) -> 
    binary_to_list(Bin);
 convert(totNoStrikes, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(priceType, <<"1">>) -> 
     percentage;
 convert(priceType, <<"2">>) -> 
@@ -1826,11 +1825,11 @@ convert(priceType, <<"2">>) ->
 convert(priceType, <<"3">>) -> 
     fixedAmount;
 convert(dayOrderQty, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(dayCumQty, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(dayAvgPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(gTBookingInst, <<"0">>) -> 
     bookOutAllTradesOnDayOfExecution;
 convert(gTBookingInst, <<"1">>) -> 
@@ -1838,17 +1837,17 @@ convert(gTBookingInst, <<"1">>) ->
 convert(gTBookingInst, <<"2">>) -> 
     accumulateUntilVerballlyNotifiedOtherwise;
 convert(noStrikes, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(listStatusType, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(netGrossInd, <<"1">>) -> 
     net;
 convert(netGrossInd, <<"2">>) -> 
     gross;
 convert(listOrderStatus, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(expireDate, Bin) -> 
-   binary_to_list(Bin);
+    fix_convertor_utils:bin2localmktdate(Bin);
 convert(listExecInstType, <<"1">>) -> 
     immediate;
 convert(listExecInstType, <<"2">>) -> 
@@ -1858,19 +1857,19 @@ convert(cxlRejResponseTo, <<"1">>) ->
 convert(cxlRejResponseTo, <<"2">>) -> 
     orderCancel;
 convert(underlyingCouponRate, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(underlyingContractMultiplier, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(contraTradeQty, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(contraTradeTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(clearingFirm, Bin) -> 
    binary_to_list(Bin);
 convert(clearingAccount, Bin) -> 
    binary_to_list(Bin);
 convert(liquidityNumSecurities, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(multiLegReportingType, <<"1">>) -> 
     singleSecurity;
 convert(multiLegReportingType, <<"2">>) -> 
@@ -1878,11 +1877,11 @@ convert(multiLegReportingType, <<"2">>) ->
 convert(multiLegReportingType, <<"3">>) -> 
     multiLegSecurity;
 convert(strikeTime, Bin) -> 
-    bin_to_datetime(Bin);
+    fix_convertor_utils:bin_to_datetime(Bin);
 convert(listStatusText, Bin) -> 
    binary_to_list(Bin);
 convert(encodedListStatusTextLen, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(encodedListStatusText, Bin) -> 
    binary_to_list(Bin);
 convert(_Name, Bin) ->
@@ -7385,7 +7384,7 @@ reconvert(ordType, funari) ->
 reconvert(ordType, pegged) -> 
     <<"P">>;
 reconvert(origTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(possDupFlag, originalTransmission) -> 
     <<"N">>;
 reconvert(possDupFlag, possibleDuplicate) -> 
@@ -7438,8 +7437,10 @@ reconvert(rule80A, agencyNonAlgo) ->
     <<"Y">>;
 reconvert(rule80A, shortExemptTransactionNonMember) -> 
     <<"Z">>;
+reconvert(sendingDate, DateTime) -> 
+    fix_convertor_utils:localmktdate2fixstring(DateTime);
 reconvert(sendingTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(side, buy) -> 
     <<"1">>;
 reconvert(side, sell) -> 
@@ -7473,7 +7474,7 @@ reconvert(timeInForce, goodTillCrossing) ->
 reconvert(timeInForce, goodTillDate) -> 
     <<"6">>;
 reconvert(transactTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(urgency, normal) -> 
     <<"0">>;
 reconvert(urgency, flash) -> 
@@ -7481,7 +7482,7 @@ reconvert(urgency, flash) ->
 reconvert(urgency, background) -> 
     <<"2">>;
 reconvert(validUntilTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(settlmntTyp, regular) -> 
     <<"0">>;
 reconvert(settlmntTyp, cash) -> 
@@ -7502,6 +7503,8 @@ reconvert(settlmntTyp, sellersOption) ->
     <<"8">>;
 reconvert(settlmntTyp, tPlus5) -> 
     <<"9">>;
+reconvert(futSettDate, DateTime) -> 
+    fix_convertor_utils:localmktdate2fixstring(DateTime);
 reconvert(listSeqNo, Int) -> 
     erlang:integer_to_list(Int);
 reconvert(totNoOrders, Int) -> 
@@ -7522,6 +7525,8 @@ reconvert(noOrders, Int) ->
     erlang:integer_to_list(Int);
 reconvert(avgPrxPrecision, Int) -> 
     erlang:integer_to_list(Int);
+reconvert(tradeDate, DateTime) -> 
+    fix_convertor_utils:localmktdate2fixstring(DateTime);
 reconvert(openClose, close) -> 
     <<"C">>;
 reconvert(openClose, open) -> 
@@ -7675,7 +7680,7 @@ reconvert(forexReq, doNotExecuteForexAfterSecurityTrade) ->
 reconvert(forexReq, executeForexAfterSecurityTrade) -> 
     <<"Y">>;
 reconvert(origSendingTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(gapFillFlag, sequenceReset) -> 
     <<"N">>;
 reconvert(gapFillFlag, gapFillMessage) -> 
@@ -7683,7 +7688,7 @@ reconvert(gapFillFlag, gapFillMessage) ->
 reconvert(noExecs, Int) -> 
     erlang:integer_to_list(Int);
 reconvert(expireTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(dKReason, unknownSymbol) -> 
     <<"A">>;
 reconvert(dKReason, wrongSide) -> 
@@ -7857,7 +7862,7 @@ reconvert(securityType, warrant) ->
 reconvert(securityType, catsTigersAndLions) -> 
     <<"ZOO">>;
 reconvert(effectiveTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(standInstDbType, other) -> 
     <<"0">>;
 reconvert(standInstDbType, dTCSID) -> 
@@ -7868,12 +7873,16 @@ reconvert(standInstDbType, aGlobalCustodian) ->
     <<"3">>;
 reconvert(settlDeliveryType, Int) -> 
     erlang:integer_to_list(Int);
+reconvert(futSettDate2, DateTime) -> 
+    fix_convertor_utils:localmktdate2fixstring(DateTime);
 reconvert(allocLinkType, fXNetting) -> 
     <<"0">>;
 reconvert(allocLinkType, fXSwap) -> 
     <<"1">>;
 reconvert(noIOIQualifiers, Int) -> 
     erlang:integer_to_list(Int);
+reconvert(maturityMonthYear, DateTime) -> 
+    fix_convertor_utils:monthyear2fixstring(DateTime);
 reconvert(putOrCall, put) -> 
     <<"0">>;
 reconvert(putOrCall, call) -> 
@@ -7968,6 +7977,10 @@ reconvert(mDEntryType, tradingSessionLowPrice) ->
     <<"8">>;
 reconvert(mDEntryType, tradingSessionVWAPPrice) -> 
     <<"9">>;
+reconvert(mDEntryDate, DateTime) -> 
+    fix_convertor_utils:utcdate2fixstring(DateTime);
+reconvert(mDEntryTime, DateTime) -> 
+    fix_convertor_utils:utctime2fixstring(DateTime);
 reconvert(tickDirection, plusTick) -> 
     <<"0">>;
 reconvert(tickDirection, zeroPlusTick) -> 
@@ -8126,6 +8139,8 @@ reconvert(quoteRequestType, automatic) ->
     <<"2">>;
 reconvert(totQuoteEntries, Int) -> 
     erlang:integer_to_list(Int);
+reconvert(underlyingMaturityMonthYear, DateTime) -> 
+    fix_convertor_utils:monthyear2fixstring(DateTime);
 reconvert(underlyingMaturityDay, Int) -> 
     erlang:integer_to_list(Int);
 reconvert(underlyingPutOrCall, Int) -> 
@@ -8241,15 +8256,15 @@ reconvert(tradSesStatus, preOpen) ->
 reconvert(tradSesStatus, preClose) -> 
     <<"5">>;
 reconvert(tradSesStartTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(tradSesOpenTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(tradSesPreCloseTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(tradSesCloseTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(tradSesEndTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(numberOfOrders, Int) -> 
     erlang:integer_to_list(Int);
 reconvert(messageEncoding, eUCJP) -> 
@@ -8279,7 +8294,7 @@ reconvert(encodedUnderlyingIssuerLen, Int) ->
 reconvert(encodedUnderlyingSecurityDescLen, Int) -> 
     erlang:integer_to_list(Int);
 reconvert(quoteSetValidUntilTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(quoteEntryRejectReason, unknownSymbol) -> 
     <<"1">>;
 reconvert(quoteEntryRejectReason, exchange) -> 
@@ -8301,7 +8316,7 @@ reconvert(quoteEntryRejectReason, notAuthorizedToQuoteSecurity) ->
 reconvert(lastMsgSeqNumProcessed, Int) -> 
     erlang:integer_to_list(Int);
 reconvert(onBehalfOfSendingTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(refTagID, Int) -> 
     erlang:integer_to_list(Int);
 reconvert(sessionRejectReason, invalidTagNumber) -> 
@@ -8482,6 +8497,8 @@ reconvert(netGrossInd, gross) ->
     <<"2">>;
 reconvert(listOrderStatus, Int) -> 
     erlang:integer_to_list(Int);
+reconvert(expireDate, DateTime) -> 
+    fix_convertor_utils:localmktdate2fixstring(DateTime);
 reconvert(listExecInstType, immediate) -> 
     <<"1">>;
 reconvert(listExecInstType, waitForInstruction) -> 
@@ -8491,7 +8508,7 @@ reconvert(cxlRejResponseTo, orderCancelRequest) ->
 reconvert(cxlRejResponseTo, orderCancel) -> 
     <<"2">>;
 reconvert(contraTradeTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(liquidityNumSecurities, Int) -> 
     erlang:integer_to_list(Int);
 reconvert(multiLegReportingType, singleSecurity) -> 
@@ -8501,46 +8518,8 @@ reconvert(multiLegReportingType, individualLegOfAMultiLegSecurity) ->
 reconvert(multiLegReportingType, multiLegSecurity) -> 
     <<"3">>;
 reconvert(strikeTime, DateTime) -> 
-    datetime_to_fixstring(DateTime);
+    fix_convertor_utils:datetime_to_fixstring(DateTime);
 reconvert(encodedListStatusTextLen, Int) -> 
     erlang:integer_to_list(Int);
 reconvert(_Name, Bin) ->
     Bin.
-bin_to_num(Bin) ->
-    N = erlang:binary_to_list(Bin),
-    case string:to_float(N) of
-        {error,no_float} -> erlang:list_to_integer(N);
-        {F,_Rest} -> F
-    end.
-
-bin_to_datetime(Bin) ->
-    T = erlang:binary_to_list(Bin),
-    {D, H,M,S,Ms} = case string:tokens(T, "-:.") of
-        [D1,H1,M1,S1] -> {D1,H1,M1,S1,0};
-        [D2,H2,M2,S2,Ms2] -> {D2,H2,M2,S2,Ms2}
-    end,
-    Y = list_to_integer(string:substr(D, 1, 4)),
-    Month = list_to_integer(string:substr(D, 5, 2)),
-    Day = list_to_integer(string:substr(D,7)) ,
-    {{Y, Month, Day}, {list_to_integer(H), 
-                       list_to_integer(M),
-                       list_to_integer(S)}}.
-
-datetime_to_fixstring({{Year, Month, Day}, {Hour, Minute, Second}}) -> 
-    lists:concat([integer_to_list(Year),
-                                 getTwoDigits(Month),
-                                 getTwoDigits(Day),
-                                 "-",
-                                 getTwoDigits(Hour),
-                                 ":",
-                                 getTwoDigits(Minute),
-                                 ":",
-                                 getTwoDigits(Second)]).
-
-%% ====================================================================
-%% Local Functions
-%% ====================================================================
-getTwoDigits(Int) when Int < 10 ->
-    lists:concat(["0",Int]);
-getTwoDigits(Int) ->
-    erlang:integer_to_list(Int).

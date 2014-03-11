@@ -77,3 +77,9 @@ fix_float() ->
              list_to_float(Fr)
          end).
 
+monthYear() ->
+    ?LET(Date,
+         {choose(1970, 2099),
+         choose(1,12),
+         non_empty(elements([choose(1,31), undefined, w1,w2,w3,w4]))},
+         Date).

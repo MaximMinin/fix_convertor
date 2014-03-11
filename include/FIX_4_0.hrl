@@ -1,5 +1,4 @@
 -type length () :: integer().
--type localmmktdate () :: string().
 -type time () :: string().
 -type date () :: string().
 -type data () :: string().

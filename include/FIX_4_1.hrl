@@ -1,9 +1,8 @@
 -type length () :: integer().
--type localmmktdate () :: string().
 -type time () :: string().
 -type date () :: string().
 -type data () :: string().
--type monthYear () :: string().
+-type monthYear () :: {integer(), integer(), integer() | undefined | w1 | w2 | w3| w4}.
 -type dayOfMonth () :: integer().
 -type account () :: string().
 -type advId () :: string().

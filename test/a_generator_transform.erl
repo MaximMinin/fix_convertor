@@ -118,6 +118,34 @@ generate_type_generators([Type|Types], LineNumber, Acc) ->
                          }]
                 },
             generate_type_generators(Types, LineNumber+2, [F|Acc]);
+         {Name,{type,_L_Num,uTCTimestamp,[]},[]} ->
+            F = {function, LineNumber,
+                 Name,0,[{clause,LineNumber,[],[],
+                          [{call, LineNumber +1, {atom,LineNumber+1,uTCTimestamp}, []}]
+                         }]
+                },
+            generate_type_generators(Types, LineNumber+2, [F|Acc]);
+         {Name,{type,_L_Num,uTCTimeOnly,[]},[]} ->
+            F = {function, LineNumber,
+                 Name,0,[{clause,LineNumber,[],[],
+                          [{call, LineNumber +1, {atom,LineNumber+1,uTCTimeOnly}, []}]
+                         }]
+                },
+            generate_type_generators(Types, LineNumber+2, [F|Acc]);
+         {Name,{type,_L_Num,uTCDateOnly,[]},[]} ->
+            F = {function, LineNumber,
+                 Name,0,[{clause,LineNumber,[],[],
+                          [{call, LineNumber +1, {atom,LineNumber+1,uTCDateOnly}, []}]
+                         }]
+                },
+            generate_type_generators(Types, LineNumber+2, [F|Acc]);
+         {Name,{type,_L_Num,localMktDate,[]},[]} ->
+            F = {function, LineNumber,
+                 Name,0,[{clause,LineNumber,[],[],
+                          [{call, LineNumber +1, {atom,LineNumber+1,localMktDate}, []}]
+                         }]
+                },
+            generate_type_generators(Types, LineNumber+2, [F|Acc]);
         {Name,{type,_L_Num,Generator,[]},[]} ->
             F = {function, LineNumber,
                  Name,0,[{clause,LineNumber,[],[],

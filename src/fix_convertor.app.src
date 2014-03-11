@@ -1,7 +1,7 @@
 {application, fix_convertor,
  [
   {description, ""},
-  {vsn, "1.1.1"},
+  {vsn, "1.1.2"},
   {registered, []},
   {applications, [
                   kernel,

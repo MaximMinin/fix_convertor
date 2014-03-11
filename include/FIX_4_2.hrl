@@ -1,5 +1,4 @@
 -type length () :: integer().
--type localmmktdate () :: string().
 -type qty () :: float().
 -type price () :: float().
 -type priceOffset () :: float().
@@ -8,11 +7,11 @@
 -type currency () :: string().
 -type exchange () :: string().
 -type uTCTimestamp () :: calendar:datetime().
--type uTCTimeOnly () :: string().
--type localMktDate () :: string().
--type uTCDate () :: string().
+-type uTCTimeOnly () :: calendar:time().
+-type localMktDate () :: calendar:date().
+-type uTCDateOnly () :: calendar:date().
 -type data () :: string().
--type monthYear () :: string().
+-type monthYear () :: {integer(), integer(), integer() | undefined | w1 | w2 | w3| w4}.
 -type dayOfMonth () :: integer().
 -type account () :: string().
 -type advId () :: string().
@@ -242,7 +241,7 @@
 -type mDEntryType () :: bid|offer|trade|indexValue|openingPrice|closingPrice|settlementPrice|tradingSessionHighPrice|tradingSessionLowPrice|tradingSessionVWAPPrice.
 -type mDEntryPx () :: price().
 -type mDEntrySize () :: qty().
--type mDEntryDate () :: uTCDate().
+-type mDEntryDate () :: uTCDateOnly().
 -type mDEntryTime () :: uTCTimeOnly().
 -type tickDirection () :: plusTick|zeroPlusTick|minusTick|zeroMinusTick.
 -type mDMkt () :: exchange().

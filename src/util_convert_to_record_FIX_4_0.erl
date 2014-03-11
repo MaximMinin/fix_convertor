@@ -13,8 +13,7 @@
 -export([convert/2, reconvert/2, getMessageName/1, 
          getRecord/1, getFieldName/1, getTagId/1,
          setFieldInRecord/4, setMsgSeqNum/2,
-         get_record_def/1, bin_to_datetime/1,
-         datetime_to_fixstring/1]).
+         get_record_def/1]).
     
 %%
 %% API Functions
@@ -28,9 +27,9 @@ setMsgSeqNum(Record, Num) ->
 convert(account, Bin) -> 
    binary_to_list(Bin);
 convert(advId, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(advRefID, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(advSide, <<"B">>) -> 
     buy;
 convert(advSide, <<"S">>) -> 
@@ -46,19 +45,19 @@ convert(advTransType, <<"N">>) ->
 convert(advTransType, <<"R">>) -> 
     replace;
 convert(avgPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(beginSeqNo, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(beginString, Bin) -> 
    binary_to_list(Bin);
 convert(bodyLength, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(checkSum, Bin) -> 
    binary_to_list(Bin);
 convert(clOrdID, Bin) -> 
    binary_to_list(Bin);
 convert(commission, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(commType, <<"1">>) -> 
     perUnit;
 convert(commType, <<"2">>) -> 
@@ -66,13 +65,13 @@ convert(commType, <<"2">>) ->
 convert(commType, <<"3">>) -> 
     absolute;
 convert(cumQty, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(currency, Bin) -> 
    binary_to_list(Bin);
 convert(endSeqNo, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(execID, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(execInst, <<"0">>) -> 
     stayOnOfferSide;
 convert(execInst, <<"1">>) -> 
@@ -124,7 +123,7 @@ convert(execInst, <<"R">>) ->
 convert(execInst, <<"S">>) -> 
     suspend;
 convert(execRefID, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(execTransType, <<"0">>) -> 
     new;
 convert(execTransType, <<"1">>) -> 
@@ -150,7 +149,7 @@ convert(iDSource, <<"4">>) ->
 convert(iDSource, <<"5">>) -> 
     rICCode;
 convert(iOIid, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(iOIOthSvc, <<"A">>) -> 
     autex;
 convert(iOIOthSvc, <<"B">>) -> 
@@ -162,7 +161,7 @@ convert(iOIQltyInd, <<"L">>) ->
 convert(iOIQltyInd, <<"M">>) -> 
     medium;
 convert(iOIRefID, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(iOIShares, <<"L">>) -> 
     large;
 convert(iOIShares, <<"M">>) -> 
@@ -186,13 +185,13 @@ convert(lastCapacity, <<"4">>) ->
 convert(lastMkt, Bin) -> 
    binary_to_list(Bin);
 convert(lastPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(lastShares, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(linesOfText, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(msgSeqNum, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(msgType, <<"0">>) -> 
     heartbeat;
 convert(msgType, <<"1">>) -> 
@@ -248,11 +247,11 @@ convert(msgType, <<"R">>) ->
 convert(msgType, <<"S">>) -> 
     quote;
 convert(newSeqNo, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(orderID, Bin) -> 
    binary_to_list(Bin);
 convert(orderQty, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(ordStatus, <<"0">>) -> 
     new;
 convert(ordStatus, <<"1">>) -> 
@@ -318,9 +317,9 @@ convert(possDupFlag, <<"N">>) ->
 convert(possDupFlag, <<"Y">>) -> 
     possibleDuplicate;
 convert(price, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(refSeqNum, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(relatdSym, Bin) -> 
    binary_to_list(Bin);
 convert(rule80A, <<"A">>) -> 
@@ -354,7 +353,7 @@ convert(senderSubID, Bin) ->
 convert(sendingTime, Bin) -> 
    binary_to_list(Bin);
 convert(shares, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(side, <<"1">>) -> 
     buy;
 convert(side, <<"2">>) -> 
@@ -426,13 +425,13 @@ convert(symbolSfx, Bin) ->
 convert(listID, Bin) -> 
    binary_to_list(Bin);
 convert(listSeqNo, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(listNoOrds, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(listExecInst, Bin) -> 
    binary_to_list(Bin);
 convert(allocID, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(allocTransType, <<"0">>) -> 
     new;
 convert(allocTransType, <<"1">>) -> 
@@ -440,11 +439,11 @@ convert(allocTransType, <<"1">>) ->
 convert(allocTransType, <<"2">>) -> 
     cancel;
 convert(refAllocID, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(noOrders, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(avgPrxPrecision, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(tradeDate, Bin) -> 
    binary_to_list(Bin);
 convert(execBroker, Bin) -> 
@@ -452,11 +451,11 @@ convert(execBroker, Bin) ->
 convert(openClose, Bin) -> 
    binary_to_list(Bin);
 convert(noAllocs, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(allocAccount, Bin) -> 
    binary_to_list(Bin);
 convert(allocShares, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(processCode, <<"0">>) -> 
     regular;
 convert(processCode, <<"1">>) -> 
@@ -472,13 +471,13 @@ convert(processCode, <<"5">>) ->
 convert(processCode, <<"6">>) -> 
     planSponsor;
 convert(noRpts, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(rptSeq, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(cxlQty, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(noDlvyInst, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(dlvyInst, Bin) -> 
    binary_to_list(Bin);
 convert(allocStatus, <<"0">>) -> 
@@ -508,13 +507,13 @@ convert(allocRejCode, <<"7">>) ->
 convert(signature, Bin) -> 
    binary_to_list(Bin);
 convert(secureDataLen, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(secureData, Bin) -> 
    binary_to_list(Bin);
 convert(brokerOfCredit, Bin) -> 
    binary_to_list(Bin);
 convert(signatureLength, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(emailType, <<"0">>) -> 
     new;
 convert(emailType, <<"1">>) -> 
@@ -522,7 +521,7 @@ convert(emailType, <<"1">>) ->
 convert(emailType, <<"2">>) -> 
     adminReply;
 convert(rawDataLength, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(rawData, Bin) -> 
    binary_to_list(Bin);
 convert(possResend, Bin) -> 
@@ -542,7 +541,7 @@ convert(encryptMethod, <<"5">>) ->
 convert(encryptMethod, <<"6">>) -> 
     pEM;
 convert(stopPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(exDestination, <<"0">>) -> 
     none;
 convert(exDestination, <<"4">>) -> 
@@ -594,13 +593,13 @@ convert(issuer, Bin) ->
 convert(securityDesc, Bin) -> 
    binary_to_list(Bin);
 convert(heartBtInt, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(clientID, Bin) -> 
    binary_to_list(Bin);
 convert(minQty, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(maxFloor, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(testReqID, Bin) -> 
    binary_to_list(Bin);
 convert(reportToExch, <<"N">>) -> 
@@ -618,9 +617,9 @@ convert(onBehalfOfSubID, Bin) ->
 convert(quoteID, Bin) -> 
    binary_to_list(Bin);
 convert(netMoney, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(settlCurrAmt, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(settlCurrency, Bin) -> 
    binary_to_list(Bin);
 convert(forexReq, <<"N">>) -> 
@@ -634,7 +633,7 @@ convert(gapFillFlag, <<"N">>) ->
 convert(gapFillFlag, <<"Y">>) -> 
     gapFillMessage;
 convert(noExecs, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(cxlType, <<"F">>) -> 
     fullRemainingQuantity;
 convert(cxlType, <<"P">>) -> 
@@ -664,17 +663,17 @@ convert(iOINaturalFlag, <<"Y">>) ->
 convert(quoteReqID, Bin) -> 
    binary_to_list(Bin);
 convert(bidPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(offerPx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(bidSize, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(offerSize, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(noMiscFees, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(miscFeeAmt, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(miscFeeCurr, Bin) -> 
    binary_to_list(Bin);
 convert(miscFeeType, <<"1">>) -> 
@@ -692,7 +691,7 @@ convert(miscFeeType, <<"6">>) ->
 convert(miscFeeType, <<"7">>) -> 
     other;
 convert(prevClosePx, Bin) -> 
-   bin_to_num(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(_Name, Bin) ->
     Bin.
 get_record_def(standardHeader) -> 
@@ -2868,41 +2867,3 @@ reconvert(miscFeeType, other) ->
     <<"7">>;
 reconvert(_Name, Bin) ->
     Bin.
-bin_to_num(Bin) ->
-    N = erlang:binary_to_list(Bin),
-    case string:to_float(N) of
-        {error,no_float} -> erlang:list_to_integer(N);
-        {F,_Rest} -> F
-    end.
-
-bin_to_datetime(Bin) ->
-    T = erlang:binary_to_list(Bin),
-    {D, H,M,S,Ms} = case string:tokens(T, "-:.") of
-        [D1,H1,M1,S1] -> {D1,H1,M1,S1,0};
-        [D2,H2,M2,S2,Ms2] -> {D2,H2,M2,S2,Ms2}
-    end,
-    Y = list_to_integer(string:substr(D, 1, 4)),
-    Month = list_to_integer(string:substr(D, 5, 2)),
-    Day = list_to_integer(string:substr(D,7)) ,
-    {{Y, Month, Day}, {list_to_integer(H), 
-                       list_to_integer(M),
-                       list_to_integer(S)}}.
-
-datetime_to_fixstring({{Year, Month, Day}, {Hour, Minute, Second}}) -> 
-    lists:concat([integer_to_list(Year),
-                                 getTwoDigits(Month),
-                                 getTwoDigits(Day),
-                                 "-",
-                                 getTwoDigits(Hour),
-                                 ":",
-                                 getTwoDigits(Minute),
-                                 ":",
-                                 getTwoDigits(Second)]).
-
-%% ====================================================================
-%% Local Functions
-%% ====================================================================
-getTwoDigits(Int) when Int < 10 ->
-    lists:concat(["0",Int]);
-getTwoDigits(Int) ->
-    erlang:integer_to_list(Int).

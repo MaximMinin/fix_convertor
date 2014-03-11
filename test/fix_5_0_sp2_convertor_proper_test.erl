@@ -81,4 +81,32 @@ fix_float() ->
          end).
 
 uTCTimestamp() -> 
-    erlang:universaltime().
+    ?LET(DateTime, {uTCDateOnly(), uTCTimeOnly()}, DateTime).
+
+uTCTimeOnly() ->
+    ?LET(Time,
+         {choose(0, 23),
+         choose(0, 59),
+         choose(0,59)},
+         Time).   
+
+uTCDateOnly() ->
+    ?LET(Date,
+         {choose(1970, 2099),
+         choose(1,12),
+         choose(1,31)},
+         Date).
+
+localMktDate() ->
+    ?LET(Date,
+         {choose(1970, 2099),
+         choose(1,12),
+         choose(1,31)},
+         Date).
+
+monthYear() ->
+    ?LET(Date,
+         {choose(1970, 2099),
+         choose(1,12),
+         non_empty(elements([choose(1,31), undefined, w1,w2,w3,w4]))},
+         Date).

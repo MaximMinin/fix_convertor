@@ -9697,8 +9697,8 @@ getFieldName(<<"658">>) ->
     quoteRequestRejectReason;
 getFieldName(<<"659">>) ->
     sideComplianceID;
-getFieldName(_Id) ->
-    error.
+getFieldName(Id) ->
+    Id.
 getTagId(account) ->
     <<"1">>;
 getTagId(advId) ->

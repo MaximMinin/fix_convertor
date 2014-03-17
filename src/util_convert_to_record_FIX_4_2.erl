@@ -6261,8 +6261,8 @@ getFieldName(<<"445">>) ->
     encodedListStatusTextLen;
 getFieldName(<<"446">>) ->
     encodedListStatusText;
-getFieldName(_Id) ->
-    error.
+getFieldName(Id) ->
+    Id.
 getTagId(account) ->
     <<"1">>;
 getTagId(advId) ->

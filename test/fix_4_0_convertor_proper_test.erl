@@ -24,7 +24,7 @@
 prop_convertor() ->
     ?FORALL({Record, Num}, {test_record(), nat()},
     begin
-    Rec = fix_convertor:fix2record(
+    {Rec, _} = fix_convertor:fix2record(
              fix_convertor:record2fix(Record,
                                           ?FIXVERSION),
              ?FIXVERSION),

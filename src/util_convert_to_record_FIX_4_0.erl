@@ -2037,8 +2037,8 @@ getFieldName(<<"139">>) ->
     miscFeeType;
 getFieldName(<<"140">>) ->
     prevClosePx;
-getFieldName(_Id) ->
-    error.
+getFieldName(Id) ->
+    Id.
 getTagId(account) ->
     <<"1">>;
 getTagId(advId) ->

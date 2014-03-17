@@ -21641,8 +21641,8 @@ getFieldName(<<"1417">>) ->
     nested4PartyRole;
 getFieldName(<<"1418">>) ->
     legLastQty;
-getFieldName(_Id) ->
-    error.
+getFieldName(Id) ->
+    Id.
 getTagId(account) ->
     <<"1">>;
 getTagId(advId) ->

@@ -38,7 +38,7 @@ simple_test()->
                                                                                                     mDEntryRefID = "0002",
                                                                                                     mDEntryPx = 11}],
                                             standardTrailer = #standardTrailer{checkSum = "114"}},
-    RecAA = fix_convertor:fix2record(A, 'FIX 4.2'),
+    {RecAA, _} = fix_convertor:fix2record(A, 'FIX 4.2'),
     ?assertEqual(RecA, RecAA),
     BinA = fix_convertor:record2fix(RecA, 'FIX 4.2'),
     ?assertEqual(A, BinA),

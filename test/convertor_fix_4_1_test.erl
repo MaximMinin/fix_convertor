@@ -67,9 +67,9 @@ simple_test()->
                   heartBtInt = 30,
                   standardTrailer = #standardTrailer{checkSum = "044"} 
                   },
-    RecAA = fix_convertor:fix2record(A, 'FIX 4.1'),
-    RecBB = fix_convertor:fix2record(B, 'FIX 4.1'),
-    RecCC = fix_convertor:fix2record(C, 'FIX 4.1'),
+    {RecAA, _} = fix_convertor:fix2record(A, 'FIX 4.1'),
+    {RecBB, _} = fix_convertor:fix2record(B, 'FIX 4.1'),
+    {RecCC, _} = fix_convertor:fix2record(C, 'FIX 4.1'),
     ?assertEqual(RecA, RecAA),
     ?assertEqual(RecB, RecBB),
     ?assertEqual(RecC, RecCC),

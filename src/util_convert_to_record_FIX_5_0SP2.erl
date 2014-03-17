@@ -22755,8 +22755,8 @@ getFieldName(<<"1617">>) ->
     streamAsgnType;
 getFieldName(<<"1504">>) ->
     relSymTransactTime;
-getFieldName(_Id) ->
-    error.
+getFieldName(Id) ->
+    Id.
 getTagId(account) ->
     <<"1">>;
 getTagId(advId) ->

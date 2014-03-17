@@ -14809,8 +14809,8 @@ getFieldName(<<"955">>) ->
     legContractSettlMonth;
 getFieldName(<<"956">>) ->
     legInterestAccrualDate;
-getFieldName(_Id) ->
-    error.
+getFieldName(Id) ->
+    Id.
 getTagId(account) ->
     <<"1">>;
 getTagId(advId) ->

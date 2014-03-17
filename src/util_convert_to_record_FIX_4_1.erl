@@ -2973,8 +2973,8 @@ getFieldName(<<"210">>) ->
     maxShow;
 getFieldName(<<"211">>) ->
     pegDifference;
-getFieldName(_Id) ->
-    error.
+getFieldName(Id) ->
+    Id.
 getTagId(account) ->
     <<"1">>;
 getTagId(advId) ->

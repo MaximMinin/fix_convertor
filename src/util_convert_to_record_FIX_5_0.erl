@@ -18315,8 +18315,8 @@ getFieldName(<<"1138">>) ->
     displayQty;
 getFieldName(<<"1139">>) ->
     exchangeSpecialInstructions;
-getFieldName(_Id) ->
-    error.
+getFieldName(Id) ->
+    Id.
 getTagId(account) ->
     <<"1">>;
 getTagId(advId) ->

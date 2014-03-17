@@ -12,6 +12,7 @@
 %%
 -export([fix2record/2,
          record2fix/2,
+         record2fix/3,
          format/2,
          set_msg_seqnum/3,
          get_util_module/1]).
@@ -19,7 +20,9 @@
 %%
 %% API Functions
 %%
--spec fix2record(binary(), fix_version ()) -> tuple() | not_valid.
+-spec fix2record(binary(), fix_version ()) -> {FixRecord :: tuple(),
+                                               UnkownFields :: list()} 
+                                               | not_valid.
 fix2record(Message, FixVersion) ->
     Utils = get_util_module(FixVersion),
     Fields = lists:map(fun(X)-> case binary:split(X, <<"=">>) of
@@ -33,8 +36,7 @@ fix2record(Message, FixVersion) ->
             Recordname = Utils:getMessageName(Type),
             Record = Utils:getRecord(Recordname),
             Def = Utils:get_record_def(Recordname),
-            {R, _} =convertFix2Record(Utils, Recordname, Record, Def, Fields),
-            R;
+            convertFix2Record(Utils, Recordname, Record, Def, Fields);
         false -> not_valid
     end.
 
@@ -48,6 +50,20 @@ record2fix(Record, FixVersion) ->
         RecDef ->
             Bin = convert2Binary(Utils, tuple_to_list(Record), RecDef),
             completeBinary(Utils, Bin)
+    end.
+
+-spec record2fix(FixRecord :: tuple(any()), 
+                  ExtraBin :: binary(),
+                  fix_version ()) -> binary() | not_valid.
+record2fix(Record, ExtraBin, FixVersion) ->
+    Utils = get_util_module(FixVersion),
+    RecordName = element(1, Record),
+    case Utils:get_record_def(RecordName) of
+        error ->
+            not_valid;
+        RecDef ->
+            Bin = convert2Binary(Utils, tuple_to_list(Record), RecDef),
+            completeBinary(Utils, list_to_binary([Bin, ExtraBin]))
     end.
 
 -spec format(tuple(any()), 
@@ -123,10 +139,12 @@ convert2String(Utils, Name, Value) ->
                     integer -> lists:concat([Atom, "=",
                                              integer_to_list(Value), ","]);
                     atom -> lists:concat([Atom, "=",Value, ","]);
-                    list -> lists:concat([Atom, "=",Value, ","])
+                    list -> lists:concat([Atom, "=",Value, ","]);
+                    binary -> lists:concat([Atom, "=",binary_to_list(Value), ","])
                 end
      end.                         
  
+get_type(V) when is_binary(V) -> binary;
 get_type(V) when is_tuple(V) -> tuple;
 get_type(V) when is_atom(V) -> atom;
 get_type(V) when is_float(V) -> float;
@@ -166,6 +184,7 @@ convert2Binary_2(Utils, Def, Value)->
          _Atom -> 
                 case get_type(Value) of
                     list -> [Utils:getTagId(Def), "=",Value, 1];
+                    binary -> [Utils:getTagId(Def), "=",Value, 1];
                     float -> [Utils:getTagId(Def), "=", 
                               io_lib:format("~.6f",[Value]), 1];
                     integer -> [Utils:getTagId(Def), "=", 

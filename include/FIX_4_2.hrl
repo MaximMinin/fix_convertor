@@ -22,7 +22,7 @@
 -type beginSeqNo () :: integer().
 -type beginString () :: string().
 -type bodyLength () :: integer().
--type checkSum () :: string().
+-type checkSum () :: integer().
 -type clOrdID () :: string().
 -type commission () :: amt().
 -type commType () :: perUnit|percent|absolute.

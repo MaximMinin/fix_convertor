@@ -38,7 +38,7 @@ simple_test()->
                                                          msgSeqNum = 235,
                                                          sendingTime = "19980604-07:58:28"}, 
                       testReqID = "19980604-07:58:28", 
-                      standardTrailer = #standardTrailer{checkSum = "235"}},
+                      standardTrailer = #standardTrailer{checkSum = 235}},
     RecB = #iOI{ standardHeader = #standardHeader{beginString = "FIX.4.1",
                                                    bodyLength = 108,
                                                    msgType = iOI,
@@ -54,7 +54,7 @@ simple_test()->
                 iOIShares = large,
                 price = 10100.0,
                 iOIQltyInd = high,
-                standardTrailer = #standardTrailer{checkSum = "228"}
+                standardTrailer = #standardTrailer{checkSum = 228}
                 },
     RecC = #logon{standardHeader = #standardHeader{beginString = "FIX.4.1",
                                                      bodyLength = 61,
@@ -65,7 +65,7 @@ simple_test()->
                                                      sendingTime = "20000426-12:05:06"},
                   encryptMethod = none,
                   heartBtInt = 30,
-                  standardTrailer = #standardTrailer{checkSum = "044"} 
+                  standardTrailer = #standardTrailer{checkSum = 44} 
                   },
     {RecAA, _} = fix_convertor:fix2record(A, 'FIX 4.1'),
     {RecBB, _} = fix_convertor:fix2record(B, 'FIX 4.1'),

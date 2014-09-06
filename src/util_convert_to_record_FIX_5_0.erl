@@ -53,7 +53,7 @@ convert(beginString, Bin) ->
 convert(bodyLength, Bin) -> 
    fix_convertor_utils:bin_to_num(Bin);
 convert(checkSum, Bin) -> 
-   binary_to_list(Bin);
+   fix_convertor_utils:bin_to_num(Bin);
 convert(clOrdID, Bin) -> 
    binary_to_list(Bin);
 convert(commission, Bin) -> 

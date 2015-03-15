@@ -35,7 +35,7 @@
 -type beginSeqNo () :: seqNum().
 -type beginString () :: string().
 -type bodyLength () :: length().
--type checkSum () :: string().
+-type checkSum () :: integer().
 -type clOrdID () :: string().
 -type commission () :: amt().
 -type commType () :: perUnit|percent|absolute|percentageWaivedCashDiscount|percentageWaivedEnhancedUnits|pointsPerBondOrContract.

@@ -104,6 +104,13 @@ generate_type_generators([Type|Types], LineNumber, Acc) ->
                                      [F|Acc]);
         {int,{type,_L_Num,_,[]},[]} ->
             generate_type_generators(Types, LineNumber, Acc);
+        {checkSum,{type,_L_Num,_Int,[]},[]} ->
+            F = {function, LineNumber,
+                 checkSum,0,[{clause,LineNumber,[],[], 
+                          [{call, LineNumber +1, {atom,LineNumber+1,non_neg_integer}, []}]
+                         }]
+                },
+            generate_type_generators(Types, LineNumber+2, [F|Acc]);
         {Name,{type,_L_Num,string,[]},[]} ->
             F = {function, LineNumber,
                  Name,0,[{clause,LineNumber,[],[], 

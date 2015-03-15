@@ -76,14 +76,14 @@ utcdate2fixstring({Year, Month, Day}) ->
 
 bin2localmktdate(Bin) ->
     S = erlang:binary_to_list(Bin),
-    [Y,M,D] = string:tokens(S, "-"),
-    {list_to_integer(Y), list_to_integer(M), list_to_integer(D)}.
+    [Y1,Y2,Y3,Y4,M1,M2,D1,D2] = S,
+    {list_to_integer([Y1,Y2,Y3,Y4]), 
+     list_to_integer([M1,M2]),
+     list_to_integer([D1,D2])}.
 
 localmktdate2fixstring({Y, M, D}) -> 
     lists:concat([Y,
-                  "-",
                   getTwoDigits(M),
-                  "-",
                   getTwoDigits(D)]).
 
 bin2monthyear(Bin)->

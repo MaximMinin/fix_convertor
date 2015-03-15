@@ -1,6 +1,6 @@
 %% Author: Maxim Minin
 %% Created: 15.02.2014
-%% Description: TODO: Add description to convertor
+%% Description: TODO: Add description to a_generator_transform
 -module(a_generator_transform).
 
 -export([parse_transform/2]).

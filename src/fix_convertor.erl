@@ -15,7 +15,7 @@
          record2fix/3,
          format/2,
          set_msg_seqnum/3,
-         get_util_module/1]).
+         get_util_module/1, get_version4module/1]).
 
 %%
 %% API Functions
@@ -108,7 +108,41 @@ get_util_module('FIX 5.0 SP 1') ->
     util_convert_to_record_FIX_5_0SP1;
 get_util_module('FIX 5.0 SP 2') ->
     util_convert_to_record_FIX_5_0SP2.
-    
+ 
+
+-spec get_version4module(fix_util_module()) -> string().
+get_version4module(util_convert_to_record_FIX_4_0) ->
+    "FIX.4.0";
+get_version4module(util_convert_to_record_FIX_4_1) ->
+    "FIX.4.1";
+get_version4module(util_convert_to_record_FIX_4_2) ->
+    "FIX.4.2";
+get_version4module(util_convert_to_record_FIX_4_3) ->
+    "FIX.4.3";
+get_version4module(util_convert_to_record_FIX_4_4) ->
+    "FIX.4.4";
+get_version4module(util_convert_to_record_FIX_5_0) ->
+    "FIXT.1.1";
+get_version4module(util_convert_to_record_FIX_5_0SP1) ->
+    "FIXT.1.1";
+get_version4module(util_convert_to_record_FIX_5_0SP2) ->
+    "FIXT.1.1";
+
+
+get_version4module('FIX 4.1') ->
+    util_convert_to_record_FIX_4_1;
+get_version4module('FIX 4.2') ->
+    util_convert_to_record_FIX_4_2;
+get_version4module('FIX 4.3') ->
+    util_convert_to_record_FIX_4_3;
+get_version4module('FIX 4.4') ->
+    util_convert_to_record_FIX_4_4;
+get_version4module('FIX 5.0') ->
+    util_convert_to_record_FIX_5_0;
+get_version4module('FIX 5.0 SP 1') ->
+    util_convert_to_record_FIX_5_0SP1;
+get_version4module('FIX 5.0 SP 2') ->
+    util_convert_to_record_FIX_5_0SP2.
 %%
 %% Local Functions
 %%
@@ -200,10 +234,7 @@ completeBinary(Utils, B) ->
     BodyLengthTag = Utils:getTagId(bodyLength),
     BodyLength = integer_to_list(byte_size(B)),
     BeginStringTag = Utils:getTagId(beginString),
-    Version  = lists:map(fun(X) -> case X == $_ of
-                                       true -> $.;
-                                       false -> X end end, 
-                                   string:sub_string(atom_to_list(Utils), 24)),
+    Version  = get_version4module(Utils),
     Bin = list_to_bitstring([BeginStringTag, <<"=">>, Version, 1, 
                              BodyLengthTag, <<"=">>, BodyLength, 1, B]),
     C = lists:sum(erlang:binary_to_list(Bin)) rem 256,

@@ -251,9 +251,9 @@ completeBinary(Utils, B) ->
                        <<"=">>, Checksum, 1]).
 
 convertFix2Record(Utils, Recordname, Record, [[[F]]|Def], Fields) ->
-    R = convertRepeatingGroup(Utils, F, F, Fields, []),
+    {R, NewFields} = convertRepeatingGroup(Utils, F, F, Fields, []),
     NewRecord = Utils:setFieldInRecord(Recordname, F, Record, R), 
-    convertFix2Record(Utils, Recordname, NewRecord, Def, Fields);
+    convertFix2Record(Utils, Recordname, NewRecord, Def, NewFields);
 convertFix2Record(Utils, Recordname, Record, [[F]|Def], Fields) ->
     {R, NewFields} = convertFix2Record(Utils, F, 
                                        Utils:getRecord(F), 
@@ -280,11 +280,12 @@ convertRepeatingGroup(Utils, Recordname, Def, Fields, ToReturn)->
                            Utils:get_record_def(Def), Fields) of
         {_Record, Fields}  -> 
             case ToReturn of
-                [] -> {R,_}=convertFix2Record(Utils, Recordname,
+                [] -> {R, _}=convertFix2Record(Utils, Recordname,
                                               Utils:getRecord(Def),
                                               Utils:get_record_def(Def), []),
-                    [R];
-                _Else -> lists:reverse(ToReturn)
+                      {[R], Fields};
+                _Else ->
+                    {lists:reverse(ToReturn), Fields}
             end;
         {Record, NewFields} -> convertRepeatingGroup(Utils, Recordname,
                                                      Def, NewFields,

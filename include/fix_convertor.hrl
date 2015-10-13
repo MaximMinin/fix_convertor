@@ -14,3 +14,6 @@
                 util_convert_to_record_FIX_5_0 |
                 util_convert_to_record_FIX_5_0SP1 |
                 util_convert_to_record_FIX_5_0SP2.
+
+-record(custom_message, {standardHeader, standardTrailer}).
+

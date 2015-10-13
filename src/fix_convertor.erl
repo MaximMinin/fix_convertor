@@ -15,7 +15,8 @@
          record2fix/3,
          format/2,
          set_msg_seqnum/3,
-         get_util_module/1, get_version4module/1]).
+         get_util_module/1,
+         get_version4module/1]).
 
 %%
 %% API Functions
@@ -33,14 +34,30 @@ fix2record(Message, FixVersion) ->
                        end, binary:split(Message, <<1>>, [global])),
     case lists:keyfind(msgType,1,Fields) of
         {msgType, Type} ->
-            Recordname = Utils:getMessageName(Type),
-            Record = Utils:getRecord(Recordname),
-            Def = Utils:get_record_def(Recordname),
-            convertFix2Record(Utils, Recordname, Record, Def, Fields);
+            case Utils:getMessageName(Type) of
+                error ->
+                    convertFix2Record(Utils, custom_message,
+                                      #custom_message{},
+                                      [standardHeader, standardTrailer],
+                                      Fields);
+                Recordname ->
+                    Record = Utils:getRecord(Recordname),
+                    Def = Utils:get_record_def(Recordname),
+                    convertFix2Record(Utils, Recordname, Record, Def, Fields)
+            end;
         false -> not_valid
     end.
 
 -spec record2fix(tuple(any()), fix_version ()) -> binary() | not_valid.
+record2fix(#custom_message{standardHeader = Header, standardTrailer = Trailer},
+           FixVersion) ->
+    Utils = get_util_module(FixVersion),
+    HeaderDef = Utils:get_record_def(standardHeader),
+    HeaderBin = convert2Binary(Utils, tuple_to_list(Header), HeaderDef),
+    TrailerDef = Utils:get_record_def(standardTrailer),
+    TrailerBin = convert2Binary(Utils, tuple_to_list(Trailer), TrailerDef),
+    completeBinary(Utils, list_to_binary([HeaderBin, TrailerBin]));
+
 record2fix(Record, FixVersion) ->
     Utils = get_util_module(FixVersion),
     RecordName = element(1, Record),
@@ -55,6 +72,22 @@ record2fix(Record, FixVersion) ->
 -spec record2fix(FixRecord :: tuple(any()), 
                   ExtraBin :: binary(),
                   fix_version ()) -> binary() | not_valid.
+
+record2fix(#custom_message{standardHeader = Header, standardTrailer = Trailer},
+           ExtraBin, FixVersion) ->
+    Utils = get_util_module(FixVersion),
+    HeaderDef = Utils:get_record_def(standardHeader),
+    HeaderBin = convert2Binary(Utils, tuple_to_list(Header), HeaderDef),
+    TrailerDef = Utils:get_record_def(standardTrailer),
+    TrailerBin = convert2Binary(Utils, tuple_to_list(Trailer), TrailerDef),
+    Bin = case erlang:is_list(ExtraBin) of
+              true ->
+                  [convert_value(Utils, Def, Value) || {Def, Value} <- ExtraBin];
+              false ->
+                  ExtraBin
+          end,
+    completeBinary(Utils, list_to_binary([HeaderBin, Bin, TrailerBin]));
+
 record2fix(Record, ExtraBin, FixVersion) ->
     Utils = get_util_module(FixVersion),
     RecordName = element(1, Record),
@@ -63,11 +96,28 @@ record2fix(Record, ExtraBin, FixVersion) ->
             not_valid;
         RecDef ->
             Bin = convert2Binary(Utils, tuple_to_list(Record), RecDef),
-            completeBinary(Utils, list_to_binary([Bin, ExtraBin]))
+            Bin2 = case erlang:is_list(ExtraBin) of
+                       true ->
+                           [convert_value(Utils, Def, Value) || 
+                              {Def, Value} <- ExtraBin];
+                       false ->
+                           ExtraBin
+                   end,
+            completeBinary(Utils, list_to_binary([Bin, Bin2]))
     end.
 
 -spec format(tuple(any()), 
                    fix_version ()) -> string() | not_valid.
+format(#custom_message{standardHeader = Header, standardTrailer = Trailer},
+       FixVersion) ->
+    Utils = get_util_module(FixVersion),
+    HeaderDef = Utils:get_record_def(standardHeader),
+    TrailerDef = Utils:get_record_def(standardTrailer),
+    HS = convertToString(Utils, tuple_to_list(Header), HeaderDef),
+    TS = convertToString(Utils, tuple_to_list(Trailer), TrailerDef),
+    TL = erlang:max(0, length(TS)-1),
+    HS ++ lists:sublist(TS, TL);
+
 format(Record, FixVersion) ->
     Utils = get_util_module(FixVersion),
     RecordName = element(1, Record),
@@ -228,7 +278,27 @@ convert2Binary_2(Utils, Def, Value)->
                     tuple -> [Utils:getTagId(Def), "=",
                              Utils:reconvert(Def, Value), 1]
                 end
-     end.                         
+     end.
+
+convert_value(_Utils, nil, nil) ->
+    <<>>;
+convert_value(Utils, Def, Value) ->
+    TagId = case Utils:getTagId(Def) of
+                error -> Def;
+                Id -> Id
+            end,
+    case get_type(Value) of
+        list -> [TagId, "=",Value, 1];
+        binary -> [TagId, "=",Value, 1];
+        float -> [TagId, "=",
+                  io_lib:format("~.6f",[Value]), 1];
+        integer -> [TagId, "=",
+                    integer_to_list(Value), 1];
+        atom -> [TagId, "=",
+                 Utils:reconvert(Def, Value), 1];
+        tuple -> [TagId, "=",
+                 Utils:reconvert(Def, Value), 1]
+    end.
 
 completeBinary(Utils, B) ->
     BodyLengthTag = Utils:getTagId(bodyLength),
@@ -250,18 +320,35 @@ completeBinary(Utils, B) ->
     list_to_bitstring([Bin, Utils:getTagId(checkSum), 
                        <<"=">>, Checksum, 1]).
 
+
+convertFix2Record(Utils, custom_message, Record, [standardTrailer|Def], Fields) ->
+    {R, NewFields} = convertFix2Record(Utils, standardTrailer,
+                                       Utils:getRecord(standardTrailer),
+                                       Utils:get_record_def(standardTrailer),
+                                       Fields),
+    NewRecord = Record#custom_message{standardTrailer = R},
+    convertFix2Record(Utils, custom_message, NewRecord, Def, NewFields);
+
+convertFix2Record(Utils, custom_message, Record, [standardHeader|Def], Fields) ->
+    {R, NewFields} = convertFix2Record(Utils, standardHeader,
+                                       Utils:getRecord(standardHeader),
+                                       Utils:get_record_def(standardHeader),
+                                       Fields),
+    NewRecord = Record#custom_message{standardHeader = R},
+    convertFix2Record(Utils, custom_message, NewRecord, Def, NewFields);
+
 convertFix2Record(Utils, Recordname, Record, [[[F]]|Def], Fields) ->
     {R, NewFields} = convertRepeatingGroup(Utils, F, F, Fields, []),
-    NewRecord = Utils:setFieldInRecord(Recordname, F, Record, R), 
+    NewRecord = Utils:setFieldInRecord(Recordname, F, Record, R),
     convertFix2Record(Utils, Recordname, NewRecord, Def, NewFields);
 convertFix2Record(Utils, Recordname, Record, [[F]|Def], Fields) ->
-    {R, NewFields} = convertFix2Record(Utils, F, 
-                                       Utils:getRecord(F), 
-                                       Utils:get_record_def(F), 
+    {R, NewFields} = convertFix2Record(Utils, F,
+                                       Utils:getRecord(F),
+                                       Utils:get_record_def(F),
                                        Fields),
     NewRecord = Utils:setFieldInRecord(Recordname, F, Record, R), 
     convertFix2Record(Utils, Recordname, NewRecord, Def, NewFields);
-convertFix2Record(Utils, Recordname, Record, [F|Def], Fields) 
+convertFix2Record(Utils, Recordname, Record, [F|Def], Fields)
   when is_atom(F) ->
     {NewRecord, NewFields} = case lists:keyfind(F, 1, Fields) of
         {F, Value} ->

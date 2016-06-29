@@ -3733,11 +3733,11 @@ convert(matchType, <<"61">>) ->
 convert(matchType, <<"62">>) -> 
     continuousAutoMatch;
 convert(matchType, <<"63">>) -> 
-    crossAuction;
+    crossAuction2;
 convert(matchType, <<"64">>) -> 
-    counterOrderSelection;
+    counterOrderSelection2;
 convert(matchType, <<"65">>) -> 
-    callAuction;
+    callAuction2;
 convert(matchType, <<"M3">>) -> 
     aCTAcceptedTrade;
 convert(matchType, <<"M4">>) -> 
@@ -23683,12 +23683,6 @@ reconvert(matchType, twoPartyPrivatelyNegotiatedTradeReport) ->
     <<"61">>;
 reconvert(matchType, continuousAutoMatch) -> 
     <<"62">>;
-reconvert(matchType, crossAuction) -> 
-    <<"63">>;
-reconvert(matchType, counterOrderSelection) -> 
-    <<"64">>;
-reconvert(matchType, callAuction) -> 
-    <<"65">>;
 reconvert(matchType, aCTAcceptedTrade) -> 
     <<"M3">>;
 reconvert(matchType, aCTDefaultTrade) -> 
@@ -23733,10 +23727,16 @@ reconvert(matchType, confirmedTradeReport) ->
     <<"3">>;
 reconvert(matchType, autoMatch) -> 
     <<"4">>;
+reconvert(matchType, crossAuction2) -> 
+    <<"63">>;
 reconvert(matchType, crossAuction) -> 
     <<"5">>;
+reconvert(matchType, counterOrderSelection2) -> 
+    <<"64">>;
 reconvert(matchType, counterOrderSelection) -> 
     <<"6">>;
+reconvert(matchType, callAuction2) -> 
+    <<"65">>;
 reconvert(matchType, callAuction) -> 
     <<"7">>;
 reconvert(oddLot, treatAsRoundLot) -> 

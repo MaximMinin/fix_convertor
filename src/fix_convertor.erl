@@ -48,7 +48,7 @@ fix2record(Message, FixVersion) ->
         false -> not_valid
     end.
 
--spec record2fix(tuple(any()), fix_version ()) -> binary() | not_valid.
+-spec record2fix(tuple(), fix_version ()) -> binary() | not_valid.
 record2fix(#custom_message{standardHeader = Header, standardTrailer = Trailer},
            FixVersion) ->
     Utils = get_util_module(FixVersion),
@@ -69,7 +69,7 @@ record2fix(Record, FixVersion) ->
             completeBinary(Utils, Bin)
     end.
 
--spec record2fix(FixRecord :: tuple(any()), 
+-spec record2fix(FixRecord :: tuple(), 
                   ExtraBin :: binary(),
                   fix_version ()) -> binary() | not_valid.
 
@@ -106,7 +106,7 @@ record2fix(Record, ExtraBin, FixVersion) ->
             completeBinary(Utils, list_to_binary([Bin, Bin2]))
     end.
 
--spec format(tuple(any()), 
+-spec format(tuple(), 
                    fix_version ()) -> string() | not_valid.
 format(#custom_message{standardHeader = Header, standardTrailer = Trailer},
        FixVersion) ->

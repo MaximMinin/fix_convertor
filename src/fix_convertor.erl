@@ -21,7 +21,7 @@
 %%
 %% API Functions
 %%
--spec fix2record(binary(), fix_version ()) -> {FixRecord :: tuple(),
+-spec fix2record(binary(), fix_version ()) -> {FixRecord :: tuple(any()),
                                                UnkownFields :: list()} 
                                                | not_valid.
 fix2record(Message, FixVersion) ->
@@ -48,7 +48,7 @@ fix2record(Message, FixVersion) ->
         false -> not_valid
     end.
 
--spec record2fix(tuple(), fix_version ()) -> binary() | not_valid.
+-spec record2fix(tuple(any()), fix_version ()) -> binary() | not_valid.
 record2fix(#custom_message{standardHeader = Header, standardTrailer = Trailer},
            FixVersion) ->
     Utils = get_util_module(FixVersion),
@@ -69,7 +69,7 @@ record2fix(Record, FixVersion) ->
             completeBinary(Utils, Bin)
     end.
 
--spec record2fix(FixRecord :: tuple(), 
+-spec record2fix(FixRecord :: tuple(any()), 
                   ExtraBin :: binary(),
                   fix_version ()) -> binary() | not_valid.
 
@@ -106,7 +106,7 @@ record2fix(Record, ExtraBin, FixVersion) ->
             completeBinary(Utils, list_to_binary([Bin, Bin2]))
     end.
 
--spec format(tuple(), 
+-spec format(tuple(any()), 
                    fix_version ()) -> string() | not_valid.
 format(#custom_message{standardHeader = Header, standardTrailer = Trailer},
        FixVersion) ->
@@ -130,9 +130,9 @@ format(Record, FixVersion) ->
             lists:sublist(S, L)
     end.
 
--spec set_msg_seqnum(tuple(), 
+-spec set_msg_seqnum(tuple(any()), 
                    pos_integer(), 
-                   fix_version ()) -> tuple() | not_valid.
+                   fix_version ()) -> tuple(any()) | not_valid.
 set_msg_seqnum(Record, Num, FixVersion)->
     Utils = get_util_module(FixVersion),
     try
